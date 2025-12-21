@@ -239,9 +239,9 @@ modules:
     mod_time: { }
     mod_vcard: { }
     mod_version: { }
-    mod_pazz_offline_push:
-        push_url: "http://host.docker.internal:3001/api/xmpp/messages"
-        auth_token: "push"
+    ## mod_pazz_offline_push:
+    ##     push_url: "http://host.docker.internal:3001/api/xmpp/messages"
+    ##     auth_token: "push"
 
 api_permissions:
     "API used from test runners for branches and integration manual deploy allows all calls":
