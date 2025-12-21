@@ -25,9 +25,11 @@ jobs:
           # Wait for services to be healthy/ready
           # Wait for services to be healthy/ready
           echo "Waiting for ejabberd to be healthy..."
+          echo "Waiting for ejabberd to be healthy..."
           # Manual loop with 60 attempts * 5s = 300s (5 minutes) timeout
           cnt=0
-          until docker compose -f docker/test-env/docker-compose.yml ps ejabberd --format json | grep '"Health": "healthy"'; do
+          # Use docker inspect for robust health checking
+          until [ "$(docker inspect --format '{{.State.Health.Status}}' $(docker compose -f docker/test-env/docker-compose.yml ps -q ejabberd))" = "healthy" ]; do
             ((cnt++))
             if [ $cnt -ge 60 ]; then
               echo "Timed out waiting for ejabberd!"
@@ -38,8 +40,8 @@ jobs:
               exit 1
             fi
             echo "Waiting for ejabberd ($cnt/60)..."
-            # Print current state for debugging
-            docker compose -f docker/test-env/docker-compose.yml ps ejabberd
+            current_status=$(docker inspect --format '{{.State.Health.Status}}' $(docker compose -f docker/test-env/docker-compose.yml ps -q ejabberd))
+            echo "Current status: $current_status"
             sleep 5
           done
           echo "Ejabberd is healthy!"
