@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ master, main, fix/*, feat/* ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Start Test Environment
+        run: |
+          cd docker/test-env
+          docker compose up -d
+          # Wait for services to be healthy/ready
+          sleep 15
+          docker compose ps
+
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run E2E Tests
+        run: npx nx e2e ngx-chat-e2e-new
+        env:
+          CI: true
+
+      - name: Stop Test Environment
+        if: always()
+        run: |
+          cd docker/test-env
+          docker compose down --volumes
