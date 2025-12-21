@@ -28,8 +28,23 @@ jobs:
           echo "Waiting for ejabberd to be healthy..."
           # Manual loop with 60 attempts * 5s = 300s (5 minutes) timeout
           cnt=0
-          # Use docker inspect for robust health checking
-          until [ "$(docker inspect --format '{{.State.Health.Status}}' $(docker compose -f docker/test-env/docker-compose.yml ps -q ejabberd))" = "healthy" ]; do
+          echo "Waiting for ejabberd to be healthy..."
+          # Manual loop with 60 attempts * 5s = 300s (5 minutes) timeout
+          cnt=0
+          while true; do
+            container_id=$(docker compose -f docker/test-env/docker-compose.yml ps -q ejabberd)
+            
+            if [ -n "$container_id" ]; then
+              status=$(docker inspect --format '{{.State.Health.Status}}' "$container_id")
+              echo "Attempt $cnt: Container $container_id status is '$status'"
+              if [ "$status" = "healthy" ]; then
+                echo "Ejabberd is healthy!"
+                break
+              fi
+            else
+              echo "Attempt $cnt: Container ejabberd not yet created/found..."
+            fi
+
             ((cnt++))
             if [ $cnt -ge 60 ]; then
               echo "Timed out waiting for ejabberd!"
@@ -39,12 +54,9 @@ jobs:
               docker compose -f docker/test-env/docker-compose.yml logs ejabberd
               exit 1
             fi
-            echo "Waiting for ejabberd ($cnt/60)..."
-            current_status=$(docker inspect --format '{{.State.Health.Status}}' $(docker compose -f docker/test-env/docker-compose.yml ps -q ejabberd))
-            echo "Current status: $current_status"
             sleep 5
+            # Force refresh to ensure we don't get stale state? usually not needed for ps
           done
-          echo "Ejabberd is healthy!"
           docker compose -f docker/test-env/docker-compose.yml ps
 
       - name: Configure Hosts
