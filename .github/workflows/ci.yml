@@ -59,6 +59,12 @@ jobs:
         env:
           CI: true
 
+      - name: Dump Docker Logs
+        if: failure()
+        run: |
+          docker compose -f docker/test-env/docker-compose.yml ps -a
+          docker compose -f docker/test-env/docker-compose.yml logs
+
       - name: Stop Test Environment
         if: always()
         run: |
