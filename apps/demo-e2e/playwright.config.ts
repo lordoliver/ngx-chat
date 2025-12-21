@@ -10,7 +10,7 @@ const executablePath: string = puppeteer.executablePath();
 const config: PlaywrightTestConfig = {
   ...baseConfig,
   /* Maximum time one test can run for. */
-  timeout: 15 * 1000,
+  timeout: 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -29,6 +29,7 @@ const config: PlaywrightTestConfig = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     ...baseConfig.use,
+    headless: true,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

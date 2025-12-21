@@ -1,0 +1,228 @@
+[1A[2K[2m[WebServer] [22m[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NxWelcome is not used within the template of App[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+
+[1A[2K[2m[WebServer] [22m[1m[33m[39m[22m
+[2m[WebServer] [22m[1m[33m    apps/demo/src/app/app.ts:11:12:[39m[22m
+[2m[WebServer] [22m[1m[33m[37m      11 │   imports: [[32mNxWelcome[37m, RouterModule, CommonModule, FormsModule, Co...[39m[22m
+[2m[WebServer] [22m[1m[33m         ╵             [32m~~~~~~~~~[0m[39m[22m
+[2m[WebServer] [22m[1m[33m[39m[22m
+[2m[WebServer] [22m[1m[33m[39m[22m
+
+
+Running 2 tests using 1 worker
+
+[1A[2K[1/2] [chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline)
+[1A[2K[chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline)
+Cleaning up 0 test users (skipped 19007 garbage users)...
+
+[1A[2K[Browser] debug: [vite] connecting...
+
+[1A[2K[Browser] error: DEBUG: MessageService instantiated
+
+[1A[2K[Browser] error: DEBUG: App Constructed
+
+[1A[2K[Browser] log: DEBUG: XMPP State: disconnected
+
+[1A[2K[Browser] log: Angular is running in development mode.
+
+[1A[2K[Browser] debug: [vite] connected.
+
+[1A[2K[Browser] log: Directly set username on App component to: owner
+
+[1A[2K[Browser] error: DEBUG: App login called with: owner
+
+[1A[2K[Browser] log: DEBUG: XMPP State: connecting
+
+[1A[2K[Browser] log: DEBUG: XMPP State: connecting
+
+[1A[2K[Browser] debug: Websocket open
+
+[1A[2K[Browser] log: SEND:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" to="local-jabber.entenhausen.pazz.de" version="1.0"/>
+
+[1A[2K[Browser] log: RECV:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" id="8790413857072109542" version="1.0" xml:lang="en" from="local-jabber.entenhausen.pazz.de"/>
+
+[1A[2K[Browser] debug: _connect_cb was called
+
+[1A[2K[Browser] log: RECV:  <stream:features xmlns:stream="http://etherx.jabber.org/streams"><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>PLAIN</mechanism><mechanism>SCRAM-SHA-1</mechanism><mechanism>X-OAUTH2</mechanism></mechanisms><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+
+[1A[2K[Browser] log: SEND:  <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="SCRAM-SHA-1">biwsbj1vd25lcixyPUFCWUFraHRKbGVyVXlDVFN6YndibXc9PQ==</auth>
+
+[1A[2K[Browser] log: RECV:  <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cj1BQllBa2h0SmxlclV5Q1RTemJ3Ym13PT0rR3FYdzJpSlhXM0xYSmszcGQ4WEx3PT0scz1ITG1sUjVlU0FvUlAxN1VXZEhxSHZ3PT0saT00MDk2</challenge>
+
+[1A[2K[Browser] log: SEND:  <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">Yz1iaXdzLHI9QUJZQWtodEpsZXJVeUNUU3pid2Jtdz09K0dxWHcyaUpYVzNMWEprM3BkOFhMdz09LHA9YU5tWUxoNVRJTC9BVktQajlHZkFuNm5pNVEwPQ==</response>
+
+[1A[2K[Browser] log: RECV:  <success xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dj15d0FJNmJHb3M4QlpCMGdsQi80cTh6dndGU0U9</success>
+
+[1A[2K[Browser] info: SASL authentication succeeded.
+
+[1A[2K[Browser] log: SEND:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" to="local-jabber.entenhausen.pazz.de" version="1.0"/>
+
+[1A[2K[Browser] log: RECV:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" id="18158226682880838982" version="1.0" xml:lang="en" from="local-jabber.entenhausen.pazz.de"/>
+
+[1A[2K[Browser] log: RECV:  <stream:features xmlns:stream="http://etherx.jabber.org/streams"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"/><session xmlns="urn:ietf:params:xml:ns:xmpp-session"><optional/></session><c xmlns="http://jabber.org/protocol/caps" ver="55W0fZiAYW8VIbjTRZlOlKIFYc8=" node="http://www.process-one.net/en/ejabberd/" hash="sha-1"/><sm xmlns="urn:xmpp:sm:2"/><sm xmlns="urn:xmpp:sm:3"/><ver xmlns="urn:xmpp:features:rosterver"/><csi xmlns="urn:xmpp:csi:0"/></stream:features>
+
+[1A[2K[Browser] log: SEND:  <iq type="set" id="_bind_auth_2" xmlns="jabber:client"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"/></iq>
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" type="result" id="_bind_auth_2"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"><jid>owner@local-jabber.entenhausen.pazz.de/1674487234473037738131</jid></bind></iq>
+
+[1A[2K[Browser] log: SEND:  <iq type="set" id="_session_auth_2" xmlns="jabber:client"><session xmlns="urn:ietf:params:xml:ns:xmpp-session"/></iq>
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="local-jabber.entenhausen.pazz.de" type="result" id="_session_auth_2"/>
+
+[1A[2K[Browser] log: XMPP Connected
+
+[1A[2K[Browser] log: SEND:  <iq type="set" id="enable-carbons" xmlns="jabber:client"><enable xmlns="urn:xmpp:carbons:2"/></iq>
+
+[1A[2K[Browser] log: DEBUG: XMPP State: connected
+
+[1A[2K[Browser] error: DEBUG: App calling loadMostRecentMessages
+
+[1A[2K[Browser] error: DEBUG: loadMostRecentMessages called
+
+[1A[2K[Browser] error: DEBUG: Sending MAM IQ (MostRecent): <iq type="set" id="mam_17657924989720.8156040709686667" xmlns="jabber:client"><query xmlns="urn:xmpp:mam:2"><set xmlns="http://jabber.org/protocol/rsm"><max>50</max><before/></set></query></iq>
+
+[1A[2K[Browser] log: SEND:  <iq type="set" id="mam_17657924989720.8156040709686667" xmlns="jabber:client"><query xmlns="urn:xmpp:mam:2"><set xmlns="http://jabber.org/protocol/rsm"><max>50</max><before/></set></query></iq>
+
+[1A[2K[Browser] log: SEND:  <iq type="get" id="roster_1765792498974" xmlns="jabber:client"><query xmlns="jabber:iq:roster"/></iq>
+
+[1A[2K[Browser] log: SEND:  <iq type="get" id="blocklist_1765792498975" xmlns="jabber:client"><blocklist xmlns="urn:xmpp:blocking"/></iq>
+
+[1A[2K[Browser] log: SEND:  <presence xmlns="jabber:client"/>
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="enable-carbons"/>
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="mam_17657924989720.8156040709686667"><fin xmlns="urn:xmpp:mam:2" complete="true"><set xmlns="http://jabber.org/protocol/rsm"><count>0</count></set></fin></iq>
+
+[1A[2K[Browser] error: DEBUG: MAM MostRecent query successful
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="roster_1765792498974"><query xmlns="jabber:iq:roster"/></iq>
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="blocklist_1765792498975"><blocklist xmlns="urn:xmpp:blocking"/></iq>
+
+[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131"/>
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=owner@local-jabber.entenhausen.pazz.de/1674487234473037738131 type=available show=online
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=owner@local-jabber.entenhausen.pazz.de/1674487234473037738131 type=available show=online
+
+[1A[2K[Browser] log: Creating/Joining room: mines@conference.local-jabber.entenhausen.pazz.de as owner
+
+[1A[2K[Browser] log: SEND:  <presence to="mines@conference.local-jabber.entenhausen.pazz.de/owner" xmlns="jabber:client"><x xmlns="http://jabber.org/protocol/muc"/></presence>
+
+[1A[2KSkipping selectRoom as createRoom opens chat directly
+
+[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="9804326755796591610"><c xmlns="http://jabber.org/protocol/caps" ver="GmrO7Qe0+zukG2yfjtOBNW+1Tiw=" node="http://www.process-one.net/en/ejabberd/" hash="sha-1"/></presence>
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=available show=online
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=available show=online
+
+[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de/owner"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" role="moderator" affiliation="owner"/><status code="201"/><status code="110"/></x></presence>
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=available show=online
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=available show=online
+
+[1A[2K[Browser] log: RECV:  <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="groupchat"><subject/></message>
+
+[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="groupchat"><subject/></message>
+
+[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="groupchat"><subject/></message>
+
+[1A[2K[Browser] info: Autofocus processing was blocked because a document already has a focused element.
+
+[1A[2K[Browser] log: SEND:  <iq type="set" to="mines@conference.local-jabber.entenhausen.pazz.de" id="muc_admin_1765792499058" xmlns="jabber:client"><query xmlns="http://jabber.org/protocol/muc#admin"><item affiliation="member" jid="slave"/></query></iq>
+
+[1A[2K[Browser] log: RECV:  <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="13318048617904648735"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="slave" role="none" affiliation="member"/></x></message>
+
+[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="13318048617904648735"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="slave" role="none" affiliation="member"/></x></message>
+
+[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="13318048617904648735"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="slave" role="none" affiliation="member"/></x></message>
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="result" id="muc_admin_1765792499058"/>
+
+[1A[2K[Browser] log: Granted membership to slave
+
+[1A[2K[Browser] warning: Invite not fully implemented via UI button yet
+
+[1A[2K[Browser] log: SEND:  <iq type="set" to="mines@conference.local-jabber.entenhausen.pazz.de" id="muc_admin_1765792499092" xmlns="jabber:client"><query xmlns="http://jabber.org/protocol/muc#admin"><item affiliation="member" jid="slave"/></query></iq>
+
+[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="result" id="muc_admin_1765792499092"/>
+
+[1A[2K[Browser] log: Granted membership to slave
+
+[1A[2K[Browser] log: SEND:  <message to="mines@conference.local-jabber.entenhausen.pazz.de" type="chat" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1" xmlns="jabber:client"><body>Welcome to the the mines!</body></message>
+
+[1A[2K[Browser] log: RECV:  <message xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="error" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1"><error type="modify"><not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">It is not allowed to send private messages to the conference</text></error><body>Welcome to the the mines!</body></message>
+
+[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="error" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1"><error type="modify"><not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">It is not allowed to send private messages to the conference</text></error><body>Welcome to the the mines!</body></message>
+
+[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="error" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1"><error type="modify"><not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">It is not allowed to send private messages to the conference</text></error><body>Welcome to the the mines!</body></message>
+
+[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="unavailable" id="4924874417057905067"/>
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+
+[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de/owner" type="unavailable"><x xmlns="http://jabber.org/protocol/muc#user"><destroy/><item role="none" affiliation="none"/></x></presence>
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+
+[1A[2KCleaning up 2 test users (skipped 19007 garbage users)...
+
+[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="unavailable" id="9283909663240705045"/>
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+
+[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de/owner" type="unavailable"><x xmlns="http://jabber.org/protocol/muc#user"><item role="none" affiliation="none"><reason>You are being removed from the room because of a system shutdown</reason></item><status code="332"/><status code="110"/></x></presence>
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+
+[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+
+[1A[2K[Browser] error: WebSocket stream error: conflict - User removed
+
+[1A[2K[Browser] log: DEBUG: XMPP State: error
+
+[1A[2K[Browser] debug: _doDisconnect was called
+
+[1A[2K[Browser] debug: WebSockets _doDisconnect was called
+
+[1A[2K[Browser] log: XMPP Disconnected
+
+[1A[2K[Browser] log: DEBUG: XMPP State: disconnected
+
+[1A[2K  1) [chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline) 
+
+    [31mTest timeout of 60000ms exceeded.[39m
+
+    Error: locator.evaluate: Test ended.
+    Call log:
+    [2m  - waiting for locator('input[name="username"]')[22m
+
+
+       at src/page-objects/app.po.ts:147
+
+      145 |
+      146 |   async logIn(username: string, password: string) {
+    > 147 |     await this.page.locator('input[name="username"]').evaluate((el: HTMLInputElement, val) => {
+          |                                                       ^
+      148 |       el.focus();
+      149 |       el.value = val;
+      150 |       el.dispatchEvent(new Event('input', { bubbles: true }));
+        at AppPage.logIn (/Users/oliverschiessl/WebstormProjects/ngx-chat-new/e2e-final-testing/src/page-objects/app.po.ts:147:55)
+        at /Users/oliverschiessl/WebstormProjects/ngx-chat-new/e2e-final-testing/src/muc-messages.spec.ts:50:20
+
+    Error Context: test-results/src-muc-messages-ngx-chat--bb408--is-online-another-offline--chromium/error-context.md
+
+
+[1A[2K[2/2] [chromium] › src/muc-messages.spec.ts:65:8 › ngx-chat › should be able to create a room, write a message, invite bob and tim, let them join and see the message, and destroy the room
+[1A[2K  1 failed
+    [chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline) 
+  1 skipped
+
+[36m  Serving HTML report at http://localhost:53526. Press Ctrl+C to quit.[39m

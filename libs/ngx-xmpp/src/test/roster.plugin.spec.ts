@@ -32,7 +32,8 @@ describe('roster plugin', () => {
   let testUtils: TestUtils;
   let chatService: XmppService;
 
-  beforeAll(() => {
+  beforeEach(() => {
+    TestUtils.clean();
     const testBed = TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });

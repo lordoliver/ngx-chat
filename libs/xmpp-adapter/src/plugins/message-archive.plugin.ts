@@ -14,14 +14,21 @@ const nsMAM = 'urn:xmpp:mam:2';
 export class MessageArchivePlugin implements ChatPlugin {
   readonly nameSpace = nsMAM;
 
-  constructor(private readonly chatService: XmppService) {}
+  constructor(private readonly chatService: XmppService) { }
+
+  async enableArchiving(): Promise<void> {
+    await this.chatService.chatConnectionService
+      .$iq({ type: 'set' })
+      .c('prefs', { xmlns: this.nameSpace, default: 'always' })
+      .send();
+  }
 
   async requestNewestMessages(): Promise<void> {
     await this.chatService.chatConnectionService
       .$iq({ type: 'set' })
       .c('query', { xmlns: this.nameSpace })
       .c('set', { xmlns: nsRSM })
-      .c('max', {}, '250')
+      .c('max', {}, '20')
       .c('before')
       .send();
   }
@@ -81,17 +88,17 @@ export class MessageArchivePlugin implements ChatPlugin {
         { type: 'hidden', variable: 'FORM_TYPE', value: this.nameSpace },
         ...(recipient.recipientType === 'contact'
           ? ([
-              {
-                type: 'jid-single',
-                variable: 'with',
-                value: (recipient as Contact).jid.toString(),
-              },
-            ] as const)
+            {
+              type: 'jid-single',
+              variable: 'with',
+              value: (recipient as Contact).jid.toString(),
+            },
+          ] as const)
           : []),
       ],
     };
 
-    await this.chatService.chatConnectionService
+    const request = this.chatService.chatConnectionService
       .$iq({ type: 'set', ...(to ? { to } : {}) })
       .c('query', { xmlns: this.nameSpace })
       .cCreateMethod((builder) => serializeToSubmitForm(builder, form))
@@ -99,7 +106,8 @@ export class MessageArchivePlugin implements ChatPlugin {
       .c('set', { xmlns: nsRSM })
       .c('max', {}, '20')
       .cCreateMethod(retrieveMessageFunc)
-      .up()
-      .send();
+      .up();
+
+    await request.send();
   }
 }

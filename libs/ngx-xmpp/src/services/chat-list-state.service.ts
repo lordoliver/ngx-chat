@@ -52,6 +52,7 @@ export class ChatListStateService implements OpenChatStateService {
   }
 
   openChat(recipient: Recipient, isCollapsed = false): void {
+    this.chatService.messageService.loadMostRecentMessages(recipient);
     this.openChatSubject.next({ recipient, isCollapsed });
   }
 

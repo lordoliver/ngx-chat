@@ -273,6 +273,8 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const presenceResponse = await this.xmppService.chatConnectionService
       .$pres({ to: occupantJid.toString() })
       .c('x', { xmlns: nsMuc })
+      .c('history', { maxstanzas: '50', seconds: '604800' }) // 7 days
+      .up()
       .send();
 
     await this.handleRoomPresenceStanza(presenceResponse);
@@ -353,18 +355,6 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       .send();
   }
 
-  // TODO: make it configurable
-  // Pazz is depending on the chat not to join rooms from its list
-  // private async getAndJoinRooms(): Promise<Room[]> {
-  //   const rooms = await this.getRooms();
-  //   // We need to join rooms in our room list to regain affiliation
-  //   // the logic is the same as broadcasting that you are online in a room / channel
-  //   // .then() because there seems to be a problem with the promise resolution when joining multiple rooms
-  //   // can be refactored to be joined when accessing messages of room for example in the ui
-  //   // rooms would need than a joined Flag
-  //   rooms.map((room) => this.joinRoom(room.jid).then());
-  //   return rooms;
-  // }
 
   async getPublicOrJoinedRooms(): Promise<Room[]> {
     const roomQueryResponse = await this.getRoomsQuery();
@@ -534,17 +524,14 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
   async applyRoomConfiguration(roomJid: JID, roomConfiguration: RoomConfiguration): Promise<void> {
     const roomConfigForm = await this.getRoomConfiguration(roomJid);
+    this.logService.debug('Room Configuration Fields: ' + JSON.stringify(roomConfigForm.fields));
 
     const formTypeField = getField(roomConfigForm, 'FORM_TYPE');
     if (formTypeField?.value !== nsMucRoomConfigForm) {
-      throw new Error(
-        `unexpected form type for room configuration form: formType=${String(
-          formTypeField?.value
-        )}, formTypeField=${JSON.stringify(formTypeField)}`
-      );
+      throw new Error(`Room configuration not supported for ${roomJid.toString()}, expected ${nsMucRoomConfigForm}, but got ${formTypeField?.value}`);
     }
 
-    if (roomConfiguration.name != undefined) {
+    if (roomConfiguration.name) {
       setFieldValue(
         roomConfigForm,
         'text-single',
@@ -552,14 +539,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         roomConfiguration.name
       );
     }
-    if (roomConfiguration.nonAnonymous != undefined) {
-      setFieldValue(
-        roomConfigForm,
-        'list-single',
-        'muc#roomconfig_whois',
-        roomConfiguration.nonAnonymous ? 'anyone' : 'moderators'
-      );
-    }
+
     if (roomConfiguration.public != undefined) {
       setFieldValue(
         roomConfigForm,
@@ -568,9 +548,16 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         roomConfiguration.public
       );
     }
+
     if (roomConfiguration.publicList != undefined) {
-      setFieldValue(roomConfigForm, 'boolean', 'public_list', roomConfiguration.publicList);
+      setFieldValue(
+        roomConfigForm,
+        'boolean',
+        'public_list',
+        roomConfiguration.publicList
+      );
     }
+
     if (roomConfiguration.membersOnly != undefined) {
       setFieldValue(
         roomConfigForm,
@@ -579,6 +566,16 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         roomConfiguration.membersOnly
       );
     }
+
+    if (roomConfiguration.nonAnonymous != undefined) {
+      setFieldValue(
+        roomConfigForm,
+        'list-single',
+        'muc#roomconfig_whois',
+        roomConfiguration.nonAnonymous ? 'anyone' : 'moderators'
+      );
+    }
+
     if (roomConfiguration.persistentRoom != undefined) {
       setFieldValue(
         roomConfigForm,
@@ -587,6 +584,16 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         roomConfiguration.persistentRoom
       );
     }
+
+    if (roomConfiguration.moderated != undefined) {
+      setFieldValue(
+        roomConfigForm,
+        'boolean',
+        'muc#roomconfig_moderatedroom',
+        roomConfiguration.moderated
+      );
+    }
+
     if (roomConfiguration.allowSubscription != undefined) {
       setFieldValue(
         roomConfigForm,
@@ -594,6 +601,23 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         'allow_subscription',
         roomConfiguration.allowSubscription
       );
+    }
+    if (roomConfiguration.enableLogging != undefined) {
+      if (getField(roomConfigForm, 'muc#roomconfig_enablelogging')) {
+        setFieldValue(
+          roomConfigForm,
+          'boolean',
+          'muc#roomconfig_enablelogging',
+          roomConfiguration.enableLogging
+        );
+      } else if (getField(roomConfigForm, 'mam')) {
+        setFieldValue(
+          roomConfigForm,
+          'boolean',
+          'mam',
+          roomConfiguration.enableLogging
+        );
+      }
     }
 
     await this.xmppService.chatConnectionService
@@ -1007,6 +1031,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         !!roomOccupants.find((occupant) => mineJid.bare().equals(occupant.jid.bare())) ||
         from.toString().includes(mineJid.local as string);
 
+
       const id = (stanza.getAttribute('id') ??
         stanza.querySelector('stanza-id')?.getAttribute('id')) as string;
 
@@ -1100,8 +1125,8 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     return this.xmppService.chatConnectionService
       .$iq({ to: roomJid.toString(), type: 'set' })
       .c('query', { xmlns: nsMucAdmin })
-      .c('item', { jid: occupantJid.toString(), affiliation })
-      .c('reason', {}, reason)
+      .c('item', { jid: occupantJid.bare().toString(), affiliation })
+      .cCreateMethod((builder) => (reason ? builder.c('reason', {}, reason) : builder))
       .send();
   }
 

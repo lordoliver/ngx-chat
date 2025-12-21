@@ -8,7 +8,7 @@ import {
 
 const devUserName = devXmppJid?.split('@')[0] as string;
 export class EjabberdAdminPage {
-  private constructor(private readonly host: string, private readonly context: APIRequestContext) {}
+  private constructor(private readonly host: string, private readonly context: APIRequestContext) { }
   static async getAllJabberUsersBesidesAdmin(
     page: Page,
     adminUsername = devUserName,
@@ -47,16 +47,12 @@ export class EjabberdAdminPage {
       await deleteUser();
     }
   }
-  async deleteAllBesidesAdminUser(): Promise<void> {
+  async deleteUsers(users: string[]): Promise<void> {
     const rooms = await this.getMucRooms();
     for (const room of rooms) {
       await this.destroyRoom(room.split('@')[0] as string);
     }
-    const users = await this.registeredUsers();
-    const withoutAdmin = users.filter((user) => user.toLowerCase() !== 'local-admin');
-    for (const user of withoutAdmin) {
-      await this.unregister(user);
-    }
+    await Promise.all(users.map((user) => this.unregister(user)));
   }
 
   async unregister(user: string): Promise<void> {

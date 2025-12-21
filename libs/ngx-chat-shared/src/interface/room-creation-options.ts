@@ -59,6 +59,11 @@ export interface RoomConfiguration {
   allowSubscription?: boolean;
 
   /**
+   * Enable logging of room messages to the room history.
+   */
+  enableLogging?: boolean;
+
+  /**
    * Only occupants with "voice" can send public messages. The default value is true.
    */
   moderated?: boolean;

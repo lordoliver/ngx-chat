@@ -30,7 +30,10 @@ export class ChatWindowContentComponent {
           const isNotBlocked = !blockedContacts.find((b) => b.jid.bare().equals(value?.jid.bare()));
 
           // none and undefined no longer checked for pazz
-          return isNotBlocked && ContactSubscription.from === subscription;
+          return (
+            isNotBlocked &&
+            (ContactSubscription.from === subscription || ContactSubscription.none === subscription)
+          );
         })
       );
     } else {
@@ -55,7 +58,7 @@ export class ChatWindowContentComponent {
   constructor(
     @Inject(CHAT_SERVICE_TOKEN) readonly chatService: ChatService,
     @Inject(FILE_UPLOAD_HANDLER_TOKEN) readonly fileUploadHandler: FileUploadHandler
-  ) {}
+  ) { }
 
   async uploadFile(file: File): Promise<void> {
     if (!this.currentRecipient) {

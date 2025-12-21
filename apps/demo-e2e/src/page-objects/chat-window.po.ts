@@ -38,7 +38,11 @@ export class ChatWindowPage {
     this.messageSubmitButton = this.windowLocator.locator('.chat-window-send');
   }
 
-  async write(message: string, submitMethod: ChatMessageSubmitMethod = 'enter'): Promise<void> {
+  async write(
+    message: string,
+    submitMethod: ChatMessageSubmitMethod = 'enter',
+    verifyMessage = true
+  ): Promise<void> {
     await this.chatInput.fill(message);
 
     switch (submitMethod) {
@@ -46,10 +50,16 @@ export class ChatWindowPage {
         await this.messageSubmitButton.click();
         break;
       case 'enter':
-        await this.windowLocator.press('Enter');
+        await this.chatInput.press('Enter');
         break;
       default:
         throw new Error(`unexpected submit type to send a message: ${String(submitMethod)}`);
+    }
+
+    if (verifyMessage) {
+      // Wait for the message to appear in the output to ensure it was sent (and received/processed by UI)
+      // before we close the window or move on.
+      await expect(this.outMessage.last()).toContainText(message, { timeout: 30000 });
     }
   }
 

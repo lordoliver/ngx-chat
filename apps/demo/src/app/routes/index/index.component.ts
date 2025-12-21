@@ -86,7 +86,7 @@ export class IndexComponent implements OnDestroy {
       service: string;
       password: string;
       username: string;
-    } = item ? JSON.parse(item) : { domain: '', password: '', service: '', username: '' };
+    } = item ? JSON.parse(item) : { domain: 'local-jabber.entenhausen.pazz.de', password: 'password', service: 'ws://localhost:4200/websocket', username: '' };
     this.logService.logLevel = LogLevel.Debug;
     this.domain = contactData.domain;
     this.service = contactData.service;

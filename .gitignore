@@ -58,4 +58,9 @@ apps/demo/src/*.pem
 apps/demo/src/local.entenhausen.pazz.de-key.pem
 apps/demo/src/local.entenhausen.pazz.de.pem
 
+
 .nx/cache
+
+# Local dev scripts
+cleanup-users.ts
+apps/demo/proxy.conf.json

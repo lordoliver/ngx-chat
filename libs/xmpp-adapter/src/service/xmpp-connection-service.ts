@@ -1,9 +1,7 @@
-// SPDX-License-Identifier: MIT
-import { firstValueFrom, Observable, startWith, Subject, switchMap } from 'rxjs';
+import { BehaviorSubject, combineLatest, firstValueFrom, ReplaySubject, startWith, switchMap, map, distinctUntilChanged } from 'rxjs';
 import type { AuthRequest, Log } from '@pazznetwork/ngx-chat-shared';
 import { makeSafeJidString } from '@pazznetwork/ngx-chat-shared';
 import { StanzaBuilder } from '../stanza-builder';
-import { first, shareReplay } from 'rxjs/operators';
 import { $build, Connection, Handler } from '@pazznetwork/strophe-ts';
 
 /**
@@ -14,60 +12,49 @@ import { $build, Connection, Handler } from '@pazznetwork/strophe-ts';
  * @see https://xmpp.org/rfcs/rfc3921.html
  */
 export class XmppConnectionService {
-  private readonly createConnectionSubject = new Subject<{
-    domain: string;
-    service?: string;
-    saslMechanisms?: string[];
-  }>();
-  readonly connection$: Observable<Connection> = this.createConnectionSubject.pipe(
-    first(),
-    switchMap(({ domain, service, saslMechanisms }) =>
-      Connection.create(domain, service, saslMechanisms)
+  private readonly connectionSubject = new ReplaySubject<Connection>(1);
+  readonly connection$ = this.connectionSubject.asObservable();
+
+  private readonly userStateSubject = new BehaviorSubject<'online' | 'offline'>('offline');
+
+  readonly isOnline$ = combineLatest([
+    this.connection$.pipe(
+      switchMap((conn) => conn.isOnline$),
+      startWith(false)
     ),
-    shareReplay({
-      bufferSize: 1,
-      refCount: false,
-    })
+    this.userStateSubject,
+  ]).pipe(
+    map(([connected, userState]) => connected && userState === 'online'),
+    distinctUntilChanged()
   );
 
-  readonly isOnline$ = this.connection$.pipe(
-    switchMap((conn) => conn.isOnline$),
-    startWith(false)
-  );
   readonly onAuthenticating$ = this.connection$.pipe(switchMap((conn) => conn.onAuthenticating$));
   readonly onOnline$ = this.connection$.pipe(switchMap((conn) => conn.onOnline$));
   readonly onOffline$ = this.connection$.pipe(switchMap((conn) => conn.onOffline$));
-  readonly isOffline$ = this.connection$.pipe(
-    switchMap((conn) => conn.isOffline$),
+  readonly isOffline$ = this.isOnline$.pipe(
+    map((isOnline) => !isOnline),
     startWith(true)
   );
   readonly userJid$ = this.connection$.pipe(switchMap((conn) => conn.userJid$));
 
-  constructor(protected readonly logService: Log) {}
+  private currentConnection?: Connection;
 
-  async register({
-    username,
-    password,
-    service,
-    domain,
-    saslMechanisms,
-  }: AuthRequest): Promise<void> {
-    this.createConnectionSubject.next({ service, domain, saslMechanisms });
-    const connection = await firstValueFrom(this.connection$);
-    await connection.register(username, password, domain);
+  constructor(protected readonly logService: Log) { }
+
+  async register(authRequest: AuthRequest): Promise<void> {
+    const connection = await this.createConnection(authRequest);
+    await connection.register(authRequest.username, authRequest.password, authRequest.domain);
   }
 
-  async unregister({ service, domain }: Pick<AuthRequest, 'service' | 'domain'>): Promise<void> {
-    this.createConnectionSubject.next({ service, domain });
-    const connection = await firstValueFrom(this.connection$);
+  async unregister(authRequest: Pick<AuthRequest, 'service' | 'domain'>): Promise<void> {
+    const connection = await this.createConnection(authRequest);
     await connection.unregister();
   }
 
-  async logIn({ username, password, service, domain, saslMechanisms }: AuthRequest): Promise<void> {
-    this.createConnectionSubject.next({ service, domain, saslMechanisms });
-    const jid = makeSafeJidString(username, domain);
-    const connection = await firstValueFrom(this.connection$);
-    await connection.login(jid, password);
+  async logIn(authRequest: AuthRequest): Promise<void> {
+    const connection = await this.createConnection(authRequest);
+    const jid = makeSafeJidString(authRequest.username, authRequest.domain);
+    await connection.login(jid, authRequest.password);
   }
 
   /**
@@ -105,8 +92,33 @@ export class XmppConnectionService {
   }
 
   async logOut(): Promise<void> {
-    const connection = await firstValueFrom(this.connection$);
-    await connection.logOut();
+    this.userStateSubject.next('offline');
+    if (this.currentConnection) {
+      try {
+        await Promise.race([
+          this.currentConnection.logOut(),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 200)),
+        ]);
+      } catch (e) {
+        this.currentConnection.disconnectFinally('force-logout');
+      }
+      this.currentConnection = undefined;
+    }
+  }
+
+  private async createConnection({
+    domain,
+    service,
+    saslMechanisms,
+  }: Pick<AuthRequest, 'service' | 'domain' | 'saslMechanisms'>): Promise<Connection> {
+    if (this.currentConnection) {
+      await this.logOut();
+    }
+    const connection = await Connection.create(domain, service, saslMechanisms);
+    this.currentConnection = connection;
+    this.userStateSubject.next('online');
+    this.connectionSubject.next(connection);
+    return connection;
   }
 
   private $build(

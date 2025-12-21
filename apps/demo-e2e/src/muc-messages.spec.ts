@@ -22,12 +22,12 @@ test.describe.serial('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
-    await ejabberdAdminPage.deleteAllBesidesAdminUser();
+    await ejabberdAdminPage.deleteUsers(['owner', 'slave', 'alice', 'bob', 'tim']);
 
     await mainPage.setupForTest();
   });
 
-  test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+  test.afterAll(() => ejabberdAdminPage.deleteUsers(['owner', 'slave', 'alice', 'bob', 'tim']));
 
   test('grant membership to single user to single room async (one is online another offline)', async () => {
     const room = 'mines';
@@ -44,7 +44,7 @@ test.describe.serial('ngx-chat', () => {
     await ownerMuc.inviteUser(slave);
     const ownerChat = await mainPage.openChatWith(room);
     const welcome = 'Welcome to the the mines!';
-    await ownerChat.write(welcome);
+    await ownerChat.write(welcome, 'button', false);
     await mainPage.logOut();
 
     await mainPage.logIn(slave, testPassword);
@@ -52,13 +52,15 @@ test.describe.serial('ngx-chat', () => {
     await slaveMuc.acceptInvite(room);
     const slaveChat = await mainPage.openChatWith(room);
     await slaveChat.assertLastMessage(welcome);
-    const workWork = 'Work work more work...';
-    await ownerChat.write(workWork);
+    const reply = 'Work work more work...';
+    await slaveChat.write(reply, 'button', false);
+    await slaveChat.close();
     await mainPage.logOut();
 
     await mainPage.logIn(owner, testPassword);
-    const later = await mainPage.openChatWith(room);
-    await later.assertLastMessage(workWork);
+    await ownerMuc.acceptInvite(room);
+    const ownerChat2 = await mainPage.openChatWith(room);
+    await ownerChat2.assertLastMessage(reply, 'incoming');
     await mainPage.logOut();
   });
 

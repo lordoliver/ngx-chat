@@ -2,16 +2,17 @@
 import { firstValueFrom, map, startWith } from 'rxjs';
 import type { AuthRequest, RoomCreationOptions } from '@pazznetwork/ngx-chat-shared';
 import { Affiliation, Direction, Role } from '@pazznetwork/ngx-chat-shared';
-import type { XmppService } from '@pazznetwork/xmpp-adapter';
+import { XmppService } from '@pazznetwork/xmpp-adapter';
 import type { StropheWebsocket } from '@pazznetwork/strophe-ts';
-import { devXmppDomain } from '../../.secrets-const';
 import { filter } from 'rxjs/operators';
+// using legacy domain for XMPP server match, but localhost for connection
+const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 
 export const testUser: AuthRequest = {
   username: 'test',
   password: 'test',
   domain: devXmppDomain,
-  service: `wss://${devXmppDomain}:5280/websocket`,
+  service: `wss://localhost:5280/websocket`,
 };
 
 interface TestUserConst extends AuthRequest {
@@ -27,13 +28,13 @@ const makeTestConstJid = (nameString: string): string => `${nameString}@${devXmp
 const testRoomId = (prefix: string): string => prefix + 'Room';
 
 export class TestUtils {
-  constructor(readonly chatService: XmppService) {}
+  constructor(readonly chatService: XmppService) { }
 
   readonly direction = Direction;
   readonly affiliation = Affiliation;
   readonly role = Role;
   readonly xmppDomain = devXmppDomain as string;
-  readonly service = `wss://${this.xmppDomain}:5280/websocket`;
+  readonly service = `wss://localhost:5280/websocket`;
 
   readonly friendString = 'friend';
   readonly friend: TestUserConst = {
@@ -151,6 +152,7 @@ export class TestUtils {
       membersOnly: true,
       nonAnonymous: true,
       persistentRoom: true,
+      allowSubscription: true,
       jid: this.roomIdToJid(roomId),
     };
   }
@@ -165,5 +167,11 @@ export class TestUtils {
     const connection = await firstValueFrom(this.chatService.chatConnectionService.connection$);
     // eslint-disable-next-line no-console
     console.log(connection.debugLog);
+  }
+
+  static clean(): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    (XmppService as unknown).instance = undefined;
   }
 }

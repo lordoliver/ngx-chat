@@ -17,6 +17,7 @@ describe('message archive plugin', () => {
   const userJid = 'me@example.com/myresource';
 
   beforeEach(() => {
+    TestUtils.clean();
     const testBed = TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });

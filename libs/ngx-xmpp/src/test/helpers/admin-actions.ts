@@ -9,7 +9,8 @@ import {
   unregisterUnsafe,
 } from './ejabberd-client';
 import type { AuthRequest } from '@pazznetwork/ngx-chat-shared';
-import { devXmppDomain } from '../../.secrets-const';
+// const devXmppDomain = 'localhost';
+const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 
 export async function userIsRegistered(auth: AuthRequest): Promise<boolean> {
   const users = await registeredUsers();
@@ -24,7 +25,16 @@ export async function ensureNoRegisteredUser(auth: AuthRequest): Promise<void> {
 
 export async function unregisterAllBesidesAdmin(domain = devXmppDomain): Promise<void> {
   const users = await registeredUsers();
-  const usersToUnregister = users?.filter((user) => !user.includes('admin'));
+  const testPrefixes = ['hero', 'villain', 'princess', 'father', 'friend', 'test'];
+  const usersToUnregister = users?.filter((user) =>
+    !user.includes('admin') &&
+    testPrefixes.some(prefix => user.startsWith(prefix))
+  );
+
+  if (usersToUnregister && usersToUnregister.length > 50) {
+    console.warn(`[Cleanup] Warn: Found ${usersToUnregister.length} test users to delete. This might take a while.`);
+  }
+
   for (const user of usersToUnregister) {
     await unregisterUnsafe({ username: user, domain });
   }

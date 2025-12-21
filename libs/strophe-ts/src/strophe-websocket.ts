@@ -76,13 +76,19 @@ export class StropheWebsocket implements ProtocolManager {
    */
   async connect(skipAuthentication = false): Promise<void> {
     const onConnectedPromise = firstValueFrom(this.isConnectedSubject.pipe(filter((val) => val)));
+    const onClosedPromise = firstValueFrom(this.isConnectedSubject.pipe(filter((val) => !val)));
+
     this.initialisingSubject.next([true, skipAuthentication]);
     this.socket = new WebSocket(this.connection.service, 'xmpp');
     this.socket.onopen = () => this.onOpen();
     this.socket.onerror = (e) => this.onError(e);
     this.socket.onclose = () => this.onClose();
     this.socket.onmessage = (message) => this.onMessageSubject.next(message.data as string);
-    await onConnectedPromise;
+
+    await Promise.race([
+      onConnectedPromise,
+      onClosedPromise.then(() => Promise.reject(new Error('WebSocket closed or failed to connect')))
+    ]);
   }
 
   /**
@@ -115,6 +121,9 @@ export class StropheWebsocket implements ProtocolManager {
       throw new Error('Can not disconnect if WebSocket instance is gone');
     }
     this.socket.onmessage = null;
+    if (this.socket.readyState === WebSocket.OPEN || this.socket.readyState === WebSocket.CONNECTING) {
+      this.socket.close();
+    }
     this.connection.disconnectFinally();
   }
 

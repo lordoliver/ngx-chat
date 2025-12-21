@@ -125,18 +125,27 @@ export class XmppService implements ChatService {
     return XmppService.instance;
   }
 
+
+
   async logIn(logInRequest: AuthRequest): Promise<void> {
     if (await firstValueFrom(this.isOnline$)) {
       return;
     }
 
     await this.zone.runOutsideAngular(async () => {
+      if (
+        this.lastLogInRequest &&
+        logInRequest.username !== this.lastLogInRequest.username
+      ) {
+        this.pluginMap.roster.clear();
+      }
       this.lastLogInRequest = logInRequest;
       const onOnlinePromise = firstValueFrom(this.onOnline$);
       await this.chatConnectionService.logIn(logInRequest);
       await onOnlinePromise;
       await this.pluginMap.disco.ensureServicesAreDiscovered(logInRequest.domain);
       await firstValueFrom(this.pluginMap.disco.servicesInitialized$);
+      await this.pluginMap.mam.enableArchiving();
       // redundant because default type is available, but better for documentation purposes
       await this.chatConnectionService.$pres({ type: 'available' }).sendResponseLess();
     });
@@ -145,6 +154,7 @@ export class XmppService implements ChatService {
   async logOut(): Promise<void> {
     await this.zone.runOutsideAngular(async () => {
       const offlinePromise = firstValueFrom(this.onOffline$);
+      this.pluginMap.roster.clear();
       await this.chatConnectionService.logOut();
       await offlinePromise;
     });
