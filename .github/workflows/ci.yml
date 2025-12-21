@@ -23,8 +23,26 @@ jobs:
         run: |
           docker compose -f docker/test-env/docker-compose.yml up -d
           # Wait for services to be healthy/ready
+          # Wait for services to be healthy/ready
           echo "Waiting for ejabberd to be healthy..."
-          timeout 180s bash -c 'until docker compose -f docker/test-env/docker-compose.yml ps ejabberd | grep "healthy"; do sleep 2; done'
+          # Manual loop with 60 attempts * 5s = 300s (5 minutes) timeout
+          cnt=0
+          until docker compose -f docker/test-env/docker-compose.yml ps ejabberd --format json | grep '"Health": "healthy"'; do
+            ((cnt++))
+            if [ $cnt -ge 60 ]; then
+              echo "Timed out waiting for ejabberd!"
+              echo "--- DOCKER PS ---"
+              docker compose -f docker/test-env/docker-compose.yml ps -a
+              echo "--- EJABBERD LOGS ---"
+              docker compose -f docker/test-env/docker-compose.yml logs ejabberd
+              exit 1
+            fi
+            echo "Waiting for ejabberd ($cnt/60)..."
+            # Print current state for debugging
+            docker compose -f docker/test-env/docker-compose.yml ps ejabberd
+            sleep 5
+          done
+          echo "Ejabberd is healthy!"
           docker compose -f docker/test-env/docker-compose.yml ps
 
       - name: Configure Hosts
@@ -59,11 +77,7 @@ jobs:
         env:
           CI: true
 
-      - name: Dump Docker Logs
-        if: failure()
-        run: |
-          docker compose -f docker/test-env/docker-compose.yml ps -a
-          docker compose -f docker/test-env/docker-compose.yml logs
+
 
       - name: Stop Test Environment
         if: always()
