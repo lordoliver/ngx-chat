@@ -45,7 +45,7 @@ jobs:
               echo "Attempt $cnt: Container ejabberd not yet created/found..."
             fi
 
-            ((cnt++))
+            cnt=$((cnt+1))
             if [ $cnt -ge 60 ]; then
               echo "Timed out waiting for ejabberd!"
               echo "--- DOCKER PS ---"
