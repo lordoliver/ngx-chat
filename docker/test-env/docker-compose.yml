@@ -5,6 +5,9 @@ services:
         container_name: local-jabber.entenhausen.pazz.de
         restart: "always"
         command: "--node ejabberd@local-jabber.entenhausen.pazz.de foreground"
+        environment:
+            - EJABBERD_ADMINS=local-admin@local-jabber.entenhausen.pazz.de perm_admin
+            - EJABBERD_PASSWORD=AdminLocalPassword123!
         ports:
             # used for fileUpload
             - "127.0.0.1:5269:5269" # ejabberd_s2s_in server 2 server
