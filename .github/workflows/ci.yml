@@ -21,11 +21,13 @@ jobs:
 
       - name: Start Test Environment
         run: |
-          cd docker/test-env
-          docker compose up -d
+          docker compose -f docker/test-env/docker-compose.yml up -d
           # Wait for services to be healthy/ready
           sleep 15
-          docker compose ps
+          docker compose -f docker/test-env/docker-compose.yml ps
+
+      - name: Configure Hosts
+        run: echo "127.0.0.1 local-jabber.entenhausen.pazz.de" | sudo tee -a /etc/hosts
 
       - name: Install Dependencies
         run: npm ci --legacy-peer-deps
