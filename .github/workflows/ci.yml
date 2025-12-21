@@ -29,7 +29,17 @@ jobs:
       - name: Configure Hosts
         run: echo "127.0.0.1 local-jabber.entenhausen.pazz.de" | sudo tee -a /etc/hosts
 
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            node_modules-${{ runner.os }}-
+
       - name: Install Dependencies
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci --legacy-peer-deps
 
       - name: Cache Playwright Browsers
