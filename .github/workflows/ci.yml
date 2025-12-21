@@ -23,7 +23,8 @@ jobs:
         run: |
           docker compose -f docker/test-env/docker-compose.yml up -d
           # Wait for services to be healthy/ready
-          sleep 15
+          echo "Waiting for ejabberd to be healthy..."
+          timeout 180s bash -c 'until docker compose -f docker/test-env/docker-compose.yml ps ejabberd | grep "healthy"; do sleep 2; done'
           docker compose -f docker/test-env/docker-compose.yml ps
 
       - name: Configure Hosts
