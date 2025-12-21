@@ -19,6 +19,14 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
+
+      - name: Prepare Docker Data Permissions
+        run: |
+          mkdir -p docker/test-env/data/backup
+          mkdir -p docker/test-env/data/upload
+          mkdir -p docker/test-env/data/database
+          chmod -R 777 docker/test-env/data
+
       - name: Start Test Environment
         run: |
           docker compose -f docker/test-env/docker-compose.yml up -d
