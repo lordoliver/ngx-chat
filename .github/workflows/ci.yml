@@ -26,6 +26,7 @@ jobs:
           mkdir -p docker/test-env/data/upload
           mkdir -p docker/test-env/data/database
           chmod -R 777 docker/test-env/data
+          chmod -R 777 docker/test-env/ssl
 
       - name: Start Test Environment
         run: |
