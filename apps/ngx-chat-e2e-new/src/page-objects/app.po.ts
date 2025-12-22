@@ -12,7 +12,7 @@ const adminLogin: AuthRequest = {
   domain: devXmppDomain,
   username: devXmppJid?.split('@')[0] as string,
   password: devXmppPassword,
-  service: `wss://${devXmppDomain}:5280/websocket`,
+  service: `ws://${devXmppDomain}:5280/websocket`,
 };
 
 export class AppPage {

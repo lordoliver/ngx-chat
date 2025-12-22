@@ -60,7 +60,7 @@ listen:
         "/websocket": ejabberd_http_ws
         "/admin": ejabberd_web_admin
         "/bosh": mod_bosh
-    tls: true
+    tls: false
     tls_compression: false
     ciphers: "HIGH:!aNULL:!3DES"
 -   port: 5443

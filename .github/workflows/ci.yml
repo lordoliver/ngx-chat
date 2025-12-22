@@ -110,8 +110,8 @@ jobs:
 
       - name: Check Connectivity
         run: |
-          echo "Checking https://local-jabber.entenhausen.pazz.de:5280/websocket..."
-          curl -v -k https://local-jabber.entenhausen.pazz.de:5280/websocket || echo "Curl failed!"
+          echo "Checking netstat..."
+          docker exec local-jabber.entenhausen.pazz.de netstat -tuln
           echo "Checking http://local-jabber.entenhausen.pazz.de:5280/websocket..."
           curl -v http://local-jabber.entenhausen.pazz.de:5280/websocket || echo "Curl http failed!"
 
