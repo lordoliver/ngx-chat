@@ -20,11 +20,19 @@ jobs:
           cache: 'npm'
 
 
-      - name: Prepare Docker Data Permissions
+      - name: Prepare Docker Data and SSL
         run: |
           mkdir -p docker/test-env/data/backup
           mkdir -p docker/test-env/data/upload
           mkdir -p docker/test-env/data/database
+          mkdir -p docker/test-env/ssl/jabber
+          
+          echo "Generating Self-Signed SSL Certificates..."
+          openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 \
+            -keyout docker/test-env/ssl/jabber/key.pem \
+            -out docker/test-env/ssl/jabber/cert.pem \
+            -subj "/CN=local-jabber.entenhausen.pazz.de"
+            
           chmod -R 777 docker/test-env/data
           chmod -R 777 docker/test-env/ssl
 
