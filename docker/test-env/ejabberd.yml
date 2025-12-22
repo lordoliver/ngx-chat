@@ -67,13 +67,14 @@ listen:
     module: ejabberd_http
     request_handlers:
         "": mod_http_upload
-    tls: true
+    tls: false
     tls_compression: false
     ciphers: "HIGH:!aNULL:!3DES"
 -   port: 5281
     module: ejabberd_http
     request_handlers:
         "/api": mod_http_api
+    tls: false
 
 ###   ================
 ###   CERTIFICATES

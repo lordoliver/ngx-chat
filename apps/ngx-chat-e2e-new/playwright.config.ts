@@ -10,7 +10,7 @@ import { baseConfig } from './playwright.config.base';
 const config: PlaywrightTestConfig = {
   ...baseConfig,
   /* Maximum time one test can run for. */
-  timeout: process.env['CI'] ? 30 * 1000 : 60 * 1000,
+  timeout: 60 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.

@@ -14,7 +14,7 @@ export class EjabberdAdminPage {
     adminPassword = devXmppPassword
   ): Promise<string[]> {
     const adminBase =
-      'http://' + adminUsername + ':' + adminPassword + '@local-jabber.entenhausen.pazz.de:5280';
+      'https://' + adminUsername + ':' + adminPassword + '@local-jabber.entenhausen.pazz.de:5280';
     const usersPath = '/admin/server/local-jabber.entenhausen.pazz.de/users';
     await page.goto(adminBase + usersPath);
     const userAnchors = page.locator('tbody tr td:first-child a');
@@ -30,7 +30,7 @@ export class EjabberdAdminPage {
     adminPassword = devXmppPassword,
     users: string[]
   ): Promise<void> {
-    const adminBase = `http://${adminUsername}:${adminPassword}@local-jabber.entenhausen.pazz.de:5280`;
+    const adminBase = `https://${adminUsername}:${adminPassword}@local-jabber.entenhausen.pazz.de:5280`;
     const hostPath = '/admin/server/local-jabber.entenhausen.pazz.de';
     const userPath = (userName: string): string => '/user/' + userName.toLowerCase() + '/';
     const userUrl = (userName: string): string => adminBase + hostPath + userPath(userName);
