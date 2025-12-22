@@ -12,7 +12,7 @@ const adminLogin: AuthRequest = {
   domain: devXmppDomain,
   username: devXmppJid?.split('@')[0] as string,
   password: devXmppPassword,
-  service: 'wss://localhost:5280/websocket',
+  service: 'ws://localhost:5280/websocket',
 };
 
 export class AppPage {
@@ -29,10 +29,7 @@ export class AppPage {
   private readonly logoutButton: Locator;
   private readonly contactJid: Locator;
 
-  private readonly addContactButton: Locator;
-  private readonly removeContactButton: Locator;
-  private readonly blockContactButton: Locator;
-  private readonly unblockContactButton: Locator;
+
   // private readonly openChatButton: Locator;
   // private readonly rosterList: Locator;
   private readonly rosterListUnaffiliatedHeader: Locator;
@@ -54,10 +51,7 @@ export class AppPage {
     this.logoutButton = page.locator('[name=logout]');
     this.contactJid = page.locator('[data-zid="contact-jid"]');
 
-    this.addContactButton = page.locator('[data-zid="add-contact"]');
-    this.removeContactButton = page.locator('[data-zid="remove-contact"]');
-    this.blockContactButton = page.locator('[data-zid="block-contact"]');
-    this.unblockContactButton = page.locator('[data-zid="unblock-contact"]');
+
     // this.openChatButton = page.locator('[data-zid="open-chat"]'); // Removed from UI
     // this.rosterList = page.locator('[data-zid="roster-list-visible"]');
     this.rosterListUnaffiliatedHeader = page.locator(

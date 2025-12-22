@@ -47,7 +47,7 @@ test.describe('MUC Infinite Scroll', () => {
         // In muc-messages.spec.ts: await ownerMuc.createRoom(room);
         // Let's assume that works or use the UI directly if we want to be sure.
         // The previous test passed with ownerMuc.createRoom(room).
-        await ownerMuc.createRoom(room);
+        await ownerMuc.createRoom(room, owner);
 
         const chat = await mainPage.openChatWith(room); // Should already be open but this ensures it
 
@@ -61,6 +61,7 @@ test.describe('MUC Infinite Scroll', () => {
 
         // 4. Reload page to clear local state
         await mainPage.page.reload();
+        await mainPage.setupForTest();
         await mainPage.logIn(owner, testPassword);
 
         // 5. Re-join room (should fetch history)

@@ -20,6 +20,12 @@ jobs:
           cache: 'npm'
 
 
+      - name: Create .env file for Docker
+        run: |
+          echo "POSTGRES_DB=ejabberd" > docker/test-env/.env
+          echo "POSTGRES_USER=postgres" >> docker/test-env/.env
+          echo "POSTGRES_PASSWORD=postgres" >> docker/test-env/.env
+
       - name: Prepare Docker Data and SSL
         run: |
           mkdir -p docker/test-env/data/backup
@@ -40,11 +46,6 @@ jobs:
         run: |
           docker compose -f docker/test-env/docker-compose.yml up -d
           # Wait for services to be healthy/ready
-          # Wait for services to be healthy/ready
-          echo "Waiting for ejabberd to be healthy..."
-          echo "Waiting for ejabberd to be healthy..."
-          # Manual loop with 60 attempts * 5s = 300s (5 minutes) timeout
-          cnt=0
           echo "Waiting for ejabberd to be healthy..."
           # Manual loop with 60 attempts * 5s = 300s (5 minutes) timeout
           cnt=0
@@ -113,7 +114,7 @@ jobs:
           echo "Checking netstat..."
           docker exec local-jabber.entenhausen.pazz.de netstat -tuln
           echo "Checking http://local-jabber.entenhausen.pazz.de:5280/websocket..."
-          curl -k -v --fail --connect-timeout 5 --retry 30 --retry-delay 2 --retry-connrefused https://localhost:5280/websocket || echo "Curl https failed!"
+          curl -v --fail --connect-timeout 5 --retry 30 --retry-delay 2 --retry-connrefused http://localhost:5280/websocket || echo "Curl http failed!"
 
       - name: Run E2E Tests
         run: npx nx e2e ngx-chat-e2e-new

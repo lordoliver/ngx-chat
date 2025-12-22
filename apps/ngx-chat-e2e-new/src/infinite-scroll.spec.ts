@@ -2,12 +2,19 @@
 import { test, expect } from '@playwright/test';
 import { AppPage } from './page-objects/app.po';
 import { ChatWindowPage } from './page-objects/chat-window.po';
+import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 
 test.describe('Infinite Scroll', () => {
     let snowWhite: AppPage;
     let sleepy: AppPage;
     let snowWhitePage: any;
     let sleepyPage: any;
+    let ejabberdAdminPage: EjabberdAdminPage;
+
+    test.beforeAll(async ({ playwright }) => {
+        ejabberdAdminPage = await EjabberdAdminPage.create(playwright);
+        await ejabberdAdminPage.deleteAllBesidesAdminUser();
+    });
 
     test.beforeEach(async ({ browser }) => {
         snowWhite = await AppPage.create(browser);
@@ -24,6 +31,8 @@ test.describe('Infinite Scroll', () => {
         await sleepyPage.close();
     });
 
+    test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+
     test('should load recent messages initially and older messages on scroll', async () => {
         const suffix = Date.now();
         const u1 = 'sw_' + suffix;
@@ -32,15 +41,15 @@ test.describe('Infinite Scroll', () => {
 
         // 1. Establish connection
         console.log(`Registering ${u1}...`);
-        await snowWhite.register(u1, pass);
-        // Register does not auto-login
+        await ejabberdAdminPage.register(u1, pass);
+        // Login directly
         await snowWhite.logIn(u1, pass);
-        await expect(snowWhitePage.locator('[data-zid="chat-connection-state"]')).toHaveText('connected');
+        await expect(snowWhitePage.locator('[data-zid="chat-connection-state"]')).toHaveText('online');
 
         console.log(`Registering ${u2}...`);
-        await sleepy.register(u2, pass);
+        await ejabberdAdminPage.register(u2, pass);
         await sleepy.logIn(u2, pass);
-        await expect(sleepyPage.locator('[data-zid="chat-connection-state"]')).toHaveText('connected');
+        await expect(sleepyPage.locator('[data-zid="chat-connection-state"]')).toHaveText('online');
 
         // 2. SnowWhite creates history (60 messages)
         await snowWhitePage.waitForTimeout(1000); // Wait for roster sync
@@ -67,12 +76,13 @@ test.describe('Infinite Scroll', () => {
         // 3. Sleepy reloads to test fresh history loading
         console.log('Reloading Sleepy...');
         await sleepyPage.reload();
+        await sleepy.setupForTest(); // Ensure domain/service are set
         await sleepy.logIn(u2, pass);
-        await expect(sleepyPage.locator('[data-zid="chat-connection-state"]')).toHaveText('connected');
+        await expect(sleepyPage.locator('[data-zid="chat-connection-state"]')).toHaveText('online');
 
         // 4. Sleepy opens chat
         await sleepy.openChatWithUnaffiliatedContact(u1Jid);
-        const sleepyChat = new ChatWindowPage(sleepyPage, u1Jid);
+        // const sleepyChat = new ChatWindowPage(sleepyPage, u1Jid);
 
         // 5. Verify only 50 messages loaded initially (approx)
         // We select message elements. 
@@ -90,7 +100,7 @@ test.describe('Infinite Scroll', () => {
         await expect(messagesContainer).toBeVisible();
 
         // Scroll to top to trigger load
-        await messagesContainer.evaluate((el) => {
+        await messagesContainer.evaluate((el: Element) => {
             el.scrollTop = 0;
             // Dispatch event manually to ensure Angular catches it
             el.dispatchEvent(new Event('scroll'));
