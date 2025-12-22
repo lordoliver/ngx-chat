@@ -82,33 +82,23 @@ test.describe('Infinite Scroll', () => {
 
         // 4. Sleepy opens chat
         await sleepy.openChatWithUnaffiliatedContact(u1Jid);
-        // const sleepyChat = new ChatWindowPage(sleepyPage, u1Jid);
+        const sleepyChat = new ChatWindowPage(sleepyPage, u1Jid);
 
         // 5. Verify only 50 messages loaded initially (approx)
-        // We select message elements. 
-        // Note: The UI might have rendered them. We verify count.
-        await sleepyPage.waitForTimeout(2000); // Wait for initial load
-        let messageCount = await sleepyPage.locator('.chat-window .messages ngx-chat-message-in, .chat-window .messages ngx-chat-message-out').count();
+        // Using poll to wait for messages to load
+        await expect.poll(async () => await sleepyChat.getMessageCount(), { timeout: 10000 }).toBeGreaterThan(0);
+        let messageCount = await sleepyChat.getMessageCount();
         console.log('Initial message count:', messageCount);
 
         expect(messageCount).toBeLessThanOrEqual(50);
-        expect(messageCount).toBeGreaterThan(0);
 
         // 6. Scroll to top to trigger load
         console.log('Scrolling to top...');
-        const messagesContainer = sleepyPage.locator('.chat-window .messages');
-        await expect(messagesContainer).toBeVisible();
-
-        // Scroll to top to trigger load
-        await messagesContainer.evaluate((el: Element) => {
-            el.scrollTop = 0;
-            // Dispatch event manually to ensure Angular catches it
-            el.dispatchEvent(new Event('scroll'));
-        });
+        await sleepyChat.scrollToTop();
 
         // 7. Wait and verify count increases
-        await sleepyPage.waitForTimeout(3000);
-        let newMessageCount = await sleepyPage.locator('.chat-window .messages ngx-chat-message-in, .chat-window .messages ngx-chat-message-out').count();
+        await expect.poll(async () => await sleepyChat.getMessageCount(), { timeout: 10000 }).toBeGreaterThan(messageCount);
+        let newMessageCount = await sleepyChat.getMessageCount();
         console.log('New message count:', newMessageCount);
 
         expect(newMessageCount).toBeGreaterThan(messageCount);

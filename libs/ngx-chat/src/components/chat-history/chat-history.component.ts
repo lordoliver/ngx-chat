@@ -46,9 +46,7 @@ export class ChatHistoryComponent implements OnDestroy {
     this.currentRecipient = value;
 
     this.loadMessagesOnScrollToTop();
-    if (!this.openChatsService.isChatOpen(value)) {
-      this.chatService.messageService.loadMostRecentMessages(value);
-    }
+    this.chatService.messageService.loadMostRecentMessages(value);
     // the unread count plugin relies on this call
     this.openChatsService.viewedChatMessages(this.currentRecipient);
     // todo implement xmpp message state
