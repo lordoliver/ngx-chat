@@ -99,10 +99,23 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+      - name: Check Connectivity
+        run: |
+          echo "Checking https://local-jabber.entenhausen.pazz.de:5280/websocket..."
+          curl -v -k https://local-jabber.entenhausen.pazz.de:5280/websocket || echo "Curl failed!"
+          echo "Checking http://local-jabber.entenhausen.pazz.de:5280/websocket..."
+          curl -v http://local-jabber.entenhausen.pazz.de:5280/websocket || echo "Curl http failed!"
+
       - name: Run E2E Tests
         run: npx nx e2e ngx-chat-e2e-new
         env:
           CI: true
+
+      - name: Dump Ejabberd Logs on Failure
+        if: failure()
+        run: |
+          echo "--- EJABBERD LOGS ---"
+          docker compose -f docker/test-env/docker-compose.yml logs ejabberd
 
 
 
