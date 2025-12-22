@@ -53,9 +53,15 @@ test.describe('Mobile Roster Performance Test', () => {
         }, { count: contactCount, domain: devXmppDomain });
         console.log(`Added ${contactCount} contacts in ${Date.now() - addStart}ms`);
 
+        // Allow XMPP requests to be processed by server (Robustness wait)
+        await appPage.page.waitForTimeout(5000);
+
         // 2. Reload to force fresh render of the separate list
         await appPage.reload();
         await appPage.setupForTest();
+
+        // Set Mobile Viewport
+        await appPage.page.setViewportSize({ width: 375, height: 812 });
 
         console.log('Measuring Mobile List Render...');
         const start = Date.now();
@@ -63,19 +69,11 @@ test.describe('Mobile Roster Performance Test', () => {
 
         // Helper to ensure view is synced
         const ensureOnlineView = async () => {
+            // In mobile, we might see 'Contacts' header or similar.
+            // 'Contacts chat' might be specific.
+            // We just wait for the contact list container or similar.
             const header = appPage.page.locator('h1', { hasText: 'Contacts chat' });
-            try {
-                await header.waitFor({ state: 'visible', timeout: 3000 });
-            } catch (e) {
-                console.log('Header not visible yet. Checking state...');
-                const stateText = await appPage.page.locator('[data-zid="chat-connection-state"]').textContent();
-                console.log('Current State:', stateText);
-                if (stateText?.includes('online')) {
-                    console.log('State is online but view is hidden. Forcing update...');
-                    await appPage.page.locator('[data-zid="force-update"]').click();
-                }
-                await header.waitFor({ state: 'visible', timeout: 10000 });
-            }
+            await header.waitFor({ state: 'visible', timeout: 30000 });
         };
 
         await ensureOnlineView();

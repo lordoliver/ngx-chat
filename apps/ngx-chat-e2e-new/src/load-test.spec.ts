@@ -70,7 +70,6 @@ test.describe('Load & Performance Test', () => {
         // Open Chat 1
         console.log(`Opening chat with ${senderUser1}...`);
         const chat1 = await appPage.selectChatWithContact(senderUser1);
-        await chat1.open();
         // Verify messages are present
         // We expect 100 incoming messages.
         // Wait for messages to load (MAM fetch)
@@ -85,7 +84,6 @@ test.describe('Load & Performance Test', () => {
         // Open Chat 2
         console.log(`Opening chat with ${senderUser2}...`);
         const chat2 = await appPage.selectChatWithContact(senderUser2);
-        await chat2.open();
         await appPage.page.waitForTimeout(2000);
         const count2 = await chat2.getMessageCount();
         console.log(`Chat 2 Message Count: ${count2}`);
@@ -94,7 +92,7 @@ test.describe('Load & Performance Test', () => {
         // Verify reaction/parallelism
         // Keep Chat 2 open, Open Chat 1 again (side by side?)
         // ngx-chat supports multiple windows? Yes.
-        await chat1.open();
+        await appPage.selectChatWithContact(senderUser1);
 
         expect(await chat1.assertIsOpen()).toBeUndefined(); // assertIsOpen returns void
         expect(await chat2.assertIsOpen()).toBeUndefined();
@@ -105,7 +103,6 @@ async function sendMessageBatch(appPage: AppPage, sender: string, recipient: str
     await appPage.logIn(sender, testPassword);
     await appPage.addContact(recipient);
     const chat = await appPage.selectChatWithContact(recipient);
-    await chat.open();
 
     // Send 100 messages
     // To speed up, we can use evaluate to send via service directly, 

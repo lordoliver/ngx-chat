@@ -185,6 +185,7 @@ export class AppPage {
       }
     }, username);
 
+    await this.loginButton.waitFor({ state: 'visible', timeout: 5000 });
     await this.loginButton.click();
     await expect(this.page.locator(this.connectionStateSelector)).toHaveText('online', { timeout: 15000 });
   }
