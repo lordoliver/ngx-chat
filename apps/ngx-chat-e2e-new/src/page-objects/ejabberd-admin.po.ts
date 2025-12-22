@@ -47,21 +47,35 @@ export class EjabberdAdminPage {
     }
   }
   async deleteAllBesidesAdminUser(): Promise<void> {
-    // Cleanup is causing hangs in CI and is unnecessary for ephemeral test environments.
-    return Promise.resolve();
-    /*
     const rooms = await this.getMucRooms();
-    await Promise.all(rooms.map(room => this.destroyRoom(room.split('@')[0] as string)));
+    for (const room of rooms) {
+      if (!room) continue;
+      const roomName = room.split('@')[0] ?? '';
+      try {
+        await this.destroyRoom(roomName);
+        console.log(`Destroyed room: ${roomName}`);
+      } catch (e) {
+        console.warn(`Failed to destroy room ${roomName}:`, e);
+      }
+    }
 
     const users = await this.registeredUsers();
-    // Filter out 'local-admin' AND garbage users (long hex strings) to avoid server timeout
+    // Filter out 'local-admin' but include generated test users
     const usersToDelete = users.filter((user) =>
-      user.toLowerCase() !== 'local-admin' && user.length < 50
+      user.toLowerCase() !== 'local-admin' && user.length < 60
     );
 
-    console.log(`Cleaning up ${usersToDelete.length} test users (skipped ${users.length - usersToDelete.length - 1} garbage users)...`);
-    await Promise.all(usersToDelete.map(user => this.unregister(user.split('@')[0] as string)));
-    */
+    console.log(`Cleaning up ${usersToDelete.length} users...`);
+    for (const user of usersToDelete) {
+      if (!user) continue;
+      const username = user.split('@')[0] ?? '';
+      try {
+        await this.unregister(username);
+        // console.log(`Unregistered: ${username}`);
+      } catch (e) {
+        console.warn(`Failed to unregister ${username}:`, e);
+      }
+    }
   }
 
   async unregister(user: string): Promise<void> {

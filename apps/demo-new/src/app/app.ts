@@ -86,7 +86,7 @@ export class App implements OnInit {
   }
 
   async login() {
-    console.error('DEBUG: App login called with:', this.username);
+    console.log('DEBUG: App login called with:', this.username);
     this.loginError = '';
     const auth: AuthRequest = {
       username: this.username,
@@ -112,7 +112,7 @@ export class App implements OnInit {
   }
 
   register() {
-    console.error('DEBUG: App register called with:', this.username);
+    console.log('DEBUG: App register called with:', this.username);
     this.chatService.register({
       username: this.username,
       password: this.password,
