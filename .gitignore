@@ -64,3 +64,7 @@ apps/demo/src/local.entenhausen.pazz.de.pem
 # Local dev scripts
 cleanup-users.ts
 apps/demo/proxy.conf.json
+
+# Docker test env data
+docker/test-env/postgres-db/
+docker/test-env/data/
