@@ -162,6 +162,13 @@ export class ChatWindowPage {
     return (await this.inMessage.count()) + (await this.outMessage.count());
   }
 
+  async waitForMessageCount(minCount: number): Promise<void> {
+    await expect(async () => {
+      const count = await this.getMessageCount();
+      expect(count).toBeGreaterThanOrEqual(minCount);
+    }).toPass({ timeout: 15000 });
+  }
+
   async scrollToTop(): Promise<void> {
     const messagesContainer = this.windowLocator.locator('.messages');
     await messagesContainer.evaluate((el) => {

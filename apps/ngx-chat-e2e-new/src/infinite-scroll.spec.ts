@@ -76,7 +76,7 @@ test.describe('Infinite Scroll', () => {
         const sleepyChat = new ChatWindowPage(sleepyPage, u1Jid);
 
         // 5. Verify only partial messages loaded initially (approx 10-20?)
-        await sleepyPage.waitForTimeout(2000); // Wait for initial load
+        await sleepyChat.waitForMessageCount(1); // Wait for initial load
         let messageCount = await sleepyPage.locator('.chat-window ngx-chat-message-in, .chat-window ngx-chat-message-out').count();
         console.log('Initial message count:', messageCount);
 

@@ -28,8 +28,8 @@ test.describe('MUC Infinite Scroll', () => {
 
     test('should scroll to load older messages in MUC', async () => {
         test.setTimeout(120000);
-        const owner = 'muc-scroll-owner-' + Date.now();
-        const room = 'scrollroom';
+        const owner = `muc-scroll-owner-${Date.now()}`;
+        const room = `scrollroom-${Date.now()}`;
 
         // 1. Register user
         await ejabberdAdminPage.register(owner, testPassword);
@@ -39,21 +39,21 @@ test.describe('MUC Infinite Scroll', () => {
 
         // Use ContactList to create/join room
         const ownerMuc = mainPage.createMUCPageObject();
-        await ownerMuc.createRoom(room);
+        await ownerMuc.createRoom(room, owner);
 
         // Explicitly set persistence/MAM to ensure history is saved (default config is flaky)
         try {
             const container = 'local-jabber.entenhausen.pazz.de';
             const cmdPrefix = `docker exec ${container} /home/ejabberd/bin/ejabberdctl --node ejabberd@${container}`;
-            const roomJid = `scrollroom@conference.${container}`;
+            // const roomJid = \`scrollroom@conference.\${container}\`;
 
-            execSync(`${cmdPrefix} change_room_option scrollroom conference.${container} persistent true`);
-            execSync(`${cmdPrefix} change_room_option scrollroom conference.${container} mam true`);
-            execSync(`${cmdPrefix} change_room_option scrollroom conference.${container} members_only false`);
-            // execSync(`${cmdPrefix} change_room_option scrollroom conference.${container} logging true`); // Try enabling logging if mam fails?
+            execSync(`${cmdPrefix} change_room_option ${room} conference.${container} persistent true`);
+            execSync(`${cmdPrefix} change_room_option ${room} conference.${container} mam true`);
+            execSync(`${cmdPrefix} change_room_option ${room} conference.${container} members_only false`);
+            // execSync(`${cmdPrefix} change_room_option ${room} conference.${container} logging true`); // Try enabling logging if mam fails?
             console.log('Explicitly enabled room persistence, MAM, and disabled members_only via ejabberdctl');
 
-            const options = execSync(`${cmdPrefix} get_room_options scrollroom conference.${container}`).toString();
+            const options = execSync(`${cmdPrefix} get_room_options ${room} conference.${container}`).toString();
             console.log('Room Options:', options);
         } catch (e) {
             console.error('Failed to configure room persistence:', e);
@@ -81,6 +81,7 @@ test.describe('MUC Infinite Scroll', () => {
         const chatRejoined = await mainPage.openChatWith(room);
 
         // 6. Verify distinct recent messages count
+        await chatRejoined.waitForMessageCount(1);
         const countAfterLoad = await chatRejoined.getMessageCount();
         console.log(`Messages after reload: ${countAfterLoad}`);
         expect(countAfterLoad).toBeGreaterThan(0);
