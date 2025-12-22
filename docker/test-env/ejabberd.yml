@@ -60,7 +60,7 @@ listen:
         "/websocket": ejabberd_http_ws
         "/admin": ejabberd_web_admin
         "/bosh": mod_bosh
-    tls: false
+    tls: true
     tls_compression: false
     ciphers: "HIGH:!aNULL:!3DES"
 -   port: 5443
@@ -101,7 +101,7 @@ auth_password_format: scram
 ###   TRAFFIC SHAPERS
 
 shaper:
-    normal: 1000
+    normal: 5000000
     fast: 50000
 
 shaper_rules:

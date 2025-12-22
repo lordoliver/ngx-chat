@@ -113,7 +113,7 @@ jobs:
           echo "Checking netstat..."
           docker exec local-jabber.entenhausen.pazz.de netstat -tuln
           echo "Checking http://local-jabber.entenhausen.pazz.de:5280/websocket..."
-          curl -v http://local-jabber.entenhausen.pazz.de:5280/websocket || echo "Curl http failed!"
+          curl -k -v --fail --connect-timeout 5 --retry 30 --retry-delay 2 --retry-connrefused https://localhost:5280/websocket || echo "Curl https failed!"
 
       - name: Run E2E Tests
         run: npx nx e2e ngx-chat-e2e-new
