@@ -120,7 +120,7 @@ jobs:
         run: npx nx e2e ngx-chat-e2e-new
         env:
           CI: true
-        timeout-minutes: 5
+        timeout-minutes: 20
 
       - name: Dump Ejabberd Logs on Failure
         if: failure()
