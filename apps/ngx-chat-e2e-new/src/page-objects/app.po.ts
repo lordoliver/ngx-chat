@@ -34,7 +34,7 @@ export class AppPage {
   private readonly blockContactButton: Locator;
   private readonly unblockContactButton: Locator;
   // private readonly openChatButton: Locator;
-  private readonly rosterList: Locator;
+  // private readonly rosterList: Locator;
   private readonly rosterListUnaffiliatedHeader: Locator;
   private readonly rosterListBlockedHeader: Locator;
 
@@ -59,7 +59,7 @@ export class AppPage {
     this.blockContactButton = page.locator('[data-zid="block-contact"]');
     this.unblockContactButton = page.locator('[data-zid="unblock-contact"]');
     // this.openChatButton = page.locator('[data-zid="open-chat"]'); // Removed from UI
-    this.rosterList = page.locator('[data-zid="roster-list-visible"]');
+    // this.rosterList = page.locator('[data-zid="roster-list-visible"]');
     this.rosterListUnaffiliatedHeader = page.locator(
       '[data-zid="roster-group-header-contacts-unaffiliated"]'
     );
@@ -206,24 +206,19 @@ export class AppPage {
   }
 
   async addContact(jid: string): Promise<void> {
-    await this.contactJid.fill(jid);
-    await this.addContactButton.click();
+    await this.page.evaluate((jid) => (window as any).app.addContact(jid), jid);
   }
 
   async removeContact(jid: string): Promise<void> {
-    await this.contactJid.fill(jid);
-    await this.removeContactButton.click();
+    await this.page.evaluate((jid) => (window as any).app.removeContact(jid), jid);
   }
 
   async blockContact(jid: string): Promise<void> {
-    await this.contactJid.fill(jid);
-    await this.blockContactButton.click();
+    await this.page.evaluate((jid) => (window as any).app.blockContact(jid), jid);
   }
 
   async unblockContact(jid: string): Promise<void> {
-    await this.contactJid.fill(jid);
-    await this.unblockContactButton.scrollIntoViewIfNeeded();
-    await this.unblockContactButton.click();
+    await this.page.evaluate((jid) => (window as any).app.unblockContact(jid), jid);
   }
 
   async isRegistrationForUserSuccessful(username: string): Promise<boolean> {

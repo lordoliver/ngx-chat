@@ -34,7 +34,7 @@
             <div class="flex items-center gap-4">
                 <div class="status-badge connected" data-zid="chat-connection-state">{{ state }}</div>
                 <div class="text-sm font-bold">{{ username }}</div>
-                <button class="secondary text-sm" name="logout" (click)="logout()">Logout</button>
+                <button type="button" class="secondary text-sm" name="logout" (click)="logout()">Logout</button>
             </div>
         </div>
 
@@ -48,13 +48,13 @@
                     <input [(ngModel)]="selectedJid" data-zid="contact-jid" placeholder="JID"
                         style="margin-right: 0.5rem; padding: 0.5rem;">
                     <div style="margin-top: 0.5rem;">
-                        <button (click)="addContact(selectedJid)" data-zid="add-contact"
+                        <button type="button" (click)="addContact(selectedJid)" data-zid="add-contact"
                             style="margin-right: 0.5rem;">Add</button>
-                        <button (click)="removeContact(selectedJid)" data-zid="remove-contact"
+                        <button type="button" (click)="removeContact(selectedJid)" data-zid="remove-contact"
                             style="margin-right: 0.5rem;">Remove</button>
-                        <button (click)="blockContact(selectedJid)" data-zid="block-contact"
+                        <button type="button" (click)="blockContact(selectedJid)" data-zid="block-contact"
                             style="margin-right: 0.5rem;">Block</button>
-                        <button (click)="unblockContact(selectedJid)" data-zid="unblock-contact"
+                        <button type="button" (click)="unblockContact(selectedJid)" data-zid="unblock-contact"
                             style="margin-right: 0.5rem;">Unblock</button>
                     </div>
                 </div>
@@ -67,13 +67,14 @@
                     <input [(ngModel)]="mucUserJid" data-zid="muc-user-jid" placeholder="User JID"
                         style="margin-right: 0.5rem; padding: 0.5rem;">
                     <div style="margin-top: 0.5rem;">
-                        <button (click)="createRoom(mucRoomName)" data-zid="muc-create"
+                        <button type="button" (click)="createRoom(mucRoomName)" data-zid="muc-create"
                             style="margin-right: 0.5rem;">Create Room</button>
-                        <button (click)="selectRoom(mucRoomName)" data-zid="muc-select"
+                        <button type="button" (click)="selectRoom(mucRoomName)" data-zid="muc-select"
                             style="margin-right: 0.5rem;">Select Room</button>
-                        <button (click)="grantMembership(mucRoomName, mucUserJid)" data-zid="muc-grant"
+                        <button type="button" (click)="grantMembership(mucRoomName, mucUserJid)" data-zid="muc-grant"
                             style="margin-right: 0.5rem;">Grant Membership</button>
-                        <button (click)="inviteUser(mucRoomName, mucUserJid)" data-zid="muc-invite">Invite User</button>
+                        <button type="button" (click)="inviteUser(mucRoomName, mucUserJid)" data-zid="muc-invite">Invite
+                            User</button>
                     </div>
                 </div>
             </div>
