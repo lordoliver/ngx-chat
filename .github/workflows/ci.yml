@@ -70,7 +70,7 @@ jobs:
       - name: Register Admin User
         run: |
           echo "Registering local-admin user..."
-          docker compose -f docker/test-env/docker-compose.yml exec -T ejabberd /home/ejabberd/bin/ejabberdctl register local-admin local-jabber.entenhausen.pazz.de AdminLocalPassword123!
+          docker compose -f docker/test-env/docker-compose.yml exec -T ejabberd /home/ejabberd/bin/ejabberdctl --node ejabberd@local-jabber.entenhausen.pazz.de register local-admin local-jabber.entenhausen.pazz.de AdminLocalPassword123!
 
       - name: Configure Hosts
         run: echo "127.0.0.1 local-jabber.entenhausen.pazz.de" | sudo tee -a /etc/hosts
