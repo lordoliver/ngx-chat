@@ -66,6 +66,10 @@ test.describe('ngx-chat', () => {
     await ejabberdAdminPage.register(dwarfs.dopey, dwarfs.dopey);
   });
 
+  test.beforeEach(async () => {
+    await appPage.setupForTest();
+  });
+
   test.afterEach(async ({ }, testInfo) => {
     if (testInfo.status !== 'passed') {
       console.log('Browser Console Logs:', appPage.errorLogs);
@@ -74,13 +78,13 @@ test.describe('ngx-chat', () => {
   });
 
   test('should be able to log in', async () => {
-    await appPage.setupForTest();
+    // await appPage.setupForTest(); // in beforeEach
     await appPage.loginAdmin();
     expect(await appPage.getOnlineStateText()).toContain('online');
   });
 
   test('should be able to log out', async () => {
-    await appPage.setupForTest();
+    // await appPage.setupForTest(); // in beforeEach
     await appPage.loginAdmin();
     await appPage.logOut();
     expect(await appPage.isLoginFormVisible()).toBeTruthy();
