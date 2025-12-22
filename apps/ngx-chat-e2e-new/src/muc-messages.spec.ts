@@ -27,6 +27,10 @@ test.describe('ngx-chat', () => {
     await mainPage.setupForTest();
   });
 
+  test.beforeEach(async () => {
+    await mainPage.setupForTest();
+  });
+
   test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
 
   test('grant membership to single user to single room async (one is online another offline)', async () => {
