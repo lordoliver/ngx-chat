@@ -75,6 +75,8 @@ export class EjabberdAdminPage {
       } catch (e) {
         console.warn(`Failed to unregister ${username}:`, e);
       }
+      // Throttle cleanup to prevent server overload/stream resets
+      await new Promise(r => setTimeout(r, 50));
     }
   }
 
