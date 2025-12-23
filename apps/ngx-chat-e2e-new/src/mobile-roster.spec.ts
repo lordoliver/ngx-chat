@@ -83,7 +83,8 @@ test.describe('Mobile/Separate Roster Logic', () => {
         await input.press('Enter');
 
         // Assert message appears in history
-        await expect(embeddedChat.locator('.message-body', { hasText: 'Hello from mobile mode' })).toBeVisible({ timeout: 15000 });
+        await expect(embeddedChat.locator('ngx-chat-message-text-area', { hasText: 'Hello from mobile mode' })).toBeVisible({ timeout: 15000 });
+
 
     });
 
