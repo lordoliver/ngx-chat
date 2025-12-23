@@ -171,13 +171,16 @@ export class XmppMessageService implements MessageService {
 
   private async sendMessageToContact(recipient: Recipient, body: string): Promise<void> {
     const from = await firstValueFrom(this.chatService.chatConnectionService.userJid$);
+    const id = getUniqueId('msg-' + recipient.jid.toString() + '-');
     const messageBuilder = this.chatService.chatConnectionService
-      .$msg({ to: recipient.jid.toString(), from, type: 'chat' })
+      .$msg({ to: recipient.jid.toString(), from, type: 'chat', id })
+      .c('origin-id', { xmlns: 'urn:xmpp:sid:0', id })
+      .up()
       .c('body')
       .t(body);
 
     const message = {
-      id: getUniqueId('msg-' + recipient.jid.toString() + '-'),
+      id,
       direction: Direction.out,
       body,
       datetime: new Date(await firstValueFrom(this.chatService.pluginMap.entityTime.getNow())),
@@ -187,10 +190,11 @@ export class XmppMessageService implements MessageService {
     };
 
     // TODO: on rejection mark message that it was not sent successfully
-    recipient.messageStore.addMessage(message);
-
     try {
       await messageBuilder.send();
+      // Optimistic UI removed to rely on authoritative Server Echoes (Carbons).
+      // This prevents duplicates in dual-connect (online).
+      // app.spec.ts (offline) depends on Carbons delivery.
       // todo implement xmpp message state
       // await this.chatService.pluginMap.messageState.afterSendMessage(recipient.jid, message);
     } catch (rej) {
@@ -198,7 +202,6 @@ export class XmppMessageService implements MessageService {
         `rejected message; message=${JSON.stringify(message)}, rejection=${JSON.stringify(rej)}`
       );
     }
-
   }
 
   /**
@@ -307,8 +310,13 @@ export class XmppMessageService implements MessageService {
       contactJid as string
     );
 
+    const id =
+      messageStanza.querySelector('origin-id')?.getAttribute('id') ??
+      messageStanza.getAttribute('id') ??
+      (messageStanza.querySelector('stanza-id')?.id as string);
+
     const message = {
-      id: messageStanza.querySelector('stanza-id')?.id as string,
+      id,
       // body can be missing on type=chat messageElements
       body: messageStanza.querySelector('body')?.textContent?.trim() as string,
       direction,

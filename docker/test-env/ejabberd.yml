@@ -195,7 +195,7 @@ modules:
         max_user_conferences: 500
         default_room_options:
             public: false
-            members_only: false
+            members_only: true
             moderated: true
             persistent: true
             mam: true

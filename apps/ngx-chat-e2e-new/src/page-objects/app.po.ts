@@ -5,7 +5,7 @@ import type { AuthRequest } from '@pazznetwork/ngx-chat-shared';
 const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 const devXmppJid = 'local-admin@local-jabber.entenhausen.pazz.de';
 const devXmppPassword = 'AdminLocalPassword123!';
-import { Browser, expect } from '@playwright/test';
+import { Browser, BrowserContext, expect } from '@playwright/test';
 import { MucPageObject } from './muc.po';
 
 const adminLogin: AuthRequest = {
@@ -44,7 +44,7 @@ export class AppPage {
   // @ts-ignore
   private readonly createChatBoxInputLocator: (jid: string) => Locator;
 
-  private constructor(private readonly browser: Browser, public readonly page: Page) {
+  private constructor(private readonly browser: Browser | BrowserContext, public readonly page: Page) {
     this.domainInput = page.locator('[name=domain]');
     this.serviceInput = page.locator('[name=service]');
     this.usernameInput = page.locator('[name=username]');
@@ -92,7 +92,7 @@ export class AppPage {
     });
   }
 
-  static async create(browser: Browser): Promise<AppPage> {
+  static async create(browser: Browser | BrowserContext): Promise<AppPage> {
     return new AppPage(browser, await browser.newPage());
   }
 
@@ -127,7 +127,7 @@ export class AppPage {
   }
 
   async newPage(): Promise<AppPage> {
-    const context = await this.browser.newContext();
+    const context = await (this.browser as Browser).newContext();
     const newPage = await context.newPage();
     await newPage.goto('/');
     const newAppPage = new AppPage(this.browser, newPage);

@@ -98,6 +98,16 @@ export class EjabberdAdminPage {
     return this.executeRequest('muc_online_rooms', { service: 'global' });
   }
 
+  async changeRoomOption(room: string, option: string, value: string, service = 'conference.' + devXmppDomain): Promise<void> {
+    const res = await this.executeRequest('change_room_option', {
+      name: room,
+      service,
+      option,
+      value
+    });
+    console.log(`[AdminAPI] changeRoomOption ${option}=${value} for ${room}:`, res);
+  }
+
   async register(user: string, password: string): Promise<void> {
     try {
       await this.executeRequest('register', {

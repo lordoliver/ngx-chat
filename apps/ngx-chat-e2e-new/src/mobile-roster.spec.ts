@@ -36,7 +36,14 @@ test.describe('Mobile/Separate Roster Logic', () => {
      * found in index.component.html (mimicking a custom roster), 
      * receiving the message in the embedded ngx-chat-history component.
      */
-    test('should open chat via separate roster list (mobile mode)', async () => {
+    test('should open chat via separate roster list (mobile mode)', async ({ browser }) => {
+        // Login contact1 in a separate context to ensure they are online and we receive an echo/carbon
+        const contact1Context = await browser.newContext();
+        const contact1Page = await AppPage.create(contact1Context);
+        await contact1Page.setupForTest();
+        await contact1Page.logIn('contact1', password);
+        // We don't need to do anything with contact1, just having them online is enough.
+
         console.log('Navigating to app...');
         await appPage.setupForTest(); // goto /
         console.log('Logging in as', mobileUser);

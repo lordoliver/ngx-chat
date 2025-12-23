@@ -31,10 +31,8 @@ export class MessageStore {
       return;
     }
 
-    if (
-      this.mostRecentMessage?.datetime == null ||
-      message.datetime > this.mostRecentMessage?.datetime
-    ) {
+    const mostRecent = this.mostRecentMessage;
+    if (mostRecent == null || message.datetime >= mostRecent.datetime) {
       this.messages.push(message);
     } else {
       insertSortedLast(message, this.messages, (m) => m.datetime);

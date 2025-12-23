@@ -171,35 +171,33 @@ export class MucPageObject {
 
   async createRoomWithConfiguration(
     roomId: string,
-    roomName?: string,
+    roomName: string | undefined,
     membersOnly = true,
     nonAnon = true,
     persistent = true,
     isPublic = false,
     allowSub = false
   ): Promise<void> {
-    await this.roomIdInputLocator.fill(roomId);
-
-    if (roomName) {
-      await this.newRoomNameInputLocator.fill(roomName);
-    }
-    if (membersOnly) {
-      await this.roomMembersOnlyCheckboxLocator.click();
-    }
-    if (nonAnon) {
-      await this.roomNonAnonCheckboxLocator.click();
-    }
-    if (persistent) {
-      await this.roomPersistentCheckboxLocator.click();
-    }
-    if (isPublic) {
-      await this.roomPublicCheckboxLocator.click();
-    }
-    if (allowSub) {
-      await this.roomAllowSubCheckboxLocator.click();
-    }
-
-    await this.roomCreateSubmitButtonLocator.click();
+    await this.page.evaluate(
+      async ({ roomId, roomName, membersOnly, nonAnon, persistent, isPublic, allowSub }) => {
+        const app = (window as any).app; // Access exposed App component
+        if (!app || !app.chatService) {
+          throw new Error('window.app or chatService not found. App might not be initialized.');
+        }
+        const options = {
+          roomId,
+          name: roomName,
+          membersOnly,
+          nonAnonymous: nonAnon,
+          persistentRoom: persistent,
+          public: isPublic,
+          allowSubscription: allowSub,
+          enableLogging: persistent
+        };
+        await app.chatService.roomService.createRoom(options);
+      },
+      { roomId, roomName, membersOnly, nonAnon, persistent, isPublic, allowSub }
+    );
   }
 
   async getUserListNick(index = 0): Promise<string | null | undefined> {
@@ -294,9 +292,14 @@ export class MucPageObject {
   // It's cleaner.
 
   async inviteUser(userJid: string, roomJidPrefix: string): Promise<void> {
-    await this.page.locator('[data-zid="muc-room-name"]').fill(roomJidPrefix);
-    await this.page.locator('[data-zid="muc-user-jid"]').fill(userJid);
-    await this.page.locator('[data-zid="muc-invite"]').click();
+    await this.page.evaluate(
+      async ({ userJid, roomJidPrefix }) => {
+        const app = (window as any).app;
+        if (!app) throw new Error('App not initialized');
+        await app.inviteUser(roomJidPrefix, userJid);
+      },
+      { userJid, roomJidPrefix }
+    );
   }
 
   async acceptInvite(room: string): Promise<void> {

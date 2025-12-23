@@ -3,14 +3,11 @@ import { test, expect } from '@playwright/test';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
 
-import * as fs from 'fs';
+
 
 // ... (existing imports)
 
 test('should facilitate chat between two users via dual.html with extended message flow', async ({ page, browser, playwright }) => {
-    // Clean up log file
-    fs.writeFileSync('browser_logs.txt', '');
-
     // ... (provision users)
     const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
     await ejabberdAdminPage.register('snowwhite', 'snowwhite');

@@ -617,6 +617,13 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
           'mam',
           roomConfiguration.enableLogging
         );
+      } else {
+        setFieldValue(
+          roomConfigForm,
+          'boolean',
+          'mam',
+          roomConfiguration.enableLogging
+        );
       }
     }
 
