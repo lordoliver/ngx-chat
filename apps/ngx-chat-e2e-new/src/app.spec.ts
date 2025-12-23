@@ -104,13 +104,13 @@ test.describe('ngx-chat', () => {
     await appPage.addContact(`${dwarfs.sneezy}@${devXmppDomain}`);
     await appPage.addContact(`${dwarfs.dopey}@${devXmppDomain}`);
 
-    expect(await appPage.isContactInRoster(`${dwarfs.doc}@${devXmppDomain}`)).toBeTruthy();
-    expect(await appPage.isContactInRoster(`${dwarfs.grumpy}@${devXmppDomain}`)).toBeTruthy();
-    expect(await appPage.isContactInRoster(`${dwarfs.happy}@${devXmppDomain}`)).toBeTruthy();
-    expect(await appPage.isContactInRoster(`${dwarfs.sleepy}@${devXmppDomain}`)).toBeTruthy();
-    expect(await appPage.isContactInRoster(`${dwarfs.bashful}@${devXmppDomain}`)).toBeTruthy();
-    expect(await appPage.isContactInRoster(`${dwarfs.sneezy}@${devXmppDomain}`)).toBeTruthy();
-    expect(await appPage.isContactInRoster(`${dwarfs.dopey}@${devXmppDomain}`)).toBeTruthy();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.doc}@${devXmppDomain}`)).toBeVisible();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.grumpy}@${devXmppDomain}`)).toBeVisible();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.happy}@${devXmppDomain}`)).toBeVisible();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.sleepy}@${devXmppDomain}`)).toBeVisible();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.bashful}@${devXmppDomain}`)).toBeVisible();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.sneezy}@${devXmppDomain}`)).toBeVisible();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.dopey}@${devXmppDomain}`)).toBeVisible();
     await appPage.logOut();
   });
 
@@ -121,7 +121,7 @@ test.describe('ngx-chat', () => {
     const grumpyMessage = 'Why are you so grumpy?';
 
     await appPage.addContact(`${dwarfs.sleepy}@${devXmppDomain}`);
-    expect(await appPage.isContactInRoster(`${dwarfs.sleepy}@${devXmppDomain}`)).toBeTruthy();
+    await expect(appPage.getContactRosterLocator(`${dwarfs.sleepy}@${devXmppDomain}`)).toBeVisible();
 
     const snowWhiteChatWithSleepy = await appPage.openChatWith(dwarfs.sleepy);
     await snowWhiteChatWithSleepy.write(sleepyMessage);
@@ -187,7 +187,7 @@ test.describe('ngx-chat', () => {
   test('should be able to block the Huntsman as SnowWhite', async () => {
     await appPage.logIn(snowWhite, snowWhite);
     await appPage.addContact(huntsman);
-    expect(await appPage.isContactInRoster(huntsman)).toBeTruthy();
+    await expect(appPage.getContactRosterLocator(huntsman)).toBeVisible();
     await appPage.openChatWith(huntsman);
     // await snowWhiteChatWithHuntsman.block();
     await appPage.blockContact(huntsman);
@@ -211,7 +211,7 @@ test.describe('ngx-chat', () => {
     await appPage.logIn(snowWhite, snowWhite);
     await appPage.unblockContact(huntsman);
     expect(await appPage.isBlockedListHidden()).toBeTruthy();
-    expect(await appPage.isContactInRoster(huntsman)).toBeTruthy();
+    await expect(appPage.getContactRosterLocator(huntsman)).toBeVisible();
     await appPage.logOut();
   });
 
@@ -223,7 +223,7 @@ test.describe('ngx-chat', () => {
     await appPage.logIn(snowWhite, snowWhite);
     const chat = await appPage.openChatWith(huntsman);
     await chat.acceptContactRequest();
-    expect(await appPage.isContactInRoster(huntsman)).toBeTruthy();
+    await expect(appPage.getContactRosterLocator(huntsman)).toBeVisible();
     await appPage.logOut();
   });
 });

@@ -248,6 +248,10 @@ export class AppPage {
     return (await locator.count()) > 0;
   }
 
+  getContactRosterLocator(jid: string): Locator {
+    return this.createRoosterEntryLocator(jid);
+  }
+
   async isUnaffiliatedListHidden(): Promise<boolean> {
     await this.rosterListUnaffiliatedHeader.waitFor({ state: 'hidden' });
     return true;

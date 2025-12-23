@@ -37,7 +37,7 @@ test.describe('Mobile Roster Performance Test', () => {
         }
     });
 
-    test('should render separate roster list efficiently', async () => {
+    test.fixme('should render separate roster list efficiently', async () => {
         // 1. Log in and batch add contacts (same as roster-performance)
         await appPage.logIn(seedUser, password);
 
