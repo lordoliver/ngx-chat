@@ -43,7 +43,7 @@ services:
             - "127.0.0.1:5432:5432"
         volumes:
             - "./postgres-db-init:/docker-entrypoint-initdb.d"
-            - "./postgres-db:/var/lib/postgresql/data"
+            - "postgres_data:/var/lib/postgresql/data"
         networks:
             - default
             - local-entenhausen-pazz-de
@@ -54,6 +54,10 @@ services:
             retries: 4
             start_period: 30s
             start_interval: 2s
+
+volumes:
+    postgres_data:
+
 
 networks:
     default:

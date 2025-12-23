@@ -31,7 +31,6 @@ jobs:
           mkdir -p docker/test-env/data/backup
           mkdir -p docker/test-env/data/upload
           mkdir -p docker/test-env/data/database
-          mkdir -p docker/test-env/postgres-db
           mkdir -p docker/test-env/ssl/jabber
           
           echo "Generating Self-Signed SSL Certificates..."
@@ -42,7 +41,6 @@ jobs:
             
           chmod -R 777 docker/test-env/data
           chmod -R 777 docker/test-env/ssl
-          chmod -R 777 docker/test-env/postgres-db
 
       - name: Start Test Environment
         run: |
