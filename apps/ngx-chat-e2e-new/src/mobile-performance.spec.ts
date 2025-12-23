@@ -37,7 +37,7 @@ test.describe('Mobile Roster Performance Test', () => {
         }
     });
 
-    test.fixme('should render separate roster list efficiently', async () => {
+    test('should render separate roster list efficiently', async () => {
         // 1. Log in and batch add contacts (same as roster-performance)
         await appPage.logIn(seedUser, password);
 
@@ -66,6 +66,7 @@ test.describe('Mobile Roster Performance Test', () => {
         console.log('Measuring Mobile List Render...');
         const start = Date.now();
         await appPage.logIn(seedUser, password);
+        await appPage.page.evaluate(() => (window as any).app.showWidget = false);
 
         // Helper to ensure view is synced
         const ensureOnlineView = async () => {
@@ -94,7 +95,8 @@ test.describe('Mobile Roster Performance Test', () => {
         // 3. Measure Interaction (Open Embedded Chat)
         console.log('Measuring Embedded Chat Open...');
         const chatStart = Date.now();
-        await lastButton.click();
+        await lastButton.click({ force: true });
+
 
         // Expect embedded chat to appear
         const embeddedChat = appPage.page.locator('ngx-chat-file-drop');

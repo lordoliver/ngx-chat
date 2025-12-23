@@ -38,10 +38,9 @@
             </div>
         </div>
 
-        <div class="main-content">
+        <div class="main-content" style="flex-direction: column; overflow-y: auto;">
             <!-- Granular components not supported in ngx-chat-old yet. Using Monolith. -->
-            <!-- Granular components not supported in ngx-chat-old yet. Using Monolith. -->
-            <div class="controls-container" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div class="controls-container" style="display: flex; gap: 1rem; flex-wrap: wrap; padding: 1rem;">
                 <div class="contact-management"
                     style="margin-bottom: 1rem; padding: 1rem; border: 1px solid #eee; flex: 1; min-width: 300px;">
                     <h3>Contact Management</h3>
@@ -78,7 +77,32 @@
                 </div>
             </div>
 
-            <ngx-chat [rosterState]="rosterState"></ngx-chat>
+            <!-- Wrapper for Custom/Mobile Demo UI -->
+            <div class="custom-ui-wrapper" style="padding: 1rem; background: white;">
+                <div class="separate-roster-list" style="margin-bottom: 2rem;">
+                    <h1>Contacts chat</h1>
+                    <button *ngFor="let contact of chatService.contactListService.contacts$ | async"
+                        (click)="openChat(contact.jid.toString())" style="display: block; margin: 0.5rem 0;">
+                        {{ contact.name }}
+                    </button>
+                </div>
+
+                <!-- Manual Chat View (Mobile Mode Demo) -->
+                <div *ngIf="chatListService.openChats$ | async as chats" class="manual-chat-view">
+                    <ng-container *ngFor="let chat of chats">
+                        <div class="manual-chat-container"
+                            style="border: 1px solid #ccc; padding: 10px; margin: 10px 0;">
+                            <h3>Custom Chat: {{ chat.recipient.name }}</h3>
+                            <ngx-chat-file-drop>
+                                <ngx-chat-history [recipient]="chat.recipient"></ngx-chat-history>
+                                <ngx-chat-window-input [recipient]="chat.recipient"></ngx-chat-window-input>
+                            </ngx-chat-file-drop>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+
+            <ngx-chat *ngIf="showWidget" [rosterState]="rosterState"></ngx-chat>
         </div>
     </div>
 </ng-template>

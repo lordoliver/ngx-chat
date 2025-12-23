@@ -1,7 +1,7 @@
 import { Component, Inject, NgZone, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Subject } from 'rxjs';
 import { RouterModule } from '@angular/router';
-import { ChatComponent } from '@pazznetwork/ngx-chat';
+import { ChatComponent, NgxChatModule } from '@pazznetwork/ngx-chat';
 import { CHAT_SERVICE_TOKEN, CHAT_LIST_STATE_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
 import { ChatService, AuthRequest, OpenChatStateService, Contact } from '@pazznetwork/ngx-chat-shared';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule, ChatComponent],
+  imports: [RouterModule, CommonModule, FormsModule, ChatComponent, NgxChatModule],
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrls: ['./app.less']
@@ -24,6 +24,8 @@ export class App implements OnInit {
   selectedJid = '';
   registrationSuccess = '';
   rosterState: 'shown' | 'hidden' = 'shown';
+  showWidget = true;
+
 
   // Manual state management to avoid Async Pipe issues in E2E tests
   state = 'offline';
