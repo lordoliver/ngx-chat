@@ -2,32 +2,47 @@ import { test, expect } from '@playwright/test';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { AppPage } from './page-objects/app.po';
 import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
+import { generateUser } from './utils/user-helper';
 
 test.describe('MAM History', () => {
     let pageA: AppPage;
 
+    let historianA = '';
+    let historianB = '';
+    let ejabberdAdminPage: EjabberdAdminPage;
+
+    test.afterEach(async () => {
+        try {
+            await ejabberdAdminPage.unregister(historianA).catch(() => { });
+            await ejabberdAdminPage.unregister(historianB).catch(() => { });
+        } catch (e) { }
+    });
+
     test('should persist messages after page reload via MAM', async ({ browser, playwright }) => {
         // Provision users
-        const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
-        await ejabberdAdminPage.deleteAllBesidesAdminUser();
-        await ejabberdAdminPage.register('historian_a', 'pass');
-        await ejabberdAdminPage.register('historian_b', 'pass');
+        ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
+
+        historianA = generateUser('historian_a');
+        historianB = generateUser('historian_b');
+
+        await ejabberdAdminPage.register(historianA, 'pass');
+        await ejabberdAdminPage.register(historianB, 'pass');
 
         // Load Historian A
         pageA = await AppPage.create(browser);
         await pageA.setupForTest();
-        await pageA.logIn('historian_a', 'pass');
+        await pageA.logIn(historianA, 'pass');
 
         // Load Historian B
         const pageB = await pageA.newPage();
-        await pageB.logIn('historian_b', 'pass');
+        await pageB.logIn(historianB, 'pass');
 
         // 1. Establish contact (A adds B)
-        const jidB = `historian_b@${devXmppDomain}`;
+        const jidB = `${historianB}@${devXmppDomain}`;
         await pageA.addContact(jidB);
 
         // B adds A
-        const jidA = `historian_a@${devXmppDomain}`;
+        const jidA = `${historianA}@${devXmppDomain}`;
         await pageB.addContact(jidA);
 
         // Open chat
@@ -55,7 +70,7 @@ test.describe('MAM History', () => {
             // Logic in app.po `logIn` handles it.
             // But let's check if we need to log in explicitly.
             // Usually reload clears session if not persistent.
-            await pageA.logIn('historian_a', 'pass');
+            await pageA.logIn(historianA, 'pass');
         }
 
         // Re-open chat

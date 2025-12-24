@@ -2,23 +2,24 @@
 import { test } from '@playwright/test';
 import { AppPage } from './page-objects/app.po';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
+import { generateUser } from './utils/user-helper';
 import {
   devXmppDomain,
   devXmppJid,
   devXmppPassword,
 } from '../secrets';
 
-const fooUser = 'foouser';
-const barUser = 'baruser';
+let fooUser = 'foouser';
+let barUser = 'baruser';
 const testPassword = 'somepassword';
-const fooUserJid = fooUser + 'local-jabber.entenhausen.pazz.de';
-const barUserJid = barUser + 'local-jabber.entenhausen.pazz.de';
+let fooUserJid = fooUser + '@' + devXmppDomain;
+let barUserJid = barUser + '@' + devXmppDomain;
 
 test.describe('ngx-chat', () => {
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
 
-  test.beforeAll(async ({ browser, playwright }) => {
+  test.beforeEach(async ({ browser, playwright }) => {
     appPage = await AppPage.create(browser);
     ejabberdAdminPage = await EjabberdAdminPage.create(
       playwright,
@@ -26,17 +27,28 @@ test.describe('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
-    await ejabberdAdminPage.deleteAllBesidesAdminUser();
+
+    // Dynamic users
+    fooUser = generateUser('foouser');
+    barUser = generateUser('baruser');
+    fooUserJid = fooUser + '@' + devXmppDomain;
+    barUserJid = barUser + '@' + devXmppDomain;
 
     await ejabberdAdminPage.register(fooUser, testPassword);
     await ejabberdAdminPage.register(barUser, testPassword);
     await appPage.setupForTest();
   });
 
+  test.afterEach(async () => {
+    await appPage.logOut().catch(() => { });
+    await ejabberdAdminPage.unregister(fooUser).catch(() => { });
+    await ejabberdAdminPage.unregister(barUser).catch(() => { });
+  });
+
   test('should be able to submit message with enter key and button', async () => {
     await appPage.logIn(fooUser, testPassword);
     await appPage.addContact(barUserJid);
-    await appPage.addContact(fooUserJid);
+    // await appPage.addContact(fooUserJid); // Adding self? Removed redundant call if not needed.
 
     const buttonSubmitMessage = 'message submitted with button';
     const enterKeySubmitMessage = 'message submitted with enter key';

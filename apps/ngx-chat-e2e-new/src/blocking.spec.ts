@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { expect, test } from '@playwright/test';
 import { AppPage } from './page-objects/app.po';
+import { generateUser } from './utils/user-helper';
 
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import {
@@ -10,8 +11,8 @@ import {
 } from '../secrets';
 
 test.describe('ngx-chat', () => {
-  const ass = 'arsch';
-  const duty = 'dienst';
+  let ass = '';
+  let duty = '';
 
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
@@ -24,11 +25,19 @@ test.describe('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
-    await ejabberdAdminPage.deleteAllBesidesAdminUser();
+
+    // Dynamic users per suite (tests share state)
+    ass = generateUser('arsch');
+    duty = generateUser('dienst');
 
     await appPage.setupForTest();
     await ejabberdAdminPage.register(ass, ass);
     await ejabberdAdminPage.register(duty, duty);
+  });
+
+  test.afterAll(async () => {
+    await ejabberdAdminPage.unregister(ass).catch(() => { });
+    await ejabberdAdminPage.unregister(duty).catch(() => { });
   });
 
   test('should be able to block the ass as duty', async () => {
