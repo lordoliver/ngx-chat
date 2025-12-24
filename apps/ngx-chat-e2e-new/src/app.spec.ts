@@ -46,7 +46,7 @@ test.describe('ngx-chat', () => {
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
 
-  test.beforeAll(async ({ browser, playwright }) => {
+  test.beforeEach(async ({ browser, playwright }) => {
     appPage = await AppPage.create(browser);
     ejabberdAdminPage = await EjabberdAdminPage.create(
       playwright,
@@ -68,7 +68,10 @@ test.describe('ngx-chat', () => {
       dopey: generateUser('dopey'),
     };
 
-    await ejabberdAdminPage.deleteAllBesidesAdminUser();
+    // await ejabberdAdminPage.deleteAllBesidesAdminUser(); // Too expensive per test? Maybe skip cleanup and just trust unique IDs.
+    // Deleting all users per test is 500ms * N users = slow.
+    // Unique user IDs mean we don't NEED to delete.
+
     await ejabberdAdminPage.register(evilQueen, evilQueen);
     await ejabberdAdminPage.register(snowWhite, snowWhite);
     await ejabberdAdminPage.register(huntsman, huntsman);
@@ -79,9 +82,7 @@ test.describe('ngx-chat', () => {
     await ejabberdAdminPage.register(dwarfs.bashful, dwarfs.bashful);
     await ejabberdAdminPage.register(dwarfs.sneezy, dwarfs.sneezy);
     await ejabberdAdminPage.register(dwarfs.dopey, dwarfs.dopey);
-  });
 
-  test.beforeEach(async () => {
     await appPage.setupForTest();
   });
 
@@ -94,13 +95,13 @@ test.describe('ngx-chat', () => {
 
   test('should be able to log in', async () => {
     // await appPage.setupForTest(); // in beforeEach
-    await appPage.loginAdmin();
+    await appPage.logIn(snowWhite, snowWhite);
     expect(await appPage.getOnlineStateText()).toContain('online');
   });
 
   test('should be able to log out', async () => {
     // await appPage.setupForTest(); // in beforeEach
-    await appPage.loginAdmin();
+    await appPage.logIn(snowWhite, snowWhite);
     await appPage.logOut();
     expect(await appPage.isLoginFormVisible()).toBeTruthy();
   });

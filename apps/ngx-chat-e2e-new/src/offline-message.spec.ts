@@ -49,6 +49,8 @@ test.describe('Offline Message Handling', () => {
 
         // 3. Simulate Offline
         await appPage.page.context().setOffline(true);
+        // Wait for connection to drop and app to realize it's offline
+        await appPage.page.waitForTimeout(2000);
 
         // 4. Send Message
         const msg = `Offline Msg ${Date.now()}`;
