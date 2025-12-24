@@ -7,123 +7,135 @@ import { generateUser } from './utils/user-helper';
 
 // ... (existing imports)
 
-test('should facilitate chat between two users via dual.html with extended message flow', async ({ page, browser, playwright }) => {
-    // ... (provision users)
-    const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
-    const snowWhite = generateUser('snowwhite');
-    const sleepy = generateUser('sleepy');
-    const snowWhiteJid = `${snowWhite}@${devXmppDomain}`;
-    const sleepyJid = `${sleepy}@${devXmppDomain}`;
+test.describe('Dual Connect', () => {
+    let snowWhite: string;
+    let sleepy: string;
+    let ejabberdAdminPage: EjabberdAdminPage;
 
-    await ejabberdAdminPage.register(snowWhite, snowWhite);
-    await ejabberdAdminPage.register(sleepy, sleepy);
+    test.afterEach(async ({ page }) => {
+        await page.goto('about:blank').catch(() => { });
+        if (snowWhite) await ejabberdAdminPage.unregister(snowWhite).catch(() => { });
+        if (sleepy) await ejabberdAdminPage.unregister(sleepy).catch(() => { });
+    });
 
-    await page.goto(`/dual.html?u1=${snowWhite}&p1=${snowWhite}&u2=${sleepy}&p2=${sleepy}`);
+    test('should facilitate chat between two users via dual.html with extended message flow', async ({ page, browser, playwright }) => {
+        // ... (provision users)
+        ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
+        snowWhite = generateUser('snowwhite');
+        sleepy = generateUser('sleepy');
+        const snowWhiteJid = `${snowWhite}@${devXmppDomain}`;
+        const sleepyJid = `${sleepy}@${devXmppDomain}`;
 
-    const snowWhiteFrame = page.frames().find(f => f.url().includes(`username=${snowWhite}`));
-    const sleepyFrame = page.frames().find(f => f.url().includes(`username=${sleepy}`));
+        await ejabberdAdminPage.register(snowWhite, snowWhite);
+        await ejabberdAdminPage.register(sleepy, sleepy);
 
-    if (!snowWhiteFrame || !sleepyFrame) {
-        throw new Error('Could not find both chat frames');
-    }
+        await page.goto(`/dual.html?u1=${snowWhite}&p1=${snowWhite}&u2=${sleepy}&p2=${sleepy}`);
 
-    const connectionStateSelector = '[data-zid="chat-connection-state"]';
-    await expect(snowWhiteFrame.locator(connectionStateSelector)).toHaveText('online', { timeout: 15000 });
-    await expect(sleepyFrame.locator(connectionStateSelector)).toHaveText('online', { timeout: 15000 });
+        const snowWhiteFrame = page.frames().find(f => f.url().includes(`username=${snowWhite}`));
+        const sleepyFrame = page.frames().find(f => f.url().includes(`username=${sleepy}`));
 
-    // SnowWhite: Add Sleepy
-    const snowAddContactBtn = snowWhiteFrame.locator('[data-zid="add-contact"]');
-    const snowContactInput = snowWhiteFrame.locator('[data-zid="contact-jid"]');
-    await snowContactInput.fill(sleepyJid);
-    await snowAddContactBtn.click();
+        if (!snowWhiteFrame || !sleepyFrame) {
+            throw new Error('Could not find both chat frames');
+        }
 
-    // Instead of waiting for the roster entry (which relies on async roster push),
-    // we use the direct "Open Chat" feature to interact.
-    // We invoke it directly on the component to allow removing the button from the UI.
-    await snowWhiteFrame.evaluate(async (jid) => {
-        const app = (window as any).ng.getComponent(document.querySelector('app-root'));
-        await app.openChat(jid);
-    }, sleepyJid);
+        const connectionStateSelector = '[data-zid="chat-connection-state"]';
+        await expect(snowWhiteFrame.locator(connectionStateSelector)).toHaveText('online', { timeout: 15000 });
+        await expect(sleepyFrame.locator(connectionStateSelector)).toHaveText('online', { timeout: 15000 });
 
-    const snowChatWindow = snowWhiteFrame.locator('.window').first();
-    await snowChatWindow.waitFor({ state: 'visible', timeout: 5000 });
-    if (!await snowChatWindow.isVisible()) {
-        // Retry opening chat via direct call if window didn't appear
+        // SnowWhite: Add Sleepy
+        const snowAddContactBtn = snowWhiteFrame.locator('[data-zid="add-contact"]');
+        const snowContactInput = snowWhiteFrame.locator('[data-zid="contact-jid"]');
+        await snowContactInput.fill(sleepyJid);
+        await snowAddContactBtn.click();
+
+        // Instead of waiting for the roster entry (which relies on async roster push),
+        // we use the direct "Open Chat" feature to interact.
+        // We invoke it directly on the component to allow removing the button from the UI.
         await snowWhiteFrame.evaluate(async (jid) => {
             const app = (window as any).ng.getComponent(document.querySelector('app-root'));
             await app.openChat(jid);
         }, sleepyJid);
-        await snowChatWindow.waitFor();
-    }
-    const snowChatInput = snowChatWindow.locator('[data-zid="chat-input"]');
 
-    // 1. SnowWhite sends 2 messages (A1, A2)
-    const runId = Date.now();
-    const msgA1 = `SnowWhite Message 1 ${runId}`;
-    const msgA2 = `SnowWhite Message 2 ${runId}`;
-    const msgB1 = `Sleepy Reply 1 ${runId}`;
-    const msgB2 = `Sleepy Reply 2 ${runId}`;
-    const msgA3 = `SnowWhite Message 3 ${runId}`;
-    const msgA4 = `SnowWhite Message 4 ${runId}`;
+        const snowChatWindow = snowWhiteFrame.locator('.window').first();
+        await snowChatWindow.waitFor({ state: 'visible', timeout: 5000 });
+        if (!await snowChatWindow.isVisible()) {
+            // Retry opening chat via direct call if window didn't appear
+            await snowWhiteFrame.evaluate(async (jid) => {
+                const app = (window as any).ng.getComponent(document.querySelector('app-root'));
+                await app.openChat(jid);
+            }, sleepyJid);
+            await snowChatWindow.waitFor();
+        }
+        const snowChatInput = snowChatWindow.locator('[data-zid="chat-input"]');
 
-    await snowChatInput.fill(msgA1);
-    await snowChatInput.press('Enter');
-    await snowChatInput.fill(msgA2);
-    await snowChatInput.press('Enter');
+        // 1. SnowWhite sends 2 messages (A1, A2)
+        const runId = Date.now();
+        const msgA1 = `SnowWhite Message 1 ${runId}`;
+        const msgA2 = `SnowWhite Message 2 ${runId}`;
+        const msgB1 = `Sleepy Reply 1 ${runId}`;
+        const msgB2 = `Sleepy Reply 2 ${runId}`;
+        const msgA3 = `SnowWhite Message 3 ${runId}`;
+        const msgA4 = `SnowWhite Message 4 ${runId}`;
 
-    // Verify SnowWhite sees them sent (out)
-    await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA1 })).toHaveCount(1);
-    await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA2 })).toHaveCount(1);
+        await snowChatInput.fill(msgA1);
+        await snowChatInput.press('Enter');
+        await snowChatInput.fill(msgA2);
+        await snowChatInput.press('Enter');
 
-    // Sleepy: Open chat and verify receipt
-    const sleepyContactInput = sleepyFrame.locator('[data-zid="contact-jid"]');
+        // Verify SnowWhite sees them sent (out)
+        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA1 })).toHaveCount(1);
+        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA2 })).toHaveCount(1);
 
-    // Ensure contact is added and chat is opened via direct UI interaction
-    // (Bypassing roster list check which is flaky due to sync delays)
-    await sleepyContactInput.fill(snowWhiteJid);
-    const sleepyAddContactBtn = sleepyFrame.locator('[data-zid="add-contact"]');
-    await sleepyAddContactBtn.click();
+        // Sleepy: Open chat and verify receipt
+        const sleepyContactInput = sleepyFrame.locator('[data-zid="contact-jid"]');
 
-    await sleepyFrame.evaluate(async (jid) => {
-        const app = (window as any).ng.getComponent(document.querySelector('app-root'));
-        await app.openChat(jid);
-    }, snowWhiteJid);
+        // Ensure contact is added and chat is opened via direct UI interaction
+        // (Bypassing roster list check which is flaky due to sync delays)
+        await sleepyContactInput.fill(snowWhiteJid);
+        const sleepyAddContactBtn = sleepyFrame.locator('[data-zid="add-contact"]');
+        await sleepyAddContactBtn.click();
 
-    const sleepyChatWindow = sleepyFrame.locator('.window').first();
-    await sleepyChatWindow.waitFor({ state: 'visible' });
-    const sleepyChatInput = sleepyChatWindow.locator('[data-zid="chat-input"]');
+        await sleepyFrame.evaluate(async (jid) => {
+            const app = (window as any).ng.getComponent(document.querySelector('app-root'));
+            await app.openChat(jid);
+        }, snowWhiteJid);
 
-    // Verify Sleepy sees A1, A2 (in)
-    await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA1 })).toHaveCount(1);
-    await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA2 })).toHaveCount(1);
+        const sleepyChatWindow = sleepyFrame.locator('.window').first();
+        await sleepyChatWindow.waitFor({ state: 'visible' });
+        const sleepyChatInput = sleepyChatWindow.locator('[data-zid="chat-input"]');
 
-    // 2. Sleepy sends 2 messages (B1, B2)
+        // Verify Sleepy sees A1, A2 (in)
+        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA1 })).toHaveCount(1);
+        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA2 })).toHaveCount(1);
 
-    await sleepyChatInput.fill(msgB1);
-    await sleepyChatInput.press('Enter');
-    await sleepyChatInput.fill(msgB2);
-    await sleepyChatInput.press('Enter');
+        // 2. Sleepy sends 2 messages (B1, B2)
 
-    // Verify Sleepy sees them sent (out)
-    await expect(sleepyFrame.locator('ngx-chat-message-out', { hasText: msgB1 })).toHaveCount(1);
-    await expect(sleepyFrame.locator('ngx-chat-message-out', { hasText: msgB2 })).toHaveCount(1);
+        await sleepyChatInput.fill(msgB1);
+        await sleepyChatInput.press('Enter');
+        await sleepyChatInput.fill(msgB2);
+        await sleepyChatInput.press('Enter');
 
-    // Verify SnowWhite sees B1, B2 (in)
-    await expect(snowWhiteFrame.locator('ngx-chat-message-in', { hasText: msgB1 })).toHaveCount(1);
-    await expect(snowWhiteFrame.locator('ngx-chat-message-in', { hasText: msgB2 })).toHaveCount(1);
+        // Verify Sleepy sees them sent (out)
+        await expect(sleepyFrame.locator('ngx-chat-message-out', { hasText: msgB1 })).toHaveCount(1);
+        await expect(sleepyFrame.locator('ngx-chat-message-out', { hasText: msgB2 })).toHaveCount(1);
 
-    // 3. SnowWhite sends 2 messages (A3, A4)
+        // Verify SnowWhite sees B1, B2 (in)
+        await expect(snowWhiteFrame.locator('ngx-chat-message-in', { hasText: msgB1 })).toHaveCount(1);
+        await expect(snowWhiteFrame.locator('ngx-chat-message-in', { hasText: msgB2 })).toHaveCount(1);
 
-    await snowChatInput.fill(msgA3);
-    await snowChatInput.press('Enter');
-    await snowChatInput.fill(msgA4);
-    await snowChatInput.press('Enter');
+        // 3. SnowWhite sends 2 messages (A3, A4)
 
-    // Verify SnowWhite sees them sent (out)
-    await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA3 })).toHaveCount(1);
-    await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA4 })).toHaveCount(1);
+        await snowChatInput.fill(msgA3);
+        await snowChatInput.press('Enter');
+        await snowChatInput.fill(msgA4);
+        await snowChatInput.press('Enter');
 
-    // Verify Sleepy sees A3, A4 (in)
-    await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA3 })).toHaveCount(1);
-    await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA4 })).toHaveCount(1);
+        // Verify SnowWhite sees them sent (out)
+        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA3 })).toHaveCount(1);
+        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA4 })).toHaveCount(1);
+
+        // Verify Sleepy sees A3, A4 (in)
+        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA3 })).toHaveCount(1);
+        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA4 })).toHaveCount(1);
+    });
 });

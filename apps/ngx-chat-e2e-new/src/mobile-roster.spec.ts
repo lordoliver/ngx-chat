@@ -99,5 +99,9 @@ test.describe('Mobile/Separate Roster Logic', () => {
 
     });
 
-    test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+    test.afterAll(async () => {
+        await appPage.page.goto('about:blank').catch(() => { });
+        if (mobileUser) await ejabberdAdminPage.unregister(mobileUser).catch(() => { });
+        if (contact1) await ejabberdAdminPage.unregister(contact1).catch(() => { });
+    });
 });

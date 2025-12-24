@@ -91,6 +91,8 @@ test.describe('ngx-chat', () => {
       console.log('Browser Console Logs:', appPage.errorLogs);
     }
     await appPage.logOut().catch(() => { });
+    // Force disconnect to ensure no active sessions remain before deletion
+    await appPage.page.goto('about:blank').catch(() => { });
 
     // Explicitly delete users to prevent accumulation (200+ users per file)
     const usersToDelete = [

@@ -12,7 +12,6 @@ import {
 let fooUser = 'foouser';
 let barUser = 'baruser';
 const testPassword = 'somepassword';
-let fooUserJid = fooUser + '@' + devXmppDomain;
 let barUserJid = barUser + '@' + devXmppDomain;
 
 test.describe('ngx-chat', () => {
@@ -31,7 +30,6 @@ test.describe('ngx-chat', () => {
     // Dynamic users
     fooUser = generateUser('foouser');
     barUser = generateUser('baruser');
-    fooUserJid = fooUser + '@' + devXmppDomain;
     barUserJid = barUser + '@' + devXmppDomain;
 
     await ejabberdAdminPage.register(fooUser, testPassword);
@@ -41,6 +39,7 @@ test.describe('ngx-chat', () => {
 
   test.afterEach(async () => {
     await appPage.logOut().catch(() => { });
+    await appPage.page.goto('about:blank').catch(() => { });
     await ejabberdAdminPage.unregister(fooUser).catch(() => { });
     await ejabberdAdminPage.unregister(barUser).catch(() => { });
   });
