@@ -39,6 +39,7 @@ const config: PlaywrightTestConfig = {
     ignoreHTTPSErrors: true,
   },
   testDir: './src',
+  globalSetup: require.resolve('./src/global-setup'),
   testMatch: /.*\.spec\.ts/,
   /* Configure projects for chromium only */
   projects: [
