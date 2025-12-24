@@ -41,19 +41,19 @@ test('MUC messages should be delivered to all participants', async ({ browser, p
     // Then clicked UI item.
     // The PO `acceptInvite` effectively joins.
     // Let's use `acceptInvite` which wraps `joinRoom`.
-    // If it fails, where does it fail? In the UI?
     // Service `joinRoom` might throw or UI shows error.
     // The test expects Error Banner.
 
     // Let's emulate the "Add to list" action first if we want to test UI error?
     // Or just call joinRoom and see if UI updates?
-    // If we call `joinRoom` service, the XMPP error should arrive. A banner might appear.
-    // OR we can just `acceptInvite` which is `joinRoom`.
+    // If we call `joinRoom` service, the    // 3. Create Room (Explicitly Open & Non-Persistent to avoid CI issues)
+    // args: roomId, roomName, membersOnly=false, nonAnon=true, persistent=false
+    await snowMuc.createRoomWithConfiguration(roomName, roomName, false, true, false);
 
-    // 5. Grant Membership (Required for default rooms)
-    const sleepyJid = `sleepy@${devXmppDomain}`;
-    await snowMuc.grantMembership(sleepyJid, roomName);
-    await snowMuc.inviteUser(sleepyJid, roomName);
+    // 4. Invite (Optional for open rooms, but good for UI flow)
+    // We can skip invite and just join if it's public/open, but acceptInvite implies invitation flow or knowing the ID.
+    // acceptInvite uses list-selection. If room is not public, it might not show in list?
+    // But we use `joinRoom` via ID in `acceptInvite`? No, `acceptInvite` fills `muc-room-name`.
 
     // 6. Sleepy joins
     await sleepyMuc.acceptInvite(roomName);
