@@ -37,8 +37,6 @@ test.describe('ngx-chat', () => {
 
   test.afterAll(async () => {
     await appPage.page.goto('about:blank').catch(() => { });
-    await ejabberdAdminPage.unregister(ass).catch(() => { });
-    await ejabberdAdminPage.unregister(duty).catch(() => { });
   });
 
   test('should be able to block the ass as duty', async () => {

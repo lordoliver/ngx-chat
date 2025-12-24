@@ -14,8 +14,6 @@ test.describe('Dual Connect', () => {
 
     test.afterEach(async ({ page }) => {
         await page.goto('about:blank').catch(() => { });
-        if (snowWhite) await ejabberdAdminPage.unregister(snowWhite).catch(() => { });
-        if (sleepy) await ejabberdAdminPage.unregister(sleepy).catch(() => { });
     });
 
     test('should facilitate chat between two users via dual.html with extended message flow', async ({ page, browser, playwright }) => {

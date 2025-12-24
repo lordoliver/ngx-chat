@@ -40,8 +40,6 @@ test.describe('ngx-chat', () => {
   test.afterEach(async () => {
     await appPage.logOut().catch(() => { });
     await appPage.page.goto('about:blank').catch(() => { });
-    await ejabberdAdminPage.unregister(fooUser).catch(() => { });
-    await ejabberdAdminPage.unregister(barUser).catch(() => { });
   });
 
   test('should be able to submit message with enter key and button', async () => {

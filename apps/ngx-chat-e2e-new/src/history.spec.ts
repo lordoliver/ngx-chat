@@ -14,8 +14,6 @@ test.describe('MAM History', () => {
     test.afterEach(async () => {
         try {
             if (pageA) await pageA.page.goto('about:blank').catch(() => { });
-            await ejabberdAdminPage.unregister(historianA).catch(() => { });
-            await ejabberdAdminPage.unregister(historianB).catch(() => { });
         } catch (e) { }
     });
 

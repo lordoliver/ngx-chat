@@ -91,23 +91,8 @@ test.describe('ngx-chat', () => {
       console.log('Browser Console Logs:', appPage.errorLogs);
     }
     await appPage.logOut().catch(() => { });
-    // Force disconnect to ensure no active sessions remain before deletion
+    // Force disconnect to ensure no active sessions remain
     await appPage.page.goto('about:blank').catch(() => { });
-
-    // Explicitly delete users to prevent accumulation (200+ users per file)
-    const usersToDelete = [
-      snowWhite,
-      evilQueen,
-      huntsman,
-      ...Object.values(dwarfs)
-    ].filter(u => u);
-
-    for (const u of usersToDelete) {
-      if (u) {
-        // Use catch to avoid failing the test if cleanup fails
-        await ejabberdAdminPage.unregister(u).catch(e => console.warn(`Cleanup failed for ${u}`, e));
-      }
-    }
   });
 
   test('should be able to log in', async () => {
