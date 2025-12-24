@@ -41,7 +41,6 @@ export class App implements OnInit {
   ) {
     (window as any).ngZone = this.ngZone;
     (window as any).app = this;
-    console.log('DEBUG: App component initialized, exposed as window.app', (window as any).app);
   }
 
   ngOnInit() {
@@ -88,7 +87,6 @@ export class App implements OnInit {
   }
 
   async login() {
-    console.log('DEBUG: App login called with:', this.username);
     this.loginError = '';
     const auth: AuthRequest = {
       username: this.username,
@@ -114,7 +112,6 @@ export class App implements OnInit {
   }
 
   register() {
-    console.log('DEBUG: App register called with:', this.username);
     this.chatService.register({
       username: this.username,
       password: this.password,
@@ -162,7 +159,6 @@ export class App implements OnInit {
 
   async createRoom(name: string) {
     if (!name) return;
-    console.log('DEBUG: Creating room', name);
     const roomJid = `${name}@conference.${this.domain}`;
     await this.chatService.roomService.createRoom({
       name,
@@ -176,21 +172,18 @@ export class App implements OnInit {
 
   async selectRoom(name: string) {
     if (!name) return;
-    console.log('DEBUG: Selecting/Joining room', name);
     const roomJid = `${name}@conference.${this.domain}`;
     await this.chatService.roomService.joinRoom(roomJid);
   }
 
   async grantMembership(roomName: string, userJid: string) {
     const fullJid = this.normalizeJid(userJid);
-    console.log('DEBUG: Granting membership', roomName, fullJid);
     const roomJid = `${roomName}@conference.${this.domain}`;
     await this.chatService.roomService.grantMembershipForRoom(fullJid, roomJid);
   }
 
   async inviteUser(roomName: string, userJid: string) {
     const fullJid = this.normalizeJid(userJid);
-    console.log('DEBUG: Inviting user', roomName, fullJid);
     const roomJid = `${roomName}@conference.${this.domain}`;
     await this.chatService.roomService.inviteUserToRoom(fullJid, roomJid);
   }

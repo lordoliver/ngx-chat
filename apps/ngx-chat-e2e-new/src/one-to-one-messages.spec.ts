@@ -1,6 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { test } from '@playwright/test';
-console.log('DEBUG: test object:', test);
 import { AppPage } from './page-objects/app.po';
 import {
   devXmppDomain,
