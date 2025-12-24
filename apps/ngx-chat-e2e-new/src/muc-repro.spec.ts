@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { AppPage } from './page-objects/app.po';
 import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
+import { generateUser } from './utils/user-helper';
 
 // FIXME: Secure Room creation logic (createRoom) is hardened and correct.
 // However, message delivery validation flakes on CI/Local (Timeout waiting for message).
@@ -10,17 +11,20 @@ import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
 test.fixme('MUC messages should be delivered to all participants', async ({ browser, playwright }) => {
     // 1. Provision Users
     const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
-    await ejabberdAdminPage.register('snowwhite', 'snowwhite');
-    await ejabberdAdminPage.register('sleepy', 'sleepy');
+    const snowWhite = generateUser('snowwhite');
+    const sleepy = generateUser('sleepy');
+
+    await ejabberdAdminPage.register(snowWhite, snowWhite);
+    await ejabberdAdminPage.register(sleepy, sleepy);
 
     // 2. Load SnowWhite (Owner)
     const snowWhitePage = await AppPage.create(browser);
     await snowWhitePage.setupForTest();
-    await snowWhitePage.logIn('snowwhite', 'snowwhite');
+    await snowWhitePage.logIn(snowWhite, snowWhite);
 
     // 3. Load Sleepy (Participant)
     const sleepyPage = await snowWhitePage.newPage();
-    await sleepyPage.logIn('sleepy', 'sleepy');
+    await sleepyPage.logIn(sleepy, sleepy);
 
     const connectionStateSelector = '[data-zid="chat-connection-state"]';
     await expect(snowWhitePage.page.locator(connectionStateSelector)).toHaveText('online', { timeout: 15000 });

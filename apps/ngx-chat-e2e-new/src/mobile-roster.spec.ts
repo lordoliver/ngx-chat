@@ -6,14 +6,15 @@ import {
     devXmppJid,
     devXmppPassword,
 } from '../secrets';
+import { generateUser } from './utils/user-helper';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
-
-const mobileUser = 'mobileuser';
-const password = 'password';
 
 test.describe('Mobile/Separate Roster Logic', () => {
     let appPage: AppPage;
     let ejabberdAdminPage: EjabberdAdminPage;
+    let mobileUser: string;
+    let contact1: string;
+    const password = 'password';
 
     test.beforeAll(async ({ browser, playwright }) => {
         appPage = await AppPage.create(browser);
@@ -23,10 +24,13 @@ test.describe('Mobile/Separate Roster Logic', () => {
             devXmppJid,
             devXmppPassword
         );
+        mobileUser = generateUser('mobileuser');
+        contact1 = generateUser('contact1');
+
         await ejabberdAdminPage.deleteAllBesidesAdminUser();
         // Register user and contact
         await ejabberdAdminPage.register(mobileUser, password);
-        await ejabberdAdminPage.register('contact1', password);
+        await ejabberdAdminPage.register(contact1, password);
     });
 
     /**
@@ -41,7 +45,7 @@ test.describe('Mobile/Separate Roster Logic', () => {
         const contact1Context = await browser.newContext();
         const contact1Page = await AppPage.create(contact1Context);
         await contact1Page.setupForTest();
-        await contact1Page.logIn('contact1', password);
+        await contact1Page.logIn(contact1, password);
         // We don't need to do anything with contact1, just having them online is enough.
 
         console.log('Navigating to app...');
@@ -53,7 +57,7 @@ test.describe('Mobile/Separate Roster Logic', () => {
         await appPage.page.evaluate(() => (window as any).app.showWidget = false);
 
         // Add contact to ensure they appear in the separate list
-        await appPage.addContact('contact1@' + devXmppDomain);
+        await appPage.addContact(contact1 + '@' + devXmppDomain);
         // Standard roster is hidden in this test mode to prevent overlay, so we skip checking it.
 
 
@@ -67,7 +71,7 @@ test.describe('Mobile/Separate Roster Logic', () => {
         // It should contain the contact name/JID.
         // Note: index.component.html uses {{ contact.name }} which might be JID if name is missing.
         console.log('Waiting for contact button...');
-        const separateRosterButton = appPage.page.locator('button', { hasText: 'contact1' }).first();
+        const separateRosterButton = appPage.page.locator('button', { hasText: contact1 }).first();
         await expect(separateRosterButton).toBeVisible();
 
         // Click to open "full screen" (embedded) chat

@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
-
+import { generateUser } from './utils/user-helper';
 
 
 // ... (existing imports)
@@ -10,13 +10,18 @@ import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
 test('should facilitate chat between two users via dual.html with extended message flow', async ({ page, browser, playwright }) => {
     // ... (provision users)
     const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
-    await ejabberdAdminPage.register('snowwhite', 'snowwhite');
-    await ejabberdAdminPage.register('sleepy', 'sleepy');
+    const snowWhite = generateUser('snowwhite');
+    const sleepy = generateUser('sleepy');
+    const snowWhiteJid = `${snowWhite}@${devXmppDomain}`;
+    const sleepyJid = `${sleepy}@${devXmppDomain}`;
 
-    await page.goto('/dual.html');
+    await ejabberdAdminPage.register(snowWhite, snowWhite);
+    await ejabberdAdminPage.register(sleepy, sleepy);
 
-    const snowWhiteFrame = page.frames().find(f => f.url().includes('username=snowwhite'));
-    const sleepyFrame = page.frames().find(f => f.url().includes('username=sleepy'));
+    await page.goto(`/dual.html?u1=${snowWhite}&p1=${snowWhite}&u2=${sleepy}&p2=${sleepy}`);
+
+    const snowWhiteFrame = page.frames().find(f => f.url().includes(`username=${snowWhite}`));
+    const sleepyFrame = page.frames().find(f => f.url().includes(`username=${sleepy}`));
 
     if (!snowWhiteFrame || !sleepyFrame) {
         throw new Error('Could not find both chat frames');
@@ -29,7 +34,7 @@ test('should facilitate chat between two users via dual.html with extended messa
     // SnowWhite: Add Sleepy
     const snowAddContactBtn = snowWhiteFrame.locator('[data-zid="add-contact"]');
     const snowContactInput = snowWhiteFrame.locator('[data-zid="contact-jid"]');
-    await snowContactInput.fill('sleepy@local-jabber.entenhausen.pazz.de');
+    await snowContactInput.fill(sleepyJid);
     await snowAddContactBtn.click();
 
     // Instead of waiting for the roster entry (which relies on async roster push),
@@ -38,7 +43,7 @@ test('should facilitate chat between two users via dual.html with extended messa
     await snowWhiteFrame.evaluate(async (jid) => {
         const app = (window as any).ng.getComponent(document.querySelector('app-root'));
         await app.openChat(jid);
-    }, 'sleepy@local-jabber.entenhausen.pazz.de');
+    }, sleepyJid);
 
     const snowChatWindow = snowWhiteFrame.locator('.window').first();
     await snowChatWindow.waitFor({ state: 'visible', timeout: 5000 });
@@ -47,7 +52,7 @@ test('should facilitate chat between two users via dual.html with extended messa
         await snowWhiteFrame.evaluate(async (jid) => {
             const app = (window as any).ng.getComponent(document.querySelector('app-root'));
             await app.openChat(jid);
-        }, 'sleepy@local-jabber.entenhausen.pazz.de');
+        }, sleepyJid);
         await snowChatWindow.waitFor();
     }
     const snowChatInput = snowChatWindow.locator('[data-zid="chat-input"]');
@@ -75,14 +80,14 @@ test('should facilitate chat between two users via dual.html with extended messa
 
     // Ensure contact is added and chat is opened via direct UI interaction
     // (Bypassing roster list check which is flaky due to sync delays)
-    await sleepyContactInput.fill('snowwhite@local-jabber.entenhausen.pazz.de');
+    await sleepyContactInput.fill(snowWhiteJid);
     const sleepyAddContactBtn = sleepyFrame.locator('[data-zid="add-contact"]');
     await sleepyAddContactBtn.click();
 
     await sleepyFrame.evaluate(async (jid) => {
         const app = (window as any).ng.getComponent(document.querySelector('app-root'));
         await app.openChat(jid);
-    }, 'snowwhite@local-jabber.entenhausen.pazz.de');
+    }, snowWhiteJid);
 
     const sleepyChatWindow = sleepyFrame.locator('.window').first();
     await sleepyChatWindow.waitFor({ state: 'visible' });

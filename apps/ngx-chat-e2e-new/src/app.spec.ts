@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { expect, test } from '@playwright/test';
+import { generateUser } from './utils/user-helper';
 import { AppPage } from './page-objects/app.po';
 
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
@@ -28,19 +29,19 @@ import {
  *   * image link preview
  */
 test.describe('ngx-chat', () => {
-  const dwarfs = {
-    doc: 'doc',
-    grumpy: 'grumpy',
-    happy: 'happy',
-    sleepy: 'sleepy',
-    bashful: 'bashful',
-    sneezy: 'sneezy',
-    dopey: 'dopey',
+  let dwarfs = {
+    doc: '',
+    grumpy: '',
+    happy: '',
+    sleepy: '',
+    bashful: '',
+    sneezy: '',
+    dopey: '',
   };
 
-  const snowWhite = 'snowwhite';
-  const evilQueen = 'evilqueen';
-  const huntsman = 'huntsman';
+  let snowWhite = '';
+  let evilQueen = '';
+  let huntsman = '';
 
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
@@ -53,6 +54,20 @@ test.describe('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
+
+    snowWhite = generateUser('snowwhite');
+    evilQueen = generateUser('evilqueen');
+    huntsman = generateUser('huntsman');
+    dwarfs = {
+      doc: generateUser('doc'),
+      grumpy: generateUser('grumpy'),
+      happy: generateUser('happy'),
+      sleepy: generateUser('sleepy'),
+      bashful: generateUser('bashful'),
+      sneezy: generateUser('sneezy'),
+      dopey: generateUser('dopey'),
+    };
+
     await ejabberdAdminPage.deleteAllBesidesAdminUser();
     await ejabberdAdminPage.register(evilQueen, evilQueen);
     await ejabberdAdminPage.register(snowWhite, snowWhite);

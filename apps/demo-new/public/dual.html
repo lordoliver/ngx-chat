@@ -43,15 +43,27 @@
 </head>
 
 <body>
-    <!-- Use ws:// to avoid certificate errors mixed with http:// -->
     <div class="pane">
-        <div class="header">SnowWhite (localhost)</div>
-        <iframe src="/?username=snowwhite&password=snowwhite"></iframe>
+        <div class="header" id="header1">User 1</div>
+        <iframe id="frame1"></iframe>
     </div>
     <div class="pane">
-        <div class="header">Sleepy (localhost)</div>
-        <iframe src="/?username=sleepy&password=sleepy"></iframe>
+        <div class="header" id="header2">User 2</div>
+        <iframe id="frame2"></iframe>
     </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const u1 = params.get('u1') || 'snowwhite';
+        const p1 = params.get('p1') || 'snowwhite';
+        const u2 = params.get('u2') || 'sleepy';
+        const p2 = params.get('p2') || 'sleepy';
+
+        document.getElementById('header1').textContent = u1;
+        document.getElementById('header2').textContent = u2;
+
+        document.getElementById('frame1').src = `/?username=${u1}&password=${p1}`;
+        document.getElementById('frame2').src = `/?username=${u2}&password=${p2}`;
+    </script>
 </body>
 
 </html>

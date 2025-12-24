@@ -2,21 +2,35 @@ import { test, expect } from '@playwright/test';
 import { AppPage } from './page-objects/app.po';
 import { ChatWindowPage } from './page-objects/chat-window.po';
 
+import { generateUser } from './utils/user-helper';
+import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
+import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
+
 test.describe('Offline Message Handling', () => {
     let appPage: AppPage;
-    const testContact = 'offline-user';
-    const domain = 'local-jabber.entenhausen.pazz.de';
-    const fullJid = `${testContact}@${domain}`;
+    let ejabberdAdminPage: EjabberdAdminPage;
+    let sender: string;
+    let recipient: string;
+    let fullJid: string;
 
-    test.beforeEach(async ({ browser }) => {
+    test.beforeEach(async ({ browser, playwright }) => {
         appPage = await AppPage.create(browser);
+        ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
+
+        sender = generateUser('sender');
+        recipient = generateUser('recipient');
+        fullJid = `${recipient}@${devXmppDomain}`;
+
+        await ejabberdAdminPage.register(sender, 'password');
+        await ejabberdAdminPage.register(recipient, 'password');
+
         await appPage.setupForTest();
-        await appPage.loginAdmin();
+        await appPage.logIn(sender, 'password');
     });
 
     test('should queue and send message when offline', async () => {
         // 1. Add contact to ensure we can chat
-        const contactLocator = appPage.page.locator(`[title*="${testContact}"]`);
+        const contactLocator = appPage.page.locator(`[title*="${recipient}"]`);
         let exists = await contactLocator.count() > 0;
 
         if (!exists) {
@@ -28,7 +42,7 @@ test.describe('Offline Message Handling', () => {
         // 2. Open chat
         let chatWindow: ChatWindowPage;
         if (exists) {
-            chatWindow = await appPage.selectChatWithContact(testContact);
+            chatWindow = await appPage.selectChatWithContact(recipient);
         } else {
             chatWindow = await appPage.openChatWith(fullJid);
         }
