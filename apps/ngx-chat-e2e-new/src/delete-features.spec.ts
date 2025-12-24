@@ -4,7 +4,7 @@ import { AppPage } from './page-objects/app.po';
 import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
 
 test.describe('Delete Features', () => {
-    test.fixme('should allow destroying a room using service', async ({ page, playwright }) => {
+    test('should allow destroying a room using service', async ({ page, playwright }) => {
         // 1. Provision User
         const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
         await ejabberdAdminPage.register('destroyer', 'password');
@@ -31,7 +31,7 @@ test.describe('Delete Features', () => {
             // We can use roomService directly to join, which typically adds it to the room list and opens it if configured
             // But we might need to open the chat window manually if join doesn't auto-open
             await roster.chatService.roomService.joinRoom(roomJid);
-            const room = await roster.chatService.roomService.getRoom(roomJid);
+            const room = await roster.chatService.roomService.getRoomByJid(roomJid);
             // Ensure chat is open
             if (room) {
                 // We need OpenChatStateService, which is injected in RosterListComponent as 'chatListService' (private?)
@@ -52,9 +52,11 @@ test.describe('Delete Features', () => {
         await convItem.click();
 
         // Check if chat window opened
-        await expect(appPage.page.locator('ngx-chat-window')).toBeVisible();
-        // Check if header shows the JID
-        await expect(appPage.page.locator('.contact-name', { hasText: roomName })).toBeVisible();
+        const chatWindow = appPage.getChatWindow(roomJid);
+        chatWindow.assertIsOpen();
+        // The original test checked for .contact-name with roomName. 
+        // assertIsOpen checks windowTitleLocator which looks for text matching JID local part.
+        // roomName is the local part.
 
         // 4. Destroy Room (via Service, as UI button is missing)
         await appPage.page.evaluate(async ({ roomJid }) => {

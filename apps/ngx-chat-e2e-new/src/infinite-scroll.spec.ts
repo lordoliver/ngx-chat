@@ -25,7 +25,7 @@ test.describe('Infinite Scroll', () => {
         await sleepyPage.close();
     });
 
-    test.fixme('should load recent messages initially and older messages on scroll', async ({ playwright }) => {
+    test('should load recent messages initially and older messages on scroll', async ({ playwright }) => {
         test.setTimeout(120000);
         const suffix = Date.now();
         const u1 = 'sw_' + suffix;
@@ -79,7 +79,7 @@ test.describe('Infinite Scroll', () => {
 
         // 5. Verify only partial messages loaded initially (approx 10-20?)
         await sleepyChat.waitForMessageCount(1); // Wait for initial load
-        let messageCount = await sleepyPage.locator('.chat-window ngx-chat-message-in, .chat-window ngx-chat-message-out').count();
+        let messageCount = await sleepyChat.getMessageCount();
         console.log('Initial message count:', messageCount);
 
         // Expectation: If 20 messages, and page size is 10. Initial 10-15.

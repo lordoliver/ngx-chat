@@ -123,27 +123,7 @@ test.describe('ngx-chat', () => {
 
     const iAmBob = 'I am bob';
 
-    // DEBUG: Manual MAM Query
-    try {
-      const mamResult = await bobPage.page.evaluate(async (roomJid) => {
-        const chatService = (window as any).app.chatService;
-        const connection = chatService.chatConnectionService || chatService['chatConnectionService'];
 
-        if (!connection) throw new Error('No connection service found');
-
-        const fullRoomJid = roomJid.includes('@') ? roomJid : `${roomJid}@conference.local-jabber.entenhausen.pazz.de`;
-        const iq = await connection.$iq({ type: 'set', to: fullRoomJid })
-          .c('query', { xmlns: 'urn:xmpp:mam:2' })
-          .c('set', { xmlns: 'http://jabber.org/protocol/rsm' })
-          .c('max').t('10').up()
-          .c('before')
-          .send();
-        return iq.outerHTML;
-      }, room);
-      console.log('DEBUG: Manual MAM Result:', mamResult);
-    } catch (e) {
-      console.log('DEBUG: Manual MAM Query Failed', e);
-    }
 
     await bobRoomChat.waitForMessageCount(1);
     expect(await bobRoomChat.getNthMessage(1)).toContain(hello);

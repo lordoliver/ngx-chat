@@ -3,7 +3,7 @@ import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { AppPage } from './page-objects/app.po';
 import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
 
-test.fixme('MUC messages should be delivered to all participants', async ({ browser, playwright }) => {
+test('MUC messages should be delivered to all participants', async ({ browser, playwright }) => {
     // 1. Provision Users
     const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
     await ejabberdAdminPage.register('snowwhite', 'snowwhite');
