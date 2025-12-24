@@ -281,9 +281,46 @@ export class MucPageObject {
     return { variable, value, label };
   }
 
-  async createRoom(room: string, nick: string): Promise<void> {
+  async createRoom(
+    room: string,
+    nick: string,
+    options?: {
+      membersOnly?: boolean;
+      nonAnon?: boolean;
+      persistent?: boolean;
+      isPublic?: boolean;
+    }
+  ): Promise<void> {
     // Note: Nick is currently ignored by the UI (uses logged in user), but kept for signature compatibility
     await this.page.locator('[data-zid="muc-room-name"]').fill(room);
+
+    if (options) {
+      if (options.membersOnly !== undefined) {
+        const isChecked = await this.roomMembersOnlyCheckboxLocator.isChecked();
+        if (isChecked !== options.membersOnly) {
+          await this.roomMembersOnlyCheckboxLocator.click();
+        }
+      }
+      if (options.nonAnon !== undefined) {
+        const isChecked = await this.roomNonAnonCheckboxLocator.isChecked();
+        if (isChecked !== options.nonAnon) {
+          await this.roomNonAnonCheckboxLocator.click();
+        }
+      }
+      if (options.persistent !== undefined) {
+        const isChecked = await this.roomPersistentCheckboxLocator.isChecked();
+        if (isChecked !== options.persistent) {
+          await this.roomPersistentCheckboxLocator.click();
+        }
+      }
+      if (options.isPublic !== undefined) {
+        const isChecked = await this.roomPublicCheckboxLocator.isChecked();
+        if (isChecked !== options.isPublic) {
+          await this.roomPublicCheckboxLocator.click();
+        }
+      }
+    }
+
     await this.page.locator('[data-zid="muc-create"]').click();
   }
 

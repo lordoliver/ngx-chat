@@ -25,9 +25,9 @@ test('MUC messages should be delivered to all participants', async ({ browser, p
     const roomName = `e2e-muc-${Date.now()}`;
     const roomJid = `${roomName}@conference.${devXmppDomain}`;
 
-    // 4. Create Room (SnowWhite) -> Default is Members-Only
+    // 4. Create Room (SnowWhite) -> Explicitly Members-Only
     const snowMuc = snowWhitePage.createMUCPageObject();
-    await snowMuc.createRoom(roomName, 'snowwhite');
+    await snowMuc.createRoom(roomName, 'snowwhite', { membersOnly: true });
 
     // 5. Grant Membership & Invite (Required for secure Closed Rooms)
     const sleepyJid = `sleepy@${devXmppDomain}`;
