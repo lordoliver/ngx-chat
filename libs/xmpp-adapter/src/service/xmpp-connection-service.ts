@@ -92,7 +92,6 @@ export class XmppConnectionService {
   }
 
   async logOut(): Promise<void> {
-    this.userStateSubject.next('offline');
     if (this.currentConnection) {
       try {
         await Promise.race([
@@ -104,6 +103,7 @@ export class XmppConnectionService {
       }
       this.currentConnection = undefined;
     }
+    this.userStateSubject.next('offline');
   }
 
   private async createConnection({
