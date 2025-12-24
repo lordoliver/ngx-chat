@@ -292,37 +292,36 @@ export class MucPageObject {
     }
   ): Promise<void> {
     // Note: Nick is currently ignored by the UI (uses logged in user), but kept for signature compatibility
-    await this.page.locator('[data-zid="muc-room-name"]').fill(room);
+    // If specific options are provided (like membersOnly), we must use the service directly
+    // because the simple demo UI does not expose these checkboxes.
+    if (options && (options.membersOnly !== undefined || options.persistent !== undefined || options.nonAnon !== undefined || options.isPublic !== undefined)) {
+      await this.page.evaluate(
+        async ({ room, options }) => {
+          const app = (window as any).app;
+          if (!app) throw new Error('App not initialized');
 
-    if (options) {
-      if (options.membersOnly !== undefined) {
-        const isChecked = await this.roomMembersOnlyCheckboxLocator.isChecked();
-        if (isChecked !== options.membersOnly) {
-          await this.roomMembersOnlyCheckboxLocator.click();
-        }
-      }
-      if (options.nonAnon !== undefined) {
-        const isChecked = await this.roomNonAnonCheckboxLocator.isChecked();
-        if (isChecked !== options.nonAnon) {
-          await this.roomNonAnonCheckboxLocator.click();
-        }
-      }
-      if (options.persistent !== undefined) {
-        const isChecked = await this.roomPersistentCheckboxLocator.isChecked();
-        if (isChecked !== options.persistent) {
-          await this.roomPersistentCheckboxLocator.click();
-        }
-      }
-      if (options.isPublic !== undefined) {
-        const isChecked = await this.roomPublicCheckboxLocator.isChecked();
-        if (isChecked !== options.isPublic) {
-          await this.roomPublicCheckboxLocator.click();
-        }
-      }
+          await app.chatService.roomService.createRoom({
+            name: room,
+            roomId: room,
+            nick: app.username,
+            membersOnly: options.membersOnly,
+            persistentRoom: options.persistent,
+            nonAnonymous: options.nonAnon,
+            public: options.isPublic,
+            enableLogging: options.persistent // usually paired
+          });
+          // Auto-join after creation to match UI behavior
+          await app.chatService.roomService.joinRoom(`${room}@conference.${app.domain}`);
+        },
+        { room, options }
+      );
+    } else {
+      // Default fallback: Use the UI button which uses hardcoded App defaults
+      await this.page.locator('[data-zid="muc-room-name"]').fill(room);
+      await this.page.locator('[data-zid="muc-create"]').click();
     }
-
-    await this.page.locator('[data-zid="muc-create"]').click();
   }
+
 
   // ACTUALLY, I will Implement a method that the test *should* use.
   // And update `muc-messages.spec.ts` to pass the room name.
@@ -340,20 +339,27 @@ export class MucPageObject {
   }
 
   async acceptInvite(room: string): Promise<void> {
-    await this.page.locator('[data-zid="muc-room-name"]').fill(room);
-    await this.page.locator('[data-zid="muc-select"]').click();
+    const fullRoomJid = room.includes('@') ? room : `${room}@conference.${this.domain}`;
+    await this.page.evaluate(
+      async ({ fullRoomJid }) => {
+        const app = (window as any).app;
+        if (!app) throw new Error('App not initialized');
+        await app.chatService.roomService.joinRoom(fullRoomJid);
+      },
+      { fullRoomJid }
+    );
   }
 
   async kickUser(userJid: string, roomJidPrefix: string): Promise<void> {
-    await this.page.evaluate(async ({ userJid, roomJidPrefix, domain }) => {
-      const roster = (window as any).ng.getComponent(document.querySelector('ngx-chat-roster-list'));
-      const chatService = roster.chatService;
-      const roomJid = `${roomJidPrefix}@conference.${domain}`;
-      // kickFromRoom takes NICK. 'owner', 'slave'.
-      // In this test environment, nick == username.
-      const nick = userJid; // Simplified assumption
-      await chatService.roomService.kickFromRoom(nick, roomJid);
-    }, { userJid, roomJidPrefix, domain: this.domain });
+    await this.page.evaluate(
+      async ({ userJid, roomJidPrefix, domain }) => {
+        const app = (window as any).app;
+        const roomJid = `${roomJidPrefix}@conference.${domain}`;
+        const nick = userJid; // Simplified assumption for test
+        await app.chatService.roomService.kickFromRoom(nick, roomJid);
+      },
+      { userJid, roomJidPrefix, domain: this.domain }
+    );
   }
 
   async destroy(): Promise<void> {
