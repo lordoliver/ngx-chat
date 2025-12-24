@@ -62,7 +62,7 @@ test('MUC messages should be delivered to all participants', async ({ browser, p
     // Since MUC history is not reliable in this env, we must be joined and listening usually.
     // Although XMPP should queue if joined, we want to be sure.
     const sleepyChat = await sleepyPage.openChatWith(roomName);
-    await sleepyPage.page.waitForTimeout(1000); // Give time for MUC presence
+    await sleepyPage.page.waitForTimeout(5000); // Give generous time for MUC presence to propagate
 
     // 8. Messaging (Live)
     const snowChat = await snowWhitePage.openChatWith(roomName);
