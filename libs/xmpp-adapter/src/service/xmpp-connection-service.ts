@@ -97,7 +97,7 @@ export class XmppConnectionService {
       try {
         await Promise.race([
           this.currentConnection.logOut(),
-          new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 200)),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 1000)),
         ]);
       } catch (e) {
         this.currentConnection.disconnectFinally('force-logout');
