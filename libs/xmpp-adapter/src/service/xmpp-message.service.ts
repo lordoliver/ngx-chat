@@ -192,11 +192,8 @@ export class XmppMessageService implements MessageService {
     // TODO: on rejection mark message that it was not sent successfully
     try {
       await messageBuilder.send();
-      // Optimistic UI removed to rely on authoritative Server Echoes (Carbons).
-      // This prevents duplicates in dual-connect (online).
-      // app.spec.ts (offline) depends on Carbons delivery.
-      // todo implement xmpp message state
-      // await this.chatService.pluginMap.messageState.afterSendMessage(recipient.jid, message);
+      // Optimistic UI restored. MessageStore handles deduplication via ID.
+      recipient.messageStore.addMessage(message);
     } catch (rej) {
       throw new Error(
         `rejected message; message=${JSON.stringify(message)}, rejection=${JSON.stringify(rej)}`
