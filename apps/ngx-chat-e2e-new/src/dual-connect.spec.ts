@@ -12,6 +12,10 @@ test.describe('Dual Connect', () => {
     let sleepy: string;
     let ejabberdAdminPage: EjabberdAdminPage;
 
+    test.beforeEach(async ({ page }) => {
+        page.on('console', msg => console.log(`[Browser] ${msg.text()}`));
+    });
+
     test.afterEach(async ({ page }) => {
         await page.goto('about:blank').catch(() => { });
     });
@@ -81,8 +85,8 @@ test.describe('Dual Connect', () => {
         await snowChatInput.press('Enter');
 
         // Verify SnowWhite sees them sent (out)
-        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA1 })).toHaveCount(1);
-        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA2 })).toHaveCount(1);
+        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA1 })).toHaveCount(1);
+        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA2 })).toHaveCount(1);
 
         // Sleepy: Open chat and verify receipt
         const sleepyContactInput = sleepyFrame.locator('[data-zid="contact-jid"]');
@@ -103,8 +107,8 @@ test.describe('Dual Connect', () => {
         const sleepyChatInput = sleepyChatWindow.locator('[data-zid="chat-input"]');
 
         // Verify Sleepy sees A1, A2 (in)
-        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA1 })).toHaveCount(1);
-        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA2 })).toHaveCount(1);
+        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA1 })).toHaveCount(1);
+        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA2 })).toHaveCount(1);
 
         // 2. Sleepy sends 2 messages (B1, B2)
 
@@ -114,12 +118,12 @@ test.describe('Dual Connect', () => {
         await sleepyChatInput.press('Enter');
 
         // Verify Sleepy sees them sent (out)
-        await expect(sleepyFrame.locator('ngx-chat-message-out', { hasText: msgB1 })).toHaveCount(1);
-        await expect(sleepyFrame.locator('ngx-chat-message-out', { hasText: msgB2 })).toHaveCount(1);
+        await expect(sleepyChatWindow.locator('ngx-chat-message-out', { hasText: msgB1 })).toHaveCount(1);
+        await expect(sleepyChatWindow.locator('ngx-chat-message-out', { hasText: msgB2 })).toHaveCount(1);
 
         // Verify SnowWhite sees B1, B2 (in)
-        await expect(snowWhiteFrame.locator('ngx-chat-message-in', { hasText: msgB1 })).toHaveCount(1);
-        await expect(snowWhiteFrame.locator('ngx-chat-message-in', { hasText: msgB2 })).toHaveCount(1);
+        await expect(snowChatWindow.locator('ngx-chat-message-in', { hasText: msgB1 })).toHaveCount(1);
+        await expect(snowChatWindow.locator('ngx-chat-message-in', { hasText: msgB2 })).toHaveCount(1);
 
         // 3. SnowWhite sends 2 messages (A3, A4)
 
@@ -129,11 +133,11 @@ test.describe('Dual Connect', () => {
         await snowChatInput.press('Enter');
 
         // Verify SnowWhite sees them sent (out)
-        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA3 })).toHaveCount(1);
-        await expect(snowWhiteFrame.locator('ngx-chat-message-out', { hasText: msgA4 })).toHaveCount(1);
+        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA3 })).toHaveCount(1);
+        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA4 })).toHaveCount(1);
 
         // Verify Sleepy sees A3, A4 (in)
-        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA3 })).toHaveCount(1);
-        await expect(sleepyFrame.locator('ngx-chat-message-in', { hasText: msgA4 })).toHaveCount(1);
+        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA3 })).toHaveCount(1);
+        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA4 })).toHaveCount(1);
     });
 });

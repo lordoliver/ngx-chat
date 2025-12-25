@@ -55,7 +55,7 @@ export class ChatHistoryMessagesContactComponent {
   messagesGroupedByDate$?: Observable<{ date: Date; messages: Message[] }[]>;
   Direction = Direction;
 
-  constructor(@Inject(CHAT_SERVICE_TOKEN) public chatService: ChatService) {}
+  constructor(@Inject(CHAT_SERVICE_TOKEN) public chatService: ChatService) { }
 
   trackByIndex(index: number): number {
     return index;

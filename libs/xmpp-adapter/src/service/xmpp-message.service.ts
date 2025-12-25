@@ -191,8 +191,10 @@ export class XmppMessageService implements MessageService {
 
     // TODO: on rejection mark message that it was not sent successfully
     try {
+      console.log(`[DEBUG] Sending Optimistic Message. Generated ID: ${id}`);
       await messageBuilder.send();
       // Optimistic UI restored. MessageStore handles deduplication via ID.
+      console.log(`[DEBUG] Adding Optimistic Message to Recipient: ${recipient.jid.toString()}`);
       recipient.messageStore.addMessage(message);
     } catch (rej) {
       throw new Error(
@@ -306,11 +308,18 @@ export class XmppMessageService implements MessageService {
     const contact = await this.chatService.contactListService.getOrCreateContactById(
       contactJid as string
     );
+    console.log(`[DEBUG] HandleSingleMessage: Resolved contact for ${contactJid} -> ${contact.jid.toString()}`);
 
     const id =
       messageStanza.querySelector('origin-id')?.getAttribute('id') ??
       messageStanza.getAttribute('id') ??
       (messageStanza.querySelector('stanza-id')?.id as string);
+
+    console.log(`[DEBUG] Handling Stanza. Extracted ID: ${id}`);
+    if (messageStanza.querySelector('origin-id')) {
+      console.log(`[DEBUG] Found origin-id: ${messageStanza.querySelector('origin-id')?.getAttribute('id')}`);
+    }
+    console.log(`[DEBUG] Stanza content: ${messageStanza.outerHTML}`);
 
     const message = {
       id,
@@ -323,6 +332,7 @@ export class XmppMessageService implements MessageService {
       fromArchive: messageFromArchive,
     };
 
+    console.log(`[DEBUG] Adding to store: ${id}, direction: ${direction}`);
     contact.messageStore.addMessage(message);
     // todo implement xmpp message state
     // await this.chatService.pluginMap.messageState.afterReceiveMessage(contact, message);

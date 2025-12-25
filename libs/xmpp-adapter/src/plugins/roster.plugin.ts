@@ -89,6 +89,7 @@ export class RosterPlugin implements ChatPlugin {
   private readonly addContactSubject = new Subject<Contact>();
   private readonly removeContactSubject = new Subject<string>();
   private readonly clearSubject = new Subject<void>();
+  private readonly pendingContacts = new Map<string, Promise<Contact>>();
 
   constructor(
     private readonly xmppService: XmppService,
@@ -473,29 +474,47 @@ export class RosterPlugin implements ChatPlugin {
   }
 
   async getOrCreateContactById(
-    jid: string,
-    name = jid,
+    jidArg: string | JID,
+    nameArg?: string,
     subscription?: ContactSubscription,
     avatar?: string
   ): Promise<Contact> {
+    let jid: JID;
+    if (typeof jidArg === 'string') {
+      jid = parseJid(jidArg);
+    } else {
+      jid = jidArg;
+    }
+    const name = nameArg ?? jid.toString();
+
     const existingContact = await this.getContactById(jid);
-    if (existingContact == null) {
-      const newContact = await this.createContact(jid, name, subscription, avatar);
-      this.addContactSubject.next(newContact);
+    if (existingContact != null) {
+      if (subscription != null) {
+        const currentSubscription = await firstValueFrom(existingContact.subscription$);
+        if (currentSubscription !== subscription) {
+          existingContact.newSubscription(subscription);
+        }
+      }
+      return existingContact;
+    }
+
+    const bareJid = jid.bare().toString();
+    if (this.pendingContacts.has(bareJid)) {
+      return this.pendingContacts.get(bareJid) as Promise<Contact>;
+    }
+
+    const creationPromise = (async () => {
+      const newContact = await this.createContact(jid.toString(), name, subscription, avatar);
+      try {
+        this.addContactSubject.next(newContact);
+      } finally {
+        this.pendingContacts.delete(bareJid);
+      }
       return newContact;
-    }
+    })();
 
-    if (subscription == null) {
-      return existingContact;
-    }
-
-    const currentSubscription = await firstValueFrom(existingContact.subscription$);
-    if (currentSubscription === subscription) {
-      return existingContact;
-    }
-
-    existingContact.newSubscription(subscription);
-    return existingContact;
+    this.pendingContacts.set(bareJid, creationPromise);
+    return creationPromise;
   }
 
   async addContact(jid: string): Promise<void> {
