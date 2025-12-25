@@ -24,7 +24,6 @@ test.describe('Roster Performance Test', () => {
             devXmppJid,
             devXmppPassword
         );
-        await ejabberdAdminPage.deleteAllBesidesAdminUser();
 
         await appPage.setupForTest();
         await ejabberdAdminPage.register(seedUser, password);
@@ -111,6 +110,8 @@ test.describe('Roster Performance Test', () => {
         await appPage.logOut();
     });
 
-    test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+    test.afterAll(async () => {
+        await appPage.page.goto('about:blank').catch(() => { });
+    });
 
 });

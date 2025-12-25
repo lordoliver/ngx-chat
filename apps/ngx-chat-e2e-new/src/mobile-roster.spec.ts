@@ -27,7 +27,6 @@ test.describe('Mobile/Separate Roster Logic', () => {
         mobileUser = generateUser('mobileuser');
         contact1 = generateUser('contact1');
 
-        await ejabberdAdminPage.deleteAllBesidesAdminUser();
         // Register user and contact
         await ejabberdAdminPage.register(mobileUser, password);
         await ejabberdAdminPage.register(contact1, password);

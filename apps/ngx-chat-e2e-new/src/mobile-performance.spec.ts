@@ -24,7 +24,6 @@ test.describe('Mobile Roster Performance Test', () => {
             devXmppJid,
             devXmppPassword
         );
-        await ejabberdAdminPage.deleteAllBesidesAdminUser();
 
         // Setup: Seed user and 50 contacts
         await appPage.setupForTest();
@@ -109,6 +108,8 @@ test.describe('Mobile Roster Performance Test', () => {
         await appPage.logOut();
     });
 
-    test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+    test.afterAll(async () => {
+        await appPage.page.goto('about:blank').catch(() => { });
+    });
 
 });

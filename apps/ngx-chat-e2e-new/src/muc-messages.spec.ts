@@ -21,7 +21,6 @@ test.describe('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
-    await ejabberdAdminPage.deleteAllBesidesAdminUser();
 
     await mainPage.setupForTest();
   });
@@ -30,7 +29,9 @@ test.describe('ngx-chat', () => {
     await mainPage.setupForTest();
   });
 
-  test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+  test.afterAll(async () => {
+    await mainPage.page.goto('about:blank').catch(() => { });
+  });
 
   test.fixme('grant membership to single user to single room async (one is online another offline)', async () => {
     const suffix = Date.now();

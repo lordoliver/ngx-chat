@@ -7,7 +7,7 @@ import {
     devXmppPassword,
 } from '../secrets';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
-import { ChatWindowPage } from './page-objects/chat-window.po';
+
 
 const targetUser = 'performance_target';
 const senderUser1 = 'sender_one';
@@ -27,7 +27,6 @@ test.describe('Load & Performance Test', () => {
             devXmppJid,
             devXmppPassword
         );
-        await ejabberdAdminPage.deleteAllBesidesAdminUser();
 
         await appPage.setupForTest();
         await ejabberdAdminPage.register(targetUser, testPassword);
@@ -41,7 +40,9 @@ test.describe('Load & Performance Test', () => {
         await sendMessageBatch(appPage, senderUser2, targetUser, messageCount);
     });
 
-    test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+    test.afterAll(async () => {
+        await appPage.page.goto('about:blank').catch(() => { });
+    });
 
     test('should connect fast and load messages on demand', async () => {
         console.log('Logging in target user...');
@@ -107,16 +108,18 @@ async function sendMessageBatch(appPage: AppPage, sender: string, recipient: str
     // Send 100 messages
     // To speed up, we can use evaluate to send via service directly, 
     // avoiding UI clicks which are slow.
-    await appPage.page.evaluate(async ({ recipient, count }) => {
-        const app = (window as any).ng.getComponent(document.querySelector('app-root'));
-        // We need access to chatService.messageService
-        // app.chatService is likely private.
-        // But we can reach it if we find the service injector.
-        // Or just use the UI if evaluate is too hacky.
-        // Let's use UI but fast loop?
-        // UI loop:
-        // await appPage.chatWindow ... write()
-    }, { recipient, count });
+    // To speed up, we can use evaluate to send via service directly, 
+    // avoiding UI clicks which are slow.
+    // await appPage.page.evaluate(async ({ recipient, count }) => {
+    //     const app = (window as any).ng.getComponent(document.querySelector('app-root'));
+    //     // We need access to chatService.messageService
+    //     // app.chatService is likely private.
+    //     // But we can reach it if we find the service injector.
+    //     // Or just use the UI if evaluate is too hacky.
+    //     // Let's use UI but fast loop?
+    //     // UI loop:
+    //     // await appPage.chatWindow ... write()
+    // }, { recipient, count });
 
     // Fallback to UI loop if evaluate is hard to robustly target service
     // But UI loop for 100 msgs is slow: 100 * (fill + click + wait) ~ 50s.

@@ -28,7 +28,6 @@ test.describe('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
-    await ejabberdAdminPage.deleteAllBesidesAdminUser();
 
     await appPage.setupForTest();
     await ejabberdAdminPage.register(alice, testPassword);
@@ -36,7 +35,9 @@ test.describe('ngx-chat', () => {
     await ejabberdAdminPage.register(tim, testPassword);
   });
 
-  test.afterAll(() => ejabberdAdminPage.deleteAllBesidesAdminUser());
+  test.afterAll(async () => {
+    await appPage.page.goto('about:blank').catch(() => { });
+  });
 
   test('should be able to block contact after receiving message without contact request', async () => {
     await appPage.logIn(alice, testPassword);
