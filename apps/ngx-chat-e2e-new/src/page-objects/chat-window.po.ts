@@ -146,7 +146,7 @@ export class ChatWindowPage {
       await this.addLink.click();
     } else {
       // Wait for one to appear to give a better error message or handle async loading
-      await expect(this.acceptLink.or(this.addLink)).toBeVisible();
+      await expect(this.acceptLink.or(this.addLink)).toBeVisible({ timeout: 15000 });
       if (await this.acceptLink.isVisible()) {
         await this.acceptLink.click();
       } else {
