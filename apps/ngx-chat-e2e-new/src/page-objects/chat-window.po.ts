@@ -10,29 +10,29 @@ export class ChatWindowPage {
   private readonly windowTitleLocator: Locator;
   private readonly closeChatButton: Locator;
 
-  private readonly acceptLink: Locator;
+  // private readonly acceptLink: Locator;
   private readonly denyLink: Locator;
   private readonly blockLink: Locator;
   // private readonly blockAndReportLink: Locator; todo needed?
-  private readonly addLink: Locator;
+  // private readonly addLink: Locator;
 
   private readonly inMessage: Locator;
   private readonly outMessage: Locator;
   private readonly chatInput: Locator;
   private readonly messageSubmitButton: Locator;
 
-  constructor(page: Page, jid: string) {
+  constructor(private readonly page: Page, jid: string) {
     this.windowLocator = page.locator(`.window`, { hasText: jid.toLowerCase() });
     this.windowTitleLocator = page.getByTestId(jid).getByText(jid.split('@')?.[0] ?? jid);
     this.closeChatButton = this.windowLocator.locator('[data-zid="close-chat"]');
     this.inMessage = this.windowLocator.locator('ngx-chat-message-in ngx-chat-message-text-area');
     this.outMessage = this.windowLocator.locator('ngx-chat-message-out ngx-chat-message-text-area');
 
-    this.acceptLink = this.windowLocator.locator('[data-zid="accept-user"]');
+    // this.acceptLink = this.windowLocator.locator('[data-zid="accept-user"]');
     this.denyLink = this.windowLocator.locator('[data-zid="deny-user"]');
     this.blockLink = this.windowLocator.locator('[data-zid="block-user"]');
     // this.blockAndReportLink = this.windowLocator.locator('[data-zid="block-and-report-user"]'); todo needed?
-    this.addLink = this.windowLocator.locator('[data-zid="add-user"]');
+    // this.addLink = this.windowLocator.locator('[data-zid="add-user"]');
 
     this.chatInput = this.windowLocator.locator(`[data-zid="chat-input"]`);
     this.messageSubmitButton = this.windowLocator.locator('.chat-window-send');
@@ -140,19 +140,10 @@ export class ChatWindowPage {
   }
 
   async acceptContactRequest(): Promise<void> {
-    if (await this.acceptLink.isVisible()) {
-      await this.acceptLink.click();
-    } else if (await this.addLink.isVisible()) {
-      await this.addLink.click();
-    } else {
-      // Wait for one to appear to give a better error message or handle async loading
-      await expect(this.acceptLink.or(this.addLink)).toBeVisible({ timeout: 15000 });
-      if (await this.acceptLink.isVisible()) {
-        await this.acceptLink.click();
-      } else {
-        await this.addLink.click();
-      }
-    }
+    // Robustly click either accept or add, letting Playwright handle the stability and auto-retry
+    // This avoids "Element detached" errors by letting Playwright re-query if the DOM updates
+    const acceptOrAdd = this.page.locator('[data-zid="accept-user"], [data-zid="add-user"]');
+    await acceptOrAdd.first().click({ timeout: 20000 });
   }
 
   async blockOrAddMessageIsVisible(): Promise<boolean> {
