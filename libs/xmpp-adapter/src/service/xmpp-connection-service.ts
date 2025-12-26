@@ -92,16 +92,19 @@ export class XmppConnectionService {
   }
 
   async logOut(): Promise<void> {
-    if (this.currentConnection) {
+    const connection = this.currentConnection;
+    if (connection) {
       try {
         await Promise.race([
-          this.currentConnection.logOut(),
+          connection.logOut(),
           new Promise((_, reject) => setTimeout(() => reject(new Error('timeout')), 1000)),
         ]);
       } catch (e) {
-        this.currentConnection.disconnectFinally('force-logout');
+        connection.disconnectFinally('force-logout');
       }
-      this.currentConnection = undefined;
+      if (this.currentConnection === connection) {
+        this.currentConnection = undefined;
+      }
     }
     this.userStateSubject.next('offline');
   }
