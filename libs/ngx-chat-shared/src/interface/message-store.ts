@@ -8,10 +8,8 @@ export class MessageStore {
   private readonly messagesSubject = new ReplaySubject<Message[]>(1);
   readonly messages$ = this.messagesSubject.pipe(startWith(this.messages));
   readonly messageIdToMessage = new Map<string, Message>();
-  private readonly instanceId = Math.floor(Math.random() * 10000);
 
   constructor() {
-    console.log(`[DEBUG] MessageStore Created. InstanceID: ${this.instanceId}`);
   }
 
   get oldestMessage(): Message | undefined {
@@ -32,7 +30,6 @@ export class MessageStore {
 
   addMessage(message: Message): void {
     if (this.messageIdToMessage.has(message.id)) {
-      console.log(`[DEBUG] MessageStore [${this.instanceId}]: Ignoring DUPLICATE message ID: ${message.id}`);
       // as we are querying for messages in the past, we might get duplicate messages
       return;
     }
