@@ -46,15 +46,7 @@ test.describe('ngx-chat', () => {
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
 
-  test.beforeEach(async ({ browser, playwright }) => {
-    appPage = await AppPage.create(browser);
-    ejabberdAdminPage = await EjabberdAdminPage.create(
-      playwright,
-      devXmppDomain,
-      devXmppJid,
-      devXmppPassword
-    );
-
+  test.beforeAll(() => {
     snowWhite = generateUser('snowwhite');
     evilQueen = generateUser('evilqueen');
     huntsman = generateUser('huntsman');
@@ -67,6 +59,18 @@ test.describe('ngx-chat', () => {
       sneezy: generateUser('sneezy'),
       dopey: generateUser('dopey'),
     };
+  });
+
+  test.beforeEach(async ({ browser, playwright }) => {
+    appPage = await AppPage.create(browser);
+    ejabberdAdminPage = await EjabberdAdminPage.create(
+      playwright,
+      devXmppDomain,
+      devXmppJid,
+      devXmppPassword
+    );
+
+
 
     // await ejabberdAdminPage.deleteAllBesidesAdminUser(); // Too expensive per test? Maybe skip cleanup and just trust unique IDs.
     // Deleting all users per test is 500ms * N users = slow.
