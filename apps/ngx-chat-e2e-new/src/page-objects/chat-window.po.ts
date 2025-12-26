@@ -10,11 +10,11 @@ export class ChatWindowPage {
   private readonly windowTitleLocator: Locator;
   private readonly closeChatButton: Locator;
 
-  // private readonly acceptLink: Locator;
+  private readonly acceptLink: Locator;
   private readonly denyLink: Locator;
   private readonly blockLink: Locator;
   // private readonly blockAndReportLink: Locator; todo needed?
-  // private readonly addLink: Locator;
+  private readonly addLink: Locator;
 
   private readonly inMessage: Locator;
   private readonly outMessage: Locator;
@@ -28,11 +28,11 @@ export class ChatWindowPage {
     this.inMessage = this.windowLocator.locator('ngx-chat-message-in ngx-chat-message-text-area');
     this.outMessage = this.windowLocator.locator('ngx-chat-message-out ngx-chat-message-text-area');
 
-    // this.acceptLink = this.windowLocator.locator('[data-zid="accept-user"]');
+    this.acceptLink = this.windowLocator.locator('[data-zid="accept-user"]');
     this.denyLink = this.windowLocator.locator('[data-zid="deny-user"]');
     this.blockLink = this.windowLocator.locator('[data-zid="block-user"]');
     // this.blockAndReportLink = this.windowLocator.locator('[data-zid="block-and-report-user"]'); todo needed?
-    // this.addLink = this.windowLocator.locator('[data-zid="add-user"]');
+    this.addLink = this.windowLocator.locator('[data-zid="add-user"]');
 
     this.chatInput = this.windowLocator.locator(`[data-zid="chat-input"]`);
     this.messageSubmitButton = this.windowLocator.locator('.chat-window-send');
