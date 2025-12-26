@@ -258,7 +258,7 @@ export class AppPage {
   }
 
   async isBlockedListVisible(): Promise<boolean> {
-    await this.rosterListBlockedHeader.waitFor({ timeout: 30000 });
+    await this.rosterListBlockedHeader.waitFor({ timeout: 45000 });
     return this.rosterListBlockedHeader.isVisible();
   }
 

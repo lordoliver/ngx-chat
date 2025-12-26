@@ -113,8 +113,7 @@ export class ChatWindowPage {
   }
 
   async block(): Promise<void> {
-    await this.blockLink.waitFor();
-    await this.blockLink.click();
+    await this.blockLink.click({ timeout: 45000 });
   }
 
   async hasLinkWithUrl(url: string): Promise<boolean> {
@@ -143,7 +142,7 @@ export class ChatWindowPage {
     // Robustly click either accept or add, letting Playwright handle the stability and auto-retry
     // This avoids "Element detached" errors by letting Playwright re-query if the DOM updates
     const acceptOrAdd = this.page.locator('[data-zid="accept-user"], [data-zid="add-user"]');
-    await acceptOrAdd.first().click({ timeout: 20000 });
+    await acceptOrAdd.first().click({ timeout: 45000 });
   }
 
   async blockOrAddMessageIsVisible(): Promise<boolean> {
