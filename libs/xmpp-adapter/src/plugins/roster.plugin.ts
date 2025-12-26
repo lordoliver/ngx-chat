@@ -15,7 +15,7 @@ import {
   combineLatest,
   Connectable,
   connectable,
-  filter,
+
   firstValueFrom,
   forkJoin,
   map,
@@ -26,7 +26,7 @@ import {
   OperatorFunction,
   ReplaySubject,
   scan,
-  startWith,
+
   Subject,
   switchMap,
 } from 'rxjs';
@@ -137,7 +137,7 @@ export class RosterPlugin implements ChatPlugin {
               }
               break;
           }
-          return contactMap;
+          return new Map(contactMap);
         }, new Map<string, Contact>())
       ),
       { connector: () => new ReplaySubject<Map<string, Contact>>(1), resetOnDisconnect: false }
@@ -518,21 +518,12 @@ export class RosterPlugin implements ChatPlugin {
   }
 
   async addContact(jid: string): Promise<void> {
-    const existingContact = await this.getContactById(jid);
-
-    // new contact should come from the server push
-    const currentSize = (await firstValueFrom(this.contacts$.pipe(startWith(new Map<string, Contact>()))))?.size ?? 0;
-    const moreContactsPromise = firstValueFrom(
-      this.contacts$.pipe(
-        map((contactMap) => contactMap.size),
-        filter((size) => size > currentSize)
-      )
-    );
+    const existingContact = await this.getOrCreateContactById(jid);
 
     await this.sendAddToRoster(jid);
     // subscribe is necessary because a subscribed won't be resent to user after getting online
     await this.sendSubscribe(jid);
-    await moreContactsPromise;
+
     await existingContact?.updateSubscriptionOnRequestSent();
   }
 

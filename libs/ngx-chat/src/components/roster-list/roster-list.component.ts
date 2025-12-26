@@ -79,7 +79,7 @@ export class RosterListComponent {
     @Inject(CHAT_SERVICE_TOKEN) readonly chatService: ChatService,
     @Inject(CHAT_LIST_STATE_SERVICE_TOKEN)
     private readonly chatListService: OpenChatStateService
-  ) {}
+  ) { }
 
   onClickRecipient(recipient: Recipient): void {
     this.chatListService.openChat(recipient, false);
@@ -88,5 +88,9 @@ export class RosterListComponent {
   toggleVisibility(): void {
     const newState = this.rosterState === 'shown' ? 'hidden' : 'shown';
     this.rosterStateChanged.emit(newState);
+  }
+
+  trackByRecipient(_index: number, recipient: Recipient): string {
+    return recipient.jid.toString();
   }
 }
