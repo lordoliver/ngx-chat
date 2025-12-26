@@ -140,7 +140,19 @@ export class ChatWindowPage {
   }
 
   async acceptContactRequest(): Promise<void> {
-    await this.acceptLink.click();
+    if (await this.acceptLink.isVisible()) {
+      await this.acceptLink.click();
+    } else if (await this.addLink.isVisible()) {
+      await this.addLink.click();
+    } else {
+      // Wait for one to appear to give a better error message or handle async loading
+      await expect(this.acceptLink.or(this.addLink)).toBeVisible();
+      if (await this.acceptLink.isVisible()) {
+        await this.acceptLink.click();
+      } else {
+        await this.addLink.click();
+      }
+    }
   }
 
   async blockOrAddMessageIsVisible(): Promise<boolean> {
