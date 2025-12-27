@@ -341,13 +341,14 @@ export class RosterPlugin implements ChatPlugin {
     if (subscription === 'both') {
       return ContactSubscription.both;
     }
-    // We have only a roster item when we added the contact,
-    // in code we also subscribe which means this case occurs when we have a pending subscription
-    // that means we subscribed while the contact was offline and we wait for his approval
     if (subscription === 'from') {
       return ContactSubscription.from;
     }
-    return ContactSubscription.to;
+    if (subscription === 'to') {
+      return ContactSubscription.to;
+    }
+    // Default to none as per RFC 6121
+    return ContactSubscription.none;
   }
 
   private async handlePresenceStanza(stanza: PresenceStanza): Promise<boolean> {

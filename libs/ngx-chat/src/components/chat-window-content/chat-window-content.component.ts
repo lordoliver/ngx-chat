@@ -31,7 +31,6 @@ export class ChatWindowContentComponent {
           const result = isNotBlocked &&
             (ContactSubscription.from === subscription || ContactSubscription.none === subscription);
 
-          console.log(`[PendingRequestDebug] JID: ${value.jid.toString()}, Sub: ${subscription}, Blocked: ${!isNotBlocked}, Result: ${result}`);
           return result;
         })
       );
