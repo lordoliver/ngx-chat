@@ -145,7 +145,16 @@ export class App implements OnInit {
   }
 
   async openChat(jid: string) {
-    const contact = await this.chatService.contactListService.getOrCreateContactById(this.normalizeJid(jid));
+    const normalizedJid = this.normalizeJid(jid);
+    const room = await this.chatService.roomService.getRoomByJid(normalizedJid);
+    if (room) {
+      this.ngZone.run(() => {
+        this.chatListService.openChat(room, false);
+      });
+      return;
+    }
+
+    const contact = await this.chatService.contactListService.getOrCreateContactById(normalizedJid);
     if (contact) {
       this.ngZone.run(() => {
         this.chatListService.openChat(contact, false);

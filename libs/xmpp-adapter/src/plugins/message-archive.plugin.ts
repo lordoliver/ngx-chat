@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-import { Contact, Recipient, XmlSchemaForm } from '@pazznetwork/ngx-chat-shared';
+import { Recipient, XmlSchemaForm } from '@pazznetwork/ngx-chat-shared';
 import { ChatPlugin, serializeToSubmitForm } from '../core';
 import type { XmppService } from '../xmpp.service';
 import { nsRSM } from './multi-user-chat';
@@ -80,23 +80,31 @@ export class MessageArchivePlugin implements ChatPlugin {
     recipient: Recipient,
     retrieveMessageFunc: (builder: StanzaBuilder) => StanzaBuilder
   ): Promise<void> {
-    const to = recipient.recipientType === 'room' ? recipient.jid.toString() : undefined;
+    let recipientType = recipient.recipientType;
+    if (recipientType !== 'room' && 'affiliations' in recipient) {
+      recipientType = 'room';
+    }
+
+    const to = recipientType === 'room' ? recipient.jid.toString() : undefined;
+    console.error('[MAM-DEBUG] loadMessages for:', recipient.jid.toString(), 'domain conference?', recipient.jid.domain.includes('conference'));
+
     const form: XmlSchemaForm = {
       type: 'submit',
       instructions: [],
       fields: [
-        { type: 'hidden', variable: 'FORM_TYPE', value: this.nameSpace },
-        ...(recipient.recipientType === 'contact'
-          ? ([
-            {
-              type: 'jid-single',
-              variable: 'with',
-              value: (recipient as Contact).jid.toString(),
-            },
-          ] as const)
-          : []),
+        { type: 'hidden', variable: 'FORM_TYPE', value: 'urn:xmpp:mam:2' }
       ],
     };
+
+    if (to) {
+      // filtering by 'with' is not supported for MUC rooms
+    } else {
+      form.fields.push({
+        type: 'jid-single',
+        variable: 'with',
+        value: recipient.jid.toString()
+      });
+    }
 
     const request = this.chatService.chatConnectionService
       .$iq({ type: 'set', ...(to ? { to } : {}) })
@@ -108,6 +116,17 @@ export class MessageArchivePlugin implements ChatPlugin {
       .cCreateMethod(retrieveMessageFunc)
       .up();
 
-    await request.send();
+    if (to && to.includes('conference')) {
+      console.error(`[MAM-DEBUG] Sending to ${to}:`, request.toString());
+    }
+
+    await request.send().then(response => {
+      const count = response.querySelector('set')?.getAttribute('count');
+      const fin = response.querySelector('fin')?.getAttribute('complete');
+      // Only log if it looks like a MUC query to reduce noise
+      if (to && to.includes('conference')) {
+        console.error(`[MAM-DEBUG] MUC Query to ${to}: complete=${fin}, count=${count}`);
+      }
+    });
   }
 }

@@ -116,8 +116,7 @@ export class Room implements Recipient {
     this.removeOccupant(occupant, isCurrentUser);
     if (isCurrentUser) {
       this.logService.info(
-        `you got kicked from room! roomJid=${this.jid.toString()}, by=${actor as string}, reason=${
-          reason as string
+        `you got kicked from room! roomJid=${this.jid.toString()}, by=${actor as string}, reason=${reason as string
         }`
       );
     }
@@ -136,8 +135,7 @@ export class Room implements Recipient {
     this.removeOccupant(occupant, isCurrentUser);
     if (isCurrentUser) {
       this.logService.info(
-        `you got banned from room! roomJid=${this.jid.toString()}, by=${actor as string}, reason=${
-          reason as string
+        `you got banned from room! roomJid=${this.jid.toString()}, by=${actor as string}, reason=${reason as string
         }`
       );
     }
@@ -186,8 +184,7 @@ export class Room implements Recipient {
     this.roomOccupants.set(existingOccupant.jid.bare().toString(), existingOccupant);
 
     this.logService.debug(
-      `occupant changed nick: from=${
-        occupant.nick ?? 'undefined nick'
+      `occupant changed nick: from=${occupant.nick ?? 'undefined nick'
       }, to=${newNick}, occupantJid=${occupant.jid.toString()}, roomJid=${this.jid.toString()}`
     );
     this.onOccupantChangeSubject.next({ change: 'changedNick', occupant, newNick, isCurrentUser });

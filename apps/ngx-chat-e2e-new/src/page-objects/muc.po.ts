@@ -136,12 +136,22 @@ export class MucPageObject {
   }
 
   async selectRoom(roomName: string = ''): Promise<void> {
-    if (roomName) {
-      await this.page.locator('[data-zid="muc-room-name"]').fill(roomName);
-      await this.page.locator('[data-zid="muc-select"]').click();
-    } else {
-      console.log('Skipping selectRoom (empty name), assuming already visible or not needed');
-    }
+    await this.listRoomNameLocator.filter({ hasText: roomName }).click();
+  }
+
+  async waitForRoom(roomName: string): Promise<void> {
+    await this.page.waitForFunction((name) => {
+      const app = (window as any).ng.getComponent(document.querySelector('app-root'));
+      if (!app) return false;
+      const roomService = app.chatService.roomService;
+      // Access private plugin then private map
+      const map = (roomService as any).multiUserPlugin?.roomsMap;
+      if (map && map instanceof Map) {
+        const rooms = Array.from(map.values());
+        return rooms.some((r: any) => r.name === name || r.jid.toString().includes(name));
+      }
+      return false;
+    }, roomName);
   }
 
   async leaveRoom(index = 0): Promise<void> {
@@ -178,6 +188,7 @@ export class MucPageObject {
     isPublic = false,
     allowSub = false
   ): Promise<void> {
+    await this.page.waitForFunction(() => !!(window as any).app).catch(() => console.warn('Timed out waiting for window.app in acceptInvite'));
     await this.page.evaluate(
       async ({ roomId, roomName, membersOnly, nonAnon, persistent, isPublic, allowSub }) => {
         const app = (window as any).app; // Access exposed App component
@@ -192,7 +203,8 @@ export class MucPageObject {
           persistentRoom: persistent,
           public: isPublic,
           allowSubscription: allowSub,
-          enableLogging: persistent
+          enableLogging: persistent,
+          mam: persistent // Ensure MAM is enabled for persistence
         };
         await app.chatService.roomService.createRoom(options);
       },
@@ -243,10 +255,22 @@ export class MucPageObject {
     await this.roomMembershipUserJidInputLocator.fill(userJid);
     await this.roomMembershipRevokeButtonLocator.click();
   }
-  async grantMembership(userJid: string, roomJidPrefix: string): Promise<void> {
-    await this.page.locator('[data-zid="muc-room-name"]').fill(roomJidPrefix);
-    await this.page.locator('[data-zid="muc-user-jid"]').fill(userJid);
-    await this.page.locator('[data-zid="muc-grant"]').click();
+  async grantMembership(userJid: string, roomJid: string): Promise<void> {
+    const fullRoomJid = roomJid;
+    await this.page.waitForFunction(() => {
+      const root = document.querySelector('app-root');
+      return root && (window as any).ng && (window as any).ng.getComponent(root);
+    });
+
+    await this.page.evaluate(
+      async ({ userJid, fullRoomJid }) => {
+        // @ts-ignore
+        const app = (window as any).ng.getComponent(document.querySelector('app-root'));
+        if (!app) throw new Error('App not initialized');
+        await app.chatService.roomService.grantMembershipForRoom(userJid, fullRoomJid);
+      },
+      { userJid, fullRoomJid }
+    );
   }
 
   async revokeModerator(userJid: string): Promise<void> {
@@ -284,50 +308,41 @@ export class MucPageObject {
   async createRoom(
     room: string,
     nick: string,
-    options?: {
+    options: {
       membersOnly?: boolean;
       nonAnon?: boolean;
       persistent?: boolean;
       isPublic?: boolean;
-    }
+      mam?: boolean;
+      moderated?: boolean;
+    } = {}
   ): Promise<void> {
     // Note: Nick is currently ignored by the UI (uses logged in user), but kept for signature compatibility
-    // If specific options are provided (like membersOnly), we must use the service directly
-    // because the simple demo UI does not expose these checkboxes.
-    if (options && (options.membersOnly !== undefined || options.persistent !== undefined || options.nonAnon !== undefined || options.isPublic !== undefined)) {
-      await this.page.evaluate(
-        async ({ room, options }) => {
-          const app = (window as any).app;
-          if (!app) throw new Error('App not initialized');
+    await this.page.waitForFunction(() => !!(window as any).app).catch(() => console.warn('Timed out waiting for window.app in acceptInvite'));
+    await this.page.evaluate(
+      async ({ room, options }) => {
+        const app = (window as any).app;
+        if (!app) throw new Error('App not initialized');
 
-          await app.chatService.roomService.createRoom({
-            name: room,
-            roomId: room,
-            nick: app.username,
-            membersOnly: options.membersOnly,
-            persistentRoom: options.persistent,
-            nonAnonymous: options.nonAnon,
-            public: options.isPublic,
-            enableLogging: options.persistent // usually paired
-          });
-          // Auto-join after creation to match UI behavior
-          await app.chatService.roomService.joinRoom(`${room}@conference.${app.domain}`);
-        },
-        { room, options }
-      );
-    } else {
-      // Default fallback: Use the UI button which uses hardcoded App defaults
-      await this.page.locator('[data-zid="muc-room-name"]').fill(room);
-      await this.page.locator('[data-zid="muc-create"]').click();
-    }
+        await app.chatService.roomService.createRoom({
+          roomId: room,
+          name: room,
+          membersOnly: options.membersOnly,
+          nonAnonymous: options.nonAnon,
+          public: options.isPublic,
+          enableLogging: options.persistent, // usually paired
+          mam: options.mam,
+          moderated: options.moderated
+        });
+        // Auto-join after creation to match UI behavior
+        await app.chatService.roomService.joinRoom(`${room}@conference.${app.domain}`);
+      },
+      { room, options }
+    );
   }
 
-
-  // ACTUALLY, I will Implement a method that the test *should* use.
-  // And update `muc-messages.spec.ts` to pass the room name.
-  // It's cleaner.
-
   async inviteUser(userJid: string, roomJidPrefix: string): Promise<void> {
+    await this.page.waitForFunction(() => !!(window as any).app).catch(() => console.warn('Timed out waiting for window.app in acceptInvite'));
     await this.page.evaluate(
       async ({ userJid, roomJidPrefix }) => {
         const app = (window as any).app;
@@ -338,19 +353,45 @@ export class MucPageObject {
     );
   }
 
+  async joinRoom(room: string, nick?: string): Promise<void> {
+    const jidToJoin = nick && !room.includes('/') ? `${room}/${nick}` : room;
+    await this.page.waitForFunction(() => {
+      const root = document.querySelector('app-root');
+      return root && (window as any).ng && (window as any).ng.getComponent(root);
+    });
+    await this.page.evaluate(async (roomJid) => {
+      // @ts-ignore
+      const app = (window as any).ng.getComponent(document.querySelector('app-root'));
+      await app.chatService.roomService.joinRoom(roomJid);
+    }, jidToJoin);
+  }
+
   async acceptInvite(room: string): Promise<void> {
     const fullRoomJid = room.includes('@') ? room : `${room}@conference.${this.domain}`;
+    await this.page.waitForFunction(() => {
+      const root = document.querySelector('app-root');
+      return root && (window as any).ng && (window as any).ng.getComponent(root);
+    });
     await this.page.evaluate(
       async ({ fullRoomJid }) => {
-        const app = (window as any).app;
-        if (!app) throw new Error('App not initialized');
-        await app.chatService.roomService.joinRoom(fullRoomJid);
+        try {
+          // @ts-ignore
+          const app = (window as any).ng.getComponent(document.querySelector('app-root'));
+          if (!app) throw new Error('App not initialized');
+          console.log('[MAM-DEBUG] Bob joining ' + fullRoomJid);
+          await app.chatService.roomService.joinRoom(fullRoomJid);
+          console.log('[MAM-DEBUG] Bob joined ' + fullRoomJid);
+        } catch (e: any) {
+          console.error('[MAM-DEBUG] Bob join FAILED:', e.toString());
+          throw e; // Re-throw to fail test
+        }
       },
       { fullRoomJid }
     );
   }
 
   async kickUser(userJid: string, roomJidPrefix: string): Promise<void> {
+    await this.page.waitForFunction(() => !!(window as any).app).catch(() => console.warn('Timed out waiting for window.app in acceptInvite'));
     await this.page.evaluate(
       async ({ userJid, roomJidPrefix, domain }) => {
         const app = (window as any).app;

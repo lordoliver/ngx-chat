@@ -37,6 +37,7 @@ const config: PlaywrightTestConfig = {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
     ignoreHTTPSErrors: true,
+    headless: true,
   },
   testDir: './src',
   globalSetup: require.resolve('./src/global-setup'),

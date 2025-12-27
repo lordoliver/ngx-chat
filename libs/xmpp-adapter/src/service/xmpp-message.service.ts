@@ -206,6 +206,7 @@ export class XmppMessageService implements MessageService {
    * @param stanza message to handle from connection, mam or other message extending plugins
    */
   async handleMessageStanza(stanza: MessageWithBodyStanza): Promise<boolean> {
+    console.log('[MAM-DEBUG] Global HandleMessage:', stanza.outerHTML);
     if (stanza.querySelector('error')) {
       // The recipient's account does not exist on the server.
       // The recipient is offline and the server is not configured to store offline messages for later delivery.
