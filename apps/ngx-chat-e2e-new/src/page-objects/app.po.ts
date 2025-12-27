@@ -34,7 +34,6 @@ export class AppPage {
   private readonly blockContactButton: Locator;
   private readonly unblockContactButton: Locator;
   // private readonly openChatButton: Locator;
-  private readonly rosterList: Locator;
   private readonly rosterListUnaffiliatedHeader: Locator;
   private readonly rosterListBlockedHeader: Locator;
 
@@ -59,7 +58,6 @@ export class AppPage {
     this.blockContactButton = page.locator('[data-zid="block-contact"]');
     this.unblockContactButton = page.locator('[data-zid="unblock-contact"]');
     // this.openChatButton = page.locator('[data-zid="open-chat"]'); // Removed from UI
-    this.rosterList = page.locator('[data-zid="roster-list-visible"]');
     this.rosterListUnaffiliatedHeader = page.locator(
       '[data-zid="roster-group-header-contacts-unaffiliated"]'
     );
@@ -245,7 +243,12 @@ export class AppPage {
 
   async isContactInRoster(jid: string): Promise<boolean> {
     const locator = this.createRoosterEntryLocator(jid);
-    return (await locator.count()) > 0;
+    try {
+      await locator.first().waitFor({ state: 'visible', timeout: 5000 });
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   getContactRosterLocator(jid: string): Locator {
