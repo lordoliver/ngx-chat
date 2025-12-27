@@ -536,9 +536,9 @@ export class RosterPlugin implements ChatPlugin {
   }
 
   async removeRosterContact(jid: string): Promise<void> {
+    this.removeContactSubject.next(parseJid(jid).bare().toString());
     await this.sendRemoveFromRoster(jid);
     await this.unauthorizePresenceSubscription(jid);
-    this.removeContactSubject.next(parseJid(jid).bare().toString());
   }
 
   private async sendRemoveFromRoster(jid: string): Promise<void> {

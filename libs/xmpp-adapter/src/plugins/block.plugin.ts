@@ -72,14 +72,13 @@ export class BlockPlugin implements ChatPlugin {
   }
 
   async unblockJid(jid: string): Promise<void> {
-    const unblockPromise = firstValueFrom(this.unblockContactJIDSubject);
+    this.unblockContactJIDSubject.next(jid);
 
     await this.xmppService.chatConnectionService
       .$iq({ type: 'set', id: getUniqueId('block') })
       .c('unblock', { xmlns: this.nameSpace })
       .c('item', { jid })
       .sendResponseLess();
-    await unblockPromise;
   }
 
   private async requestBlockedJIDs(): Promise<Set<string>> {
