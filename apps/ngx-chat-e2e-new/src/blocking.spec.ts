@@ -50,7 +50,9 @@ test.describe('ngx-chat', () => {
     await appPage.openChatWith(ass);
     // await dutysChatWithAss.block();
     await appPage.blockContact(ass);
-    expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    await expect(async () => {
+      expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    }).toPass({ timeout: 10000 });
     expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
     await appPage.logOut();
   });

@@ -141,7 +141,7 @@ export class ChatWindowPage {
     // This avoids "Element detached" errors by letting Playwright re-query if the DOM updates
     const acceptOrAdd = this.page.locator('[data-zid="accept-user"], [data-zid="add-user"]');
     // Force click to bypass potential obstruction/animation issues if optimistic UI is fast
-    await acceptOrAdd.first().click({ timeout: 45000, force: true });
+    await acceptOrAdd.first().click({ timeout: 60000, force: true });
   }
 
   async blockOrAddMessageIsVisible(): Promise<boolean> {

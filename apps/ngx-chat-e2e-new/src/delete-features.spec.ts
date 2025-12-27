@@ -95,13 +95,15 @@ test.describe('Delete Features', () => {
     test('should allow removing a contact', async ({ page, playwright }) => {
         // 1. Provision Users
         const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
-        await ejabberdAdminPage.register('user_a', 'password');
-        await ejabberdAdminPage.register('user_b', 'password');
+        const userA = generateUser('user_a');
+        const userB = generateUser('user_b');
+        await ejabberdAdminPage.register(userA, 'password');
+        await ejabberdAdminPage.register(userB, 'password');
 
         // 2. Load User A
         const appPage = await AppPage.create(page.context().browser()!);
         await appPage.setupForTest();
-        await appPage.logIn('user_a', 'password');
+        await appPage.logIn(userA, 'password');
 
 
 
@@ -110,7 +112,7 @@ test.describe('Delete Features', () => {
         await expect(appPage.page.locator(connectionStateSelector)).toHaveText('online', { timeout: 15000 });
 
         // 3. Add Contact User B via Service (to ensure state for removal test)
-        const userBJid = `user_b@${devXmppDomain}`;
+        const userBJid = `${userB}@${devXmppDomain}`;
 
         await appPage.page.waitForSelector('[data-zid="roster-list-visible"]');
         await appPage.page.evaluate(({ userBJid }) => {
@@ -118,7 +120,7 @@ test.describe('Delete Features', () => {
             roster.chatService.contactListService.addContact(userBJid);
         }, { userBJid });
 
-        await expect(appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: 'user_b' })).toBeVisible();
+        await expect(appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: userB })).toBeVisible();
 
         // 4. Remove Contact via UI
         // We select it first (optional but good behavior), then type JID and remove
@@ -127,7 +129,7 @@ test.describe('Delete Features', () => {
         await appPage.page.locator('[data-zid="remove-contact"]').click();
 
         // 5. Verify Removal from UI
-        await expect(appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: 'user_b' })).toBeHidden({ timeout: 5000 });
+        await expect(appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: userB })).toBeHidden({ timeout: 5000 });
     });
 
     test('should allow closing a conversation', async ({ page, playwright }) => {
