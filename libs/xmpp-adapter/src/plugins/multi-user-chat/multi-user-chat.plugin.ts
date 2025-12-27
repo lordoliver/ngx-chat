@@ -603,26 +603,34 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       );
     }
     if (roomConfiguration.enableLogging != undefined) {
-      if (getField(roomConfigForm, 'muc#roomconfig_enablelogging')) {
+      const hasEnableLogging = !!getField(roomConfigForm, 'muc#roomconfig_enablelogging');
+      const hasMam = !!getField(roomConfigForm, 'mam');
+
+      if (hasEnableLogging) {
         setFieldValue(
           roomConfigForm,
           'boolean',
           'muc#roomconfig_enablelogging',
           roomConfiguration.enableLogging
         );
-      } else if (getField(roomConfigForm, 'mam')) {
+      }
+
+      if (hasMam) {
         setFieldValue(
           roomConfigForm,
           'boolean',
           'mam',
           roomConfiguration.enableLogging
         );
-      } else {
+      }
+
+      if (!hasEnableLogging && !hasMam) {
         setFieldValue(
           roomConfigForm,
           'boolean',
           'mam',
-          roomConfiguration.enableLogging
+          roomConfiguration.enableLogging,
+          true
         );
       }
     }
