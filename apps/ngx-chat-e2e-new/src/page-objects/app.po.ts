@@ -261,8 +261,12 @@ export class AppPage {
   }
 
   async isBlockedListVisible(): Promise<boolean> {
-    await this.rosterListBlockedHeader.waitFor({ timeout: 45000 });
-    return this.rosterListBlockedHeader.isVisible();
+    try {
+      await this.rosterListBlockedHeader.waitFor({ state: 'visible', timeout: 5000 });
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   async isBlockedListHidden(): Promise<boolean> {

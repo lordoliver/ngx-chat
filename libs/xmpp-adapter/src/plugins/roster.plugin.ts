@@ -415,6 +415,8 @@ export class RosterPlugin implements ChatPlugin {
         return true;
       } else if (fromContact) {
         // subscriber is known but not subscribed or pending
+        // Update state so UI shows the request
+        fromContact.newSubscription(ContactSubscription.from);
         return true;
       }
     }
