@@ -244,6 +244,7 @@ test.describe('ngx-chat', () => {
 
     await appPage.logIn(snowWhite, snowWhite);
     const chat = await appPage.openChatWith(huntsman);
+    await chat.waitForVisible();
     await chat.acceptContactRequest();
     await expect(appPage.getContactRosterLocator(huntsman)).toBeVisible();
     await appPage.logOut();

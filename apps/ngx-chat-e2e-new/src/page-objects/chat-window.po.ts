@@ -23,6 +23,7 @@ export class ChatWindowPage {
   constructor(private readonly page: Page, jid: string) {
     this.windowLocator = page.locator(`.window`, { hasText: jid.toLowerCase() });
     this.windowTitleLocator = page.getByTestId(jid).getByText(jid.split('@')?.[0] ?? jid);
+
     this.closeChatButton = this.windowLocator.locator('[data-zid="close-chat"]');
     this.inMessage = this.windowLocator.locator('ngx-chat-message-in ngx-chat-message-text-area');
     this.outMessage = this.windowLocator.locator('ngx-chat-message-out ngx-chat-message-text-area');
@@ -34,6 +35,10 @@ export class ChatWindowPage {
 
     this.chatInput = this.windowLocator.locator(`[data-zid="chat-input"]`);
     this.messageSubmitButton = this.windowLocator.locator('.chat-window-send');
+  }
+
+  async waitForVisible(): Promise<void> {
+    await this.windowLocator.waitFor({ state: 'visible', timeout: 20000 });
   }
 
   async write(message: string, submitMethod: ChatMessageSubmitMethod = 'enter'): Promise<void> {

@@ -75,14 +75,18 @@ test.describe('ngx-chat', () => {
     await appPage.logIn(duty, duty);
     await appPage.unblockContact(ass);
     expect(await appPage.isBlockedListHidden()).toBeTruthy();
-    expect(await appPage.isContactInRoster(ass)).toBeTruthy();
+    await expect(async () => {
+      expect(await appPage.isContactInRoster(ass)).toBeTruthy();
+    }).toPass({ timeout: 20000 });
     await appPage.logOut();
   });
 
   test('should keep unblocked contacts as such', async () => {
     await appPage.logIn(duty, duty);
     expect(await appPage.isBlockedListHidden()).toBeTruthy();
-    expect(await appPage.isContactInRoster(ass)).toBeTruthy();
+    await expect(async () => {
+      expect(await appPage.isContactInRoster(ass)).toBeTruthy();
+    }).toPass({ timeout: 20000 });
     await appPage.logOut();
   });
 });

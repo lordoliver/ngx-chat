@@ -291,7 +291,9 @@ export class AppPage {
       const app = (window as any).ng.getComponent(document.querySelector('app-root'));
       await app.openChat(jid);
     }, jid);
-    return this.getChatWindow(jid);
+    const window = this.getChatWindow(jid);
+    await window.waitForVisible();
+    return window;
   }
 
   async openChatWith(jid: string): Promise<ChatWindowPage> {
@@ -300,7 +302,9 @@ export class AppPage {
       const app = (window as any).ng.getComponent(document.querySelector('app-root'));
       await app.openChat(jid);
     }, jid);
-    return this.getChatWindow(jid);
+    const window = this.getChatWindow(jid);
+    await window.waitForVisible();
+    return window;
   }
 
   async reload(): Promise<void> {
