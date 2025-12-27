@@ -53,8 +53,6 @@ test.describe('ngx-chat', () => {
     // Use explicit configuration like in the scenario test to ensure persistence
     await ownerMuc.createRoom(room, owner, { persistent: true, membersOnly: true });
     await ownerMuc.waitForRoom(room);
-    console.log('Room found in list:', room);
-
     const roomJid = `${room}@conference.${devXmppDomain}`;
 
     await ownerMuc.grantMembership(slaveJid, roomJid);
@@ -111,15 +109,14 @@ test.describe('ngx-chat', () => {
     const seesSelf = messages.some(m => m.includes(slaveMark));
     const seesOwner = messages.some(m => m.includes(welcome));
 
-    console.log(`Slave Re-Join: Sees Self? ${seesSelf}, Sees Owner? ${seesOwner}`);
-
     // Assertion: At least Self history should work (validated by scenario test)
     expect(seesSelf).toBeTruthy();
 
     // Known Limitation: Users currently only see their OWN messages from history in this environment.
     // This might be due to MAM configuration defaulting to personal archives.
+    // This might be due to MAM configuration defaulting to personal archives.
     if (!seesOwner) {
-      console.warn('WARNING: Slave did not see Owner message. Confirming "Sender-Only" history limitation.');
+      // console.warn('WARNING: Slave did not see Owner message. Confirming "Sender-Only" history limitation.');
     }
 
     const workWork = 'Work work more work...';
@@ -169,10 +166,6 @@ test.describe('ngx-chat', () => {
       moderated: false,
     });
     // Alice is now owner.
-    console.log('[MAM-DEBUG] Room created by Alice:', roomName);
-
-
-
     // 2. Alice sends a message BEFORE grants
     const welcomeStrictlyNewMembers = 'Welcome strictly new members!';
     const aliceRoomChat = await mainPage.openChatWith(roomJid);
@@ -194,8 +187,6 @@ test.describe('ngx-chat', () => {
     await aliceMuc.inviteUser(timJid, roomJid);
     await aliceMuc.grantMembership(bobJid, roomJid);
     await aliceMuc.grantMembership(timJid, roomJid);
-    console.log('[MAM-DEBUG] Invites sent and membership granted');
-
     // 4. Bob logs in and joins
     const bobPage = await mainPage.logInInNewPage(bob, testPassword);
     const bobMuc = bobPage.createMUCPageObject();
