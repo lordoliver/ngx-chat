@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { AppPage } from './page-objects/app.po';
 import { devXmppDomain, devXmppJid, devXmppPassword } from '../secrets';
+import { generateUser } from './utils/user-helper';
 
 test.describe('Delete Features', () => {
     test('should allow destroying a room using service', async ({ page, playwright }) => {
@@ -132,12 +133,13 @@ test.describe('Delete Features', () => {
     test('should allow closing a conversation', async ({ page, playwright }) => {
         // 1. Provision User
         const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
-        await ejabberdAdminPage.register('closer', 'password');
+        const closer = generateUser('closer');
+        await ejabberdAdminPage.register(closer, 'password');
 
         // 2. Load Page and Log In
         const appPage = await AppPage.create(page.context().browser()!);
         await appPage.setupForTest();
-        await appPage.logIn('closer', 'password');
+        await appPage.logIn(closer, 'password');
 
 
 

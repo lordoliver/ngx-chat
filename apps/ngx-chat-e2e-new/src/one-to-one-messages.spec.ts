@@ -8,19 +8,26 @@ import {
 } from '../secrets';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 
-const alice = 'alice';
-const bob = 'bob';
-const tim = 'tim';
+import { generateUser } from './utils/user-helper';
+
 const testPassword = 'test';
 
 const messageToBobFromAlice = 'Good Morning Bob!';
 const messageToContactFromAlice = 'Be a CONTACT!!!';
 
 test.describe('ngx-chat', () => {
+  let alice = '';
+  let bob = '';
+  let tim = '';
+
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
 
   test.beforeAll(async ({ browser, playwright }) => {
+    alice = generateUser('alice');
+    bob = generateUser('bob');
+    tim = generateUser('tim');
+
     appPage = await AppPage.create(browser);
     ejabberdAdminPage = await EjabberdAdminPage.create(
       playwright,

@@ -29,6 +29,8 @@ export class ChatWindowContentComponent {
         map(([blockedContacts, subscription]) => {
           const isNotBlocked = !blockedContacts.find((b) => b.jid.bare().equals(value?.jid.bare()));
 
+
+
           // none and undefined no longer checked for pazz
           return (
             isNotBlocked &&
