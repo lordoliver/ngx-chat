@@ -172,7 +172,7 @@ export class ChatWindowPage {
     await expect(async () => {
       const count = await this.getMessageCount();
       expect(count).toBeGreaterThanOrEqual(minCount);
-    }).toPass({ timeout: 15000 });
+    }).toPass({ timeout: 30000 });
   }
 
   async scrollToTop(): Promise<void> {

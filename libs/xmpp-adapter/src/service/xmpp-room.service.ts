@@ -151,12 +151,12 @@ export class XmppRoomService implements RoomService {
     return room;
   }
 
-  async getRoomByJid(roomJid: string): Promise<Room> {
+  async getRoomByJid(roomJid: string): Promise<Room | undefined> {
     const room = await firstValueFrom(this.multiUserPlugin.getRoomByJid(parseJid(roomJid)));
 
-    if (!room) {
-      throw new Error(`room not found for jid ${roomJid}`);
-    }
+    // if (!room) {
+    //   throw new Error(`room not found for jid ${roomJid}`);
+    // }
 
     return room;
   }

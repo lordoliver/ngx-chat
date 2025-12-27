@@ -18,6 +18,7 @@ import type {
   RoomConfiguration,
   RoomCreationOptions,
 } from '@pazznetwork/ngx-chat-shared';
+import { getUniqueId } from '@pazznetwork/strophe-ts';
 import {
   Affiliation,
   AffiliationModification,
@@ -181,6 +182,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const userJid = parseJid(await firstValueFrom(this.xmppService.userJid$));
     const { roomId, nick } = options;
     const service = await this.serviceDiscoveryPlugin.findService('conference', 'text');
+    console.error('[MAM-DEBUG] createRoom using service:', service.jid);
 
     const roomJid = new JID(roomId, service.jid, nick ?? userJid.local);
 
@@ -276,6 +278,8 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       .c('history', { maxstanzas: '50', seconds: '604800' }) // 7 days
       .up()
       .send();
+
+    console.log(`[MAM-DEBUG] joinRoom presence response for ${roomJid}:`, presenceResponse.outerHTML);
 
     await this.handleRoomPresenceStanza(presenceResponse);
 
@@ -479,9 +483,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
   async sendMessage(roomJid: string, body: string): Promise<Element> {
     const from = await firstValueFrom(this.xmppService.chatConnectionService.userJid$);
+    const id = getUniqueId('muc-msg-');
 
     return this.xmppService.chatConnectionService
-      .$msg({ from, to: roomJid, type: 'groupchat' })
+      .$msg({ from, to: roomJid, id, type: 'groupchat' })
       .c('body', {}, body)
       .send();
   }
@@ -602,11 +607,11 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         roomConfiguration.allowSubscription
       );
     }
-    if (roomConfiguration.enableLogging != undefined) {
+    if (roomConfiguration.enableLogging != undefined || roomConfiguration.mam != undefined) {
       const hasEnableLogging = !!getField(roomConfigForm, 'muc#roomconfig_enablelogging');
-      const hasMam = !!getField(roomConfigForm, 'mam');
+      const hasMam = !!getField(roomConfigForm, 'mam') || !!getField(roomConfigForm, 'muc#roomconfig_mam');
 
-      if (hasEnableLogging) {
+      if (hasEnableLogging && roomConfiguration.enableLogging != undefined) {
         setFieldValue(
           roomConfigForm,
           'boolean',
@@ -615,22 +620,19 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         );
       }
 
-      if (hasMam) {
-        setFieldValue(
-          roomConfigForm,
-          'boolean',
-          'mam',
-          roomConfiguration.enableLogging
-        );
-      }
+      console.error(`[MAM-DEBUG] Room Config Fields:`, roomConfigForm.fields.map(f => f.variable));
+      const mamValue = roomConfiguration.mam ?? roomConfiguration.enableLogging;
+      console.error(`[MAM-DEBUG] Target: mamValue=${mamValue}, hasMam=${hasMam}`);
 
-      if (!hasEnableLogging && !hasMam) {
+      if (mamValue != undefined) {
+        // Prefer standard muc# prefix if available or if forcing creation
+        const mamField = getField(roomConfigForm, 'muc#roomconfig_mam') ? 'muc#roomconfig_mam' : 'mam';
         setFieldValue(
           roomConfigForm,
           'boolean',
-          'mam',
-          roomConfiguration.enableLogging,
-          true
+          mamField,
+          mamValue,
+          !hasMam
         );
       }
     }
@@ -640,6 +642,8 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       .c('query', { xmlns: nsMucOwner })
       .cCreateMethod((builder): StanzaBuilder => serializeToSubmitForm(builder, roomConfigForm))
       .send();
+    console.error('[MAM-DEBUG] Room Configuration Result: Success');
+
   }
 
   getRoomByJid(jid: JID): Observable<Room | undefined> {
@@ -820,8 +824,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     return stanza.querySelector('invite') != null || stanza.querySelector('decline') != null;
   }
 
-  async grantMembership(userJid: JID, roomJid: JID, reason?: string): Promise<void> {
-    await this.setAffiliation(userJid, roomJid, Affiliation.member, reason);
+  async grantMembership(userJid: JID | string, roomJid: JID | string, reason?: string): Promise<void> {
+    const userJidObj = userJid instanceof JID ? userJid : parseJid(userJid);
+    const roomJidObj = roomJid instanceof JID ? roomJid : parseJid(roomJid);
+    await this.setAffiliation(userJidObj, roomJidObj, Affiliation.member, reason);
   }
 
   async revokeMembership(userJid: JID, roomJid: JID, reason?: string): Promise<void> {
@@ -1004,6 +1010,16 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     delayElement = stanza.querySelector('delay'),
     from = this.extractFrom(stanza)
   ): Promise<boolean> {
+    const result = stanza.querySelector('result');
+    const forwarded = stanza.querySelector('forwarded');
+    if (result && forwarded) {
+      console.error('[MAM-DEBUG] Unwrapping MAM Result!');
+      const message = forwarded.querySelector('message');
+      if (message) {
+        return this.handleRoomMessageStanza(message);
+      }
+    }
+
     const messageText = stanza?.querySelector('body')?.textContent?.trim();
 
     if (!from) {

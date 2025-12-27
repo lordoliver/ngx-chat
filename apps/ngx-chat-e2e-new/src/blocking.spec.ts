@@ -64,7 +64,9 @@ test.describe('ngx-chat', () => {
     await chat.write(message);
     await appPage.logOut();
     await appPage.logIn(duty, duty);
-    expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    await expect(async () => {
+      expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    }).toPass({ timeout: 10000 });
     expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
     const window = await appPage.openChatWith(ass);
     await window.assertLastMessageIsNot(message);

@@ -29,7 +29,7 @@ test.describe('MUC Infinite Scroll', () => {
     // FIXME: This test fails because MUC MAM (persistence) cannot be enabled on the CI Ejabberd instance
     // despite attempts via XMPP, Admin API, and direct ejabberdctl CLI calls.
     // The logic is correct, but the server does not archive messages.
-    test.fixme('should scroll to load older messages in MUC', async () => {
+    test('should scroll to load older messages in MUC', async () => {
         test.setTimeout(120000);
         const owner = `muc-scroll-owner-${Date.now()}`;
         const room = `scrollroom-${Date.now()}`;
@@ -43,6 +43,7 @@ test.describe('MUC Infinite Scroll', () => {
         // Use ContactList to create/join room
         const ownerMuc = mainPage.createMUCPageObject();
         await ownerMuc.createRoom(room, owner);
+        await ownerMuc.waitForRoom(room);
 
         // Explicitly set persistence/MAM to ensure history is saved (default config is flaky)
         try {

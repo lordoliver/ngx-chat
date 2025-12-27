@@ -30,8 +30,8 @@ export class ChatHistoryMessagesRoomComponent {
     }
 
     this.messagesGroupedByDate$ = value$.pipe(
-      throttleTime(200),
-      mergeMap(async (messages) => {
+      throttleTime(100, undefined, { leading: true, trailing: true }),
+      mergeMap(async (messages: Message[]) => {
         messages.sort((a, b) => a?.datetime?.getTime() - b?.datetime?.getTime());
         const messageMap = new Map<string, { message: Message; contact: Contact }[]>();
         for (const message of messages) {
@@ -92,7 +92,7 @@ export class ChatHistoryMessagesRoomComponent {
     @Inject(CUSTOM_CONTACT_FACTORY_TOKEN)
     private readonly customContactFactory: CustomContactFactory,
     private zone: NgZone
-  ) {}
+  ) { }
 
   trackByIndex(index: number): number {
     return index;
