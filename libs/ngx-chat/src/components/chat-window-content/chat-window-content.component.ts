@@ -28,14 +28,11 @@ export class ChatWindowContentComponent {
       ]).pipe(
         map(([blockedContacts, subscription]) => {
           const isNotBlocked = !blockedContacts.find((b) => b.jid.bare().equals(value?.jid.bare()));
+          const result = isNotBlocked &&
+            (ContactSubscription.from === subscription || ContactSubscription.none === subscription);
 
-
-
-          // none and undefined no longer checked for pazz
-          return (
-            isNotBlocked &&
-            (ContactSubscription.from === subscription || ContactSubscription.none === subscription)
-          );
+          console.log(`[PendingRequestDebug] JID: ${value.jid.toString()}, Sub: ${subscription}, Blocked: ${!isNotBlocked}, Result: ${result}`);
+          return result;
         })
       );
     } else {

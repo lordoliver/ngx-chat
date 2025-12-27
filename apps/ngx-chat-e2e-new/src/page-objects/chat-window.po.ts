@@ -20,7 +20,7 @@ export class ChatWindowPage {
   private readonly chatInput: Locator;
   private readonly messageSubmitButton: Locator;
 
-  constructor(private readonly page: Page, jid: string) {
+  constructor(page: Page, jid: string) {
     this.windowLocator = page.locator(`.window`).filter({ has: page.locator(`[data-zid*="${jid.toLowerCase()}"]`) });
     this.windowTitleLocator = page.getByTestId(jid).getByText(jid.split('@')?.[0] ?? jid);
 
@@ -144,7 +144,7 @@ export class ChatWindowPage {
   async acceptContactRequest(): Promise<void> {
     // Robustly click either accept or add, letting Playwright handle the stability and auto-retry
     // This avoids "Element detached" errors by letting Playwright re-query if the DOM updates
-    const acceptOrAdd = this.page.locator('[data-zid="accept-user"], [data-zid="add-user"]');
+    const acceptOrAdd = this.windowLocator.locator('[data-zid="accept-user"], [data-zid="add-user"]');
     // Force click to bypass potential obstruction/animation issues if optimistic UI is fast
     await acceptOrAdd.first().click({ timeout: 60000, force: true });
   }
