@@ -55,7 +55,9 @@ test.describe('ngx-chat', () => {
     await appPage.logOut();
 
     await appPage.logIn(bob, testPassword);
-    const bobChatWindowWithAlice = await appPage.openChatWith(alice); // flaky if we assume that the chat window is already open
+    const bobChatWindowWithAlice = await appPage.openChatWith(alice);
+    await bobChatWindowWithAlice.assertIsOpen();
+    // await bobChatWindowWithAlice.open(); // openChatWith already opens it. verify instead.
     await bobChatWindowWithAlice.block();
     test.expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
     test.expect(await appPage.isBlockedListVisible()).toBeTruthy();
@@ -72,7 +74,8 @@ test.describe('ngx-chat', () => {
 
     await appPage.setupForTest();
     await appPage.logIn(bob, testPassword);
-    const bobChatWindowWithAlice = await appPage.openChatWith(alice); // flaky if we assume that the chat window is already open
+    const bobChatWindowWithAlice = await appPage.openChatWith(alice);
+    await bobChatWindowWithAlice.assertIsOpen();
     test.expect(await bobChatWindowWithAlice.blockOrAddMessageIsVisible()).toBeTruthy();
     await bobChatWindowWithAlice.addContact();
     await bobChatWindowWithAlice.blockOrAddMessageWaitForHidden();
