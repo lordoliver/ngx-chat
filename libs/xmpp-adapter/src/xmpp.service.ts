@@ -148,7 +148,7 @@ export class XmppService implements ChatService {
       try {
         await this.pluginMap.mam.enableArchiving();
       } catch (e) {
-        // ignore
+        this.log.warn('Start up warning: could not enable archive: ' + e);
       }
       // redundant because default type is available, but better for documentation purposes
       await this.chatConnectionService.$pres({ type: 'available' }).sendResponseLess();

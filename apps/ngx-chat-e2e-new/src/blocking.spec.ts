@@ -108,6 +108,9 @@ test.describe('ngx-chat', () => {
       expect(await appPage.isContactInBlockedList(ass)).toBeFalsy();
     }).toPass({ timeout: 10000 });
 
+    // Wait for server propagation of unblock stanza before logging out
+    await appPage.page.waitForTimeout(1000);
+
     await appPage.logOut();
 
     // As proof of unblocking, Ass sends a message and Duty should receive it

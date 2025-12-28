@@ -214,6 +214,7 @@ test.describe('ngx-chat', () => {
     // await snowWhiteChatWithHuntsman.block();
     await appPage.blockContact(huntsman);
     expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    await appPage.page.waitForTimeout(1000); // Allow server propagation
     await appPage.logOut();
   });
 
@@ -234,6 +235,7 @@ test.describe('ngx-chat', () => {
     await appPage.unblockContact(huntsman);
     expect(await appPage.isBlockedListHidden()).toBeTruthy();
     await expect(appPage.getContactRosterLocator(huntsman)).toBeVisible();
+    await appPage.page.waitForTimeout(1000); // Allow server propagation
     await appPage.logOut();
   });
 

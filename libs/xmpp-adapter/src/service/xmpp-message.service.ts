@@ -110,7 +110,6 @@ export class XmppMessageService implements MessageService {
 
     if (!isOnline) {
       this.queuedMessages.push({ recipient, body: trimmedBody });
-      // Optimistic UI for contact messages
       if (recipient.recipientType === 'contact') {
         await this.addOptimisticMessage(recipient, trimmedBody);
       }
@@ -192,7 +191,6 @@ export class XmppMessageService implements MessageService {
     // TODO: on rejection mark message that it was not sent successfully
     try {
       await messageBuilder.send();
-      // Optimistic UI restored. MessageStore handles deduplication via ID.
       recipient.messageStore.addMessage(message);
       await this.messageStatePlugin.afterSendMessage(recipient.jid, message);
     } catch (rej) {

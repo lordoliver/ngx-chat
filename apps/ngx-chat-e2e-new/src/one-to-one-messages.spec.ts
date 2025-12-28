@@ -86,7 +86,9 @@ test.describe('ngx-chat', () => {
     await appPage.logOut();
 
     await appPage.logIn(bob, testPassword);
-    test.expect(await appPage.isContactInRoster(alice)).toBeTruthy();
+    await expect(async () => {
+      test.expect(await appPage.isContactInRoster(alice)).toBeTruthy();
+    }).toPass({ timeout: 10000 });
     await appPage.logOut();
   });
 

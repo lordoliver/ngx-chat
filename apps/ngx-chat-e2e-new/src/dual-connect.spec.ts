@@ -21,6 +21,7 @@ test.describe('Dual Connect', () => {
     });
 
     test('should facilitate chat between two users via dual.html with extended message flow', async ({ page, browser, playwright }) => {
+        test.slow(); // Heavy integration test involving multiple frames and connections
         // ... (provision users)
         ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
         snowWhite = generateUser('snowwhite');

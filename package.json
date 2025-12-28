@@ -8,6 +8,7 @@
     "build": "nx build",
     "build:all": "rm -rf dist && ng build --prod",
     "test": "nx test ngx-xmpp",
+    "test:setup": "./docker/test-env/setup-test-env.sh",
     "test:headless": "DEBUG=true nx test ngx-xmpp",
     "e2e": "nx e2e demo-e2e --headless",
     "e2e:debug": "nx e2e demo-e2e --watch",
