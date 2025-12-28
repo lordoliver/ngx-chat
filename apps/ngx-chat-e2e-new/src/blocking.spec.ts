@@ -46,7 +46,9 @@ test.describe('ngx-chat', () => {
     await appPage.logOut();
 
     await appPage.logIn(duty, duty);
-    expect(await appPage.isContactInRoster(ass)).toBeTruthy();
+    await expect(async () => {
+      expect(await appPage.isContactInRoster(ass)).toBeTruthy();
+    }).toPass({ timeout: 10000 });
     await appPage.openChatWith(ass);
     // await dutysChatWithAss.block();
     await appPage.blockContact(ass);
