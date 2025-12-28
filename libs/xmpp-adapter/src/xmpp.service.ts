@@ -145,7 +145,11 @@ export class XmppService implements ChatService {
       await onOnlinePromise;
       await this.pluginMap.disco.ensureServicesAreDiscovered(logInRequest.domain);
       await firstValueFrom(this.pluginMap.disco.servicesInitialized$);
-      await this.pluginMap.mam.enableArchiving();
+      try {
+        await this.pluginMap.mam.enableArchiving();
+      } catch (e) {
+        // ignore
+      }
       // redundant because default type is available, but better for documentation purposes
       await this.chatConnectionService.$pres({ type: 'available' }).sendResponseLess();
     });

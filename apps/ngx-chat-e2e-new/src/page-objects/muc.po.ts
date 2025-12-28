@@ -378,11 +378,8 @@ export class MucPageObject {
           // @ts-ignore
           const app = (window as any).ng.getComponent(document.querySelector('app-root'));
           if (!app) throw new Error('App not initialized');
-          console.log('[MAM-DEBUG] Bob joining ' + fullRoomJid);
           await app.chatService.roomService.joinRoom(fullRoomJid);
-          console.log('[MAM-DEBUG] Bob joined ' + fullRoomJid);
         } catch (e: any) {
-          console.error('[MAM-DEBUG] Bob join FAILED:', e.toString());
           throw e; // Re-throw to fail test
         }
       },

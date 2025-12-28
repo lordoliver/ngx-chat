@@ -19,7 +19,7 @@
 
 #   4=info (default), 5=debug
 #   see https://docs.ejabberd.im/admin/configuration/basic/#logging
-loglevel: 4
+loglevel: 5
 log_rotate_size: 10485760
 log_rotate_count: 0
 

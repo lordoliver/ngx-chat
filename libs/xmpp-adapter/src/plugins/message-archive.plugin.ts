@@ -86,7 +86,7 @@ export class MessageArchivePlugin implements ChatPlugin {
     }
 
     const to = recipientType === 'room' ? recipient.jid.toString() : undefined;
-    // console.error('[MAM-DEBUG] loadMessages for:', recipient.jid.toString(), 'domain conference?', recipient.jid.domain.includes('conference'));
+
 
     const form: XmlSchemaForm = {
       type: 'submit',
@@ -116,18 +116,6 @@ export class MessageArchivePlugin implements ChatPlugin {
       .cCreateMethod(retrieveMessageFunc)
       .up();
 
-    if (to && to.includes('conference')) {
-      // console.error(`[MAM-DEBUG] Sending to ${to}:`, request.toString());
-    }
-
     await request.send();
-    // .then(response => {
-    //   const count = response.querySelector('set')?.getAttribute('count');
-    //   const fin = response.querySelector('fin')?.getAttribute('complete');
-    //   // Only log if it looks like a MUC query to reduce noise
-    //   if (to && to.includes('conference')) {
-    //     console.error(`[MAM-DEBUG] MUC Query to ${to}: complete=${fin}, count=${count}`);
-    //   }
-    // });
   }
 }
