@@ -21,6 +21,7 @@ import {
 import type {
   MessageArchivePlugin,
   MessageCarbonsPlugin,
+  MessageStatePlugin,
   MultiUserChatPlugin,
   UnreadMessageCountService,
 } from '@pazznetwork/xmpp-adapter';
@@ -54,6 +55,7 @@ export class XmppMessageService implements MessageService {
     private readonly chatService: XmppService,
     private readonly messageArchivePlugin: MessageArchivePlugin,
     private readonly multiUserPlugin: MultiUserChatPlugin,
+    private readonly messageStatePlugin: MessageStatePlugin,
     messageCarbonPlugin: MessageCarbonsPlugin,
     unreadMessageCount: UnreadMessageCountService
   ) {
@@ -163,10 +165,8 @@ export class XmppMessageService implements MessageService {
     return this.messageArchivePlugin.loadMostRecentMessages(recipient);
   }
 
-  getContactMessageState(_message: Message, _contactJid: string): MessageState {
-    throw new Error('Not implemented getContactMessageState');
-    // todo implement xmpp message state
-    // return this.chatService.pluginMap.messageState.getContactMessageState(message, contactJid);
+  getContactMessageState(message: Message, contactJid: string): MessageState {
+    return this.messageStatePlugin.getContactMessageState(message, contactJid);
   }
 
   private async sendMessageToContact(recipient: Recipient, body: string): Promise<void> {
@@ -194,6 +194,7 @@ export class XmppMessageService implements MessageService {
       await messageBuilder.send();
       // Optimistic UI restored. MessageStore handles deduplication via ID.
       recipient.messageStore.addMessage(message);
+      await this.messageStatePlugin.afterSendMessage(recipient.jid, message);
     } catch (rej) {
       throw new Error(
         `rejected message; message=${JSON.stringify(message)}, rejection=${JSON.stringify(rej)}`
@@ -218,10 +219,9 @@ export class XmppMessageService implements MessageService {
       return true;
     }
 
-    // todo implement xmpp message state
-    /*if (this.chatService.pluginMap.messageState.isMessageState(stanza)) {
-      return this.chatService.pluginMap.messageState.handleStanza(stanza);
-    }*/
+    if (this.messageStatePlugin.isMessageState(stanza)) {
+      return this.messageStatePlugin.handleStanza(stanza);
+    }
 
     // can be wrapped in result from a query, or in a message received carbons
     const messageElement = Finder.create(stanza)
@@ -324,8 +324,7 @@ export class XmppMessageService implements MessageService {
     };
 
     contact.messageStore.addMessage(message);
-    // todo implement xmpp message state
-    // await this.chatService.pluginMap.messageState.afterReceiveMessage(contact, message);
+    await this.messageStatePlugin.afterReceiveMessage(contact, message);
 
     if (direction === Direction.in && !messageFromArchive) {
       this.messageReceivedSubject.next(contact);

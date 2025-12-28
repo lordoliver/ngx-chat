@@ -40,7 +40,7 @@ export class ChatMessageOutComponent implements OnInit {
 
   nick$?: Observable<string | undefined>;
 
-  constructor(@Inject(CHAT_SERVICE_TOKEN) public chatService: ChatService) {}
+  constructor(@Inject(CHAT_SERVICE_TOKEN) public chatService: ChatService) { }
 
   ngOnInit(): void {
     this.nick$ = this.chatService.userName$.pipe(
@@ -55,8 +55,7 @@ export class ChatMessageOutComponent implements OnInit {
 
   // todo implement xmpp message state
   getMessageState(): MessageState {
-    return MessageState.UNKNOWN;
-    /*if (this.contact == null || this.contact.recipientType !== 'contact') {
+    if (this.contact == null || this.contact.recipientType !== 'contact') {
       return MessageState.UNKNOWN;
     }
 
@@ -68,6 +67,6 @@ export class ChatMessageOutComponent implements OnInit {
         this.contact.jid.bare().toString()
       );
     }
-    return MessageState.HIDDEN;*/
+    return MessageState.HIDDEN;
   }
 }

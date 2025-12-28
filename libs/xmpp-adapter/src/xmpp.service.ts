@@ -82,7 +82,7 @@ export class XmppService implements ChatService {
       this,
       this.pluginMap.mam,
       this.pluginMap.muc,
-      // this.pluginMap.messageState,
+      this.pluginMap.messageState,
       this.pluginMap.messageCarbon,
       this.pluginMap.unreadMessageCount
     );

@@ -191,4 +191,11 @@ export class ChatWindowPage {
   async getAllMessagesText(): Promise<string[]> {
     return this.windowLocator.locator('ngx-chat-message-in, ngx-chat-message-out').allTextContents();
   }
+  getOutMessages(): Locator {
+    return this.windowLocator.locator('ngx-chat-message-out');
+  }
+
+  getInMessages(): Locator {
+    return this.windowLocator.locator('ngx-chat-message-in');
+  }
 }
