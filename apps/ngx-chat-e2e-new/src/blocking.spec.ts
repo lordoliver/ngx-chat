@@ -17,7 +17,7 @@ test.describe('ngx-chat', () => {
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
 
-  test.beforeAll(async ({ browser, playwright }) => {
+  test.beforeEach(async ({ browser, playwright }) => {
     appPage = await AppPage.create(browser);
     ejabberdAdminPage = await EjabberdAdminPage.create(
       playwright,
@@ -26,7 +26,7 @@ test.describe('ngx-chat', () => {
       devXmppPassword
     );
 
-    // Dynamic users per suite (tests share state)
+    // Dynamic users per test to avoid state pollution
     ass = generateUser('arsch');
     duty = generateUser('dienst');
 
@@ -35,7 +35,7 @@ test.describe('ngx-chat', () => {
     await ejabberdAdminPage.register(duty, duty);
   });
 
-  test.afterAll(async () => {
+  test.afterEach(async () => {
     await appPage.page.goto('about:blank').catch(() => { });
   });
 
@@ -58,6 +58,20 @@ test.describe('ngx-chat', () => {
   });
 
   test('should no longer be able to write as ass to duty', async () => {
+    // Setup: Duty must block Ass first (since we have fresh users)
+    await appPage.logIn(duty, duty);
+    const setupChat = await appPage.openChatWithUnaffiliatedContact(ass);
+    await setupChat.write('You are going to be blocked.');
+    await appPage.blockContact(ass);
+
+    // Verify block is committed before logging out
+    await expect(async () => {
+      expect(await appPage.isContactInBlockedList(ass)).toBeTruthy();
+    }).toPass({ timeout: 10000 });
+    // Small wait for server propagation
+    await appPage.page.waitForTimeout(1000);
+    await appPage.logOut();
+
     const message = 'FART!';
     await appPage.logIn(ass, ass);
     const chat = await appPage.openChatWith(duty);
@@ -71,12 +85,22 @@ test.describe('ngx-chat', () => {
     expect(await appPage.isContactInUnaffiliatedList(ass)).toBeFalsy();
 
     const window = await appPage.openChatWith(ass);
-    await window.assertLastMessageIsNot(message);
+    // await window.assertLastMessageIsNot(message);
+    await expect(window.getInMessages().filter({ hasText: message })).toHaveCount(0);
     await appPage.logOut();
   });
 
   test('should be able to unblock the ass as duty', async () => {
+    // Setup: Duty must block Ass first
     await appPage.logIn(duty, duty);
+    await appPage.openChatWithUnaffiliatedContact(ass);
+    await appPage.blockContact(ass);
+    // Verify block is committed
+    await expect(async () => {
+      expect(await appPage.isContactInBlockedList(ass)).toBeTruthy();
+    }).toPass({ timeout: 10000 });
+
+    // Now verify unblock
     await appPage.unblockContact(ass);
 
     // Verify removed from blocked list
@@ -95,14 +119,29 @@ test.describe('ngx-chat', () => {
 
     await appPage.logIn(duty, duty);
     const dutyChat = await appPage.openChatWith(ass);
-    await dutyChat.assertLastMessage(msg, 'incoming');
+    // await dutyChat.assertLastMessage(msg, 'incoming');
+    await expect(dutyChat.getInMessages().filter({ hasText: msg })).toBeVisible({ timeout: 10000 });
     await appPage.logOut();
   });
 
   test('should keep unblocked contacts as such', async () => {
-    // This test is somewhat redundant with the logic above, but verifies persistence
+    // Setup: Block then Unblock
+    await appPage.logIn(duty, duty);
+    await appPage.openChatWithUnaffiliatedContact(ass);
+    await appPage.blockContact(ass);
+    // Verify block is committed
+    await expect(async () => {
+      expect(await appPage.isContactInBlockedList(ass)).toBeTruthy();
+    }).toPass({ timeout: 10000 });
+
+    await appPage.unblockContact(ass);
+    await appPage.logOut();
+
+    // Verify persistence after relogin
     await appPage.logIn(duty, duty);
     expect(await appPage.isContactInBlockedList(ass)).toBeFalsy();
     await appPage.logOut();
   });
+
+
 });
