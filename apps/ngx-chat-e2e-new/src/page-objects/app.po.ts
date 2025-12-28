@@ -242,7 +242,7 @@ export class AppPage {
   }
 
   async isContactInRoster(jid: string): Promise<boolean> {
-    const contact = this.page.locator(`.roster-recipient [title="${jid}"]`);
+    const contact = this.page.locator(`.roster-recipient[title*="${jid}"]`);
     return (await contact.count()) > 0;
   }
 
