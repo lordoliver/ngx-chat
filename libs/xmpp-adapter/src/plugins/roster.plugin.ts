@@ -250,8 +250,11 @@ export class RosterPlugin implements ChatPlugin {
       // to maintain roster information, which means that a roster push might include a 'from' address other than the bare JID of the
       // user's account. Therefore, the client MUST check the 'from' address to verify that the sender of the roster push is authorized
       // to update the roster. If the client receives a roster push from an unauthorized entity, it MUST NOT process the pushed data; in
-      // addition, the client can either return a stanza error of <service-unavailable/> error or refuse to return a stanza error at all
       // (the latter behavior overrides a MUST-level requirement from [XMPP‑CORE] for the purpose of preventing a presence leak).
+      return true;
+    }
+
+    if (!Finder.create(stanza).searchByTag('query').searchByNamespace(this.nameSpace).result) {
       return true;
     }
 
