@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { AppPage } from './page-objects/app.po';
 import {
   devXmppDomain,
@@ -12,7 +12,7 @@ import { generateUser } from './utils/user-helper';
 
 const testPassword = 'test';
 
-const messageToBobFromAlice = 'Good Morning Bob!';
+const messageToBobFromAlice = `Good Morning Bob! ${Date.now()}`;
 const messageToContactFromAlice = 'Be a CONTACT!!!';
 
 test.describe('ngx-chat', () => {
@@ -97,8 +97,14 @@ test.describe('ngx-chat', () => {
 
     await appPage.logIn(bob, testPassword);
     chatWindow = await appPage.selectChatWithContact(alice);
-    await chatWindow.open();
-    await chatWindow.assertLastMessage(messageToBobFromAlice, 'incoming');
+    // We wait for the specific unique message to become visible first.
+    // This handles the race condition where older messages ("please open") are loaded first.
+    const messages = chatWindow.getInMessages();
+    await expect(messages.filter({ hasText: messageToBobFromAlice })).toBeVisible({ timeout: 30000 });
+
+    // Once visible, we ensure it's the last one to verify correct ordering.
+    await expect(messages.last()).toContainText(messageToBobFromAlice, { timeout: 10000 });
+
     await appPage.logOut();
   });
 
