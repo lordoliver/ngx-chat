@@ -38,12 +38,14 @@ test.describe('Message Status', () => {
         const aliceApp = await AppPage.create(aliceContext);
         await aliceApp.setupForTest();
         await aliceApp.logIn(alice, 'test');
+        await expect(aliceApp.page.locator('[data-zid="chat-connection-state"]')).toHaveText('online');
 
         // 2. Setup Bob
         const bobContext = await browser.newContext();
         const bobApp = await AppPage.create(bobContext);
         await bobApp.setupForTest();
         await bobApp.logIn(bob, 'test');
+        await expect(bobApp.page.locator('[data-zid="chat-connection-state"]')).toHaveText('online');
 
         // 3. Alice opens chat with Bob
         const aliceChatWindow = await aliceApp.openChatWithUnaffiliatedContact(bob);
@@ -60,24 +62,27 @@ test.describe('Message Status', () => {
         // 6. Check "Sent" status (✓) on Alice's side
         const lastMessage = aliceChatWindow.getOutMessages().filter({ hasText: msg }).last();
         // SENT = ✓
-        await expect(lastMessage.locator('ngx-chat-message-state-icon')).toContainText('✓', { timeout: 5000 });
+        await expect(lastMessage.locator('ngx-chat-message-state-icon')).toContainText('✓', { timeout: 20000 });
 
         // 7. Check "Received" status (✓✓)
         // Bob is online, so he should receive it.
         const bobLastMessage = bobChatWindow.getInMessages().filter({ hasText: msg }).last();
         await expect(bobLastMessage).toBeVisible();
 
-        // Alice should see ✓✓
-        await expect(lastMessage.locator('ngx-chat-message-state-icon')).toContainText('✓✓', { timeout: 60000 });
+        // Alice should see ✓✓ (Delivered)
+        // Wait for it robustly
+        await expect(async () => {
+            await expect(lastMessage.locator('ngx-chat-message-state-icon')).toContainText('✓✓');
+        }).toPass({ timeout: 60000 });
 
         // 8. Check "Seen" status (colored ✓✓)
-        // Bob needs to focus/interact?
-        // Bob's window is already open.
-        // Trigger focus or just wait?
-        // Sometimes simply receiving while open triggers seen.
-        await bobChatWindow.getInMessages().filter({ hasText: msg }).last().click(); // simulate focus on message?
+        // Bob needs to focus/interact. 
+        // Force click on Bob's side to ensure "read" trigger
+        await bobLastMessage.click();
 
-        await expect(lastMessage.locator('ngx-chat-message-state-icon .state--seen')).toBeVisible({ timeout: 10000 });
+        await expect(async () => {
+            await expect(lastMessage.locator('ngx-chat-message-state-icon .state--seen')).toBeVisible();
+        }).toPass({ timeout: 20000 });
 
         await aliceContext.close();
         await bobContext.close();

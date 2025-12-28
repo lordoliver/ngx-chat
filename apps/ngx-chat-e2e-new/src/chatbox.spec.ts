@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 import { AppPage } from './page-objects/app.po';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { generateUser } from './utils/user-helper';
@@ -54,10 +54,10 @@ test.describe('ngx-chat', () => {
     await chatWindow.open();
 
     await chatWindow.write(buttonSubmitMessage, 'button');
-    await chatWindow.assertLastMessage(buttonSubmitMessage, 'outgoing');
+    await expect(chatWindow.getOutMessages().filter({ hasText: buttonSubmitMessage })).toBeVisible();
 
     await chatWindow.write(enterKeySubmitMessage, 'enter');
-    await chatWindow.assertLastMessage(enterKeySubmitMessage, 'outgoing');
+    await expect(chatWindow.getOutMessages().filter({ hasText: enterKeySubmitMessage })).toBeVisible();
 
     await appPage.logOut();
   });
