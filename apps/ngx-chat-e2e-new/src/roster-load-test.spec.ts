@@ -130,6 +130,13 @@ test.describe('Roster Load Test', () => {
         const chatWindow = await appPage.openChatWithUnaffiliatedContact(`${highVolumeContact}@${devXmppDomain}`);
         await chatWindow.open();
 
+        // Verification: Check Separate Chat Window (Custom UI Integration - 'manual-chat-view')
+        console.log('Checking separate chat window functionality...');
+        const manualChat = appPage.page.locator('.manual-chat-view .manual-chat-container', { hasText: highVolumeContact });
+        await expect(manualChat).toBeVisible();
+        await expect(manualChat.locator('.chat-message', { hasText: 'History Message 0' }).first()).toBeVisible({ timeout: 10000 });
+        console.log('Separate chat window verified (content visible).');
+
         // 4. Verify Initial Load (Should be latest messages)
         // Default page size is likely 10 or 20.
         await chatWindow.waitForMessageCount(10);
