@@ -123,7 +123,10 @@ test.describe('Delete Features', () => {
         await expect(appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: userB })).toBeVisible();
 
         // 4. Remove Contact via UI
-        // We select it first (optional but good behavior), then type JID and remove
+        // We select it first to ensure the UI handles the context correctly
+        await appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: userB }).click();
+
+        // Then type JID and remove
         // The current UI requires typing JID to remove (based on template)
         await appPage.page.locator('[data-zid="contact-jid"]').fill(userBJid);
         await appPage.page.locator('[data-zid="remove-contact"]').click();

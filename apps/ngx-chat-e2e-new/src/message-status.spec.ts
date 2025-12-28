@@ -56,6 +56,10 @@ test.describe('Message Status', () => {
         await bobChatWindow.open();
 
         // 5. Alice sends message
+        // Ensure Bob's window is fully ready to avoid race conditions with delivery receipts
+        await bobChatWindow.waitForVisible();
+        await bobApp.page.waitForTimeout(1000);
+
         const msg = 'Status Test Message';
         await aliceChatWindow.write(msg);
 
