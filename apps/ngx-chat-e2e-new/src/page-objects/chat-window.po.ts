@@ -138,7 +138,12 @@ export class ChatWindowPage {
   }
 
   async addContact(): Promise<void> {
-    await this.addLink.click({ timeout: 60000, force: true });
+    await expect(async () => {
+      if (await this.addLink.isVisible()) {
+        await this.addLink.click({ timeout: 5000, force: true });
+      }
+      await expect(this.addLink).toBeHidden({ timeout: 5000 });
+    }).toPass({ timeout: 60000 });
   }
 
   async acceptContactRequest(): Promise<void> {
