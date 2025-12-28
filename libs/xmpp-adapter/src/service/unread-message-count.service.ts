@@ -10,7 +10,7 @@ import {
   Subscription,
   switchMap,
 } from 'rxjs';
-import { debounceTime, delay, distinctUntilChanged, filter, map, share } from 'rxjs/operators';
+import { debounceTime, delay, distinctUntilChanged, filter, map, share, startWith } from 'rxjs/operators';
 import type { JidToNumber, OpenChatsService, Recipient } from '@pazznetwork/ngx-chat-shared';
 import { Direction, findSortedInsertionIndexLast, Message } from '@pazznetwork/ngx-chat-shared';
 import type { XmppService } from '../xmpp.service';
@@ -74,14 +74,15 @@ export class UnreadMessageCountService {
             merge(
               muc.rooms$,
               this.chatService.contactListService.contacts$.pipe(
+                startWith([]),
                 pairwise(),
                 filter(([a, b]) => a?.length < b?.length),
-                map(([, b]) => b.at(b.length - 1)),
-                map((contact) => [contact])
+                map(([, b]) => b)
               )
             )
           )
         )
+
         .subscribe((recipients): void => {
           for (const recipient of recipients) {
             if (!recipient) {
@@ -93,7 +94,9 @@ export class UnreadMessageCountService {
               const updateUnreadCountSubscription = messages$
                 .pipe(
                   debounceTime(20),
-                  mergeMap(() => this.checkForUnreadCountChange(recipient))
+                  mergeMap(() => {
+                    return this.checkForUnreadCountChange(recipient)
+                  })
                 )
                 // eslint-disable-next-line rxjs/no-nested-subscribe
                 .subscribe();
@@ -197,7 +200,9 @@ export class UnreadMessageCountService {
     const contactUnreadMessageCount = this.calculateUnreadMessageCount(recipient, lastReadDate);
     const jidToCount = this.jidToUnreadCountSubject.getValue();
     if (jidToCount.get(contactJid) !== contactUnreadMessageCount) {
-      this.jidToUnreadCountSubject.next(jidToCount.set(contactJid, contactUnreadMessageCount));
+      const newMap = new Map(jidToCount);
+      newMap.set(contactJid, contactUnreadMessageCount);
+      this.jidToUnreadCountSubject.next(newMap);
     }
   }
 

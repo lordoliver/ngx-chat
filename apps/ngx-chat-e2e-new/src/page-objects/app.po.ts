@@ -242,13 +242,17 @@ export class AppPage {
   }
 
   async isContactInRoster(jid: string): Promise<boolean> {
-    const locator = this.createRoosterEntryLocator(jid);
-    try {
-      await locator.first().waitFor({ state: 'visible', timeout: 5000 });
-      return true;
-    } catch (e) {
-      return false;
-    }
+    const contact = this.page.locator(`.roster-recipient [title="${jid}"]`);
+    return (await contact.count()) > 0;
+  }
+
+  async getUnreadCount(jid: string): Promise<number> {
+    // Robust selector: Find roster item containing the name/JID text, then find badge within it.
+    const contact = this.page.locator('.roster-recipient', { hasText: jid });
+    const badge = contact.locator('.unread-message-badge');
+    if (await badge.count() === 0) return 0;
+    const text = await badge.textContent();
+    return text ? parseInt(text, 10) : 0;
   }
 
   getContactRosterLocator(jid: string): Locator {

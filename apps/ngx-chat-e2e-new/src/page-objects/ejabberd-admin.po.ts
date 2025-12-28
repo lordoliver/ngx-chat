@@ -108,6 +108,16 @@ export class EjabberdAdminPage {
     console.log(`[AdminAPI] changeRoomOption ${option}=${value} for ${room}:`, res);
   }
 
+  async sendMessage(from: string, to: string, body: string, subject = ''): Promise<void> {
+    await this.executeRequest('send_message', {
+      type: 'chat',
+      from,
+      to,
+      subject,
+      body,
+    });
+  }
+
   async register(user: string, password: string): Promise<void> {
     try {
       await this.executeRequest('register', {

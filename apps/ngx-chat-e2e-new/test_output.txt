@@ -1,228 +1,1339 @@
-[1A[2K[2m[WebServer] [22m[1m[33m[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: NxWelcome is not used within the template of App[0m [1m[35m[plugin angular-compiler][0m[39m[22m
+[1A[2K[2m[WebServer] [22m[1m[33mWarning: Running a server with --disable-host-check is a security risk. See https://medium.com/webpack/webpack-dev-server-middleware-security-issues-1489d950874a for more information.[39m[22m
 
+[1A[2K[2m[WebServer] [22mBrowserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+
+[1A[2K[2m[WebServer] [22m  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+
+[1A[2K[2m[WebServer] [22m- Generating browser application bundles (phase: setup)...
+
+[1A[2K[2m[WebServer] [22m[32m✔[39m Browser application bundle generation complete.
+
+Global Setup: Cleaning up Ejabberd users...
 [1A[2K[2m[WebServer] [22m[1m[33m[39m[22m
-[2m[WebServer] [22m[1m[33m    apps/demo/src/app/app.ts:11:12:[39m[22m
-[2m[WebServer] [22m[1m[33m[37m      11 │   imports: [[32mNxWelcome[37m, RouterModule, CommonModule, FormsModule, Co...[39m[22m
-[2m[WebServer] [22m[1m[33m         ╵             [32m~~~~~~~~~[0m[39m[22m
-[2m[WebServer] [22m[1m[33m[39m[22m
-[2m[WebServer] [22m[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/app/nx-welcome.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/environments/environment.interface.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/environments/environment.prod.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/environments/environment.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
 
+Cleaning up 101 users...
+[1A[2K[2m[WebServer] [22m[32m✔[39m Browser application bundle generation complete.
 
-Running 2 tests using 1 worker
+Global Setup: Cleanup complete.
 
-[1A[2K[1/2] [chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline)
-[1A[2K[chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline)
-Cleaning up 0 test users (skipped 19007 garbage users)...
+Running 1 test using 1 worker
 
-[1A[2K[Browser] debug: [vite] connecting...
+[1A[2K[1/1] [chromium] › roster-load-test.spec.ts:88:9 › Roster Load Test › should load 100 contacts and support scrolling in large conversation
+[1A[2K[chromium] › roster-load-test.spec.ts:88:9 › Roster Load Test › should load 100 contacts and support scrolling in large conversation
+Generating 100 contacts...
 
-[1A[2K[Browser] error: DEBUG: MessageService instantiated
+[1A[2KRegistering contacts...
 
-[1A[2K[Browser] error: DEBUG: App Constructed
+[1A[2KSeeding messages...
 
-[1A[2K[Browser] log: DEBUG: XMPP State: disconnected
+[1A[2KSeeding 50 messages for contact_0_1766924655858...
+
+[1A[2KSeeding single messages for remaining contacts...
+
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
 
 [1A[2K[Browser] log: Angular is running in development mode.
 
-[1A[2K[Browser] debug: [vite] connected.
+[1A[2KLogging in target user...
 
-[1A[2K[Browser] log: Directly set username on App component to: owner
+[1A[2K[Browser] log: Directly set username on App component to: roster_load_target
 
-[1A[2K[Browser] error: DEBUG: App login called with: owner
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 0
 
-[1A[2K[Browser] log: DEBUG: XMPP State: connecting
+[1A[2KLogin took 728ms
 
-[1A[2K[Browser] log: DEBUG: XMPP State: connecting
+[1A[2KSearching for contact_0_1766924655858 in roster...
 
-[1A[2K[Browser] debug: Websocket open
+[1A[2KOpening chat with contact_0_1766924655858...
 
-[1A[2K[Browser] log: SEND:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" to="local-jabber.entenhausen.pazz.de" version="1.0"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 1
 
-[1A[2K[Browser] log: RECV:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" id="8790413857072109542" version="1.0" xml:lang="en" from="local-jabber.entenhausen.pazz.de"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_80_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] debug: _connect_cb was called
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 2
 
-[1A[2K[Browser] log: RECV:  <stream:features xmlns:stream="http://etherx.jabber.org/streams"><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>PLAIN</mechanism><mechanism>SCRAM-SHA-1</mechanism><mechanism>X-OAUTH2</mechanism></mechanisms><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <auth xmlns="urn:ietf:params:xml:ns:xmpp-sasl" mechanism="SCRAM-SHA-1">biwsbj1vd25lcixyPUFCWUFraHRKbGVyVXlDVFN6YndibXc9PQ==</auth>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 3
 
-[1A[2K[Browser] log: RECV:  <challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cj1BQllBa2h0SmxlclV5Q1RTemJ3Ym13PT0rR3FYdzJpSlhXM0xYSmszcGQ4WEx3PT0scz1ITG1sUjVlU0FvUlAxN1VXZEhxSHZ3PT0saT00MDk2</challenge>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_81_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <response xmlns="urn:ietf:params:xml:ns:xmpp-sasl">Yz1iaXdzLHI9QUJZQWtodEpsZXJVeUNUU3pid2Jtdz09K0dxWHcyaUpYVzNMWEprM3BkOFhMdz09LHA9YU5tWUxoNVRJTC9BVktQajlHZkFuNm5pNVEwPQ==</response>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 4
 
-[1A[2K[Browser] log: RECV:  <success xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dj15d0FJNmJHb3M4QlpCMGdsQi80cTh6dndGU0U9</success>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_82_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] info: SASL authentication succeeded.
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_80_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" to="local-jabber.entenhausen.pazz.de" version="1.0"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_80_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: RECV:  <open xmlns="urn:ietf:params:xml:ns:xmpp-framing" id="18158226682880838982" version="1.0" xml:lang="en" from="local-jabber.entenhausen.pazz.de"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <stream:features xmlns:stream="http://etherx.jabber.org/streams"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"/><session xmlns="urn:ietf:params:xml:ns:xmpp-session"><optional/></session><c xmlns="http://jabber.org/protocol/caps" ver="55W0fZiAYW8VIbjTRZlOlKIFYc8=" node="http://www.process-one.net/en/ejabberd/" hash="sha-1"/><sm xmlns="urn:xmpp:sm:2"/><sm xmlns="urn:xmpp:sm:3"/><ver xmlns="urn:xmpp:features:rosterver"/><csi xmlns="urn:xmpp:csi:0"/></stream:features>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 5
 
-[1A[2K[Browser] log: SEND:  <iq type="set" id="_bind_auth_2" xmlns="jabber:client"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"/></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_83_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" type="result" id="_bind_auth_2"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"><jid>owner@local-jabber.entenhausen.pazz.de/1674487234473037738131</jid></bind></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 6
 
-[1A[2K[Browser] log: SEND:  <iq type="set" id="_session_auth_2" xmlns="jabber:client"><session xmlns="urn:ietf:params:xml:ns:xmpp-session"/></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_84_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="local-jabber.entenhausen.pazz.de" type="result" id="_session_auth_2"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 7
 
-[1A[2K[Browser] log: XMPP Connected
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_85_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <iq type="set" id="enable-carbons" xmlns="jabber:client"><enable xmlns="urn:xmpp:carbons:2"/></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 8
 
-[1A[2K[Browser] log: DEBUG: XMPP State: connected
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_86_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: App calling loadMostRecentMessages
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 9
 
-[1A[2K[Browser] error: DEBUG: loadMostRecentMessages called
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_87_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: Sending MAM IQ (MostRecent): <iq type="set" id="mam_17657924989720.8156040709686667" xmlns="jabber:client"><query xmlns="urn:xmpp:mam:2"><set xmlns="http://jabber.org/protocol/rsm"><max>50</max><before/></set></query></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 10
 
-[1A[2K[Browser] log: SEND:  <iq type="set" id="mam_17657924989720.8156040709686667" xmlns="jabber:client"><query xmlns="urn:xmpp:mam:2"><set xmlns="http://jabber.org/protocol/rsm"><max>50</max><before/></set></query></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_88_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <iq type="get" id="roster_1765792498974" xmlns="jabber:client"><query xmlns="jabber:iq:roster"/></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 11
 
-[1A[2K[Browser] log: SEND:  <iq type="get" id="blocklist_1765792498975" xmlns="jabber:client"><blocklist xmlns="urn:xmpp:blocking"/></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_89_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <presence xmlns="jabber:client"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 12
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="enable-carbons"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_90_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="mam_17657924989720.8156040709686667"><fin xmlns="urn:xmpp:mam:2" complete="true"><set xmlns="http://jabber.org/protocol/rsm"><count>0</count></set></fin></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 13
 
-[1A[2K[Browser] error: DEBUG: MAM MostRecent query successful
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_91_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="roster_1765792498974"><query xmlns="jabber:iq:roster"/></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 14
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de" type="result" id="blocklist_1765792498975"><blocklist xmlns="urn:xmpp:blocking"/></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_92_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 15
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=owner@local-jabber.entenhausen.pazz.de/1674487234473037738131 type=available show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_93_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=owner@local-jabber.entenhausen.pazz.de/1674487234473037738131 type=available show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 16
 
-[1A[2K[Browser] log: Creating/Joining room: mines@conference.local-jabber.entenhausen.pazz.de as owner
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_94_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <presence to="mines@conference.local-jabber.entenhausen.pazz.de/owner" xmlns="jabber:client"><x xmlns="http://jabber.org/protocol/muc"/></presence>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 17
 
-[1A[2KSkipping selectRoom as createRoom opens chat directly
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_95_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="9804326755796591610"><c xmlns="http://jabber.org/protocol/caps" ver="GmrO7Qe0+zukG2yfjtOBNW+1Tiw=" node="http://www.process-one.net/en/ejabberd/" hash="sha-1"/></presence>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 18
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=available show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_96_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=available show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 19
 
-[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de/owner"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" role="moderator" affiliation="owner"/><status code="201"/><status code="110"/></x></presence>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_97_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=available show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 20
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=available show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_98_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="groupchat"><subject/></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 21
 
-[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="groupchat"><subject/></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_99_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="groupchat"><subject/></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_81_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] info: Autofocus processing was blocked because a document already has a focused element.
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_81_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: SEND:  <iq type="set" to="mines@conference.local-jabber.entenhausen.pazz.de" id="muc_admin_1765792499058" xmlns="jabber:client"><query xmlns="http://jabber.org/protocol/muc#admin"><item affiliation="member" jid="slave"/></query></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_82_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="13318048617904648735"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="slave" role="none" affiliation="member"/></x></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_82_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="13318048617904648735"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="slave" role="none" affiliation="member"/></x></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_83_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" id="13318048617904648735"><x xmlns="http://jabber.org/protocol/muc#user"><item jid="slave" role="none" affiliation="member"/></x></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_83_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="result" id="muc_admin_1765792499058"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_84_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: Granted membership to slave
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_84_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] warning: Invite not fully implemented via UI button yet
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_85_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: SEND:  <iq type="set" to="mines@conference.local-jabber.entenhausen.pazz.de" id="muc_admin_1765792499092" xmlns="jabber:client"><query xmlns="http://jabber.org/protocol/muc#admin"><item affiliation="member" jid="slave"/></query></iq>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_85_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: RECV:  <iq xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="result" id="muc_admin_1765792499092"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_86_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: Granted membership to slave
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_86_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: SEND:  <message to="mines@conference.local-jabber.entenhausen.pazz.de" type="chat" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1" xmlns="jabber:client"><body>Welcome to the the mines!</body></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_87_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <message xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="error" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1"><error type="modify"><not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">It is not allowed to send private messages to the conference</text></error><body>Welcome to the the mines!</body></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_87_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="error" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1"><error type="modify"><not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">It is not allowed to send private messages to the conference</text></error><body>Welcome to the the mines!</body></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_88_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: Stanza received <message xmlns="jabber:client" xml:lang="en" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="error" id="3bdd8c86-cfd0-4df3-b663-22e409500ef1"><error type="modify"><not-acceptable xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">It is not allowed to send private messages to the conference</text></error><body>Welcome to the the mines!</body></message>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_88_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="unavailable" id="4924874417057905067"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_89_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_89_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_90_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de/owner" type="unavailable"><x xmlns="http://jabber.org/protocol/muc#user"><destroy/><item role="none" affiliation="none"/></x></presence>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_90_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_91_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_91_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2KCleaning up 2 test users (skipped 19007 garbage users)...
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_92_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de" type="unavailable" id="9283909663240705045"/>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_92_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_93_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_93_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: RECV:  <presence xmlns="jabber:client" to="owner@local-jabber.entenhausen.pazz.de/1674487234473037738131" from="mines@conference.local-jabber.entenhausen.pazz.de/owner" type="unavailable"><x xmlns="http://jabber.org/protocol/muc#user"><item role="none" affiliation="none"><reason>You are being removed from the room because of a system shutdown</reason></item><status code="332"/><status code="110"/></x></presence>
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_94_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_94_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] error: DEBUG: handlePresence from=mines@conference.local-jabber.entenhausen.pazz.de/owner type=unavailable show=online
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_95_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] error: WebSocket stream error: conflict - User removed
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_95_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: DEBUG: XMPP State: error
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_96_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] debug: _doDisconnect was called
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_96_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] debug: WebSockets _doDisconnect was called
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_97_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K[Browser] log: XMPP Disconnected
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_97_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-[1A[2K[Browser] log: DEBUG: XMPP State: disconnected
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_98_1766924655858@local-jabber.entenhausen.pazz.de
 
-[1A[2K  1) [chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline) 
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_98_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
-    [31mTest timeout of 60000ms exceeded.[39m
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_99_1766924655858@local-jabber.entenhausen.pazz.de
 
-    Error: locator.evaluate: Test ended.
-    Call log:
-    [2m  - waiting for locator('input[name="username"]')[22m
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_99_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
 
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
 
-       at src/page-objects/app.po.ts:147
+[1A[2KInitial message count: 20
 
-      145 |
-      146 |   async logIn(username: string, password: string) {
-    > 147 |     await this.page.locator('input[name="username"]').evaluate((el: HTMLInputElement, val) => {
-          |                                                       ^
-      148 |       el.focus();
-      149 |       el.value = val;
-      150 |       el.dispatchEvent(new Event('input', { bubbles: true }));
-        at AppPage.logIn (/Users/oliverschiessl/WebstormProjects/ngx-chat-new/e2e-final-testing/src/page-objects/app.po.ts:147:55)
-        at /Users/oliverschiessl/WebstormProjects/ngx-chat-new/e2e-final-testing/src/muc-messages.spec.ts:50:20
+[1A[2KScrolling to top to load more...
 
-    Error Context: test-results/src-muc-messages-ngx-chat--bb408--is-online-another-offline--chromium/error-context.md
+[1A[2KCount after scroll: 20
 
+[1A[2KCount after scroll: 20
 
-[1A[2K[2/2] [chromium] › src/muc-messages.spec.ts:65:8 › ngx-chat › should be able to create a room, write a message, invite bob and tim, let them join and see the message, and destroy the room
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 0
+
+[1A[2KCount after scroll: 20
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 22
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_1_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 23
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_2_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 24
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_3_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 25
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_4_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 26
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_5_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 27
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_6_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 28
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_7_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 29
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_8_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 30
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_9_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 31
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_10_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 32
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_11_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 33
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_12_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 34
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_13_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 35
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_14_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 36
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_15_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 37
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_16_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 38
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_17_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 39
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_18_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 40
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_19_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 41
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_20_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 42
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_21_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 43
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_22_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 44
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_23_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 45
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_24_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 46
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_25_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 47
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_26_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 48
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_27_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 49
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_28_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 50
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_29_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 51
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_30_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 52
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_31_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 53
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_32_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 54
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_33_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 55
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_34_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 56
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_35_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_1_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_1_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 57
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_36_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 58
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_37_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 59
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_38_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 60
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_39_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_2_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_2_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 61
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_40_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 62
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_41_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 63
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_42_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 64
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_43_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_3_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_3_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 65
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_44_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 66
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_45_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 67
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_46_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 68
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_47_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 69
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_48_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_4_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_4_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 70
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_49_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 71
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_50_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 72
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_51_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 73
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_52_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 74
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_53_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 75
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_54_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_5_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_5_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_6_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_6_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 76
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_55_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 77
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_56_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 78
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_57_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 79
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_58_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_7_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_7_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 80
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_59_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 81
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_60_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 82
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_61_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 83
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_62_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_8_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_8_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 84
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_63_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 85
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_64_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 86
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_65_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 87
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_66_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 88
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_67_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 89
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_68_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 90
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_69_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 91
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_70_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 92
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_71_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 93
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_72_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_9_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_9_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_10_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_10_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 94
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_73_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 95
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_74_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 96
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_75_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 97
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_76_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 98
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_77_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 99
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_78_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Contacts updated. Count: 100
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Subscribing to messages for contact_79_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_11_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_11_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_12_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_12_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_13_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_13_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_14_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_14_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_15_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_15_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_16_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_16_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_17_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_17_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_18_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_18_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_19_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_19_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_20_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_20_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_21_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_21_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_22_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_22_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_23_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_23_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_24_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_24_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_25_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_25_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_26_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_26_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_27_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_27_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_28_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_28_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_29_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_29_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_30_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_30_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_31_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_31_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_32_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_32_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_33_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_33_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_34_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_34_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_35_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_35_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_36_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_36_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_37_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_37_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_38_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_38_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_39_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_39_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_40_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_40_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_41_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_41_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_42_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_42_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_43_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_43_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_44_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_44_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_45_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_45_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_46_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_46_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_47_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_47_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_48_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_48_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_49_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_49_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_50_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_50_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_51_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_51_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_52_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_52_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_53_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_53_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_54_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_54_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_55_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_55_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_56_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_56_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_57_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_57_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_58_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_58_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_59_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_59_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_60_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_60_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693988.1, Count: 0
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_61_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_61_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_62_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_62_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_63_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_63_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_64_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_64_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_65_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_65_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_66_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_66_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_67_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_67_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_68_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_68_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_69_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_69_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_70_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_70_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_71_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_71_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_72_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_72_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_73_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_73_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_74_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_74_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_75_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_75_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_76_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_76_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_77_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_77_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_78_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_78_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_79_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_79_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+
+[1A[2KCount after scroll: 50
+
+[1A[2KCount final: 50
+
+[1A[2KSending live message from contact_99_1766924655858 to verify unread...
+
+[1A[2KOpening chat with low volume contact_99_1766924655858...
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Message store emitted for contact_99_1766924655858@local-jabber.entenhausen.pazz.de
+
+[1A[2K[Browser] error: [UNREAD_DEBUG] Updating unread for contact_99_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 2
+
+[1A[2K[Known Issue] Unread count not updated for contact_99_1766924655858.
+
+[1A[2KBrowser Console Logs: info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+log: Angular is running in development mode.
+log: Directly set username on App component to: roster_load_target
+error: [UNREAD_DEBUG] Contacts updated. Count: 0
+error: [UNREAD_DEBUG] Contacts updated. Count: 1
+error: [UNREAD_DEBUG] Subscribing to messages for contact_80_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 2
+error: [UNREAD_DEBUG] Subscribing to messages for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 3
+error: [UNREAD_DEBUG] Subscribing to messages for contact_81_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 4
+error: [UNREAD_DEBUG] Subscribing to messages for contact_82_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_80_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_80_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 5
+error: [UNREAD_DEBUG] Subscribing to messages for contact_83_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 6
+error: [UNREAD_DEBUG] Subscribing to messages for contact_84_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 7
+error: [UNREAD_DEBUG] Subscribing to messages for contact_85_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 8
+error: [UNREAD_DEBUG] Subscribing to messages for contact_86_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 9
+error: [UNREAD_DEBUG] Subscribing to messages for contact_87_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 10
+error: [UNREAD_DEBUG] Subscribing to messages for contact_88_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 11
+error: [UNREAD_DEBUG] Subscribing to messages for contact_89_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 12
+error: [UNREAD_DEBUG] Subscribing to messages for contact_90_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 13
+error: [UNREAD_DEBUG] Subscribing to messages for contact_91_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 14
+error: [UNREAD_DEBUG] Subscribing to messages for contact_92_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 15
+error: [UNREAD_DEBUG] Subscribing to messages for contact_93_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 16
+error: [UNREAD_DEBUG] Subscribing to messages for contact_94_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 17
+error: [UNREAD_DEBUG] Subscribing to messages for contact_95_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 18
+error: [UNREAD_DEBUG] Subscribing to messages for contact_96_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 19
+error: [UNREAD_DEBUG] Subscribing to messages for contact_97_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 20
+error: [UNREAD_DEBUG] Subscribing to messages for contact_98_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 21
+error: [UNREAD_DEBUG] Subscribing to messages for contact_99_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_81_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_81_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_82_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_82_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_83_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_83_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_84_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_84_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_85_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_85_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_86_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_86_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_87_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_87_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_88_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_88_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_89_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_89_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_90_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_90_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_91_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_91_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_92_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_92_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_93_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_93_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_94_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_94_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_95_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_95_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_96_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_96_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_97_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_97_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_98_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_98_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_99_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_99_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693345.7, Count: 0
+error: [UNREAD_DEBUG] Contacts updated. Count: 0
+error: [UNREAD_DEBUG] Message store emitted for contact_0_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 22
+error: [UNREAD_DEBUG] Subscribing to messages for contact_1_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 23
+error: [UNREAD_DEBUG] Subscribing to messages for contact_2_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 24
+error: [UNREAD_DEBUG] Subscribing to messages for contact_3_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 25
+error: [UNREAD_DEBUG] Subscribing to messages for contact_4_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 26
+error: [UNREAD_DEBUG] Subscribing to messages for contact_5_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 27
+error: [UNREAD_DEBUG] Subscribing to messages for contact_6_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 28
+error: [UNREAD_DEBUG] Subscribing to messages for contact_7_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 29
+error: [UNREAD_DEBUG] Subscribing to messages for contact_8_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 30
+error: [UNREAD_DEBUG] Subscribing to messages for contact_9_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 31
+error: [UNREAD_DEBUG] Subscribing to messages for contact_10_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 32
+error: [UNREAD_DEBUG] Subscribing to messages for contact_11_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 33
+error: [UNREAD_DEBUG] Subscribing to messages for contact_12_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 34
+error: [UNREAD_DEBUG] Subscribing to messages for contact_13_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 35
+error: [UNREAD_DEBUG] Subscribing to messages for contact_14_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 36
+error: [UNREAD_DEBUG] Subscribing to messages for contact_15_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 37
+error: [UNREAD_DEBUG] Subscribing to messages for contact_16_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 38
+error: [UNREAD_DEBUG] Subscribing to messages for contact_17_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 39
+error: [UNREAD_DEBUG] Subscribing to messages for contact_18_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 40
+error: [UNREAD_DEBUG] Subscribing to messages for contact_19_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 41
+error: [UNREAD_DEBUG] Subscribing to messages for contact_20_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 42
+error: [UNREAD_DEBUG] Subscribing to messages for contact_21_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 43
+error: [UNREAD_DEBUG] Subscribing to messages for contact_22_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 44
+error: [UNREAD_DEBUG] Subscribing to messages for contact_23_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 45
+error: [UNREAD_DEBUG] Subscribing to messages for contact_24_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 46
+error: [UNREAD_DEBUG] Subscribing to messages for contact_25_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 47
+error: [UNREAD_DEBUG] Subscribing to messages for contact_26_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 48
+error: [UNREAD_DEBUG] Subscribing to messages for contact_27_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 49
+error: [UNREAD_DEBUG] Subscribing to messages for contact_28_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 50
+error: [UNREAD_DEBUG] Subscribing to messages for contact_29_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 51
+error: [UNREAD_DEBUG] Subscribing to messages for contact_30_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 52
+error: [UNREAD_DEBUG] Subscribing to messages for contact_31_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 53
+error: [UNREAD_DEBUG] Subscribing to messages for contact_32_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 54
+error: [UNREAD_DEBUG] Subscribing to messages for contact_33_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 55
+error: [UNREAD_DEBUG] Subscribing to messages for contact_34_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 56
+error: [UNREAD_DEBUG] Subscribing to messages for contact_35_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_1_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_1_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 57
+error: [UNREAD_DEBUG] Subscribing to messages for contact_36_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 58
+error: [UNREAD_DEBUG] Subscribing to messages for contact_37_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 59
+error: [UNREAD_DEBUG] Subscribing to messages for contact_38_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 60
+error: [UNREAD_DEBUG] Subscribing to messages for contact_39_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_2_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_2_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 61
+error: [UNREAD_DEBUG] Subscribing to messages for contact_40_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 62
+error: [UNREAD_DEBUG] Subscribing to messages for contact_41_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 63
+error: [UNREAD_DEBUG] Subscribing to messages for contact_42_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 64
+error: [UNREAD_DEBUG] Subscribing to messages for contact_43_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_3_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_3_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 65
+error: [UNREAD_DEBUG] Subscribing to messages for contact_44_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 66
+error: [UNREAD_DEBUG] Subscribing to messages for contact_45_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 67
+error: [UNREAD_DEBUG] Subscribing to messages for contact_46_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 68
+error: [UNREAD_DEBUG] Subscribing to messages for contact_47_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 69
+error: [UNREAD_DEBUG] Subscribing to messages for contact_48_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_4_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_4_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 70
+error: [UNREAD_DEBUG] Subscribing to messages for contact_49_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 71
+error: [UNREAD_DEBUG] Subscribing to messages for contact_50_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 72
+error: [UNREAD_DEBUG] Subscribing to messages for contact_51_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 73
+error: [UNREAD_DEBUG] Subscribing to messages for contact_52_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 74
+error: [UNREAD_DEBUG] Subscribing to messages for contact_53_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 75
+error: [UNREAD_DEBUG] Subscribing to messages for contact_54_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_5_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_5_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_6_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_6_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 76
+error: [UNREAD_DEBUG] Subscribing to messages for contact_55_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 77
+error: [UNREAD_DEBUG] Subscribing to messages for contact_56_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 78
+error: [UNREAD_DEBUG] Subscribing to messages for contact_57_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 79
+error: [UNREAD_DEBUG] Subscribing to messages for contact_58_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_7_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_7_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 80
+error: [UNREAD_DEBUG] Subscribing to messages for contact_59_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 81
+error: [UNREAD_DEBUG] Subscribing to messages for contact_60_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 82
+error: [UNREAD_DEBUG] Subscribing to messages for contact_61_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 83
+error: [UNREAD_DEBUG] Subscribing to messages for contact_62_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_8_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_8_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 84
+error: [UNREAD_DEBUG] Subscribing to messages for contact_63_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 85
+error: [UNREAD_DEBUG] Subscribing to messages for contact_64_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 86
+error: [UNREAD_DEBUG] Subscribing to messages for contact_65_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 87
+error: [UNREAD_DEBUG] Subscribing to messages for contact_66_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 88
+error: [UNREAD_DEBUG] Subscribing to messages for contact_67_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 89
+error: [UNREAD_DEBUG] Subscribing to messages for contact_68_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 90
+error: [UNREAD_DEBUG] Subscribing to messages for contact_69_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 91
+error: [UNREAD_DEBUG] Subscribing to messages for contact_70_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 92
+error: [UNREAD_DEBUG] Subscribing to messages for contact_71_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 93
+error: [UNREAD_DEBUG] Subscribing to messages for contact_72_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_9_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_9_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_10_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_10_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Contacts updated. Count: 94
+error: [UNREAD_DEBUG] Subscribing to messages for contact_73_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 95
+error: [UNREAD_DEBUG] Subscribing to messages for contact_74_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 96
+error: [UNREAD_DEBUG] Subscribing to messages for contact_75_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 97
+error: [UNREAD_DEBUG] Subscribing to messages for contact_76_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 98
+error: [UNREAD_DEBUG] Subscribing to messages for contact_77_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 99
+error: [UNREAD_DEBUG] Subscribing to messages for contact_78_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Contacts updated. Count: 100
+error: [UNREAD_DEBUG] Subscribing to messages for contact_79_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Message store emitted for contact_11_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_11_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_12_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_12_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_13_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_13_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_14_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_14_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_15_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_15_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_16_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_16_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_17_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_17_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_18_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_18_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_19_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_19_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_20_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_20_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_21_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_21_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_22_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_22_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_23_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_23_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_24_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_24_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_25_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_25_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_26_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_26_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_27_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_27_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_28_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_28_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_29_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_29_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_30_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_30_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_31_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_31_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_32_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_32_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_33_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_33_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_34_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_34_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_35_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_35_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_36_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_36_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_37_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_37_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_38_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_38_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_39_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_39_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_40_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_40_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_41_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_41_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_42_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_42_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_43_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_43_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_44_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_44_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_45_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_45_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_46_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_46_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_47_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_47_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_48_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_48_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_49_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_49_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_50_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_50_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_51_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_51_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_52_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_52_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_53_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_53_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_54_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_54_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_55_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_55_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_56_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_56_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_57_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_57_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_58_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_58_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_59_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_59_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_60_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_60_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Updating unread for contact_0_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 1766924693988.1, Count: 0
+error: [UNREAD_DEBUG] Message store emitted for contact_61_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_61_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_62_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_62_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_63_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_63_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_64_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_64_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_65_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_65_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_66_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_66_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_67_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_67_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_68_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_68_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_69_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_69_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_70_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_70_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_71_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_71_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_72_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_72_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_73_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_73_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_74_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_74_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_75_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_75_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_76_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_76_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_77_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_77_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_78_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_78_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_79_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_79_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 1
+error: [UNREAD_DEBUG] Message store emitted for contact_99_1766924655858@local-jabber.entenhausen.pazz.de
+error: [UNREAD_DEBUG] Updating unread for contact_99_1766924655858@local-jabber.entenhausen.pazz.de. LastRead: 0, Count: 2
+
+[1A[2K  1) [chromium] › roster-load-test.spec.ts:88:9 › Roster Load Test › should load 100 contacts and support scrolling in large conversation 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeGreaterThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: > [32m0[39m
+    Received:   [31m0[39m
+
+    Call Log:
+    - Timeout 5000ms exceeded while waiting on the predicate
+
+      173 |                 if (unreadCountFinal > 0) console.log(`Unread count confirmed: ${unreadCountFinal}`);
+      174 |                 expect(unreadCountFinal).toBeGreaterThan(0);
+    > 175 |             }).toPass({ timeout: 5000 });
+          |                ^
+      176 |         } catch (e) {
+      177 |             console.warn(`[Known Issue] Unread count not updated for ${lowVolumeContact}.`);
+      178 |             throw e; // Fail the test to verify fix!
+
+        at /Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/ngx-chat-e2e-new/src/roster-load-test.spec.ts:175:16
+
+
 [1A[2K  1 failed
-    [chromium] › src/muc-messages.spec.ts:32:7 › ngx-chat › grant membership to single user to single room async (one is online another offline) 
-  1 skipped
+    [chromium] › roster-load-test.spec.ts:88:9 › Roster Load Test › should load 100 contacts and support scrolling in large conversation 
 
-[36m  Serving HTML report at http://localhost:53526. Press Ctrl+C to quit.[39m
+  Serving HTML report at http://localhost:54948. Press Ctrl+C to quit.

@@ -181,7 +181,7 @@ export class ChatWindowPage {
   }
 
   async scrollToTop(): Promise<void> {
-    const messagesContainer = this.windowLocator.locator('.messages');
+    const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
     await messagesContainer.evaluate((el) => {
       el.scrollTop = 0;
       el.dispatchEvent(new Event('scroll'));
