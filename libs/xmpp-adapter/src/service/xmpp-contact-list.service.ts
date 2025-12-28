@@ -43,11 +43,17 @@ export class XmppContactListService implements ContactListService {
 
     this.contactsBlocked$ = combineLatest([
       this.contacts$,
+      rosterPlugin.contactsUnaffiliated$,
       this.blockPlugin.blockedContactJIDs$,
     ]).pipe(
-      map(([contacts, blockedJIDs]) =>
-        contacts.filter((c) => blockedJIDs.has(c.jid.bare().toString()))
-      ),
+      map(([contacts, unaffiliated, blockedJIDs]) => {
+        // Merge and dedup by JID
+        const allContacts = new Map<string, Contact>();
+        contacts.forEach(c => allContacts.set(c.jid.bare().toString(), c));
+        unaffiliated.forEach(c => allContacts.set(c.jid.bare().toString(), c));
+
+        return Array.from(allContacts.values()).filter((c) => blockedJIDs.has(c.jid.bare().toString()));
+      }),
       runInZone(zone)
     );
   }

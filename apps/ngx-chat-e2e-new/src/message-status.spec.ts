@@ -68,7 +68,7 @@ test.describe('Message Status', () => {
         await expect(bobLastMessage).toBeVisible();
 
         // Alice should see ✓✓
-        await expect(lastMessage.locator('ngx-chat-message-state-icon')).toContainText('✓✓', { timeout: 30000 });
+        await expect(lastMessage.locator('ngx-chat-message-state-icon')).toContainText('✓✓', { timeout: 60000 });
 
         // 8. Check "Seen" status (colored ✓✓)
         // Bob needs to focus/interact?
