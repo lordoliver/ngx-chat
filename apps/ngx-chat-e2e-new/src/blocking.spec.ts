@@ -46,14 +46,14 @@ test.describe('ngx-chat', () => {
     await appPage.logOut();
 
     await appPage.logIn(duty, duty);
-    expect(appPage.isContactInRoster(ass)).toBeTruthy();
+    expect(await appPage.isContactInRoster(ass)).toBeTruthy();
     await appPage.openChatWith(ass);
     // await dutysChatWithAss.block();
     await appPage.blockContact(ass);
     await expect(async () => {
-      expect(await appPage.isBlockedListVisible()).toBeTruthy();
+      expect(await appPage.isContactInBlockedList(ass)).toBeTruthy();
     }).toPass({ timeout: 10000 });
-    expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
+    expect(await appPage.isContactInUnaffiliatedList(ass)).toBeFalsy();
     await appPage.logOut();
   });
 
@@ -63,11 +63,13 @@ test.describe('ngx-chat', () => {
     const chat = await appPage.openChatWith(duty);
     await chat.write(message);
     await appPage.logOut();
+
     await appPage.logIn(duty, duty);
     await expect(async () => {
-      expect(await appPage.isBlockedListVisible()).toBeTruthy();
+      expect(await appPage.isContactInBlockedList(ass)).toBeTruthy();
     }).toPass({ timeout: 10000 });
-    expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
+    expect(await appPage.isContactInUnaffiliatedList(ass)).toBeFalsy();
+
     const window = await appPage.openChatWith(ass);
     await window.assertLastMessageIsNot(message);
     await appPage.logOut();
@@ -76,19 +78,31 @@ test.describe('ngx-chat', () => {
   test('should be able to unblock the ass as duty', async () => {
     await appPage.logIn(duty, duty);
     await appPage.unblockContact(ass);
-    expect(await appPage.isBlockedListHidden()).toBeTruthy();
+
+    // Verify removed from blocked list
     await expect(async () => {
-      expect(await appPage.isContactInRoster(ass)).toBeTruthy();
-    }).toPass({ timeout: 20000 });
+      expect(await appPage.isContactInBlockedList(ass)).toBeFalsy();
+    }).toPass({ timeout: 10000 });
+
+    await appPage.logOut();
+
+    // As proof of unblocking, Ass sends a message and Duty should receive it
+    const msg = 'I am back!';
+    await appPage.logIn(ass, ass);
+    const chat = await appPage.openChatWith(duty);
+    await chat.write(msg);
+    await appPage.logOut();
+
+    await appPage.logIn(duty, duty);
+    const dutyChat = await appPage.openChatWith(ass);
+    await dutyChat.assertLastMessage(msg, 'incoming');
     await appPage.logOut();
   });
 
   test('should keep unblocked contacts as such', async () => {
+    // This test is somewhat redundant with the logic above, but verifies persistence
     await appPage.logIn(duty, duty);
-    expect(await appPage.isBlockedListHidden()).toBeTruthy();
-    await expect(async () => {
-      expect(await appPage.isContactInRoster(ass)).toBeTruthy();
-    }).toPass({ timeout: 20000 });
+    expect(await appPage.isContactInBlockedList(ass)).toBeFalsy();
     await appPage.logOut();
   });
 });

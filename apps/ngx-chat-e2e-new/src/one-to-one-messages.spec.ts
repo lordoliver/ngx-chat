@@ -22,7 +22,8 @@ test.describe('ngx-chat', () => {
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
 
-  test.beforeAll(async ({ browser, playwright }) => {
+  test.beforeEach(async ({ browser, playwright }) => {
+    // Generate fresh users for each test to avoid state pollution (e.g. blocking persisting)
     alice = generateUser('alice');
     bob = generateUser('bob');
     tim = generateUser('tim');
@@ -41,7 +42,7 @@ test.describe('ngx-chat', () => {
     await ejabberdAdminPage.register(tim, testPassword);
   });
 
-  test.afterAll(async () => {
+  test.afterEach(async () => {
     await appPage.page.goto('about:blank').catch(() => { });
   });
 
@@ -56,10 +57,13 @@ test.describe('ngx-chat', () => {
     await appPage.logIn(bob, testPassword);
     const bobChatWindowWithAlice = await appPage.openChatWith(alice);
     await bobChatWindowWithAlice.assertIsOpen();
-    // await bobChatWindowWithAlice.open(); // openChatWith already opens it. verify instead.
     await bobChatWindowWithAlice.block();
-    test.expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
-    test.expect(await appPage.isBlockedListVisible()).toBeTruthy();
+
+    await expect(async () => {
+      test.expect(await appPage.isContactInUnaffiliatedList(alice)).toBeFalsy();
+      test.expect(await appPage.isContactInBlockedList(alice)).toBeTruthy();
+    }).toPass({ timeout: 10000 });
+
     await appPage.logOut();
   });
 

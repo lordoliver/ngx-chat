@@ -259,9 +259,14 @@ export class AppPage {
     return this.createRoosterEntryLocator(jid);
   }
 
-  async isUnaffiliatedListHidden(): Promise<boolean> {
-    await this.rosterListUnaffiliatedHeader.waitFor({ state: 'hidden' });
-    return true;
+  async isContactInBlockedList(jid: string): Promise<boolean> {
+    const selector = `[data-zid="roster-group-header-blocked"] + .contact-list-wrapper .roster-recipient[title*="${jid}"]`;
+    return (await this.page.locator(selector).count()) > 0;
+  }
+
+  async isContactInUnaffiliatedList(jid: string): Promise<boolean> {
+    const selector = `[data-zid="roster-group-header-contacts-unaffiliated"] + .contact-list-wrapper .roster-recipient[title*="${jid}"]`;
+    return (await this.page.locator(selector).count()) > 0;
   }
 
   async isBlockedListVisible(): Promise<boolean> {
@@ -276,6 +281,16 @@ export class AppPage {
   async isBlockedListHidden(): Promise<boolean> {
     await this.rosterListBlockedHeader.waitFor({ state: 'hidden' });
     return !(await this.rosterListBlockedHeader.isVisible());
+  }
+
+  async isUnaffiliatedListHidden(): Promise<boolean> {
+    // Deprecated for specific checks, but kept for legacy support if needed
+    try {
+      await this.rosterListUnaffiliatedHeader.waitFor({ state: 'hidden', timeout: 5000 });
+      return true;
+    } catch (e) {
+      return false;
+    }
   }
 
   async selectChatWithContact(jid: string): Promise<ChatWindowPage> {
