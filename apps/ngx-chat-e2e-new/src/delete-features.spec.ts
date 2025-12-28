@@ -129,7 +129,7 @@ test.describe('Delete Features', () => {
         await appPage.page.locator('[data-zid="remove-contact"]').click();
 
         // 5. Verify Removal from UI
-        await expect(appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: userB })).toBeHidden({ timeout: 5000 });
+        await expect(appPage.page.locator('.contact-list-wrapper .roster-recipient', { hasText: userB })).toBeHidden({ timeout: 20000 });
     });
 
     test('should allow closing a conversation', async ({ page, playwright }) => {

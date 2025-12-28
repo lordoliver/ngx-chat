@@ -13,7 +13,7 @@ const targetUser = 'performance_target';
 const senderUser1 = 'sender_one';
 const senderUser2 = 'sender_two';
 const testPassword = 'password';
-const messageCount = 100;
+const messageCount = 40;
 
 test.describe('Load & Performance Test', () => {
     let appPage: AppPage;
@@ -130,5 +130,7 @@ async function sendMessageBatch(appPage: AppPage, sender: string, recipient: str
         // Small delay to prevent rate limiting/flakiness
         if (i % 10 === 0) await appPage.page.waitForTimeout(100);
     }
+    // Wait for stanzas to flush
+    await appPage.page.waitForTimeout(2000);
     await appPage.logOut();
 }

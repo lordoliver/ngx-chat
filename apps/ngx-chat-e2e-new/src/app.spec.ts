@@ -237,16 +237,35 @@ test.describe('ngx-chat', () => {
     await appPage.logOut();
   });
 
-  test('should be able to accept the Huntsman request as SnowWhite', async () => {
-    await appPage.logIn(huntsman, huntsman);
-    await appPage.addContact(snowWhite);
-    await appPage.logOut();
+  test('should be able to accept the Huntsman request as SnowWhite', async ({ browser }) => {
+    // Use fresh users to avoid roster state pollution from previous tests
+    const freshSnowWhite = generateUser('snowwhite_fresh');
+    const freshHuntsman = generateUser('huntsman_fresh');
 
-    await appPage.logIn(snowWhite, snowWhite);
-    const chat = await appPage.openChatWith(huntsman);
+    await ejabberdAdminPage.register(freshSnowWhite, freshSnowWhite);
+    await ejabberdAdminPage.register(freshHuntsman, freshHuntsman);
+
+    // Session 1: SnowWhite (The Receiver)
+    await appPage.logIn(freshSnowWhite, freshSnowWhite);
+
+    // Session 2: Huntsman (The Sender) - using a new separate context
+    const huntsmanAppPage = await AppPage.create(browser);
+    await huntsmanAppPage.setupForTest();
+    await huntsmanAppPage.logIn(freshHuntsman, freshHuntsman);
+
+    // Huntsman adds SnowWhite
+    await huntsmanAppPage.addContact(freshSnowWhite);
+
+    // SnowWhite should receive the request (since she is online)
+    const chat = await appPage.openChatWith(freshHuntsman);
     await chat.waitForVisible();
     await chat.acceptContactRequest();
-    await expect(appPage.getContactRosterLocator(huntsman)).toBeVisible();
+
+    await expect(appPage.getContactRosterLocator(freshHuntsman)).toBeVisible();
+
+    // Cleanup
+    await huntsmanAppPage.logOut();
+    await huntsmanAppPage.page.close();
     await appPage.logOut();
   });
 });

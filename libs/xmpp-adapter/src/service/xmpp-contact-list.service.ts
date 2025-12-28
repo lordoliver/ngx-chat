@@ -34,9 +34,10 @@ export class XmppContactListService implements ContactListService {
       rosterPlugin.contactsUnaffiliated$,
       this.blockPlugin.blockedContactJIDs$,
     ]).pipe(
-      map(([contacts, blockedJIDs]) =>
-        contacts.filter((c) => !blockedJIDs.has(c.jid.bare().toString()))
-      ),
+      map(([contacts, blockedJIDs]) => {
+        const filtered = contacts.filter((c) => !blockedJIDs.has(c.jid.bare().toString()));
+        return filtered;
+      }),
       runInZone(zone)
     );
     this.blockedContactJIDs$ = blockPlugin.blockedContactJIDs$.pipe(runInZone(zone));

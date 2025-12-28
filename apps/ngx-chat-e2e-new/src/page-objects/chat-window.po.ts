@@ -147,11 +147,12 @@ export class ChatWindowPage {
   }
 
   async acceptContactRequest(): Promise<void> {
-    // Robustly click either accept or add, letting Playwright handle the stability and auto-retry
-    // This avoids "Element detached" errors by letting Playwright re-query if the DOM updates
-    const acceptOrAdd = this.windowLocator.locator('[data-zid="accept-user"], [data-zid="add-user"]');
-    // Force click to bypass potential obstruction/animation issues if optimistic UI is fast
-    await acceptOrAdd.first().click({ timeout: 60000, force: true });
+    // Robustly wait for the element to be visible and clickable
+    await expect(async () => {
+      const acceptOrAdd = this.windowLocator.locator('[data-zid="accept-user"], [data-zid="add-user"]').first();
+      await expect(acceptOrAdd).toBeVisible({ timeout: 5000 });
+      await acceptOrAdd.click({ timeout: 5000, force: true });
+    }).toPass({ timeout: 60000 });
   }
 
   async blockOrAddMessageIsVisible(): Promise<boolean> {
