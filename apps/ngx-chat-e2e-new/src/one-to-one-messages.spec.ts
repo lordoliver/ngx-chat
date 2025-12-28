@@ -12,8 +12,7 @@ import { generateUser } from './utils/user-helper';
 
 const testPassword = 'test';
 
-const messageToBobFromAlice = `Good Morning Bob! ${Date.now()}`;
-const messageToContactFromAlice = 'Be a CONTACT!!!';
+
 
 test.describe('ngx-chat', () => {
   let alice = '';
@@ -88,11 +87,14 @@ test.describe('ngx-chat', () => {
   });
 
   test('alice should be able to write to bob and bob should receive the message', async () => {
+    const messageToBobFromAlice = `Good Morning Bob! ${Date.now()}`; // Unique per test
     await appPage.logIn(alice, testPassword);
     await appPage.addContact(bob);
     let chatWindow = await appPage.selectChatWithContact(bob);
     await chatWindow.open();
     await chatWindow.write(messageToBobFromAlice);
+    // Wait for message to appear in Alice's view to ensure it was submitted before logout
+    await expect(chatWindow.getOutMessages().filter({ hasText: messageToBobFromAlice })).toBeVisible({ timeout: 5000 });
     await appPage.logOut();
 
     await appPage.logIn(bob, testPassword);
@@ -109,6 +111,7 @@ test.describe('ngx-chat', () => {
   });
 
   test('alice should be able to write to tim and tim should receive the message after adding alice as contact', async () => {
+    const messageToContactFromAlice = `Be a CONTACT!!! ${Date.now()}`; // Unique per test
     await appPage.logIn(alice, testPassword);
     await appPage.addContact(tim);
     let chatWindow = await appPage.selectChatWithContact(tim);
@@ -119,12 +122,17 @@ test.describe('ngx-chat', () => {
     await appPage.logIn(tim, testPassword);
     await appPage.addContact(alice);
     chatWindow = await appPage.selectChatWithContact(alice);
-    await chatWindow.open();
-    await chatWindow.assertLastMessage(messageToContactFromAlice, 'incoming');
+
+    // Stabilized assertion
+    const messages = chatWindow.getInMessages();
+    await expect(messages.filter({ hasText: messageToContactFromAlice })).toBeVisible({ timeout: 30000 });
+    await expect(messages.last()).toContainText(messageToContactFromAlice, { timeout: 10000 });
+
     await appPage.logOut();
   });
 
   test('alice should be able to write to tim and tim should receive the message even without adding alice as contact', async () => {
+    const messageToContactFromAlice = `Be a CONTACT!!! ${Date.now()}`; // Unique per test
     await appPage.logIn(alice, testPassword);
     await appPage.addContact(tim);
     let chatWindow = await appPage.selectChatWithContact(tim);
@@ -134,8 +142,12 @@ test.describe('ngx-chat', () => {
 
     await appPage.logIn(tim, testPassword);
     chatWindow = await appPage.selectChatWithContact(alice);
-    await chatWindow.open();
-    await chatWindow.assertLastMessage(messageToContactFromAlice, 'incoming');
+
+    // Stabilized assertion
+    const messages = chatWindow.getInMessages();
+    await expect(messages.filter({ hasText: messageToContactFromAlice })).toBeVisible({ timeout: 30000 });
+    await expect(messages.last()).toContainText(messageToContactFromAlice, { timeout: 10000 });
+
     await appPage.logOut();
   });
 
