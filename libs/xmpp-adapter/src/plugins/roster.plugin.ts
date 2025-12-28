@@ -259,9 +259,8 @@ export class RosterPlugin implements ChatPlugin {
     const id = stanza.getAttribute('id') ?? 'invalidId';
 
     if (!rosterItem) {
-      console.error('DEBUG: No valid rosterItem');
       throw new Error(
-        'No valid rosterItem to acknowledge as roosterItem was undefined ' + stanza.outerHTML
+        'No valid rosterItem to acknowledge as rosterItem was undefined ' + stanza.outerHTML
       );
     }
 
