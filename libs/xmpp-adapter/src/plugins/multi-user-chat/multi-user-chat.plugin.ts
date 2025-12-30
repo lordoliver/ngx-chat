@@ -192,21 +192,23 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       return roomFromUser;
     }
 
-    const presenceResponse = await this.xmppService.chatConnectionService
+    await this.xmppService.chatConnectionService
       .$pres({ to: roomJid.toString() })
       .c('x', { xmlns: nsMuc })
-      .send();
+      .sendResponseLess();
+
     const room = await this.getOrCreateRoom(roomJid);
-    await this.handleRoomPresenceStanza(presenceResponse, room);
-    room.handleOccupantJoined(
-      {
-        jid: userJid.bare(),
-        affiliation: presenceResponse.getAttribute('affiliation') as Affiliation,
-        role: presenceResponse.getAttribute('role') as Role,
-        nick: userJid?.resource ?? '',
-      },
-      true
-    );
+
+    // Wait for occupant to appear (handled by global presence handler)
+    let myOccupant = room.getOccupant(userJid.bare());
+    for (let i = 0; i < 50 && !myOccupant; i++) {
+      await new Promise(resolve => setTimeout(resolve, 100));
+      myOccupant = room.getOccupant(userJid.bare());
+    }
+
+    if (!myOccupant) {
+      throw new Error('Timeout waiting for room joining');
+    }
 
     const roomInfo = await this.getRoomInfo(roomJid.bare());
 
@@ -218,9 +220,8 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     room.description =
       getField<TextualFormField>(roomInfo, 'muc#roominfo_description')?.value ?? '';
 
-    const itemElement = presenceResponse?.querySelector('x')?.querySelector('item');
-    if (itemElement?.getAttribute('affiliation') !== Affiliation.owner) {
-      throw new Error('error creating room, user is not owner: ' + presenceResponse.toString());
+    if (myOccupant.affiliation !== Affiliation.owner) {
+      throw new Error('error creating room, user is not owner');
     }
 
     await this.applyRoomConfiguration(room.jid, options);

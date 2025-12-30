@@ -43,10 +43,16 @@ describe('message carbons plugin', () => {
         filter((contacts) => contacts.length > 0)
       )
     );
+    // We need to ensure message service is listening and wait for the message
+    const messagePromise = firstValueFrom(testUtils.chatService.messageService.message$);
+
     await ensureRegisteredUser(testUtils.hero);
     await testUtils.logIn.hero();
 
     await testUtils.fakeWebsocketInStanza(validIncomingCarbonMessage);
+
+    // Wait for message processing
+    await messagePromise;
 
     const contacts = await contactsPromise;
     const firstContact = contacts[0];
