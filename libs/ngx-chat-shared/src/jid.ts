@@ -1,16 +1,12 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-export class JID {
-  /**
-   *
-   * @param local can be undefined for example for conference room node (it than a bare jid)
-   * @param domain never undefined
-   * @param resource can be undefined
-   */
-  constructor(
+export abstract class JID {
+  protected constructor(
     readonly local: string | undefined,
     readonly domain: string,
     readonly resource: string | undefined
-  ) {}
+  ) { }
+
+  abstract toString(): string;
 
   [Symbol.toPrimitive](hint: 'number' | 'string' | 'boolean'): number | string | boolean {
     if (hint === 'number') {
@@ -22,19 +18,6 @@ export class JID {
     }
 
     return true;
-  }
-
-  toString(): string {
-    let s = this.domain;
-    if (this.local) {
-      s = this.local + '@' + s;
-    }
-
-    if (this.resource) {
-      s = s + '/' + this.resource;
-    }
-
-    return s;
   }
 
   /**
@@ -51,9 +34,7 @@ export class JID {
     );
   }
 
-  bare(): JID {
-    return new JID(this.local, this.domain, '');
-  }
+  abstract bare(): JID;
 
   equalsBare(other: JID | undefined): boolean {
     if (!other) {
@@ -70,11 +51,57 @@ export class JID {
   }
 }
 
+export class XmppJid extends JID {
+  constructor(local: string | undefined, domain: string, resource: string | undefined) {
+    super(local, domain, resource);
+  }
+
+  toString(): string {
+    let s = this.domain;
+    if (this.local) {
+      s = this.local + '@' + s;
+    }
+
+    if (this.resource) {
+      s = s + '/' + this.resource;
+    }
+
+    return s;
+  }
+
+  bare(): JID {
+    return new XmppJid(this.local, this.domain, '');
+  }
+}
+
+export class MatrixJid extends JID {
+  constructor(local: string, domain: string) {
+    super(local, domain, undefined);
+  }
+
+  toString(): string {
+    return `@${this.local}:${this.domain}`;
+  }
+
+  bare(): JID {
+    return this; // Matrix IDs are already bare (no resource)
+  }
+}
+
 export function parseJid(jid: string): JID {
   if (jid == null) {
     // helpful in other application context
     throw new Error(`Can not parseJid with null, jid=${String(jid)}`);
   }
+
+  if (jid.startsWith('@') && jid.includes(':')) {
+    // Matrix ID format: @user:domain
+    const colonIndex = jid.indexOf(':');
+    const local = jid.substring(1, colonIndex);
+    const domain = jid.substring(colonIndex + 1);
+    return new MatrixJid(local, domain);
+  }
+
   let local: string | undefined;
   let resource: string | undefined;
   let domain: string | undefined;
@@ -98,7 +125,7 @@ export function parseJid(jid: string): JID {
   }
 
   // Return parsed JID parts
-  return new JID(local, domain ?? '', resource);
+  return new XmppJid(local, domain ?? '', resource);
 }
 
 export function bareJidStringsEqual(a: string, b: string): boolean {

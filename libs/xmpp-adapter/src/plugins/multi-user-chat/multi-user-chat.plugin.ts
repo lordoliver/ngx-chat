@@ -34,6 +34,7 @@ import {
   RoomOccupant,
   TextualFormField,
   XmlSchemaForm,
+  XmppJid,
 } from '@pazznetwork/ngx-chat-shared';
 import type { IqResponseStanza, Stanza, StanzaHandlerChatPlugin } from '../../core';
 import { Finder, getField, parseForm, serializeToSubmitForm, setFieldValue } from '../../core';
@@ -184,7 +185,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const service = await this.serviceDiscoveryPlugin.findService('conference', 'text');
 
 
-    const roomJid = new JID(roomId, service.jid, nick ?? userJid.local);
+    const roomJid = new XmppJid(roomId, service.jid, nick ?? userJid.local);
 
     const roomFromUser = await firstValueFrom(this.getRoomByJid(roomJid.bare()));
 
@@ -266,7 +267,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
   async joinRoom(roomJid: JID): Promise<Room> {
     const userJid = await firstValueFrom(this.xmppService.chatConnectionService.userJid$);
-    const occupantJid = new JID(
+    const occupantJid = new XmppJid(
       roomJid.local,
       roomJid.domain,
       roomJid.resource != '' && roomJid.resource != null ? roomJid.resource : userJid.split('@')[0]
@@ -765,7 +766,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const from = await firstValueFrom(this.xmppService.chatConnectionService.userJid$);
 
     await this.xmppService.chatConnectionService
-      .$pres({ to: new JID(parsedJid.local, parsedJid.domain, newNick).toString(), from })
+      .$pres({ to: new XmppJid(parsedJid.local, parsedJid.domain, newNick).toString(), from })
       .send();
   }
 

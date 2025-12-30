@@ -3,7 +3,7 @@ import { ReplaySubject } from 'rxjs';
 import { MessageStore } from './message-store';
 import { isJid, Recipient } from './recipient';
 import type { OccupantChange } from './occupant-change';
-import { JID, parseJid } from '../jid';
+import { JID, parseJid, XmppJid } from '../jid';
 import type { XmlSchemaForm } from './xml-schema-form';
 import type { RoomOccupant } from './room-occupant';
 import type { Log } from './log';
@@ -12,6 +12,7 @@ import { Invitation } from './invitation';
 export class Room implements Recipient {
   readonly recipientType = 'room';
   readonly jid: JID;
+  readonly uuid = Math.random().toString();
   // ??? maybe should have been current user occupant jid
   occupantJid: JID | undefined;
   description = '';
@@ -42,7 +43,7 @@ export class Room implements Recipient {
       throw new Error('nick cannot be undefined');
     }
     const occupantJid = parseJid(this.jid.toString());
-    this.occupantJid = new JID(occupantJid.local, occupantJid.domain, nick);
+    this.occupantJid = new XmppJid(occupantJid.local, occupantJid.domain, nick);
   }
 
   get name(): string | undefined {
@@ -58,7 +59,7 @@ export class Room implements Recipient {
     roomJid: JID,
     name?: string
   ) {
-    this.jid = roomJid.bare();
+    this.jid = roomJid;
     this.name = name;
   }
 
@@ -97,6 +98,11 @@ export class Room implements Recipient {
       `occupant left room: occupantJid=${occupant.jid.toString()}, roomJid=${this.jid.toString()}`
     );
     this.onOccupantChangeSubject.next({ change: 'left', occupant, isCurrentUser });
+  }
+
+  reset(): void {
+    this.roomOccupants.clear();
+    this.occupantsSubject.next([]);
   }
 
   handleOccupantConnectionError(occupant: RoomOccupant, isCurrentUser: boolean): void {
@@ -174,7 +180,7 @@ export class Room implements Recipient {
       existingOccupant = { ...occupant };
       existingOccupant.jid = parseJid(occupant.jid.bare().toString());
     }
-    existingOccupant.jid = new JID(
+    existingOccupant.jid = new XmppJid(
       existingOccupant.jid.local,
       existingOccupant.jid.domain,
       newNick
@@ -187,6 +193,7 @@ export class Room implements Recipient {
       `occupant changed nick: from=${occupant.nick ?? 'undefined nick'
       }, to=${newNick}, occupantJid=${occupant.jid.toString()}, roomJid=${this.jid.toString()}`
     );
+    this.occupantsSubject.next([...this.roomOccupants.values()]);
     this.onOccupantChangeSubject.next({ change: 'changedNick', occupant, newNick, isCurrentUser });
   }
 
