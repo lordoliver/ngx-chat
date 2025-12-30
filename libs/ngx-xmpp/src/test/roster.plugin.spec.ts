@@ -22,12 +22,14 @@ const timLogin: AuthRequest = {
   domain: devXmppDomain,
   username: 'tim',
   password: 'tim',
+  service: 'wss://localhost:5280/websocket',
 };
 
 const bobLogin: AuthRequest = {
   domain: devXmppDomain,
   username: 'bob',
   password: 'bob',
+  service: 'wss://localhost:5280/websocket',
 };
 
 describe('roster plugin', () => {
