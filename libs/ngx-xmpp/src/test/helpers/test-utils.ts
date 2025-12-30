@@ -12,7 +12,7 @@ export const testUser: AuthRequest = {
   username: 'test',
   password: 'test',
   domain: devXmppDomain,
-  service: `wss://localhost:5280/websocket`,
+  service: `ws://localhost:5280/websocket`,
 };
 
 interface TestUserConst extends AuthRequest {
@@ -34,7 +34,7 @@ export class TestUtils {
   readonly affiliation = Affiliation;
   readonly role = Role;
   readonly xmppDomain = devXmppDomain as string;
-  readonly service = `wss://localhost:5280/websocket`;
+  readonly service = `ws://localhost:5280/websocket`;
   readonly suffix = Date.now().toString();
 
   readonly friendString = 'friend';
