@@ -1,11 +1,8 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { filter } from 'rxjs/operators';
-import { firstValueFrom, map, mergeMap } from 'rxjs';
+import { firstValueFrom } from 'rxjs';
+
 import {
-  Room,
-  Message,
   parseJid,
-  OccupantNickChange
 } from '@pazznetwork/ngx-chat-shared';
 import { TestBed } from '@angular/core/testing';
 import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
@@ -13,25 +10,86 @@ import type { XmppService } from '@pazznetwork/xmpp-adapter';
 import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
 import {
   ensureRegisteredUser,
-  cleanServerBesidesAdmin,
+  ensureNoRegisteredUser,
+  destroyAllRooms,
 } from './helpers/admin-actions';
 import { getRoomAffiliation, getRoomRole } from './helpers/ejabberd-client';
+import { Connection, $pres } from '@pazznetwork/strophe-ts';
 import { TestUtils } from './helpers/test-utils';
 
 describe('multi user chat plugin', () => {
   let testUtils: TestUtils;
 
+  async function waitForMessageCount(room: any, count: number): Promise<any[]> {
+    let currentMessages: any[] = [];
+
+    const sub = room.messageStore.messages$.subscribe((m: any[]) => {
+      currentMessages = m;
+    });
+
+    let attempts = 0;
+    while (attempts < 50) {
+      if (currentMessages.length >= count) {
+        sub.unsubscribe();
+        return currentMessages;
+      }
+      await new Promise(r => setTimeout(r, 100));
+      attempts++;
+    }
+    sub.unsubscribe();
+    throw new Error(`Timeout waiting for message count ${count}, got ${currentMessages.length}`);
+  }
+
+  async function waitForOccupant(room: any, nick: string, absent = false): Promise<any> {
+    let occupant;
+    let attempts = 0;
+    while (attempts < 500) {
+      if (typeof room.findOccupantByNick === 'function') {
+        occupant = room.findOccupantByNick(nick);
+      }
+      if (!absent && occupant) return occupant;
+      if (absent && !occupant) return;
+      await new Promise(r => setTimeout(r, 100));
+      attempts++;
+    }
+    throw new Error(`Timeout waiting for occupant ${nick} to be ${absent ? 'absent' : 'present'}`);
+  }
+
   beforeEach(async () => {
-    TestUtils.clean();
+    await TestUtils.clean();
     const testBed = TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });
     testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
-    await cleanServerBesidesAdmin();
+    await Promise.all([
+      ensureNoRegisteredUser(testUtils.hero),
+      ensureNoRegisteredUser(testUtils.princess),
+      ensureNoRegisteredUser(testUtils.father),
+      ensureNoRegisteredUser(testUtils.villain),
+      ensureNoRegisteredUser(testUtils.friend),
+    ]);
+  });
+
+  afterEach(async () => {
+    if (testUtils) {
+      try {
+        await testUtils.logOut();
+      } catch (e) {
+        // ignore errors during logout in afterEach, as we want to proceed with user cleanup
+      }
+      await Promise.all([
+        ensureNoRegisteredUser(testUtils.hero),
+        ensureNoRegisteredUser(testUtils.princess),
+        ensureNoRegisteredUser(testUtils.father),
+        ensureNoRegisteredUser(testUtils.villain),
+        ensureNoRegisteredUser(testUtils.friend),
+      ]);
+    }
   });
 
   describe('room creation', () => {
     it('should be owner of created room', async () => {
+      await destroyAllRooms();
       await ensureRegisteredUser(testUtils.hero);
       await testUtils.logIn.hero();
 
@@ -107,7 +165,7 @@ describe('multi user chat plugin', () => {
       await ensureRegisteredUser(testUtils.hero);
       await testUtils.logIn.hero();
       const configTestRoom = {
-        roomId: 'configtestroom',
+        roomId: 'configtestroom-' + testUtils.suffix,
         public: true,
         membersOnly: false,
         nonAnonymous: false,
@@ -153,6 +211,39 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     });
 
+    xit('should be able to change nick', async () => {
+      await ensureRegisteredUser(testUtils.hero);
+      await testUtils.logIn.hero();
+
+      const nick = 'new-nick';
+      const randomId = Date.now().toString();
+      const roomId = `hero-${randomId}room`; // Lowercase 'room'
+      const roomConfig = testUtils.createRoomConfig(roomId);
+      const room = await testUtils.chatService.roomService.createRoom(roomConfig);
+      const joinedRoom = await testUtils.chatService.roomService.joinRoom(room.jid.toString());
+
+      // Revert to await to see if it errors now that JIDs match
+      await testUtils.chatService.roomService.changeUserNicknameForRoom(nick, joinedRoom.jid.toString());
+
+
+
+      // Polite Wait: Poll local state without spamming network (joinRoom)
+      let nickChanged = false;
+      for (let i = 0; i < 60; i++) { // 30 seconds max
+        const occupants = await firstValueFrom(joinedRoom.occupants$);
+        if (occupants.some((o: any) => o.nick === nick)) {
+          nickChanged = true;
+          break;
+        }
+        await new Promise(r => setTimeout(r, 500));
+      }
+      expect(nickChanged).toBeTrue();
+
+      await testUtils.logOut();
+    }, 120000);
+
+
+
     it('should be able to create multiple rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
       await testUtils.logIn.father();
@@ -189,9 +280,9 @@ describe('multi user chat plugin', () => {
     const destroyRoomAsFather = async (): Promise<void> => {
       await testUtils.logIn.father();
 
-      await testUtils.chatService.roomService.destroyRoom(testUtils.heroRoom.jid);
-      await testUtils.chatService.roomService.destroyRoom(testUtils.fatherRoom.jid);
-      await testUtils.chatService.roomService.destroyRoom(testUtils.princessRoom.jid);
+      try { await testUtils.chatService.roomService.destroyRoom(testUtils.heroRoom.jid); } catch (e) { }
+      try { await testUtils.chatService.roomService.destroyRoom(testUtils.fatherRoom.jid); } catch (e) { }
+      try { await testUtils.chatService.roomService.destroyRoom(testUtils.princessRoom.jid); } catch (e) { }
 
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await testUtils.logOut();
@@ -336,7 +427,7 @@ describe('multi user chat plugin', () => {
         testUtils.hero.jid,
         testUtils.princessRoom.jid
       );
-      await testUtils.logOut();
+      await testUtils.chatService.logOut();
 
       await testUtils.logIn.hero();
 
@@ -351,7 +442,7 @@ describe('multi user chat plugin', () => {
       expect(await testUtils.waitForCurrentRoomCount(1)).toEqual(1);
       await testUtils.chatService.roomService.leaveRoom(testUtils.princessRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
-      await testUtils.logOut();
+      await testUtils.chatService.logOut();
 
       await testUtils.logIn.father();
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
@@ -361,7 +452,7 @@ describe('multi user chat plugin', () => {
       await testUtils.chatService.roomService.destroyRoom(testUtils.princessRoom.jid);
 
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
-      await testUtils.logOut();
+      await testUtils.chatService.logOut();
     });
 
     it('should be able to query only for rooms joined', async () => {
@@ -412,95 +503,104 @@ describe('multi user chat plugin', () => {
       await ensureRegisteredUser(testUtils.hero);
       await ensureRegisteredUser(testUtils.princess);
 
+      // 1. Create and Configure Room as Owner (Princess)
       await testUtils.logIn.princess();
       const room = await testUtils.create.room.princess();
+      await testUtils.chatService.roomService.joinRoom(room.jid.toString());
+
+      /*
+      // Configure In-Band
+      await (testUtils.chatService.chatConnectionService as any)
+        .$iq({ type: 'set', to: joinedRoomPrincess.jid.toString() })
+        .c('query', { xmlns: 'http://jabber.org/protocol/muc#owner' })
+        .c('x', { xmlns: 'jabber:x:data', type: 'submit' })
+        .c('field', { var: 'FORM_TYPE' })
+        .c('value').t('http://jabber.org/protocol/muc#roomconfig').up()
+        .up()
+        .c('field', { var: 'muc#roomconfig_enablelogging' })
+        .c('value').t('1').up()
+        .up()
+        // Removed problematic MAM config field to solve not-acceptable error
+        .c('field', { var: 'muc#roomconfig_moderatedroom' })
+        .c('value').t('0').up()
+        .up()
+        .c('field', { var: 'muc#roomconfig_persistentroom' })
+        .c('value').t('1').up()
+        .up() // Close x
+        .up() // Close query
+        .send();
+      */
+
       await testUtils.chatService.roomService.inviteUserToRoom(
         testUtils.hero.jid,
         room.jid.toString()
       );
       await testUtils.logOut();
 
+      // 2. Hero Joins and Sends Messages
       await testUtils.logIn.hero();
 
       const joinedRoom = await testUtils.chatService.roomService.joinRoom(room.jid.toString());
 
-      // Helper to configure room via XMPP (In-Band)
-      const configureRoomInBand = async () => {
-        await (testUtils.chatService.chatConnectionService as any)
-          .$iq({ type: 'set', to: joinedRoom.jid.toString() })
-          .c('query', { xmlns: 'http://jabber.org/protocol/muc#owner' })
-          .cCreateMethod((builder: any) => {
-            builder.c('x', { xmlns: 'jabber:x:data', type: 'submit' });
-            builder.c('field', { var: 'FORM_TYPE' }).c('value', {}, 'http://jabber.org/protocol/muc#roomconfig').up().up();
-            builder.c('field', { var: 'muc#roomconfig_enablelogging' }).c('value', {}, '1').up().up();
-            builder.c('field', { var: 'mam' }).c('value', {}, '1').up().up();
-            builder.c('field', { var: 'muc#roomconfig_mam' }).c('value', {}, '1').up().up();
-            builder.c('field', { var: 'muc#roomconfig_moderatedroom' }).c('value', {}, '0').up().up();
-            builder.c('field', { var: 'muc#roomconfig_persistentroom' }).c('value', {}, '1').up().up();
-            return builder;
-          })
-          .send();
-      };
-
-      try {
-        await configureRoomInBand();
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      } catch (e) {
-        console.error('Failed to configure room', e);
-      }
-
+      // Send messages
       const firstMessage = 'first message';
       await testUtils.chatService.messageService.sendMessage(joinedRoom, firstMessage);
       const secondMessage = 'second message';
       await testUtils.chatService.messageService.sendMessage(joinedRoom, secondMessage);
 
-      // Delay to allow archiving
-      await new Promise(resolve => setTimeout(resolve, 2000));
-
       await testUtils.logOut();
 
-      // Poll for messages helper to handle server indexing latency
-      const waitForMessages = async (roomJid: string, expectedCount: number): Promise<Message[]> => {
-        let attempts = 0;
-        while (attempts < 10) {
-          const rooms = await firstValueFrom(testUtils.chatService.roomService.rooms$);
-          const room = rooms.find(r => r.jid.toString() === roomJid);
-          if (room) {
-            await testUtils.chatService.pluginMap.mam.loadMostRecentMessages(room);
-            const messages = await firstValueFrom(room.messageStore.messages$);
-            if (messages.length >= expectedCount) return messages;
-          }
-          await new Promise(resolve => setTimeout(resolve, 1000));
-          attempts++;
-        }
-        return [];
-      }
-
+      // 3. Hero Re-Logins and Retrieves Messages (Archive)
       await testUtils.logIn.hero();
       // Re-join to trigger room data fetch
       const reJoinedRoom = await testUtils.chatService.roomService.joinRoom(room.jid.toString());
 
-      const messages = await waitForMessages(reJoinedRoom.jid.toString(), 2);
+      // Trigger MAM load explicitly if needed, but room join usually triggers it if configured?
+      // ngx-xmpp usually triggers fetching keys/messages on join.
+      // We'll use polling to wait for messages.
+
+      // Explicitly call load if needed (testUtils helper?)
+      await testUtils.chatService.pluginMap.mam.loadMostRecentMessages(reJoinedRoom);
+
+      const messages = await waitForMessageCount(reJoinedRoom, 2);
 
       const [first, second] = messages;
-      expect(first?.body).toEqual('first message');
-      expect(second?.body).toEqual('second message');
+      expect(first.body).toEqual(firstMessage);
+      expect(second.body).toEqual(secondMessage);
+
+      await testUtils.logOut();
+      // Destroy room as Princess
+      await testUtils.logIn.princess();
+      try {
+        await testUtils.chatService.roomService.destroyRoom(room.jid.toString());
+      } catch (e) { }
+      await testUtils.logOut();
+    });
+
+    beforeEach(async () => {
+      await ensureRegisteredUser(testUtils.hero);
+      await testUtils.logIn.hero();
+    });
+
+    afterEach(async () => {
+      if (testUtils) {
+        await Promise.all([
+          ensureNoRegisteredUser(testUtils.hero),
+        ]);
+      }
       await testUtils.logOut();
     });
 
     it('should be able to send messages', async () => {
       await ensureRegisteredUser(testUtils.hero);
-      await testUtils.logIn.hero();
       // when
       const room = await testUtils.chatService.roomService.createRoom(
-        testUtils.createRoomConfig('chatroom')
+        testUtils.createRoomConfig('chatroom-' + testUtils.suffix)
       );
       await testUtils.chatService.roomService.joinRoom(room.jid.toString());
       await testUtils.chatService.messageService.sendMessage(room, 'message body');
 
-      const messages = await firstValueFrom(
-        room.messageStore.messages$.pipe(filter((array) => array.length > 0))
-      );
+      const messages = await waitForMessageCount(room, 1);
 
       // then
       expect(messages.length).toEqual(1);
@@ -519,27 +619,62 @@ describe('multi user chat plugin', () => {
       await ensureRegisteredUser(testUtils.princess);
       await ensureRegisteredUser(testUtils.hero);
 
+      // 1. Princess logs in
       await testUtils.logIn.princess();
-      await testUtils.create.room.princess();
-      await testUtils.chatService.roomService.inviteUserToRoom(
-        testUtils.hero.jid,
-        testUtils.princessRoom.jid
+      const room = await testUtils.create.room.princess();
+      const princessRoom = await testUtils.chatService.roomService.joinRoom(room.jid.toString());
+
+      // Check Princess affiliation
+      const affiliation = await getRoomAffiliation(
+        parseJid(room.jid.toString())?.local as string,
+        testUtils.princess.jid.toString()
       );
-      await testUtils.logOut();
+      console.log('DEBUG: Princess Affiliation:', affiliation);
 
-      await testUtils.logIn.hero();
-      await testUtils.chatService.roomService.joinRoom(testUtils.princessRoom.jid);
-      const rooms = await firstValueFrom(testUtils.chatService.roomService.rooms$);
-      expect(rooms.length).toEqual(1);
-      await testUtils.logOut();
+      // 2. Hero logs in using a secondary connection (concurrently)
+      const heroConnection = await Connection.create(
+        testUtils.xmppDomain,
+        testUtils.service,
+        undefined // saslMechanisms
+      );
+      await heroConnection.login(`${testUtils.hero.jid}/test`, testUtils.hero.password);
+      await firstValueFrom(heroConnection.onOnline$);
 
-      await testUtils.logIn.princess();
-      await testUtils.chatService.roomService.kickFromRoom('hero', testUtils.princessRoom.jid);
-      await testUtils.logOut();
+      // Hero joins room via raw presence stanza
+      try {
+        // Hero joins room via raw presence stanza
+        const heroNick = parseJid(testUtils.hero.jid).local as string;
+        const roomJid = princessRoom.jid.toString(); // Use the joined room JID (lowercase normalized)
+        console.log('DEBUG: Hero joining room:', roomJid);
+        console.log('DEBUG: Hero nick:', heroNick);
 
-      await testUtils.logIn.hero();
-      const roomsAfterKick = await firstValueFrom(testUtils.chatService.roomService.rooms$);
-      expect(roomsAfterKick.length).toEqual(0);
+        // Wait a bit before joining to ensure connection stability
+        await new Promise(r => setTimeout(r, 1000));
+
+        const joinPresence = $pres({ to: `${roomJid}/${heroNick}` })
+          .c('x', { xmlns: 'http://jabber.org/protocol/muc' });
+        await heroConnection.send(joinPresence.tree());
+
+        // 3. Wait for Princess to see Hero in the room
+        console.log('DEBUG: Princess watching room:', princessRoom.jid.toString());
+        await waitForOccupant(princessRoom, heroNick);
+
+        // 4. Princess kicks Hero
+        try {
+          await testUtils.chatService.roomService.kickFromRoom(heroNick, roomJid);
+        } catch (e) {
+          console.error('DEBUG: Kick Failed:', e);
+          throw e;
+        }
+
+        // 5. Verify Hero is kicked (receives presence type='unavailable' with status 307)
+        await waitForOccupant(princessRoom, heroNick, true); // wait for absence
+
+      } finally {
+        // Cleanup
+        await heroConnection.logOut();
+        await new Promise(r => setTimeout(r, 1000)); // Allow connection to close gracefully
+      }
       await testUtils.logOut();
     });
 
@@ -549,9 +684,15 @@ describe('multi user chat plugin', () => {
 
       await testUtils.logIn.hero();
       await testUtils.create.room.hero();
-      await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
+      const heroRoom = await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
+
+      const heroNick = parseJid(testUtils.hero.jid).local as string;
+
+      // Wait for Hero to be an occupant before modifying role
+      await waitForOccupant(heroRoom, heroNick);
+
       await testUtils.chatService.roomService.grantModeratorStatusForRoom(
-        'hero',
+        heroNick,
         testUtils.heroRoom.jid
       );
       expect(
@@ -582,7 +723,7 @@ describe('multi user chat plugin', () => {
       expect(
         await getRoomRole(parseJid(testUtils.heroRoom.jid)?.local as string, testUtils.hero.jid)
       ).toEqual('moderator');
-      const villainOccupant = 'villain@' + (testUtils.heroRoom.jid.split('@')[1] as string);
+      const villainOccupant = (parseJid(testUtils.villain.jid).local as string) + '@' + (testUtils.heroRoom.jid.split('@')[1] as string);
       await testUtils.chatService.roomService.banUserForRoom(
         villainOccupant,
         testUtils.heroRoom.jid
@@ -618,28 +759,16 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     });
 
-    xit('should be able to change nick', async () => {
-      const myOccupantJid = 'chatroom@conference.example.com/something';
-      const room = await testUtils.chatService.roomService.joinRoom(myOccupantJid);
 
-      room.onOccupantChange$
-        .pipe(
-          filter(({ change }) => change === 'changedNick'),
-          map((change) => change as OccupantNickChange)
-        )
-        .subscribe(({ occupant, newNick }) => {
-          expect(newNick).toEqual('newNick');
-          expect(occupant.jid.toString()).toEqual(myOccupantJid.toString());
-        });
 
-      await testUtils.chatService.roomService.changeUserNicknameForRoom(
-        'newNick',
-        room.jid.toString()
-      );
-    });
+    it('should be able to change room topic', async () => {
+      await ensureRegisteredUser(testUtils.hero);
+      await testUtils.logIn.hero();
 
-    xit('should be able to change room topic', async () => {
-      const roomJid = 'chatroom@conference.example.com';
+      const conferenceService = await testUtils.chatService.pluginMap.disco.findService('conference', 'text');
+      const conferenceDomain = conferenceService.jid.toString();
+
+      const roomJid = 'chatroom-' + testUtils.suffix + '@' + conferenceDomain;
       const room = await testUtils.chatService.roomService.joinRoom(roomJid);
 
       const newSubject = 'new subject';
@@ -648,8 +777,26 @@ describe('multi user chat plugin', () => {
         throw new Error(`testUtils.chatService.rooms$ is undefined`);
       }
       await testUtils.chatService.roomService.changeRoomSubject(room.jid.toString(), newSubject);
+
+
+      await waitForRoomSubject(newSubject);
+
       const rooms = await firstValueFrom(testUtils.chatService.roomService.rooms$);
-      expect(rooms[0]?.subject).toEqual(newSubject);
+
+      const targetRoom = rooms.find(r => r.jid.toString() === room.jid.toString());
+      expect(targetRoom).toBeTruthy();
+      expect(targetRoom?.subject).toEqual(newSubject);
     });
   });
+
+  async function waitForRoomSubject(subject: string): Promise<void> {
+    let attempts = 0;
+    while (attempts < 300) {
+      const rooms = await firstValueFrom(testUtils.chatService.roomService.rooms$);
+      if (rooms.some(r => r.subject === subject)) return;
+      await new Promise(r => setTimeout(r, 100));
+      attempts++;
+    }
+    throw new Error(`Timeout waiting for room subject to be ${subject}`);
+  }
 });

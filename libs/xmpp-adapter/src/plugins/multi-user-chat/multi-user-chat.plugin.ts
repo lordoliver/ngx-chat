@@ -279,8 +279,6 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       .up()
       .send();
 
-
-
     await this.handleRoomPresenceStanza(presenceResponse);
 
     const room = await this.getOrCreateRoom(occupantJid.bare());
@@ -529,7 +527,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
   async applyRoomConfiguration(roomJid: JID, roomConfiguration: RoomConfiguration): Promise<void> {
     const roomConfigForm = await this.getRoomConfiguration(roomJid);
-    this.logService.debug('Room Configuration Fields: ' + JSON.stringify(roomConfigForm.fields));
+
 
     const formTypeField = getField(roomConfigForm, 'FORM_TYPE');
     if (formTypeField?.value !== nsMucRoomConfigForm) {
@@ -843,7 +841,6 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
   async grantModeratorStatus(occupantNick: string, roomJid: JID, reason?: string): Promise<void> {
     await this.setRole(occupantNick, roomJid, Role.moderator, reason);
   }
-
   async revokeModeratorStatus(occupantNick: string, roomJid: JID, reason?: string): Promise<void> {
     await this.setRole(occupantNick, roomJid, Role.participant, reason);
   }
@@ -1013,11 +1010,23 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     if (result && forwarded) {
       const message = forwarded.querySelector('message');
       if (message) {
-        return this.handleRoomMessageStanza(message);
+        return this.handleRoomMessageStanza(message, forwarded.querySelector('delay') ?? undefined);
+      }
+    }
+
+    const event = stanza.querySelector('event');
+    if (event && event.getAttribute('xmlns') === 'http://jabber.org/protocol/pubsub#event') {
+      const items = event.querySelector('items');
+      if (items && items.getAttribute('node') === 'urn:xmpp:mucsub:nodes:messages') {
+        const message = items.querySelector('item')?.querySelector('message');
+        if (message) {
+          return this.handleRoomMessageStanza(message, delayElement);
+        }
       }
     }
 
     const messageText = stanza?.querySelector('body')?.textContent?.trim();
+
 
     if (!from) {
       throw new Error('Can not handle message for undefined from; muc:handleRoomMessageStanza');
@@ -1089,7 +1098,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       // previous non-empty value from archive. This is why we want to always ignore subjects from archive.
       // This actually looks like a bug in MAM, it seems that MAM interprets messages with just subject in them as if they were chat
       // messages and not room metadata. This would explain why empty subjects are not stored.
-      if (stanza.querySelector('archived') != null || stanza.querySelector('forwarded') != null) {
+      if (delayElement != null || stanza.querySelector('forwarded') != null) {
         return true;
       }
 

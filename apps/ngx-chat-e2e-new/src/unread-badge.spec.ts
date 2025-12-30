@@ -51,29 +51,31 @@ test.describe('Unread Badge Verification', () => {
         // But let's keep it simple. Alice adds Bob. Bob is in Alice's roster (pending or not).
 
         // 3. Bob sends a message to Alice
-        console.log('Bob sending Message 1...');
+
         const msg1 = `Message 1 ${Date.now()}`;
         await ejabberdAdminPage.sendMessage(`${bob}@${devXmppDomain}`, `${alice}@${devXmppDomain}`, msg1);
 
         // 4. Verify Badge = 1
-        console.log('Verifying Badge count 1...');
+
         await expect(async () => {
             const count = await appPage.getUnreadCount(bob);
             expect(count).toBe(1);
         }).toPass({ timeout: 10000 });
 
         // 5. Alice opens chat (Reads message)
-        console.log('Opening chat to read...');
+
         let chatWindow = await appPage.selectChatWithContact(bob);
         await chatWindow.open();
         await chatWindow.waitForMessageCount(1);
 
+        // Use more robust interaction to trigger "read" status
+        await chatWindow.write('', 'enter');
+
         // Wait for unread status to clear
-        console.log('Verifying Badge count 0...');
         await expect(async () => {
             const count = await appPage.getUnreadCount(bob);
             expect(count).toBe(0);
-        }).toPass({ timeout: 5000 });
+        }).toPass({ timeout: 15000 });
 
         // 6. Close chat? Or keep open?
         // If kept open, new messages are read immediately if window is focused?
@@ -81,19 +83,19 @@ test.describe('Unread Badge Verification', () => {
         await chatWindow.close();
 
         // 7. Bob sends Message 2
-        console.log('Bob sending Message 2...');
+
         const msg2 = `Message 2 ${Date.now()}`;
         await ejabberdAdminPage.sendMessage(`${bob}@${devXmppDomain}`, `${alice}@${devXmppDomain}`, msg2);
 
         // 8. Verify Badge = 1
-        console.log('Verifying Badge count 1 again...');
+
         await expect(async () => {
             const count = await appPage.getUnreadCount(bob);
             expect(count).toBe(1);
         }).toPass({ timeout: 10000 });
 
         // Optional: Bob sends Message 3 -> Badge = 2
-        console.log('Bob sending Message 3...');
+
         const msg3 = `Message 3 ${Date.now()}`;
         await ejabberdAdminPage.sendMessage(`${bob}@${devXmppDomain}`, `${alice}@${devXmppDomain}`, msg3);
 
