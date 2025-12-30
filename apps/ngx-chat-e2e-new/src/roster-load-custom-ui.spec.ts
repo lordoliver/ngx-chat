@@ -8,7 +8,7 @@ import {
 } from '../secrets';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 
-const targetUser = 'roster_load_custom';
+const targetUser = `roster_load_custom_${Date.now()}`;
 const testPassword = 'password';
 const contactCount = 100;
 const highVolumeMessageCount = 100;

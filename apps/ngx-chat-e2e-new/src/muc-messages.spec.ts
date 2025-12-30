@@ -165,6 +165,8 @@ test.describe('ngx-chat', () => {
       mam: true,
       moderated: false,
     });
+    // Wait for room configuration to propagate
+    await mainPage.page.waitForTimeout(1000);
     // Alice is now owner.
     // 2. Alice sends a message BEFORE grants
     const welcomeStrictlyNewMembers = 'Welcome strictly new members!';
@@ -187,6 +189,7 @@ test.describe('ngx-chat', () => {
     await aliceMuc.inviteUser(timJid, roomJid);
     await aliceMuc.grantMembership(bobJid, roomJid);
     await aliceMuc.grantMembership(timJid, roomJid);
+    await mainPage.page.waitForTimeout(1000);
     // 4. Bob logs in and joins
     const bobPage = await mainPage.logInInNewPage(bob, testPassword);
     const bobMuc = bobPage.createMUCPageObject();

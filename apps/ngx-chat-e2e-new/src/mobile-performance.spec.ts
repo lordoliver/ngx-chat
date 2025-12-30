@@ -31,7 +31,7 @@ test.describe('Mobile Roster Performance Test', () => {
 
         console.log(`Seeding ${contactCount} contacts for ${seedUser}...`);
         for (let i = 0; i < contactCount; i++) {
-            const contactName = `contact_${i}`;
+            const contactName = `mobile_contact_${i}`;
             await ejabberdAdminPage.register(contactName, password);
         }
     });
@@ -46,7 +46,7 @@ test.describe('Mobile Roster Performance Test', () => {
             const app = (window as any).ng.getComponent(document.querySelector('app-root'));
             const chatService = app.chatService;
             for (let i = 0; i < count; i++) {
-                const jid = `contact_${i}@${domain}`;
+                const jid = `mobile_contact_${i}@${domain}`;
                 await chatService.contactListService.addContact(jid);
             }
         }, { count: contactCount, domain: devXmppDomain });
@@ -81,7 +81,7 @@ test.describe('Mobile Roster Performance Test', () => {
 
         // Now wait for the 50th button to be visible to confirm full list render
         // The buttons are simple <button>{{name}}</button>.
-        const lastContactName = `contact_${contactCount - 1}`;
+        const lastContactName = `mobile_contact_${contactCount - 1}`;
         // Locator: find button with text.
         // We use a relaxed locator to avoid "role" strictness if it's not strictly a button role (it is <button> though).
         const lastButton = appPage.page.locator('button', { hasText: lastContactName }).first();

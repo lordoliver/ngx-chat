@@ -4,7 +4,7 @@ import { ChatWindowPage } from './page-objects/chat-window.po';
 
 test.describe('Data Persistence (No Wipe)', () => {
     let appPage: AppPage;
-    const testContact = 'persistence-user';
+    const testContact = `persistence-user-${Date.now()}`;
     const domain = 'local-jabber.entenhausen.pazz.de';
     const fullJid = `${testContact}@${domain}`;
 

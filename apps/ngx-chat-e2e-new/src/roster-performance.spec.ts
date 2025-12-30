@@ -28,10 +28,10 @@ test.describe('Roster Performance Test', () => {
         await appPage.setupForTest();
         await ejabberdAdminPage.register(seedUser, password);
 
-        console.log(`Seeding ${contactCount} contacts for ${seedUser}...`);
+
         // Batch register contacts to speed up setup
         for (let i = 0; i < contactCount; i++) {
-            const contactName = `contact_${i}`;
+            const contactName = `roster_contact_${i}`;
             await ejabberdAdminPage.register(contactName, password);
         }
     });
@@ -55,8 +55,8 @@ test.describe('Roster Performance Test', () => {
         await appPage.logIn(seedUser, password);
 
         // Add contacts
-        console.log('Sending contact requests...');
-        const addStart = Date.now();
+
+
         // Use evaluate to parallelize/speed up addContact calls if possible
         // or just loop UI.
         // To make it faster, we might cheat and just inject the calls
@@ -70,7 +70,7 @@ test.describe('Roster Performance Test', () => {
             // Let's assume we can call `chatService.contactListService.addContact`.
 
             for (let i = 0; i < count; i++) {
-                const jid = `contact_${i}@${domain}`;
+                const jid = `roster_contact_${i}@${domain}`;
                 await chatService.contactListService.addContact(jid);
                 // We don't wait for response to speed up sending
             }
@@ -83,28 +83,28 @@ test.describe('Roster Performance Test', () => {
         // If they don't accept, they are just "requested".
         // "Clunky" usually comes from rendering many items. "Requested" items still render.
 
-        console.log(`Added ${contactCount} contacts in ${Date.now() - addStart}ms`);
+
 
         // Reload to verify persistent load speed
         await appPage.reload();
         await appPage.setupForTest(); // restore domain inputs if cleared
 
-        console.log('Measuring Login with 50 pending contacts...');
+
         const start = Date.now();
         await appPage.logIn(seedUser, password);
         const time = Date.now() - start;
-        console.log(`Login with ${contactCount} contacts took ${time}ms`);
+
 
         expect(time).toBeLessThan(5000);
 
         // Verify responsiveness: Open a chat
-        const chatStart = Date.now();
+
         // We pick the last one
         const lastContact = `contact_${contactCount - 1}@${devXmppDomain}`;
         // It might differ in UI if it's just "sent" request.
         // If we use `openChatWith` it should work.
         await appPage.openChatWith(lastContact);
-        console.log(`Open chat took ${Date.now() - chatStart}ms`);
+
 
         // Clean up
         await appPage.logOut();

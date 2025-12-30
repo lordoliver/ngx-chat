@@ -50,7 +50,7 @@ test.describe('ngx-chat', () => {
       expect(await appPage.isContactInRoster(ass)).toBeTruthy();
     }).toPass({ timeout: 10000 });
     await appPage.openChatWith(ass);
-    // await dutysChatWithAss.block();
+
     await appPage.blockContact(ass);
     await expect(async () => {
       expect(await appPage.isContactInBlockedList(ass)).toBeTruthy();
@@ -87,7 +87,7 @@ test.describe('ngx-chat', () => {
     expect(await appPage.isContactInUnaffiliatedList(ass)).toBeFalsy();
 
     const window = await appPage.openChatWith(ass);
-    // await window.assertLastMessageIsNot(message);
+
     await expect(window.getInMessages().filter({ hasText: message })).toHaveCount(0);
     await appPage.logOut();
   });
@@ -111,7 +111,7 @@ test.describe('ngx-chat', () => {
     }).toPass({ timeout: 10000 });
 
     // Wait for server propagation of unblock stanza before logging out
-    await appPage.page.waitForTimeout(1000);
+    await appPage.page.waitForTimeout(10000);
 
     await appPage.logOut();
 
@@ -124,7 +124,7 @@ test.describe('ngx-chat', () => {
 
     await appPage.logIn(duty, duty);
     const dutyChat = await appPage.openChatWith(ass);
-    // await dutyChat.assertLastMessage(msg, 'incoming');
+
     await expect(dutyChat.getInMessages().filter({ hasText: msg })).toBeVisible({ timeout: 10000 });
     await appPage.logOut();
   });

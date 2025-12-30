@@ -10,7 +10,7 @@ import {
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 import { generateUser } from './utils/user-helper';
 
-const targetUser = 'roster_load_target';
+const targetUser = `roster_load_target_${Date.now()}`;
 const testPassword = 'password';
 const contactCount = 100;
 const highVolumeMessageCount = 100; // Increased to ensure pagination (default page often 50)

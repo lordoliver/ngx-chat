@@ -8,12 +8,13 @@ test.describe('Delete Features', () => {
     test('should allow destroying a room using service', async ({ page, playwright }) => {
         // 1. Provision User
         const ejabberdAdminPage = await EjabberdAdminPage.create(playwright, devXmppDomain, devXmppJid, devXmppPassword);
-        await ejabberdAdminPage.register('destroyer', 'password');
+        const destroyer = generateUser('destroyer');
+        await ejabberdAdminPage.register(destroyer, 'password');
 
         // 2. Load Page and Log In
         const appPage = await AppPage.create(page.context().browser()!);
         await appPage.setupForTest();
-        await appPage.logIn('destroyer', 'password');
+        await appPage.logIn(destroyer, 'password');
 
 
 

@@ -47,36 +47,51 @@ export class EjabberdAdminPage {
     }
   }
   async deleteAllBesidesAdminUser(): Promise<void> {
-    const rooms = await this.getMucRooms();
-    for (const room of rooms) {
-      if (!room) continue;
-      const roomName = room.split('@')[0] ?? '';
-      try {
-        await this.destroyRoom(roomName);
-        console.log(`Destroyed room: ${roomName}`);
-      } catch (e) {
-        console.warn(`Failed to destroy room ${roomName}:`, e);
+    try {
+      const rooms = await this.getMucRooms();
+      for (const room of rooms) {
+        if (!room) continue;
+        const roomName = room.split('@')[0] ?? '';
+        try {
+          await this.destroyRoom(roomName);
+          console.log(`Destroyed room: ${roomName}`);
+        } catch (e) {
+          console.warn(`Failed to destroy room ${roomName}:`, e);
+        }
       }
+    } catch (e) {
+      console.warn('Failed to cleanup rooms:', e);
     }
 
-    const users = await this.registeredUsers();
-    // Filter out 'local-admin' but include generated test users
-    const usersToDelete = users.filter((user) =>
-      user.toLowerCase() !== 'local-admin' && user.length < 60
-    );
+    try {
+      const users = await this.registeredUsers();
+      // Filter out 'local-admin' but include generated test users
+      // Limit to 200 users to prevent timeouts if list is huge
+      const usersToDelete = users
+        .filter((user) => user.toLowerCase() !== 'local-admin' && user.length < 60);
 
-    console.log(`Cleaning up ${usersToDelete.length} users...`);
-    for (const user of usersToDelete) {
-      if (!user) continue;
-      const username = user.split('@')[0] ?? '';
-      try {
-        await this.unregister(username);
-        // console.log(`Unregistered: ${username}`);
-      } catch (e) {
-        console.warn(`Failed to unregister ${username}:`, e);
+      if (usersToDelete.length > 0) {
+        console.log(`Cleaning up ${usersToDelete.length} users...`);
+        const batchSize = 20;
+        for (let i = 0; i < usersToDelete.length; i += batchSize) {
+          const batch = usersToDelete.slice(i, i + batchSize);
+          await Promise.all(
+            batch.map(async (user) => {
+              if (!user) return;
+              const username = user.split('@')[0] ?? '';
+              try {
+                await this.unregister(username);
+              } catch (e) {
+                // Ignore individual failures
+              }
+            })
+          );
+          // Small throttle between batches to be kind to the server
+          await new Promise((r) => setTimeout(r, 20));
+        }
       }
-      // Throttle cleanup to prevent server overload/stream resets
-      await new Promise(r => setTimeout(r, 50));
+    } catch (e) {
+      console.warn('Failed to cleanup users:', e);
     }
   }
 
