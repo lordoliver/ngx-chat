@@ -116,7 +116,11 @@ export class TestUtils {
     },
   };
 
-  readonly logOut = (): Promise<void> => this.chatService.logOut();
+  readonly logOut = async (): Promise<void> => {
+    await this.chatService.logOut();
+    // Wait for the socket to actually close and server to register it
+    await new Promise((resolve) => setTimeout(resolve, 100));
+  };
 
   readonly currentRoomCount = (): Promise<number> => {
     if (!this.chatService.roomService.rooms$) {

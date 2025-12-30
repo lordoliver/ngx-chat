@@ -75,8 +75,9 @@ describe('message plugin', () => {
   });
 
   it('should process received messages when they were delayed', async () => {
-    const subscriptionMessage = testUtils.chatService.messageService.message$.subscribe();
     const subscriptionContacts = testUtils.chatService.contactListService.contacts$.subscribe();
+    // We need to ensure message service is listening and wait for the message
+    const messagePromise = firstValueFrom(testUtils.chatService.messageService.message$);
 
     await unregisterAllBesidesAdmin();
     await register(testUser);
@@ -91,6 +92,9 @@ describe('message plugin', () => {
     const messageStanza = `<message from="${someUserJid}" to="${currentUserJid}"><delay stamp="${delay}"></delay><body>${messageText}</body></message>`;
 
     await testUtils.fakeWebsocketInStanza(messageStanza);
+
+    // Wait for the message to be processed
+    await messagePromise;
 
     const contacts = await firstValueFrom(testUtils.chatService.contactListService.contacts$);
     expect(contacts.length).toBe(1);
@@ -117,7 +121,6 @@ describe('message plugin', () => {
 
     await testUtils.chatService.logOut();
     await unregisterAllBesidesAdmin();
-    subscriptionMessage.unsubscribe();
     subscriptionContacts.unsubscribe();
   });
 });

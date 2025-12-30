@@ -422,9 +422,11 @@ describe('roster plugin', () => {
 
     await chatService.contactListService.addContact(testUtils.friend.jid);
     await testUtils.logOut();
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     await testUtils.chatService.logIn(testUtils.friend);
     await testUtils.logOut();
+    await new Promise((resolve) => setTimeout(resolve, 100));
 
     expect(await contactCountPromise).toEqual([0, 0, 1, 0, 0]);
 
