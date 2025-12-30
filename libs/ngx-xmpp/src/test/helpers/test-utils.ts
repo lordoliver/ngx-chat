@@ -35,6 +35,7 @@ export class TestUtils {
   readonly role = Role;
   readonly xmppDomain = devXmppDomain as string;
   readonly service = `wss://localhost:5280/websocket`;
+  readonly suffix = Date.now().toString();
 
   readonly friendString = 'friend';
   readonly friend: TestUserConst = {

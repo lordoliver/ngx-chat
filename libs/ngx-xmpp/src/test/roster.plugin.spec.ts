@@ -4,7 +4,7 @@ import { TestUtils } from './helpers/test-utils';
 import { firstValueFrom, map, merge, scan, skip } from 'rxjs';
 import type { XmppService } from '@pazznetwork/xmpp-adapter';
 import { $pres } from '@pazznetwork/strophe-ts';
-import { devXmppDomain } from '../.secrets-const';
+
 import { TestBed } from '@angular/core/testing';
 import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
@@ -15,6 +15,8 @@ import {
 } from './helpers/admin-actions';
 import { filter, shareReplay, take, toArray } from 'rxjs/operators';
 import { TestScheduler } from 'rxjs/testing';
+
+const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 
 const timLogin: AuthRequest = {
   domain: devXmppDomain,

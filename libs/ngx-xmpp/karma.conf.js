@@ -18,6 +18,17 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: ['--ignore-certificate-errors', '--allow-insecure-localhost'],
       },
+      ChromeHeadlessInsecure: {
+        base: 'ChromeHeadless',
+        flags: [
+          '--no-sandbox',
+          '--disable-web-security',
+          '--ignore-certificate-errors',
+          '--disable-gpu',
+          '--disable-translate',
+          '--disable-extensions'
+        ]
+      },
     },
     client: {
       jasmine: {
