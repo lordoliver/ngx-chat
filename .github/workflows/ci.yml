@@ -101,7 +101,7 @@ jobs:
         run: npm ci --legacy-peer-deps
 
       - name: Install Puppeteer Version
-        run: npx puppeteer install
+        run: node node_modules/puppeteer/install.js
 
       - name: Cache Playwright Browsers
         uses: actions/cache@v3
