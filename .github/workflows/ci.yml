@@ -100,6 +100,9 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm ci --legacy-peer-deps
 
+      - name: Install Puppeteer Version
+        run: npx puppeteer install
+
       - name: Cache Playwright Browsers
         uses: actions/cache@v3
         with:
