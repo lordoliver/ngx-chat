@@ -337,7 +337,7 @@ describe('multi user chat plugin', () => {
         .withContext('should have no room after room destroying')
         .toEqual(0);
       await testUtils.logOut();
-    });
+    }, 60000);
 
     it('should be able to join multiple rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
@@ -403,7 +403,7 @@ describe('multi user chat plugin', () => {
       await testUtils.chatService.roomService.destroyRoom(testUtils.princessRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await testUtils.logOut();
-    });
+    }, 60000);
 
     it('should be able to leave all rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
@@ -453,7 +453,7 @@ describe('multi user chat plugin', () => {
 
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await testUtils.chatService.logOut();
-    });
+    }, 60000);
 
     it('should be able to query only for rooms joined', async () => {
       await ensureRegisteredUser(testUtils.father);

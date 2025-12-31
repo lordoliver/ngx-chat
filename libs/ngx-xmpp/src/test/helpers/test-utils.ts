@@ -8,6 +8,7 @@ import { filter } from 'rxjs/operators';
 // using legacy domain for XMPP server match, but localhost for connection
 const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 
+
 export const testUser: AuthRequest = {
   username: 'test',
   password: 'test',
@@ -35,7 +36,7 @@ export class TestUtils {
   readonly role = Role;
   readonly xmppDomain = devXmppDomain as string;
   readonly service = `ws://localhost:5280/websocket`;
-  readonly suffix = Date.now().toString();
+  readonly suffix = Math.random().toString(36).substring(7);
 
   readonly friendString = 'friend';
   readonly friend: TestUserConst = {

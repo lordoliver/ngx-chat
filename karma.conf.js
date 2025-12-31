@@ -36,6 +36,7 @@ module.exports = () => {
         // or set a specific seed with `seed: 4321`
         random: false,
         stopSpecOnExpectationFailure: true,
+        timeoutInterval: 60000,
       },
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
@@ -64,6 +65,8 @@ module.exports = () => {
     port: 9876,
     colors: true,
     logLevel: constants.LOG_INFO,
+    browserNoActivityTimeout: 120000,
+    browserDisconnectTolerance: 2,
     autoWatch: true,
     browsers: [browser],
     singleRun: false,

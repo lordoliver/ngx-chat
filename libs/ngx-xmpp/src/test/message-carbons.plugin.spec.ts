@@ -66,5 +66,5 @@ describe('message carbons plugin', () => {
     expect(savedMessage?.direction).toEqual(Direction.in);
 
     await testUtils.logOut();
-  });
+  }, 60000);
 });

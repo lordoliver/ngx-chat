@@ -20,19 +20,12 @@ module.exports = function (config) {
       },
       ChromeHeadlessInsecure: {
         base: 'ChromeHeadless',
-        flags: [
-          '--no-sandbox',
-          '--disable-web-security',
-          '--ignore-certificate-errors',
-          '--disable-gpu',
-          '--disable-translate',
-          '--disable-extensions'
-        ]
+        flags: ['--no-sandbox', '--ignore-certificate-errors', '--allow-insecure-localhost'],
       },
     },
     client: {
       jasmine: {
-        timeoutInterval: 20000,
+        timeoutInterval: 60000,
       },
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },

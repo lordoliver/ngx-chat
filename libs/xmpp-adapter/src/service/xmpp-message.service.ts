@@ -236,9 +236,10 @@ export class XmppMessageService implements MessageService {
       .searchByNamespace(nsPubSubEvent).result;
 
     // if is from archive get the inner message with type attribute
-    const archiveMessage = Finder.create(stanza)
-      .searchByTag('forwarded')
-      .searchByTag('message').result;
+    const archiveMessage =
+      Finder.create(stanza).searchByTag('result').searchByTag('forwarded').searchByTag('message')
+        .result ??
+      Finder.create(stanza).searchByTag('forwarded').searchByTag('message').result;
 
     const messageFromArchive = !!archiveMessage;
 
