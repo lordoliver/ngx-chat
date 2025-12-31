@@ -595,7 +595,7 @@ describe('multi user chat plugin', () => {
       await ensureRegisteredUser(testUtils.hero);
       // when
       const room = await testUtils.chatService.roomService.createRoom(
-        testUtils.createRoomConfig('chatroom-' + testUtils.suffix)
+        testUtils.createRoomConfig('chatroom')
       );
       await testUtils.chatService.roomService.joinRoom(room.jid.toString());
       await testUtils.chatService.messageService.sendMessage(room, 'message body');

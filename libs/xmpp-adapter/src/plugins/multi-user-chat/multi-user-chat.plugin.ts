@@ -162,7 +162,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     this.handlers.presence = await this.xmppService.chatConnectionService.addHandler(
       (stanza) => this.handleRoomPresenceStanza(stanza),
       { ns: nsMuc, name: 'presence' },
-      { ignoreNamespaceFragment: true, matchBareFromJid: true }
+      { ignoreNamespaceFragment: true, matchBareFromJid: false }
     );
   }
 
@@ -200,10 +200,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const room = await this.getOrCreateRoom(roomJid);
 
     // Wait for occupant to appear (handled by global presence handler)
-    let myOccupant = room.getOccupant(roomJid);
+    let myOccupant = room.getOccupant(userJid.bare());
     for (let i = 0; i < 50 && !myOccupant; i++) {
       await new Promise(resolve => setTimeout(resolve, 100));
-      myOccupant = room.getOccupant(roomJid);
+      myOccupant = room.getOccupant(userJid.bare());
     }
     if (!myOccupant) {
       this.logService.warn(`[MUC] Timeout waiting for room joining: ${roomJid.toString()}. Proceeding anyway.`);
