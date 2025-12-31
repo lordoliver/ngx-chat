@@ -200,14 +200,13 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const room = await this.getOrCreateRoom(roomJid);
 
     // Wait for occupant to appear (handled by global presence handler)
-    let myOccupant = room.getOccupant(userJid.bare());
+    let myOccupant = room.getOccupant(roomJid);
     for (let i = 0; i < 50 && !myOccupant; i++) {
       await new Promise(resolve => setTimeout(resolve, 100));
-      myOccupant = room.getOccupant(userJid.bare());
+      myOccupant = room.getOccupant(roomJid);
     }
-
     if (!myOccupant) {
-      throw new Error('Timeout waiting for room joining');
+      this.logService.warn(`[MUC] Timeout waiting for room joining: ${roomJid.toString()}. Proceeding anyway.`);
     }
 
     const roomInfo = await this.getRoomInfo(roomJid.bare());
@@ -220,7 +219,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     room.description =
       getField<TextualFormField>(roomInfo, 'muc#roominfo_description')?.value ?? '';
 
-    if (myOccupant.affiliation !== Affiliation.owner) {
+    if (myOccupant && myOccupant.affiliation !== Affiliation.owner) {
       throw new Error('error creating room, user is not owner');
     }
 
