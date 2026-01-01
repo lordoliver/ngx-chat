@@ -39,7 +39,9 @@ export class ChatWindowInputComponent {
 
   message = '';
 
-  constructor(@Inject(CHAT_SERVICE_TOKEN) readonly chatService: ChatService) {}
+  constructor(@Inject(CHAT_SERVICE_TOKEN) readonly chatService: ChatService) { }
+
+  ngOnInit() { }
 
   async onKeydownEnter($event: Event): Promise<void> {
     $event?.preventDefault();

@@ -19,6 +19,7 @@ export class Room implements Recipient {
   avatar = '';
   // Room configuration
   info?: XmlSchemaForm;
+  creationError?: Error;
 
   readonly messageStore: MessageStore = new MessageStore();
   private readonly roomOccupants = new Map<string, RoomOccupant>();

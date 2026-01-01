@@ -83,11 +83,11 @@ export class TestUtils {
     jid: makeTestConstJid(this.heroString),
   };
 
-  readonly heroRoom = this.createRoomConfig(testRoomId(this.heroString));
-  readonly villainRoom = this.createRoomConfig(testRoomId(this.villainString));
-  readonly princessRoom = this.createRoomConfig(testRoomId(this.princessString));
-  readonly fatherRoom = this.createRoomConfig(testRoomId(this.fatherString));
-  readonly friendRoom = this.createRoomConfig(testRoomId(this.friendString));
+  readonly heroRoom = this.createRoomConfig(testRoomId(this.heroString) + '-' + this.suffix);
+  readonly villainRoom = this.createRoomConfig(testRoomId(this.villainString) + '-' + this.suffix);
+  readonly princessRoom = this.createRoomConfig(testRoomId(this.princessString) + '-' + this.suffix);
+  readonly fatherRoom = this.createRoomConfig(testRoomId(this.fatherString) + '-' + this.suffix);
+  readonly friendRoom = this.createRoomConfig(testRoomId(this.friendString) + '-' + this.suffix);
 
   readonly logIn = {
     hero: () => this.chatService.logIn(this.hero),
@@ -155,9 +155,9 @@ export class TestUtils {
     return {
       roomId,
       public: false,
-      membersOnly: true,
+      membersOnly: false,
       nonAnonymous: true,
-      persistentRoom: true,
+      persistentRoom: false,
       allowSubscription: true,
       jid: this.roomIdToJid(roomId),
     };

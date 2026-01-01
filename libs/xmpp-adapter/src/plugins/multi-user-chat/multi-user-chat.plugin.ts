@@ -162,7 +162,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     this.handlers.presence = await this.xmppService.chatConnectionService.addHandler(
       (stanza) => this.handleRoomPresenceStanza(stanza),
       { ns: nsMuc, name: 'presence' },
-      { ignoreNamespaceFragment: true, matchBareFromJid: false }
+      { ignoreNamespaceFragment: true, matchBareFromJid: true }
     );
   }
 
@@ -192,22 +192,21 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       return roomFromUser;
     }
 
-    await this.xmppService.chatConnectionService
+    const presenceResponse = await this.xmppService.chatConnectionService
       .$pres({ to: roomJid.toString() })
       .c('x', { xmlns: nsMuc })
-      .sendResponseLess();
-
+      .send();
     const room = await this.getOrCreateRoom(roomJid);
-
-    // Wait for occupant to appear (handled by global presence handler)
-    let myOccupant = room.getOccupant(userJid.bare());
-    for (let i = 0; i < 50 && !myOccupant; i++) {
-      await new Promise(resolve => setTimeout(resolve, 100));
-      myOccupant = room.getOccupant(userJid.bare());
-    }
-    if (!myOccupant) {
-      this.logService.warn(`[MUC] Timeout waiting for room joining: ${roomJid.toString()}. Proceeding anyway.`);
-    }
+    await this.handleRoomPresenceStanza(presenceResponse, room);
+    room.handleOccupantJoined(
+      {
+        jid: userJid.bare(),
+        affiliation: presenceResponse.getAttribute('affiliation') as Affiliation,
+        role: presenceResponse.getAttribute('role') as Role,
+        nick: userJid?.resource ?? '',
+      },
+      true
+    );
 
     const roomInfo = await this.getRoomInfo(roomJid.bare());
 
@@ -219,8 +218,9 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     room.description =
       getField<TextualFormField>(roomInfo, 'muc#roominfo_description')?.value ?? '';
 
-    if (myOccupant && myOccupant.affiliation !== Affiliation.owner) {
-      throw new Error('error creating room, user is not owner');
+    const itemElement = presenceResponse?.querySelector('x')?.querySelector('item');
+    if (itemElement?.getAttribute('affiliation') !== Affiliation.owner) {
+      throw new Error('error creating room, user is not owner: ' + presenceResponse.toString());
     }
 
     await this.applyRoomConfiguration(room.jid, options);
@@ -853,9 +853,9 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     }
 
     const roomJid = parseJid(stanza.getAttribute('from') as string);
-    const userJid = parseJid(
-      stanza.getAttribute('to') ?? (await firstValueFrom(this.xmppService.userJid$))
-    );
+    // const userJid = parseJid(
+    //   stanza.getAttribute('to') ?? (await firstValueFrom(this.xmppService.userJid$))
+    // );
 
     const xEl = Array.from(stanza.querySelectorAll('x')).find(
       (el): boolean => el.getAttribute('xmlns') === nsMucUser
@@ -868,10 +868,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     }
 
     const subjectOccupant: RoomOccupant = {
-      jid: userJid,
+      jid: roomJid,
       affiliation: itemEl.getAttribute('affiliation') as Affiliation,
       role: itemEl.getAttribute('role') as Role,
-      nick: userJid?.resource ?? '',
+      nick: roomJid.resource,
     };
 
     const isInCodes = (codes: string[], states: ExitingRoomStatusCode[]): boolean => {
@@ -891,10 +891,19 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const statusCodes: string[] = Array.from(statusElements).map(
       (status): string => status.getAttribute('code') as string
     );
-    const isCurrentUser = statusCodes.includes(OtherStatusCode.PresenceSelfRef);
-    const createdRoom = statusCodes.includes(EnteringRoomStatusCode.NewRoomCreated);
 
     const room = roomInCreation ?? (await this.getOrCreateRoom(roomJid));
+    const userJid = parseJid(await firstValueFrom(this.xmppService.userJid$));
+
+    const isCurrentUser =
+      statusCodes.includes(OtherStatusCode.PresenceSelfRef) ||
+      room.nick === subjectOccupant.nick ||
+      subjectOccupant.nick === userJid.local ||
+      subjectOccupant.nick === userJid.resource;
+
+
+
+    const createdRoom = statusCodes.includes(EnteringRoomStatusCode.NewRoomCreated);
 
     if (isCurrentUser && createdRoom) {
       return true;
@@ -911,8 +920,26 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       return false;
     }
 
-    const shouldRemoveRoom = isInCodes(statusCodes, Object.values(ExitingRoomStatusCode));
-    if (shouldRemoveRoom || isCurrentUser) {
+    const isRoomShutdown = statusCodes.includes(ExitingRoomStatusCode.MUCShutdown);
+    // const isErrorReply = statusCodes.includes(ExitingRoomStatusCode.ErrorReply); // Unused
+
+    // Exiting statuses that only apply to the user in the stanza
+    const isUserExitingStatus = isInCodes(statusCodes, [
+      ExitingRoomStatusCode.Banned,
+      ExitingRoomStatusCode.Kicked,
+      ExitingRoomStatusCode.AffiliationChange,
+      ExitingRoomStatusCode.MembersOnly,
+      ExitingRoomStatusCode.ErrorReply,
+    ]);
+
+    if (statusCodes.length > 0 || stanzaType === 'unavailable') {
+      this.logService.debug(`[MUC DEBUG] type=${stanzaType}, codes=${JSON.stringify(statusCodes)}, isCurrentUser=${isCurrentUser}, isUserExit=${isUserExitingStatus}, isShutdown=${isRoomShutdown}`);
+    }
+
+    if (
+      isRoomShutdown ||
+      (isCurrentUser && (isUserExitingStatus || stanzaType === 'unavailable'))
+    ) {
       this.leftRoomSubject.next(room.jid);
     }
 
@@ -1039,6 +1066,11 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
     // When we create a room by message we want to extract the occupants to know their jid's (origin jid's and not jids in room)
     // to avoid querying for them latter
+
+    if (messageText) {
+      console.log(`[MUC-MSG-DEBUG] Handling message from ${from.toString()}: "${messageText}". Room found: ${!!room}`);
+    }
+
     const roomOccupants = Finder.create(stanza)
       .searchByTag('x')
       .searchByTag('item')

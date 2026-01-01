@@ -7,7 +7,7 @@ import { ChatHistoryComponent } from '../chat-history';
 import { CommonModule } from '@angular/common';
 import { ChatFileDropComponent } from '../chat-file-drop';
 import { CHAT_SERVICE_TOKEN, FILE_UPLOAD_HANDLER_TOKEN } from '@pazznetwork/ngx-xmpp';
-import { combineLatest, map, Observable, of } from 'rxjs';
+import { combineLatest, map, Observable, of, startWith } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -23,15 +23,13 @@ export class ChatWindowContentComponent {
   set recipient(value: Recipient) {
     if (value instanceof Contact) {
       this.pendingRequest$ = combineLatest([
-        this.chatService.contactListService.contactsBlocked$,
+        this.chatService.contactListService.contactsBlocked$.pipe(startWith([])),
         value.subscription$,
       ]).pipe(
         map(([blockedContacts, subscription]) => {
           const isNotBlocked = !blockedContacts.find((b) => b.jid.bare().equals(value?.jid.bare()));
-          const result = isNotBlocked &&
+          return isNotBlocked &&
             (ContactSubscription.from === subscription || ContactSubscription.none === subscription);
-
-          return result;
         })
       );
     } else {

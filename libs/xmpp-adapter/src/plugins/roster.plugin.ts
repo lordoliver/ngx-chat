@@ -17,7 +17,6 @@ import {
   connectable,
 
   firstValueFrom,
-  filter,
   forkJoin,
   map,
   merge,
@@ -536,21 +535,11 @@ export class RosterPlugin implements ChatPlugin {
   async addContact(jid: string): Promise<void> {
     const existingContact = await this.getOrCreateContactById(jid);
 
-    const contactAddedPromise = firstValueFrom(
-      this.contacts$.pipe(
-        map((contacts) => contacts.get(parseJid(jid).bare().toString())),
-        filter((contact) => contact != null),
-        switchMap((contact) => contact!.subscription$),
-        filter((subscription) => subscription !== 'none')
-      )
-    );
-
     await this.sendAddToRoster(jid);
     // subscribe is necessary because a subscribed won't be resent to user after getting online
     await this.sendSubscribe(jid);
 
     await existingContact?.updateSubscriptionOnRequestSent();
-    await contactAddedPromise;
   }
 
   private async sendAddToRoster(jid: string): Promise<Element> {

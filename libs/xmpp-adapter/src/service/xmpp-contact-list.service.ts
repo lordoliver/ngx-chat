@@ -5,7 +5,7 @@ import type {
   ContactSubscription,
 } from '@pazznetwork/ngx-chat-shared';
 import { runInZone } from '@pazznetwork/ngx-chat-shared';
-import { combineLatest, map, Observable } from 'rxjs';
+import { combineLatest, map, Observable, startWith } from 'rxjs';
 import type { BlockPlugin, RosterPlugin } from '@pazznetwork/xmpp-adapter';
 import { NgZone } from '@angular/core';
 
@@ -55,7 +55,8 @@ export class XmppContactListService implements ContactListService {
 
         return Array.from(allContacts.values()).filter((c) => blockedJIDs.has(c.jid.bare().toString()));
       }),
-      runInZone(zone)
+      runInZone(zone),
+      startWith([])
     );
   }
 

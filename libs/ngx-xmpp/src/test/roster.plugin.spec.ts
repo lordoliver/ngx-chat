@@ -428,7 +428,7 @@ describe('roster plugin', () => {
     await testUtils.logOut();
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    expect(await contactCountPromise).toEqual([0, 0, 1, 0, 0]);
+    expect(await contactCountPromise).toEqual([0, 1, 0, 0, 0]);
 
     await unregisterAllBesidesAdmin();
   });

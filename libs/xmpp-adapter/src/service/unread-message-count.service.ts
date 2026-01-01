@@ -78,6 +78,10 @@ export class UnreadMessageCountService {
                 pairwise(),
                 filter(([a, b]) => a?.length < b?.length),
                 map(([, b]) => b)
+              ),
+              this.chatService.messageService.messageReceived$.pipe(
+                filter((recipient) => !!recipient),
+                map((recipient) => [recipient])
               )
             )
           )
@@ -85,22 +89,8 @@ export class UnreadMessageCountService {
 
         .subscribe((recipients): void => {
           for (const recipient of recipients) {
-            if (!recipient) {
-              continue;
-            }
-            const jid = recipient.jid.bare().toString();
-            if (!this.recipientIdToMessageSubscription.has(jid)) {
-              const messages$: Observable<Message[]> = recipient.messageStore.messages$;
-              const updateUnreadCountSubscription = messages$
-                .pipe(
-                  debounceTime(20),
-                  mergeMap(() => {
-                    return this.checkForUnreadCountChange(recipient)
-                  })
-                )
-                // eslint-disable-next-line rxjs/no-nested-subscribe
-                .subscribe();
-              this.recipientIdToMessageSubscription.set(jid, updateUnreadCountSubscription);
+            if (recipient) {
+              this.trackRecipient(recipient);
             }
           }
         });
@@ -247,6 +237,23 @@ export class UnreadMessageCountService {
       if (!oldLastReadDate || oldLastReadDate < date) {
         this.jidToLastReadTimestamp.set(jid, date);
       }
+    }
+  }
+
+  private trackRecipient(recipient: Recipient): void {
+    const jid = recipient.jid.bare().toString();
+    if (!this.recipientIdToMessageSubscription.has(jid)) {
+      const messages$: Observable<Message[]> = recipient.messageStore.messages$;
+      const updateUnreadCountSubscription = messages$
+        .pipe(
+          debounceTime(20),
+          mergeMap(() => {
+            return this.checkForUnreadCountChange(recipient);
+          })
+        )
+        // eslint-disable-next-line rxjs/no-nested-subscribe
+        .subscribe();
+      this.recipientIdToMessageSubscription.set(jid, updateUnreadCountSubscription);
     }
   }
 }

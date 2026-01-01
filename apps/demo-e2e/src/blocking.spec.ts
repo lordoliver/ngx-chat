@@ -9,9 +9,11 @@ import {
   devXmppPassword,
 } from '../../../libs/ngx-xmpp/src/.secrets-const';
 
+import { generateUser } from './utils/user-helper';
+
 test.describe.serial('ngx-chat', () => {
-  const ass = 'arsch';
-  const duty = 'dienst';
+  let ass: string;
+  let duty: string;
 
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
@@ -24,14 +26,16 @@ test.describe.serial('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
-    await ejabberdAdminPage.deleteUsers([ass, duty]);
+
+    ass = generateUser('arsch');
+    duty = generateUser('dienst');
 
     await appPage.setupForTest();
     await ejabberdAdminPage.register(ass, ass);
     await ejabberdAdminPage.register(duty, duty);
   });
 
-  test.skip('should be able to block the ass as duty', async () => {
+  test('should be able to block the ass as duty', async () => {
     await appPage.logIn(ass, ass);
     const chat = await appPage.openChatWithUnaffiliatedContact(duty);
     await chat.write('I fart in your general direction');
@@ -39,21 +43,25 @@ test.describe.serial('ngx-chat', () => {
 
     await appPage.logIn(duty, duty);
     // expect(appPage.isContactInRoster(ass)).toBeTruthy();
-    const snowWhiteChatWithEvilQueen = await appPage.openChatWithUnaffiliatedContact(ass);
-    await snowWhiteChatWithEvilQueen.block();
-    expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    await appPage.openChatWithUnaffiliatedContact(ass);
+    await appPage.blockContact(ass); // Use global block action instead of chat window action
+    await expect(async () => {
+      expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    }).toPass({ timeout: 10000 });
     expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
     await appPage.logOut();
   });
 
-  test.skip('should no longer be able to write as ass to duty', async () => {
+  test('should no longer be able to write as ass to duty', async () => {
     const message = 'FART!';
     await appPage.logIn(ass, ass);
     const chat = await appPage.openChatWithUnaffiliatedContact(duty);
     await chat.write(message);
     await appPage.logOut();
     await appPage.logIn(duty, duty);
-    expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    await expect(async () => {
+      expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    }).toPass({ timeout: 10000 });
     expect(await appPage.isUnaffiliatedListHidden()).toBeTruthy();
     const window = await appPage.openChatWithUnaffiliatedContact(ass);
     await window.assertLastMessageIsNot(message);

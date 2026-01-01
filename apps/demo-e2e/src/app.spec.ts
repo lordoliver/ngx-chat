@@ -9,6 +9,8 @@ import {
   devXmppPassword,
 } from '../../../libs/ngx-xmpp/src/.secrets-const';
 
+import { generateUser } from './utils/user-helper';
+
 /**
  * Current features:
  *   * blocking of contacts
@@ -28,19 +30,10 @@ import {
  *   * image link preview
  */
 test.describe.serial('ngx-chat', () => {
-  const dwarfs = {
-    doc: 'Doc',
-    grumpy: 'Grumpy',
-    happy: 'Happy',
-    sleepy: 'Sleepy',
-    bashful: 'Bashful',
-    sneezy: 'Sneezy',
-    dopey: 'Dopey',
-  };
-
-  const snowWhite = 'snowwhite';
-  const evilQueen = 'evilqueen';
-  const huntsman = 'huntsman';
+  let dwarfs: any;
+  let snowWhite: string;
+  let evilQueen: string;
+  let huntsman: string;
 
   let appPage: AppPage;
   let ejabberdAdminPage: EjabberdAdminPage;
@@ -53,12 +46,22 @@ test.describe.serial('ngx-chat', () => {
       devXmppJid,
       devXmppPassword
     );
-    await ejabberdAdminPage.deleteUsers([
-      evilQueen,
-      snowWhite,
-      huntsman,
-      ...Object.values(dwarfs),
-    ]);
+
+    snowWhite = generateUser('snowwhite');
+    evilQueen = generateUser('evilqueen');
+    huntsman = generateUser('huntsman');
+    dwarfs = {
+      doc: generateUser('Doc'),
+      grumpy: generateUser('Grumpy'),
+      happy: generateUser('Happy'),
+      sleepy: generateUser('Sleepy'),
+      bashful: generateUser('Bashful'),
+      sneezy: generateUser('Sneezy'),
+      dopey: generateUser('Dopey'),
+    };
+
+    // No need to deleteUsers anymore as they are unique per run!
+
     await ejabberdAdminPage.register(evilQueen, evilQueen);
     await ejabberdAdminPage.register(snowWhite, snowWhite);
     await ejabberdAdminPage.register(huntsman, huntsman);
@@ -151,16 +154,18 @@ test.describe.serial('ngx-chat', () => {
     await appPage.logOut();
   });
 
-  test.skip('should be able to block the Huntsman as SnowWhite', async () => {
+  test('should be able to block the Huntsman as SnowWhite', async () => {
     await appPage.logIn(snowWhite, snowWhite);
     // expect(await appPage.isContactInRoster(huntsman)).toBeTruthy();
-    const snowWhiteChatWithHuntsman = await appPage.openChatWithUnaffiliatedContact(huntsman);
-    await snowWhiteChatWithHuntsman.block();
-    expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    await appPage.openChatWithUnaffiliatedContact(huntsman);
+    await appPage.blockContact(huntsman); // Use global block action instead of chat window action
+    await expect(async () => {
+      expect(await appPage.isBlockedListVisible()).toBeTruthy();
+    }).toPass({ timeout: 10000 });
     await appPage.logOut();
   });
 
-  test.skip('should no longer be able to write as the Huntsman to SnowWhite', async () => {
+  test('should no longer be able to write as the Huntsman to SnowWhite', async () => {
     const message = 'Hello? :(';
     await appPage.logIn(huntsman, huntsman);
     const chat = await appPage.openChatWithUnaffiliatedContact(snowWhite);
@@ -168,7 +173,8 @@ test.describe.serial('ngx-chat', () => {
     await appPage.logOut();
     await appPage.logIn(snowWhite, snowWhite);
     const snowChat = await appPage.openChatWithUnaffiliatedContact(huntsman);
-    await snowChat.assertLastMessageIsNot(message);
+    // Explicitly verify the old message is present (from previous test), confirming no new message arrived
+    await snowChat.assertLastMessage('Do NOT eat any apples!!11elf!');
     await appPage.logOut();
   });
 

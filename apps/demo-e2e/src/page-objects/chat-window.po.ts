@@ -43,6 +43,7 @@ export class ChatWindowPage {
     submitMethod: ChatMessageSubmitMethod = 'enter',
     verifyMessage = true
   ): Promise<void> {
+    await this.chatInput.waitFor();
     await this.chatInput.fill(message);
 
     switch (submitMethod) {
@@ -67,40 +68,47 @@ export class ChatWindowPage {
     await this.windowLocator.click();
   }
 
+  async focus(): Promise<void> {
+    await this.windowLocator.click();
+  }
+
   async close(): Promise<void> {
     await this.closeChatButton.click();
+  }
+
+  async waitForVisible(): Promise<void> {
+    await this.windowLocator.waitFor();
   }
 
   async assertLastMessage(
     expectedMessage: string,
     messageDirection: MessageDirection = 'incoming'
   ): Promise<void> {
-    const messageCount = await (messageDirection === 'incoming'
-      ? this.inMessage
-      : this.outMessage
-    ).count();
-
-    const lastMessage = await this.getNthMessage(messageCount - 1, messageDirection);
-
-    expect(lastMessage).toBe(expectedMessage);
+    const messageLocator = messageDirection === 'incoming' ? this.inMessage : this.outMessage;
+    await expect(messageLocator.last()).toHaveText(expectedMessage);
   }
 
   async assertLastMessageIsNot(
     expectedMessage: string,
     messageDirection: MessageDirection = 'incoming'
   ): Promise<void> {
-    const messageCount = await (messageDirection === 'incoming'
-      ? this.inMessage
-      : this.outMessage
-    ).count();
-
-    const lastMessage = await this.getNthMessage(messageCount - 1, messageDirection);
-
-    expect(lastMessage).not.toBe(expectedMessage);
+    const messageLocator = messageDirection === 'incoming' ? this.inMessage : this.outMessage;
+    if ((await messageLocator.count()) === 0) {
+      return;
+    }
+    await expect(messageLocator.last()).not.toHaveText(expectedMessage);
   }
 
-  assertIsOpen(): void {
-    expect(this.windowTitleLocator.isVisible()).toBeTruthy();
+  async assertIsOpen(): Promise<void> {
+    this.windowLocator.page().on('console', (message) => {
+      if (message.type() === 'error') {
+        const text = message.text();
+        if (text.startsWith('DEBUG:')) {
+          console.log('BROWSER_CONSOLE:', text);
+        }
+      }
+    });
+    await expect(this.windowTitleLocator).toBeVisible();
   }
 
   async getNthMessage(
@@ -137,6 +145,22 @@ export class ChatWindowPage {
     await this.denyLink.click();
   }
 
+  async waitForMessageCount(minCount: number): Promise<void> {
+    await expect(async () => {
+      const incoming = await this.inMessage.count();
+      const outgoing = await this.outMessage.count();
+      expect(incoming + outgoing).toBeGreaterThanOrEqual(minCount);
+    }).toPass({ timeout: 10000 });
+  }
+
+  async getAllMessagesText(): Promise<string[]> {
+    return this.windowLocator.locator('ngx-chat-message-in ngx-chat-message-text-area, ngx-chat-message-out ngx-chat-message-text-area').allTextContents();
+  }
+
+  async getOutMessagesText(): Promise<string[]> {
+    return this.outMessage.allTextContents();
+  }
+
   hasBlockLink(): Promise<boolean> {
     return this.blockLink.isVisible();
   }
@@ -163,4 +187,20 @@ export class ChatWindowPage {
   async hasAddLink(): Promise<boolean> {
     return this.addLink.isVisible();
   }
+
+  async hasAcceptLink(): Promise<boolean> {
+    return this.acceptLink.isVisible();
+  }
+
+  async isVisible(): Promise<boolean> {
+    return this.windowLocator.isVisible();
+  }
+
+  async getLogicState(): Promise<any> {
+    return this.windowLocator.locator('ngx-chat-window-content').evaluate((el: any) => {
+      const component = (window as any).ng?.getComponent(el);
+      return component ? component.lastLogicState : { error: 'No component/ng' };
+    });
+  }
+
 }

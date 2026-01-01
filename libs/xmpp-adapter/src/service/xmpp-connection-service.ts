@@ -1,4 +1,15 @@
-import { BehaviorSubject, combineLatest, firstValueFrom, ReplaySubject, startWith, switchMap, map, distinctUntilChanged } from 'rxjs';
+import {
+  BehaviorSubject,
+  combineLatest,
+  distinctUntilChanged,
+  firstValueFrom,
+  map,
+  merge,
+  ReplaySubject,
+  startWith,
+  Subject,
+  switchMap,
+} from 'rxjs';
 import type { AuthRequest, Log } from '@pazznetwork/ngx-chat-shared';
 import { makeSafeJidString } from '@pazznetwork/ngx-chat-shared';
 import { StanzaBuilder } from '../stanza-builder';
@@ -16,6 +27,7 @@ export class XmppConnectionService {
   readonly connection$ = this.connectionSubject.asObservable();
 
   private readonly userStateSubject = new BehaviorSubject<'online' | 'offline'>('offline');
+  private readonly manualOfflineSubject = new Subject<void>();
 
   readonly isOnline$ = combineLatest([
     this.connection$.pipe(
@@ -30,7 +42,10 @@ export class XmppConnectionService {
 
   readonly onAuthenticating$ = this.connection$.pipe(switchMap((conn) => conn.onAuthenticating$));
   readonly onOnline$ = this.connection$.pipe(switchMap((conn) => conn.onOnline$));
-  readonly onOffline$ = this.connection$.pipe(switchMap((conn) => conn.onOffline$));
+  readonly onOffline$ = merge(
+    this.connection$.pipe(switchMap((conn) => conn.onOffline$)),
+    this.manualOfflineSubject
+  );
   readonly isOffline$ = this.isOnline$.pipe(
     map((isOnline) => !isOnline),
     startWith(true)
@@ -91,7 +106,7 @@ export class XmppConnectionService {
     return undefined;
   }
 
-  async logOut(): Promise<void> {
+  async logOut(emitEvent = true): Promise<void> {
     const connection = this.currentConnection;
     if (connection) {
       try {
@@ -107,6 +122,9 @@ export class XmppConnectionService {
       }
     }
     this.userStateSubject.next('offline');
+    if (emitEvent) {
+      this.manualOfflineSubject.next();
+    }
   }
 
   private async createConnection({
@@ -115,7 +133,7 @@ export class XmppConnectionService {
     saslMechanisms,
   }: Pick<AuthRequest, 'service' | 'domain' | 'saslMechanisms'>): Promise<Connection> {
     if (this.currentConnection) {
-      await this.logOut();
+      await this.logOut(false);
     }
     const connection = await Connection.create(domain, service, saslMechanisms);
     this.currentConnection = connection;

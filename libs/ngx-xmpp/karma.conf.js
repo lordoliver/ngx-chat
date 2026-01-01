@@ -12,7 +12,7 @@ module.exports = function (config) {
       ...baseConfig.coverageReporter,
       dir: join(__dirname, '../../coverage/libs/ngx-xmpp'),
     },
-    browsers: ['ChromeInsecure'],
+    browsers: ['ChromeHeadlessInsecure'],
     customLaunchers: {
       ChromeInsecure: {
         base: 'Chrome',
@@ -20,7 +20,7 @@ module.exports = function (config) {
       },
       ChromeHeadlessInsecure: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox', '--ignore-certificate-errors', '--allow-insecure-localhost'],
+        flags: ['--headless=new', '--disable-gpu', '--no-sandbox', '--ignore-certificate-errors', '--allow-insecure-localhost'],
       },
     },
     client: {

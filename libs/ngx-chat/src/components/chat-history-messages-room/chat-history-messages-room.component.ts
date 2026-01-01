@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { Component, Inject, Input, NgZone } from '@angular/core';
-import { mergeMap, Observable, throttleTime } from 'rxjs';
+import { map, Observable, switchMap, throttleTime } from 'rxjs';
 import {
   ChatService,
   Contact,
@@ -31,7 +31,8 @@ export class ChatHistoryMessagesRoomComponent {
 
     this.messagesGroupedByDate$ = value$.pipe(
       throttleTime(100, undefined, { leading: true, trailing: true }),
-      mergeMap(async (messages: Message[]) => {
+      switchMap(async (messagesInput: Message[]) => {
+        const messages = [...messagesInput];
         messages.sort((a, b) => a?.datetime?.getTime() - b?.datetime?.getTime());
         const messageMap = new Map<string, { message: Message; contact: Contact }[]>();
         for (const message of messages) {
@@ -63,7 +64,9 @@ export class ChatHistoryMessagesRoomComponent {
             messageMap.set(key, [messageWithContact]);
           }
         }
-
+        return messageMap;
+      }),
+      map((messageMap) => {
         const returnArray = new Array<{
           date: Date;
           messagesWithContact: { message: Message; contact: Contact }[];

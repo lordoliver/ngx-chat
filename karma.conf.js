@@ -6,7 +6,7 @@
 const { join } = require('path');
 const { constants } = require('karma');
 process.env['CHROME_BIN'] = require('puppeteer').executablePath();
-const browser = process.env['DEBUG'] ? 'DebugChrome' : 'Chrome';
+const browser = process.env['DEBUG'] ? 'DebugChrome' : 'ChromeHeadless';
 
 module.exports = () => {
   return {

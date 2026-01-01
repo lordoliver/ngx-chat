@@ -64,10 +64,11 @@ export class ChatWindowComponent implements OnInit, OnDestroy {
     @Inject(OPEN_CHAT_SERVICE_TOKEN) public openChatsService: OpenChatsService,
     @Inject(CHAT_LIST_STATE_SERVICE_TOKEN)
     private readonly openChatStateService: OpenChatStateService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.openChatsService.incrementOpenWindowCount(this.currentRecipient);
+    this.openChatsService.viewedChatMessages(this.currentRecipient);
   }
 
   ngOnDestroy(): void {

@@ -11,9 +11,8 @@ import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
 import {
   ensureRegisteredUser,
   ensureNoRegisteredUser,
-  destroyAllRooms,
 } from './helpers/admin-actions';
-import { getRoomAffiliation, getRoomRole } from './helpers/ejabberd-client';
+import { cleanUpJabber, destroyRoom, getRoomAffiliation, getRoomRole } from './helpers/ejabberd-client';
 import { Connection, $pres } from '@pazznetwork/strophe-ts';
 import { TestUtils } from './helpers/test-utils';
 
@@ -57,6 +56,7 @@ describe('multi user chat plugin', () => {
 
   beforeEach(async () => {
     await TestUtils.clean();
+    await cleanUpJabber();
     const testBed = TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });
@@ -73,7 +73,23 @@ describe('multi user chat plugin', () => {
   afterEach(async () => {
     if (testUtils) {
       try {
-        await testUtils.logOut();
+        await Promise.all([
+          destroyRoom(testUtils.heroRoom.roomId),
+          destroyRoom(testUtils.princessRoom.roomId),
+          destroyRoom(testUtils.fatherRoom.roomId),
+          destroyRoom(testUtils.villainRoom.roomId),
+          destroyRoom(testUtils.friendRoom.roomId),
+          // Also try to destroy the configtestroom which uses a suffix now
+          destroyRoom('configtestroom-' + testUtils.suffix),
+        ]);
+      } catch (e) {
+        // ignore errors if rooms don't exist
+      }
+
+      try {
+        if (await firstValueFrom(testUtils.chatService.isOnline$)) {
+          await testUtils.logOut();
+        }
       } catch (e) {
         // ignore errors during logout in afterEach, as we want to proceed with user cleanup
       }
@@ -89,7 +105,6 @@ describe('multi user chat plugin', () => {
 
   describe('room creation', () => {
     it('should be owner of created room', async () => {
-      await destroyAllRooms();
       await ensureRegisteredUser(testUtils.hero);
       await testUtils.logIn.hero();
 
@@ -134,6 +149,7 @@ describe('multi user chat plugin', () => {
 
       await testUtils.logOut();
       await testUtils.logIn.hero();
+      await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
       await testUtils.destroy.room.hero();
       await testUtils.logOut();
     });
@@ -157,6 +173,8 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
 
       await testUtils.logIn.hero();
+      // Re-join to populate local rooms map before destroying
+      await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
       await testUtils.destroy.room.hero();
       await testUtils.logOut();
     });
@@ -245,9 +263,10 @@ describe('multi user chat plugin', () => {
 
 
     it('should be able to create multiple rooms', async () => {
-      await ensureRegisteredUser(testUtils.father);
-      await testUtils.logIn.father();
+      await ensureRegisteredUser(testUtils.princess);
+      await testUtils.logIn.hero();
 
+      testUtils.heroRoom.persistentRoom = true;
       await testUtils.chatService.roomService.createRoom(testUtils.heroRoom);
       await testUtils.chatService.roomService.createRoom(testUtils.fatherRoom);
       await testUtils.chatService.roomService.createRoom(testUtils.princessRoom);
@@ -303,7 +322,12 @@ describe('multi user chat plugin', () => {
 
       await testUtils.logIn.father();
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
+
+      // Make room persistent so it survives Father's logout
+      testUtils.fatherRoom.persistentRoom = true;
+
       await testUtils.chatService.roomService.createRoom(testUtils.fatherRoom);
+
       expect(
         await getRoomAffiliation(
           parseJid(testUtils.fatherRoom.jid)?.local as string,
@@ -323,6 +347,7 @@ describe('multi user chat plugin', () => {
       expect(await testUtils.waitForCurrentRoomCount(1))
         .withContext('should have a room after join')
         .toEqual(1);
+
       expect(
         await getRoomAffiliation(
           parseJid(testUtils.fatherRoom.jid)?.local as string,
@@ -332,6 +357,8 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
 
       await testUtils.logIn.father();
+      // Ensure Father knows about the room locally before destroying
+      await testUtils.chatService.roomService.joinRoom(testUtils.fatherRoom.jid);
       await testUtils.chatService.roomService.destroyRoom(testUtils.fatherRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(0))
         .withContext('should have no room after room destroying')
@@ -398,6 +425,9 @@ describe('multi user chat plugin', () => {
 
       await testUtils.logIn.father();
       await testUtils.waitForCurrentRoomCount(3);
+      await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
+      await testUtils.chatService.roomService.joinRoom(testUtils.fatherRoom.jid);
+      await testUtils.chatService.roomService.joinRoom(testUtils.princessRoom.jid);
       await testUtils.chatService.roomService.destroyRoom(testUtils.heroRoom.jid);
       await testUtils.chatService.roomService.destroyRoom(testUtils.fatherRoom.jid);
       await testUtils.chatService.roomService.destroyRoom(testUtils.princessRoom.jid);
@@ -410,6 +440,10 @@ describe('multi user chat plugin', () => {
       await ensureRegisteredUser(testUtils.hero);
 
       await testUtils.logIn.father();
+
+      testUtils.heroRoom.persistentRoom = true;
+      testUtils.fatherRoom.persistentRoom = true;
+      testUtils.princessRoom.persistentRoom = true;
 
       await testUtils.chatService.roomService.createRoom(testUtils.heroRoom);
       await testUtils.chatService.roomService.createRoom(testUtils.fatherRoom);
@@ -446,6 +480,10 @@ describe('multi user chat plugin', () => {
 
       await testUtils.logIn.father();
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
+
+      await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
+      await testUtils.chatService.roomService.joinRoom(testUtils.fatherRoom.jid);
+      await testUtils.chatService.roomService.joinRoom(testUtils.princessRoom.jid);
 
       await testUtils.chatService.roomService.destroyRoom(testUtils.heroRoom.jid);
       await testUtils.chatService.roomService.destroyRoom(testUtils.fatherRoom.jid);
@@ -505,31 +543,12 @@ describe('multi user chat plugin', () => {
 
       // 1. Create and Configure Room as Owner (Princess)
       await testUtils.logIn.princess();
-      const room = await testUtils.create.room.princess();
-      await testUtils.chatService.roomService.joinRoom(room.jid.toString());
+      const roomConfig = testUtils.createRoomConfig(testUtils.princessRoom.roomId);
+      roomConfig.enableLogging = true;
+      roomConfig.persistentRoom = true;
+      const room = await testUtils.chatService.roomService.createRoom(roomConfig);
 
-      /*
-      // Configure In-Band
-      await (testUtils.chatService.chatConnectionService as any)
-        .$iq({ type: 'set', to: joinedRoomPrincess.jid.toString() })
-        .c('query', { xmlns: 'http://jabber.org/protocol/muc#owner' })
-        .c('x', { xmlns: 'jabber:x:data', type: 'submit' })
-        .c('field', { var: 'FORM_TYPE' })
-        .c('value').t('http://jabber.org/protocol/muc#roomconfig').up()
-        .up()
-        .c('field', { var: 'muc#roomconfig_enablelogging' })
-        .c('value').t('1').up()
-        .up()
-        // Removed problematic MAM config field to solve not-acceptable error
-        .c('field', { var: 'muc#roomconfig_moderatedroom' })
-        .c('value').t('0').up()
-        .up()
-        .c('field', { var: 'muc#roomconfig_persistentroom' })
-        .c('value').t('1').up()
-        .up() // Close x
-        .up() // Close query
-        .send();
-      */
+
 
       await testUtils.chatService.roomService.inviteUserToRoom(
         testUtils.hero.jid,
@@ -587,12 +606,19 @@ describe('multi user chat plugin', () => {
         await Promise.all([
           ensureNoRegisteredUser(testUtils.hero),
         ]);
+        try {
+          if (await firstValueFrom(testUtils.chatService.isOnline$)) {
+            await testUtils.logOut();
+          }
+        } catch (e) {
+          // ignore errors during logout
+        }
       }
-      await testUtils.logOut();
     });
 
     it('should be able to send messages', async () => {
       await ensureRegisteredUser(testUtils.hero);
+      await testUtils.logIn.hero();
       // when
       const room = await testUtils.chatService.roomService.createRoom(
         testUtils.createRoomConfig('chatroom')

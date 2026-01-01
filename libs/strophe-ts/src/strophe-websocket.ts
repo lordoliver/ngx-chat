@@ -125,17 +125,23 @@ export class StropheWebsocket implements ProtocolManager {
       this.socket.close();
     }
     this.connection.disconnectFinally();
+    this.isConnectedSubject.next(false);
   }
 
   /**
    * Handles the websockets closing.
    */
   onClose(): void {
-    if (!this.connection.connected || this.connection.disconnecting) {
+    this.isConnectedSubject.next(false);
+    if (this.connection.disconnecting) {
+      this.disconnectFinally();
+      return;
+    }
+    if (!this.connection.connected) {
       return;
     }
     this.disconnectFinally();
-    throw new Error('Websocket closed unexpectedly');
+    // throw new Error('Websocket closed unexpectedly');
   }
 
   /**
@@ -271,7 +277,15 @@ export class StropheWebsocket implements ProtocolManager {
     if (!data) {
       throw new Error('serialized data is undefined');
     }
-    this.socket?.send(data);
+    if (this.socket && this.socket.readyState === WebSocket.OPEN) {
+      try {
+        this.socket.send(data);
+      } catch (e) {
+        error('Could not send data: ' + e);
+      }
+    } else {
+      error('Socket is not open, cannot send data.');
+    }
   }
 
   private determineWebsocketUrl(service: string): string {

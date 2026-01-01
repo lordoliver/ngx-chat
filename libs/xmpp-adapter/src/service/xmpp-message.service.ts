@@ -251,6 +251,7 @@ export class XmppMessageService implements MessageService {
       return true;
     }
 
+
     if (!messageFromArchive && !eventElement) {
       return this.handleSingleMessage(messageStanza, delayElement, messageFromArchive);
     }
