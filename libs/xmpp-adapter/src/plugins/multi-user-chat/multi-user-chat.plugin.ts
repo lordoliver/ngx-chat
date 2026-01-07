@@ -161,7 +161,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
     this.handlers.presence = await this.xmppService.chatConnectionService.addHandler(
       (stanza) => this.handleRoomPresenceStanza(stanza),
-      { ns: nsMuc, name: 'presence' },
+      { name: 'presence' },
       { ignoreNamespaceFragment: true, matchBareFromJid: true }
     );
   }
@@ -767,7 +767,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
     await this.xmppService.chatConnectionService
       .$pres({ to: new JID(parsedJid.local, parsedJid.domain, newNick).toString(), from })
-      .send();
+      .sendResponseLess();
   }
 
   async leaveRoom(roomJid: JID, status?: string): Promise<void> {
@@ -849,14 +849,15 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
   private async handleRoomPresenceStanza(stanza: Stanza, roomInCreation?: Room): Promise<boolean> {
     const stanzaType = stanza.getAttribute('type');
 
+
     if (stanzaType === 'error') {
       throw new Error(`error handling message, stanza: ${stanza.outerHTML}`);
     }
 
     const roomJid = parseJid(stanza.getAttribute('from') as string);
-    // const userJid = parseJid(
-    //   stanza.getAttribute('to') ?? (await firstValueFrom(this.xmppService.userJid$))
-    // );
+    const room = roomInCreation ?? (await this.getOrCreateRoom(roomJid));
+    const userJid = parseJid(await firstValueFrom(this.xmppService.userJid$));
+
 
     const xEl = Array.from(stanza.querySelectorAll('x')).find(
       (el): boolean => el.getAttribute('xmlns') === nsMucUser
@@ -893,8 +894,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       (status): string => status.getAttribute('code') as string
     );
 
-    const room = roomInCreation ?? (await this.getOrCreateRoom(roomJid));
-    const userJid = parseJid(await firstValueFrom(this.xmppService.userJid$));
+
 
     const isCurrentUser =
       statusCodes.includes(OtherStatusCode.PresenceSelfRef) ||
@@ -913,12 +913,12 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     if (!stanzaType && room.hasOccupant(subjectOccupant.jid)) {
       const oldOccupant = room.getOccupant(subjectOccupant.jid);
       room.handleOccupantModified(subjectOccupant, oldOccupant as RoomOccupant, isCurrentUser);
-      return false;
+      return true;
     }
 
     if (!stanzaType) {
       room.handleOccupantJoined(subjectOccupant, isCurrentUser);
-      return false;
+      return true;
     }
 
     const isRoomShutdown = statusCodes.includes(ExitingRoomStatusCode.MUCShutdown);
@@ -987,6 +987,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     room.handleOccupantLeft(subjectOccupant, isCurrentUser);
 
     return true;
+
   }
 
   private readonly roomLocks = new Map<string, Promise<any>>();

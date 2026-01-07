@@ -80,7 +80,7 @@ export class Room implements Recipient {
   }
 
   findOccupantByNick(nick: string): RoomOccupant | undefined {
-    return Array.from(this.roomOccupants.values()).find((occupant) => occupant.jid.local === nick);
+    return Array.from(this.roomOccupants.values()).find((occupant) => occupant.nick === nick);
   }
 
   handleOccupantJoined(occupant: RoomOccupant, isCurrentUser: boolean): void {
@@ -170,10 +170,10 @@ export class Room implements Recipient {
     if (isCurrentUser) {
       this.nick = newNick;
     }
-    let existingOccupant = this.roomOccupants.get(occupant.jid.bare().toString());
+    let existingOccupant = this.roomOccupants.get(occupant.jid.toString());
     if (!existingOccupant) {
       existingOccupant = { ...occupant };
-      existingOccupant.jid = parseJid(occupant.jid.bare().toString());
+      existingOccupant.jid = parseJid(occupant.jid.toString());
     }
     existingOccupant.jid = new JID(
       existingOccupant.jid.local,
@@ -181,8 +181,8 @@ export class Room implements Recipient {
       newNick
     );
     existingOccupant.nick = newNick;
-    this.roomOccupants.delete(occupant.jid.bare().toString());
-    this.roomOccupants.set(existingOccupant.jid.bare().toString(), existingOccupant);
+    this.roomOccupants.delete(occupant.jid.toString());
+    this.roomOccupants.set(existingOccupant.jid.toString(), existingOccupant);
 
     this.logService.debug(
       `occupant changed nick: from=${occupant.nick ?? 'undefined nick'
@@ -215,7 +215,7 @@ export class Room implements Recipient {
   }
 
   private addOccupant(occupant: RoomOccupant): void {
-    this.roomOccupants.set(occupant.jid.bare().toString(), occupant);
+    this.roomOccupants.set(occupant.jid.toString(), occupant);
     this.occupantsSubject.next([...this.roomOccupants.values()]);
   }
 
@@ -224,7 +224,7 @@ export class Room implements Recipient {
       this.roomOccupants.clear();
       this.occupantsSubject.next([]);
     } else {
-      if (this.roomOccupants.delete(occupant.jid.bare().toString())) {
+      if (this.roomOccupants.delete(occupant.jid.toString())) {
         this.occupantsSubject.next([...this.roomOccupants.values()]);
       }
     }

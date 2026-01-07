@@ -153,8 +153,28 @@ export class TestUtils {
     if (!this.chatService.roomService.rooms$) {
       throw new Error(`this.chat.rooms$ is undefined`);
     }
-    return firstValueFrom(this.chatService.roomService.rooms$.pipe(map((arr) => arr.length)));
+    return firstValueFrom(this.chatService.roomService.rooms$.pipe(map((arr) => {
+      return arr.filter(r => r.jid.toString().includes(this.suffix)).length;
+    })));
   };
+
+  async destroyAllVisibleRooms(): Promise<void> {
+    if (!this.chatService.roomService.rooms$) {
+      return;
+    }
+    const rooms = await firstValueFrom(this.chatService.roomService.rooms$.pipe(startWith([] as Room[])));
+    const testRooms = rooms.filter(r => r.jid.toString().includes(this.suffix));
+    if (testRooms.length > 0) {
+      // console.log(`Destorying ${testRooms.length} test rooms...`);
+      for (const room of testRooms) {
+        try {
+          await this.chatService.roomService.destroyRoom(room.jid.toString());
+        } catch (e) {
+          // ignore, maybe not owner
+        }
+      }
+    }
+  }
 
   waitForRoom(jid: string): Promise<Room> {
     if (!this.chatService.roomService.rooms$) {
@@ -163,7 +183,10 @@ export class TestUtils {
     return firstValueFrom(
       this.chatService.roomService.rooms$.pipe(
         startWith([]),
-        map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),
+        map((rooms) => {
+          const targetJid = parseJid(jid);
+          return rooms.find((r) => r.jid.bare().equals(targetJid.bare()));
+        }),
         filter((room): room is Room => !!room),
         timeout(60000),
         catchError(err => {
@@ -180,7 +203,10 @@ export class TestUtils {
     return firstValueFrom(
       this.chatService.roomService.rooms$.pipe(
         startWith([]),
-        map((arr) => arr.length),
+        map((arr) => {
+          const ourRooms = arr.filter(r => r.jid.toString().includes(this.suffix));
+          return ourRooms.length;
+        }),
         filter((c) => c === count),
         timeout(timeoutMs),
         catchError(err => {
