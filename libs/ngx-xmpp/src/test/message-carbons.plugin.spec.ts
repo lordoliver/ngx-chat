@@ -5,6 +5,7 @@ import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 
 
 describe('message carbons plugin', () => {
+  xit('placeholder', () => { });
 
 
   beforeEach(() => {
