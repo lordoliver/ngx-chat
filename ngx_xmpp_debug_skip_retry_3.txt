@@ -1,0 +1,1493 @@
+
+> nx run ngx-xmpp:test --include=**/multi-user-chat.plugin.spec.ts
+
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+[33m02 01 2026 10:38:30.086:WARN [karma]: [39mNo captured browser, open http://localhost:9884/
+[32m02 01 2026 10:38:30.098:INFO [karma-server]: [39mKarma v6.4.2 server started at http://localhost:9884/
+[32m02 01 2026 10:38:30.098:INFO [launcher]: [39mLaunching browsers ChromeHeadlessInsecure with concurrency unlimited
+[32m02 01 2026 10:38:30.101:INFO [launcher]: [39mStarting browser ChromeHeadless
+[32m02 01 2026 10:38:30.407:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket uqVV13Uvdzg-rrVoAAAB with id 35826376
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[XmppService] logIn: onOnline$ emitted (or timeout passed).'[39m
+LOG: '[XmppService] logIn: onOnline$ emitted (or timeout passed).'
+LOG LOG: [36m'[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response get_room_affiliation: 200 OK'[39m
+LOG: '[Ejabberd API] Response get_room_affiliation: 200 OK'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[XmppService] logIn: onOnline$ emitted (or timeout passed).'[39m
+LOG: '[XmppService] logIn: onOnline$ emitted (or timeout passed).'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+	<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+	 thrown
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (1 min 4.673 secs / 1 min 4.628 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:151:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (31.114 secs / 31.099 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m153[0m:[93m116[0m - [91merror[0m[90m TS2339: [0mProperty 'roomJid' does not exist on type 'Room'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m153[0m           console.log(`[TestUtils] waitForCurrentRoomCount: Current count = ${arr.length}. Rooms: ${arr.map(r => r.roomJid).join(', ')}`);[39m[22m
+[1m[31m[7m   [0m [91m                                                                                                                   ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:151:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (43.064 secs / 44.026 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m144[0m:[93m37[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Room'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m144[0m   waitForRoom(jid: string): Promise<Room> {[39m[22m
+[1m[31m[7m   [0m [91m                                    ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m42[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'JID' and 'string' have no overlap.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m         map((rooms) => rooms.find((r) => r.jid === jid)),[39m[22m
+[1m[31m[7m   [0m [91m                                         ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m153[0m:[93m32[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Room'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m153[0m         filter((room): room is Room => !!room),[39m[22m
+[1m[31m[7m   [0m [91m                               ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m42[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'JID' and 'string' have no overlap.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m         map((rooms) => rooms.find((r) => r.jid === jid)),[39m[22m
+[1m[31m[7m   [0m [91m                                         ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+[32m✔[39m Browser application bundle generation complete.
+[32m02 01 2026 10:42:56.074:INFO [karma]: [39mDelaying execution, these browsers are not ready: Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 0 of 0[32m SUCCESS[39m (0 secs / 0 secs)
+[32mTOTAL: 0 SUCCESS[39m
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR LOG: [36m'[Ejabberd API] Error registered_users:', TypeError: Failed to fetch
+TypeError: Failed to fetch
+    at patchDelegate (http://localhost:9884/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2749:40)
+    at fetch (http://localhost:9884/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:980:24)
+    at http://localhost:9884/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:303:28
+    at Generator.next (<anonymous>)
+    at asyncGeneratorStep (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+    at _next (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)
+    at executor (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:27:1)
+    at new ZoneAwarePromise (http://localhost:9884/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2662:25)
+    at apply (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:19:1)
+    at _executeRequest (http://localhost:9884/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:316:2)[39m
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR: '[Ejabberd API] Error registered_users:', TypeError: Failed to fetch
+TypeError: Failed to fetch
+    at patchDelegate (http://localhost:9884/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2749:40)
+    at fetch (http://localhost:9884/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:980:24)
+    at http://localhost:9884/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:303:28
+    at Generator.next (<anonymous>)
+    at asyncGeneratorStep (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+    at _next (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)
+    at executor (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:27:1)
+    at new ZoneAwarePromise (http://localhost:9884/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2662:25)
+    at apply (http://localhost:9884/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:19:1)
+    at _executeRequest (http://localhost:9884/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:316:2)
+[33m02 01 2026 10:42:56.166:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mAdapter did not report total number of specs.
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	TypeError: Failed to fetch
+	    at patchDelegate (node_modules/zone.js/fesm2015/zone.js:2749:40)
+	    at fetch (node_modules/zone.js/fesm2015/zone.js:980:24)
+	    at libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:303:28
+	    at Generator.next (<anonymous>)
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:151:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 2 of 17[31m (2 FAILED)[39m (skipped 16) (45.026 secs / 46.657 secs)
+[31mTOTAL: 2 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[36m./libs/ngx-xmpp/src/test/helpers/test-utils.ts[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/@angular-devkit/build-angular/src/tools/babel/webpack-loader.js):[39m[22m
+[1m[31mSyntaxError: /Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/libs/ngx-xmpp/src/test/helpers/test-utils.ts: 'import' and 'export' may only appear[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m4[0m:[93m40[0m - [91merror[0m[90m TS6133: [0m'Room' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m4[0m import { Affiliation, Direction, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m [0m [91m                                       ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m149[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'Promise<Room | Room[] | never[]>' is not assignable to type 'Promise<Room>'.[39m[22m
+[1m[31m  Type 'Room | Room[] | never[]' is not assignable to type 'Room'.[39m[22m
+[1m[31m    Type 'Room[]' is missing the following properties from type 'Room': recipientType, jid, occupantJid, description, and 32 more.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m149[0m     return firstValueFrom([39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m1[0m - [91merror[0m[90m TS1135: [0mArgument expression expected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m10[0m - [91merror[0m[90m TS6133: [0m'Affiliation' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m         ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m23[0m - [91merror[0m[90m TS6133: [0m'Direction' is declare[39m[22m[1m[31md but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m                      ~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m44[0m - [91merror[0m[90m TS6133: [0m'Role' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m                                           ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m154[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m154[0m     map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m155[0m       filter((room): room is Room => !!room),[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m157[0m       )[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~[0m[39m[22m
+[1m[31m[7m158[0m     );[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m154[0m:[93m20[0m - [91merror[0m[90m TS18046: [0m'rooms' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m154[0m     map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),[39m[22m
+[1m[31m[7m   [0m [91m                   ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m154[0m:[93m32[0m - [91merror[0m[90m TS7006: [0mParameter 'r' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m154[0m     map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),[39m[22m
+[1m[31m[7m   [0m [91m                               ~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m157[0m:[93m7[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m157[0m       )[39m[22m
+[1m[31m[7m   [0m [91m      ~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs[39m[22m[1m[31m/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m158[0m:[93m5[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m158[0m     );[39m[22m
+[1m[31m[7m   [0m [91m    ~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[36m./libs/ngx-xmpp/src/test/helpers/test-utils.ts[39m[31m[0m - [0m[91mError: [39m[31m[0mModule build failed (from ./node_modules/@angular-devkit/build-angular/src/tools/babel/webpack-loader.js):[39m[22m
+[1m[31mSyntaxError: /Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/libs/ngx-xmpp/src/test/helpers/test-utils.ts: 'import' and 'export' may only appear[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m4[0m:[93m34[0m - [91merror[0m[90m TS6133: [0m'parseJid' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m4[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m [0m [91m                                 ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m4[0m:[93m50[0m - [91merror[0m[90m TS6133: [0m'Room' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m4[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m [0m [91m                                                 ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m149[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'Promise<Room | Room[] | never[]>' is not assignable to type 'Promise<Room>'.[39m[22m
+[1m[31m  Type 'Room | Room[] | never[]' is not assignable to type 'Room'.[39m[22m
+[1m[31m    Type 'Room[]' is missing the following properties from type 'Room': recipientType, jid, occupantJid, description, and 32 more.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m149[0m     return firstValueFrom([39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m1[0m - [91merror[0m[90m TS1135: [0mArgument expression expected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m10[0m - [91merror[0m[90m TS[39m[22m[1m[31m6133: [0m'Affiliation' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m         ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m23[0m - [91merror[0m[90m TS6133: [0m'Direction' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m                      ~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m44[0m - [91merror[0m[90m TS6133: [0m'Role' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';[39m[22m
+[1m[31m[7m   [0m [91m                                           ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m154[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m154[0m     map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m155[0m       filter((room): room is Room => !!room),[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m157[0m       )[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~[0m[39m[22m
+[1m[31m[7m158[0m     );[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m154[0m:[93m20[0m - [91merror[0m[90m TS18046: [0m'rooms' is of type 'unknown'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m154[0m     map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),[39m[22m
+[1m[31m[7m   [0m [91m                   ~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m154[0m:[93m32[0m - [91merror[0m[90m TS7006: [0mParameter 'r' implicitly has an 'any' type.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m154[0m     map[39m[22m[1m[31m((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),[39m[22m
+[1m[31m[7m   [0m [91m                               ~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m157[0m:[93m7[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m157[0m       )[39m[22m
+[1m[31m[7m   [0m [91m      ~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m158[0m:[93m5[0m - [91merror[0m[90m TS1128: [0mDeclaration or statement expected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m158[0m     );[39m[22m
+[1m[31m[7m   [0m [91m    ~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:151:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (43.483 secs / 31.366 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting get_room_occupants from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting get_room_occupants from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response get_room_occupants: 200 OK'[39m
+LOG: '[Ejabberd API] Response get_room_occupants: 200 OK'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Waiting for 1 rooms...'[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Waiting for 1 rooms...'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 2. Rooms: test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de, heroroom-nhtbgb@conference.local-jabber.entenhausen.pazz.de'[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 2. Rooms: test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de, heroroom-nhtbgb@conference.local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+  multi user chat plugin
+    room operations handling
+      [31m✗ [39m[31mshould handle banning and unbanning of a room occupant[39m
+	Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+	<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+	 thrown
+	TimeoutError: Timeout has occurred
+	error properties: null({ info: Object({ meta: null, lastValue: null, seen: 0 }), constructor: Function })
+	    at _super (node_modules/rxjs/dist/esm/internal/util/createErrorClass.js:4:26)
+	    at new TimeoutErrorImpl (node_modules/rxjs/dist/esm/internal/operators/timeout.js:9:5)
+	    at _with (node_modules/rxjs/dist/esm/internal/operators/timeout.js:54:11)
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+      [32m✓ [39mshould be able to change room topic
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Waiting for 3 rooms...'[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Waiting for 3 rooms...'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 4. Rooms: test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de, heroRoom-fkeby5@conference.local-jabber.entenhausen.pazz.de, fatherRoom-fkeby5@conference.local-jabber.entenhausen.pazz.de, princessRoom-fkeby5@conference.local-jabber.entenhausen.pazz.de'[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 4. Rooms: test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de, heroRoom-fkeby5@conference.local-jabber.entenhausen.pazz.de, fatherRoom-fkeby5@conference.local-jabber.entenhausen.pazz.de, princessRoom-fkeby5@conference.local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+    room joining
+      [31m✗ [39m[31mshould be able to query only for rooms joined[39m
+	Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+	<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+	 thrown
+	TimeoutError: Timeout has occurred
+	error properties: null({ info: Object({ meta: null, lastValue: null, seen: 0 }), constructor: Function })
+	    at _super (node_modules/rxjs/dist/esm/internal/util/createErrorClass.js:4:26)
+	    at new TimeoutErrorImpl (node_modules/rxjs/dist/esm/internal/operators/timeout.js:9:5)
+	    at _with (node_modules/rxjs/dist/esm/internal/operators/timeout.js:54:11)
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Waiting for 3 rooms...'[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Waiting for 3 rooms...'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 5. Rooms: fatherroom-bcaauc@conference.local-jabber.entenhausen.pazz.de, test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de, heroRoom-u2hyxj@conference.local-jabber.entenhausen.pazz.de, fatherRoom-u2hyxj@conference.local-jabber.entenhausen.pazz.de, princessRoom-u2hyxj@conference.local-jabber.entenhausen.pazz.de'[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 5. Rooms: fatherroom-bcaauc@conference.local-jabber.entenhausen.pazz.de, test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de, heroRoom-u2hyxj@conference.local-jabber.entenhausen.pazz.de, fatherRoom-u2hyxj@conference.local-jabber.entenhausen.pazz.de, princessRoom-u2hyxj@conference.local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '[39m
+LOG: '[TestUtils] waitForCurrentRoomCount: Current count = 0. Rooms: '
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+      [31m✗ [39m[31mshould be able to keep the rooms when logging out and and in[39m
+	Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+	<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+	 thrown
+	TimeoutError: Timeout has occurred
+	error properties: null({ info: Object({ meta: null, lastValue: null, seen: 0 }), constructor: Function })
+	    at _super (node_modules/rxjs/dist/esm/internal/util/createErrorClass.js:4:26)
+	    at new TimeoutErrorImpl (node_modules/rxjs/dist/esm/internal/operators/timeout.js:9:5)
+	    at _with (node_modules/rxjs/dist/esm/internal/operators/timeout.js:54:11)
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+      [31m✗ [39m[31mshould be able to leave all rooms[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:148:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response get_room_affiliation: 200 OK'[39m
+LOG: '[Ejabberd API] Response get_room_affiliation: 200 OK'
+[33m02 01 2026 10:51:25.325:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mDisconnected (0 times) , because no message in 120000 ms.
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected , because no message in 120000 ms.
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected , because no message in 120000 ms.
+[32m02 01 2026 10:51:25.403:INFO [karma-server]: [39mRestarting Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) (1 of 2 attempts)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 5 of 17[31m (4 FAILED)[39m (skipped 1)[31m DISCONNECTED[39m (4 mins 39.218 secs / 2 mins 3.683 secs)
+[33m02 01 2026 10:52:25.611:WARN [launcher]: [39mChromeHeadless has not captured in 60000 ms, killing.
+[32m02 01 2026 10:52:25.658:INFO [launcher]: [39mTrying to start ChromeHeadless again (1/2).
+[33m02 01 2026 10:53:25.660:WARN [launcher]: [39mChromeHeadless has not captured in 60000 ms, killing.
+[32m02 01 2026 10:53:25.705:INFO [launcher]: [39mTrying to start ChromeHeadless again (2/2).
+[33m02 01 2026 10:54:25.707:WARN [launcher]: [39mChromeHeadless has not captured in 60000 ms, killing.
+[91m02 01 2026 10:54:25.747:ERROR [launcher]: [39mChromeHeadless failed 2 times (timeout). Giving up.

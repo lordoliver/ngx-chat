@@ -4,7 +4,16 @@ import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 
 
 
+import { firstValueFrom } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { TestUtils, testUser } from './helpers/test-utils';
+import { XmppService } from '@pazznetwork/xmpp-adapter';
+import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
+import { unregisterAllBesidesAdmin, ensureRegisteredUser, ensureNoRegisteredUser } from './helpers/admin-actions';
+import { parseJid } from '@pazznetwork/ngx-chat-shared';
+
 describe('message plugin', () => {
+  let testUtils: TestUtils;
   it('placeholder', () => { });
 
 
@@ -12,10 +21,10 @@ describe('message plugin', () => {
     TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });
-    // testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
+    testUtils = new TestUtils(TestBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
   });
 
-  /* xit('should process received messages', async () => {
+  it('should process received messages', async () => {
     const messageContactPromise = firstValueFrom(testUtils.chatService.messageService.message$);
     const contactsPromise = firstValueFrom(
       testUtils.chatService.contactListService.contacts$.pipe(
@@ -24,7 +33,8 @@ describe('message plugin', () => {
     );
     const userPromise = firstValueFrom(testUtils.chatService.chatConnectionService.userJid$);
     await unregisterAllBesidesAdmin();
-    await register(testUser);
+    await ensureNoRegisteredUser(testUser);
+    await ensureRegisteredUser(testUser);
     await testUtils.chatService.logIn(testUser);
     const currentUserJid = await userPromise;
     const currentTime = new Date().getTime();
@@ -67,55 +77,56 @@ describe('message plugin', () => {
 
     await testUtils.chatService.logOut();
     await unregisterAllBesidesAdmin();
-  }); */
+  });
 
-  /* xit('should process received messages when they were delayed', async () => {
+  it('should process received messages when they were delayed', async () => {
     const subscriptionContacts = testUtils.chatService.contactListService.contacts$.subscribe();
     // We need to ensure message service is listening and wait for the message
     const messagePromise = firstValueFrom(testUtils.chatService.messageService.message$);
-  
+
     await unregisterAllBesidesAdmin();
-    await register(testUser);
+    await ensureNoRegisteredUser(testUser);
+    await ensureRegisteredUser(testUser);
     await testUtils.chatService.logIn(testUser);
     const delay = '2021-08-17T15:33:25.375401Z';
     const someUserJid = 'someone@example.com';
     const currentUserJid = await firstValueFrom(
       testUtils.chatService.chatConnectionService.userJid$
     );
-  
+
     const messageText = 'xmpp-message.spec.ts message delayed';
     const messageStanza = `<message from="${someUserJid}" to="${currentUserJid}"><delay stamp="${delay}"></delay><body>${messageText}</body></message>`;
-  
+
     await testUtils.fakeWebsocketInStanza(messageStanza);
-  
+
     // Wait for the message to be processed
     await messagePromise;
-  
+
     const contacts = await firstValueFrom(testUtils.chatService.contactListService.contacts$);
     expect(contacts.length).toBe(1);
-  
+
     const someContact = contacts[0];
-  
+
     if (someContact == null) {
       throw new Error('First contact in contact list was undefined');
     }
-  
+
     expect(someContact.jid.toString()).toBe(parseJid(someUserJid).toString());
-  
+
     const messages = someContact.messageStore.messages;
     expect(messages.length).toBe(1);
-  
+
     if (messages[0] == null) {
       throw new Error('First message in message list was undefined');
     }
-  
+
     expect(messages[0].body).toBe(messageText);
     expect(messages[0].datetime).toEqual(new Date(delay));
     expect(messages[0].delayed).toBeTrue();
     expect(messages[0].fromArchive).toBeFalse();
-  
+
     await testUtils.chatService.logOut();
     await unregisterAllBesidesAdmin();
     subscriptionContacts.unsubscribe();
-    }); */
+  });
 });

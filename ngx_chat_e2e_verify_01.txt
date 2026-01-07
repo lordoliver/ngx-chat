@@ -1,0 +1,598 @@
+
+> nx run ngx-chat-e2e-new:e2e
+
+[1m[33mWarning: Running a server with --disable-host-check is a security risk. See https://medium.com/webpack/webpack-dev-server-middleware-security-issues-1489d950874a for more information.[39m[22m
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+[37m[0m[0m[39m
+[37m[0m[1mInitial chunk files[22m  [2m | [22m[1mNames[22m        [2m | [22m [1mRaw size[22m[0m[39m
+[37m[0m[32mvendor.js[39m[37m            [2m | [22m[2mvendor[22m       [2m | [22m  [36m3.22 MB[39m[37m[2m | [22m[0m[39m
+[37m[0m[32mmain.js[39m[37m              [2m | [22m[2mmain[22m         [2m | [22m[36m989.21 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[32mpolyfills.js[39m[37m         [2m | [22m[2mpolyfills[22m    [2m | [22m[36m343.91 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[32mstyles.css, styles.js[39m[37m[2m | [22m[2mstyles[22m       [2m | [22m[36m230.69 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[32mruntime.js[39m[37m           [2m | [22m[2mruntime[22m      [2m | [22m  [36m6.51 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m[1m [22m                    [2m | [22m[1mInitial total[22m[2m | [22m  [1m4.75 MB[22m[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2026-01-02T09:20:14.458Z[39m[37m[22m - Hash: [1m[37md7ff89099c5b3bb6[39m[37m[22m - Time: [1m[37m3029[39m[37m[22mms[0m[39m
+[37m[39m
+[37m** Angular Live Development Server is listening on 0.0.0.0:4201, open your browser on http://localhost:4201/ **[39m
+[37m[39m
+[37m[39m
+[37m[92m✔[39m[37m Compiled successfully.[39m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/app/nx-welcome.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/environments/environment.interface.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/environments/environment.prod.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[0m[33mWarning: [39m[33m[0m/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/apps/demo-new/src/environments/environment.ts is part of the TypeScript compilation but it's unused.[39m[22m
+[1m[33mAdd only entry points to the 'files' or 'include' properties in your tsconfig.[39m[22m
+[1m[33m[39m[22m
+[1m[33m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[37m[0m[0m[39m
+[37m[0m[1mInitial chunk files[22m[2m | [22m[1mNames[22m  [2m | [22m[1mRaw size[22m[0m[39m
+[37m[0m[32mruntime.js[39m[37m         [2m | [22m[2mruntime[22m[2m | [22m [36m6.51 kB[39m[37m[2m | [22m[0m[39m
+[37m[0m[0m[39m
+[37m[0m4 unchanged chunks[0m[39m
+[37m[0m[0m[39m
+[37m[0mBuild at: [1m[37m2026-01-02T09:20:14.949Z[39m[37m[22m - Hash: [1m[37macc0c61c2f3060f5[39m[37m[22m - Time: [1m[37m413[39m[37m[22mms[0m[39m
+[37m[39m
+[37m[92m✔[39m[37m Compiled successfully.[39m
+Global Setup: Cleaning up Ejabberd users...
+Destroyed room: heroroom-boy0na
+Destroyed room: heroroom-e1elr
+Destroyed room: heroroom-ewsb0f
+Destroyed room: heroroom-i47uh8
+Destroyed room: heroroom-ihzu45
+Destroyed room: heroroom-jfbens
+Destroyed room: heroroom-mb4mt
+Destroyed room: heroroom-mnc6yl
+Destroyed room: heroroom-n9t0rt
+Destroyed room: heroroom-tabg0j
+Destroyed room: heroroom-vs47v
+Destroyed room: heroroom-xmtaj
+Destroyed room: heroroom-yjxiv
+Destroyed room: heroroom-z89vag
+Destroyed room: heroroom-zwq4fq
+Destroyed room: mines-1767339424742-182
+Destroyed room: princessroom-0n6rkm
+Destroyed room: princessroom-1a7l6
+Destroyed room: princessroom-4fyj7
+Destroyed room: princessroom-4x1om
+Destroyed room: princessroom-5p4z4m
+Destroyed room: princessroom-74f6ej
+Destroyed room: princessroom-78b1v
+Destroyed room: princessroom-84bgw
+Destroyed room: princessroom-a13d6
+Destroyed room: princessroom-boy0na
+Destroyed room: princessroom-e1elr
+Destroyed room: princessroom-ewsb0f
+Destroyed room: princessroom-jfbens
+Destroyed room: princessroom-mb4mt
+Destroyed room: princessroom-n9t0rt
+Destroyed room: princessroom-vs47v
+Destroyed room: princessroom-yjxiv
+Destroyed room: princessroom-z89vag
+Cleaning up 420 users...
+Global Setup: Cleanup complete.
+[2mRunning [22m47[2m tests using [22m1[2m worker[22m
+[1A[2K[1/47] [chromium] › admin-api-check.spec.ts:13:9 › Admin API Check › should be able to list registered users
+[1A[2K[2m[chromium] › admin-api-check.spec.ts:13:9 › Admin API Check › should be able to list registered users[22m
+Attempting to fetch registered users...
+[1A[2KSUCCESS: Fetched users object: [
+  "alice-1767345634638-158",
+  "alice-1767345661278-966",
+  "baruser",
+  "bob-1767345634638-691",
+  "bob-1767345661278-738",
+  "hero",
+  "local-admin",
+  "owner-1767345625801-147",
+  "princess",
+  "slave-1767345625801-917",
+  "tim-1767345634638-212",
+  "tim-1767345661278-222"
+]
+[1A[2K[2/47] [chromium] › admin-api-check.spec.ts:25:9 › Admin API Check › should be able to list MUC rooms
+[1A[2K[2m[chromium] › admin-api-check.spec.ts:25:9 › Admin API Check › should be able to list MUC rooms[22m
+Attempting to fetch MUC rooms...
+[1A[2KSUCCESS: Fetched MUC rooms object: [
+  "heroroom-wq5pne@conference.local-jabber.entenhausen.pazz.de",
+  "mines-1767345625800-371@conference.local-jabber.entenhausen.pazz.de"
+]
+[1A[2K[3/47] [chromium] › app.spec.ts:102:7 › ngx-chat › should be able to log in
+[1A[2K[2m[chromium] › app.spec.ts:102:7 › ngx-chat › should be able to log in[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[4/47] [chromium] › app.spec.ts:108:7 › ngx-chat › should be able to log out
+[1A[2K[2m[chromium] › app.spec.ts:108:7 › ngx-chat › should be able to log out[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[5/47] [chromium] › app.spec.ts:115:7 › ngx-chat › should be able to login as SnowWhite
+[1A[2K[2m[chromium] › app.spec.ts:115:7 › ngx-chat › should be able to login as SnowWhite[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[6/47] [chromium] › app.spec.ts:119:7 › ngx-chat › should be able to add the 7 dwarves as SnowWhite contacts
+[1A[2K[2m[chromium] › app.spec.ts:119:7 › ngx-chat › should be able to add the 7 dwarves as SnowWhite contacts[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[7/47] [chromium] › app.spec.ts:139:7 › ngx-chat › should be able to write to Sleepy and Grumpy
+[1A[2K[2m[chromium] › app.spec.ts:139:7 › ngx-chat › should be able to write to Sleepy and Grumpy[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[Browser] log: Directly set username on App component to: sleepy-1767345667103-197
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: grumpy-1767345667103-658
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[8/47] [chromium] › app.spec.ts:175:7 › ngx-chat › should be able to write as the EvilQueen to SnowWhite
+[1A[2K[2m[chromium] › app.spec.ts:175:7 › ngx-chat › should be able to write as the EvilQueen to SnowWhite[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: evilqueen-1767345667103-379
+[1A[2K[9/47] [chromium] › app.spec.ts:185:7 › ngx-chat › should be able to send click able link and a image with preview as well
+[1A[2K[2m[chromium] › app.spec.ts:185:7 › ngx-chat › should be able to send click able link and a image with preview as well[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: evilqueen-1767345667103-379
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[10/47] [chromium] › app.spec.ts:201:7 › ngx-chat › should be able to write as the Huntsman to SnowWhite
+[1A[2K[2m[chromium] › app.spec.ts:201:7 › ngx-chat › should be able to write as the Huntsman to SnowWhite[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: huntsman-1767345667103-805
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[11/47] [chromium] › app.spec.ts:209:7 › ngx-chat › should be able to block the Huntsman as SnowWhite
+[1A[2K[2m[chromium] › app.spec.ts:209:7 › ngx-chat › should be able to block the Huntsman as SnowWhite[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[12/47] [chromium] › app.spec.ts:221:7 › ngx-chat › should no longer be able to write as the Huntsman to SnowWhite
+[1A[2K[2m[chromium] › app.spec.ts:221:7 › ngx-chat › should no longer be able to write as the Huntsman to SnowWhite[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: huntsman-1767345667103-805
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[13/47] [chromium] › app.spec.ts:233:7 › ngx-chat › should be able to unblock the Huntsman as SnowWhite
+[1A[2K[2m[chromium] › app.spec.ts:233:7 › ngx-chat › should be able to unblock the Huntsman as SnowWhite[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite-1767345667103-327
+[1A[2K[14/47] [chromium] › app.spec.ts:242:7 › ngx-chat › should be able to accept the Huntsman request as SnowWhite
+[1A[2K[2m[chromium] › app.spec.ts:242:7 › ngx-chat › should be able to accept the Huntsman request as SnowWhite[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: snowwhite_fresh-1767345706696-238
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: huntsman_fresh-1767345706696-371
+[1A[2K[15/47] [chromium] › blocking.spec.ts:42:7 › ngx-chat › should be able to block the ass as duty
+[1A[2K[2m[chromium] › blocking.spec.ts:42:7 › ngx-chat › should be able to block the ass as duty[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: arsch-1767345709352-213
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: dienst-1767345709352-809
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[16/47] [chromium] › blocking.spec.ts:62:7 › ngx-chat › should no longer be able to write as ass to duty
+[1A[2K[2m[chromium] › blocking.spec.ts:62:7 › ngx-chat › should no longer be able to write as ass to duty[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: dienst-1767345711436-456
+[1A[2K[Browser] log: Directly set username on App component to: arsch-1767345711436-783
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: dienst-1767345711436-456
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[17/47] [chromium] › blocking.spec.ts:95:7 › ngx-chat › should be able to unblock the ass as duty
+[1A[2K[2m[chromium] › blocking.spec.ts:95:7 › ngx-chat › should be able to unblock the ass as duty[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: dienst-1767345715553-47
+[1A[2K[Browser] log: Directly set username on App component to: arsch-1767345715553-454
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: dienst-1767345715553-47
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[18/47] [chromium] › blocking.spec.ts:132:7 › ngx-chat › should keep unblocked contacts as such
+[1A[2K[2m[chromium] › blocking.spec.ts:132:7 › ngx-chat › should keep unblocked contacts as such[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: dienst-1767345728950-616
+[1A[2K[Browser] log: Directly set username on App component to: dienst-1767345728950-616
+[1A[2K[19/47] [chromium] › chatbox.spec.ts:45:7 › ngx-chat › should be able to submit message with enter key and button
+[1A[2K[2m[chromium] › chatbox.spec.ts:45:7 › ngx-chat › should be able to submit message with enter key and button[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: foouser-1767345731267-704
+[1A[2K[20/47] [chromium] › connectivity.spec.ts:3:5 › simple connectivity check
+[1A[2K[2m[chromium] › connectivity.spec.ts:3:5 › simple connectivity check[22m
+Navigating to /
+[1A[2KChecking title...
+[1A[2KChecking for login form...
+[1A[2KConnectivity verified!
+[1A[2K[21/47] [chromium] › delete-features.spec.ts:8:9 › Delete Features › should allow destroying a room using service
+[1A[2K[2m[chromium] › delete-features.spec.ts:8:9 › Delete Features › should allow destroying a room using service[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: destroyer-1767345732921-305
+[1A[2K[Browser] log: Attempting to destroy room via service: destroy-test-1767345733888@conference.local-jabber.entenhausen.pazz.de
+[1A[2K[Browser] log: destroyRoom promise resolved
+[1A[2K[22/47] [chromium] › delete-features.spec.ts:96:9 › Delete Features › should allow removing a contact
+[1A[2K[2m[chromium] › delete-features.spec.ts:96:9 › Delete Features › should allow removing a contact[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: user_a-1767345735095-96
+[1A[2K[23/47] [chromium] › delete-features.spec.ts:139:9 › Delete Features › should allow closing a conversation
+[1A[2K[2m[chromium] › delete-features.spec.ts:139:9 › Delete Features › should allow closing a conversation[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: closer-1767345736319-954
+[1A[2K[24/47] [chromium] › dual-connect.spec.ts:23:9 › Dual Connect › should facilitate chat between two users via dual.html with extended message flow
+[1A[2K[2m[chromium] › dual-connect.spec.ts:23:9 › Dual Connect › should facilitate chat between two users via dual.html with extended message flow[22m
+[Browser] [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] Angular is running in development mode.
+[1A[2K[Browser] Angular is running in development mode.
+[1A[2K[25/47] [chromium] › history.spec.ts:20:9 › MAM History › should persist messages after page reload via MAM
+[1A[2K[2m[chromium] › history.spec.ts:20:9 › MAM History › should persist messages after page reload via MAM[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: historian_a-1767345740328-858
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: historian_b-1767345740328-428
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: historian_a-1767345740328-858
+[1A[2K[26/47] [chromium] › infinite-scroll.spec.ts:28:9 › Infinite Scroll › should load recent messages initially and older messages on scroll
+[1A[2K[2m[chromium] › infinite-scroll.spec.ts:28:9 › Infinite Scroll › should load recent messages initially and older messages on scroll[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2KLogging in sw_1767345748882...
+[1A[2K[Browser] log: Directly set username on App component to: sw_1767345748882
+[1A[2KLogging in sl_1767345748882...
+[1A[2K[Browser] log: Directly set username on App component to: sl_1767345748882
+[1A[2KSnowWhite adding sl_1767345748882@local-jabber.entenhausen.pazz.de...
+[1A[2KSending 15 messages...
+[1A[2KReloading Sleepy...
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: sl_1767345748882
+[1A[2KInitial message count: [33m14[39m
+[1A[2K[27/47] [chromium] › load-test.spec.ts:47:9 › Load & Performance Test › should connect fast and load messages on demand
+[1A[2K[2m[chromium] › load-test.spec.ts:47:9 › Load & Performance Test › should connect fast and load messages on demand[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2KSeeding 40 messages from sender_one to performance_target...
+[1A[2K[Browser] log: Directly set username on App component to: sender_one
+[1A[2KSeeding 40 messages from sender_two to performance_target...
+[1A[2K[Browser] log: Directly set username on App component to: sender_two
+[1A[2KLogging in target user...
+[1A[2K[Browser] log: Directly set username on App component to: performance_target
+[1A[2KLogin took 656ms
+[1A[2KOpening chat with sender_one...
+[1A[2KChat 1 Message Count: 32
+[1A[2KOpening chat with sender_two...
+[1A[2KChat 2 Message Count: 35
+[1A[2K[28/47] [chromium] › message-status.spec.ts:35:9 › Message Status › should show sent, received and seen status indicators
+[1A[2K[2m[chromium] › message-status.spec.ts:35:9 › Message Status › should show sent, received and seen status indicators[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345769190-941
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: bob-1767345769190-49
+[1A[2K[29/47] [chromium] › mobile-performance.spec.ts:39:9 › Mobile Roster Performance Test › should render separate roster list efficiently
+[1A[2K[2m[chromium] › mobile-performance.spec.ts:39:9 › Mobile Roster Performance Test › should render separate roster list efficiently[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2KSeeding 50 contacts for mobile_perf_user...
+[1A[2K[Browser] log: Directly set username on App component to: mobile_perf_user
+[1A[2KSending contact requests...
+[1A[2KAdded 50 contacts in 1286ms
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2KMeasuring Mobile List Render...
+[1A[2K[Browser] log: Directly set username on App component to: mobile_perf_user
+[1A[2KMobile List (50 items) render took 759ms
+[1A[2KMeasuring Embedded Chat Open...
+[1A[2KEmbedded chat open took 23ms
+[1A[2K[30/47] [chromium] › mobile-roster.spec.ts:42:9 › Mobile/Separate Roster Logic › should open chat via separate roster list (mobile mode)
+[1A[2K[2m[chromium] › mobile-roster.spec.ts:42:9 › Mobile/Separate Roster Logic › should open chat via separate roster list (mobile mode)[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: contact1-1767345785321-807
+[1A[2KNavigating to app...
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2KLogging in as mobileuser-1767345785321-366
+[1A[2KLogging in as mobileuser-1767345785321-366
+[1A[2K[Browser] log: Directly set username on App component to: mobileuser-1767345785321-366
+[1A[2KWaiting for contact button...
+[1A[2K[31/47] [chromium] › muc-infinite-scroll.spec.ts:32:9 › MUC Infinite Scroll › should scroll to load older messages in MUC
+[1A[2K[2m[chromium] › muc-infinite-scroll.spec.ts:32:9 › MUC Infinite Scroll › should scroll to load older messages in MUC[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: muc-scroll-owner-1767345787657
+[1A[2KExplicitly enabled room persistence, MAM, and disabled members_only via ejabberdctl
+[1A[2KRoom Options: title	scrollroom-1767345787657
+description	
+allow_change_subj	true
+allow_query_users	true
+allow_private_messages	true
+allow_private_messages_from_visitors	anyone
+allow_visitor_status	true
+allow_visitor_nickchange	true
+public	false
+public_list	true
+persistent	true
+moderated	true
+captcha_protected	false
+members_by_default	true
+members_only	false
+allow_user_invites	false
+allow_subscription	true
+password_protected	false
+password	
+anonymous	true
+presence_broadcast	[moderator,participant,visitor,moderator,participant,visitor]
+allow_voice_requests	true
+voice_request_min_interval	1800
+max_users	200
+logging	false
+vcard	
+vcard_xupdate	undefined
+captcha_whitelist	{0,nil}
+mam	true
+pubsub	
+enable_hats	false
+lang	en
+[1A[2KSending 20 messages...
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: muc-scroll-owner-1767345787657
+[1A[2KMessages after reload: 20
+[1A[2K[32/47] [chromium] › muc-messages.spec.ts:39:7 › ngx-chat › grant membership to single user to single room async (one is online another offline)
+[1A[2K[2m[chromium] › muc-messages.spec.ts:39:7 › ngx-chat › grant membership to single user to single room async (one is online another offline)[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: user-1767345797571-cc6zy
+[1A[2K[Browser] log: Directly set username on App component to: user-1767345797571-c3o1b
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from mines-1767345797571@conference.local-jabber.entenhausen.pazz.de/user-1767345797571-c3o1b: "I was here - slave". Room found: true
+[1A[2K[Browser] log: Directly set username on App component to: user-1767345797571-cc6zy
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from mines-1767345797571@conference.local-jabber.entenhausen.pazz.de/user-1767345797571-c3o1b: "I was here - slave". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from mines-1767345797571@conference.local-jabber.entenhausen.pazz.de/user-1767345797571-c3o1b: "I was here - slave". Room found: true
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: user-1767345797571-c3o1b
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from mines-1767345797571@conference.local-jabber.entenhausen.pazz.de/user-1767345797571-c3o1b: "I was here - slave". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from mines-1767345797571@conference.local-jabber.entenhausen.pazz.de/user-1767345797571-c3o1b: "I was here - slave". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from mines-1767345797571@conference.local-jabber.entenhausen.pazz.de/user-1767345797571-c3o1b: "I was here - slave". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from mines-1767345797571@conference.local-jabber.entenhausen.pazz.de/user-1767345797571-c3o1b: "I was here - slave". Room found: true
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: user-1767345797571-cc6zy
+[1A[2K[33/47] [chromium] › muc-messages.spec.ts:139:7 › ngx-chat › should be able to create a room, write a message, invite bob and tim, let them join and see the message, and destroy the room
+[1A[2K[2m[chromium] › muc-messages.spec.ts:139:7 › ngx-chat › should be able to create a room, write a message, invite bob and tim, let them join and see the message, and destroy the room[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345812561
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: bob-1767345812561
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: tim-1767345812561
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Hello everyone now!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Hello everyone now!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Hello everyone now!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Hello everyone now!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Hello everyone now!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Hello everyone now!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Welcome strictly new members!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/alice-1767345812561: "Hello everyone now!". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/bob-1767345812561: "Hi Alice, I am Bob". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/bob-1767345812561: "Hi Alice, I am Bob". Room found: true
+[1A[2K[Browser] log: [MUC-MSG-DEBUG] Handling message from test-room-1767345813460@conference.local-jabber.entenhausen.pazz.de/bob-1767345812561: "Hi Alice, I am Bob". Room found: true
+[1A[2K[34/47] [chromium] › muc-repro.spec.ts:11:6 › MUC messages should be delivered to all participants
+[1A[2K[35/47] [chromium] › offline-message.spec.ts:31:9 › Offline Message Handling › should queue and send message when offline
+[1A[2K[2m[chromium] › offline-message.spec.ts:31:9 › Offline Message Handling › should queue and send message when offline[22m
+[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: sender-1767345823340-917
+[1A[2K[36/47] [chromium] › offline-receive.spec.ts:9:9 › Offline Message Receiving (MAM Catch-up) › should receive message sent while offline upon reconnection (Sequential Single Page)
+[1A[2K[2m[chromium] › offline-receive.spec.ts:9:9 › Offline Message Receiving (MAM Catch-up) › should receive message sent while offline upon reconnection (Sequential Single Page)[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] error: Registration failed: Error: WebSocket closed or failed to connect
+    at http://localhost:4201/main.js:11980:89
+    at _ZoneDelegate.invoke (http://localhost:4201/polyfills.js:8250:158)
+    at ZoneImpl.run (http://localhost:4201/polyfills.js:8029:35)
+    at http://localhost:4201/polyfills.js:10285:30
+    at _ZoneDelegate.invokeTask (http://localhost:4201/polyfills.js:8275:171)
+    at ZoneImpl.runTask (http://localhost:4201/polyfills.js:8075:37)
+    at drainMicroTaskQueue (http://localhost:4201/polyfills.js:8446:23)
+    at ZoneTask.invokeTask [as invoke] (http://localhost:4201/polyfills.js:8355:11)
+    at invokeTask (http://localhost:4201/polyfills.js:8973:12)
+    at globalCallback (http://localhost:4201/polyfills.js:9003:21)
+[1A[2K[Browser] error: Registration failed: Error: WebSocket closed or failed to connect
+    at http://localhost:4201/main.js:11980:89
+    at _ZoneDelegate.invoke (http://localhost:4201/polyfills.js:8250:158)
+    at ZoneImpl.run (http://localhost:4201/polyfills.js:8029:35)
+    at http://localhost:4201/polyfills.js:10285:30
+    at _ZoneDelegate.invokeTask (http://localhost:4201/polyfills.js:8275:171)
+    at ZoneImpl.runTask (http://localhost:4201/polyfills.js:8075:37)
+    at drainMicroTaskQueue (http://localhost:4201/polyfills.js:8446:23)
+    at ZoneTask.invokeTask [as invoke] (http://localhost:4201/polyfills.js:8355:11)
+    at invokeTask (http://localhost:4201/polyfills.js:8973:12)
+    at globalCallback (http://localhost:4201/polyfills.js:9003:21)
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: user-a-1767345826580
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: user-b-1767345826580
+[1A[2K[Browser] log: Directly set username on App component to: user-a-1767345826580
+[1A[2K[37/47] [chromium] › one-to-one-messages.spec.ts:49:7 › ngx-chat › should be able to block contact after receiving message without contact request
+[1A[2K[2m[chromium] › one-to-one-messages.spec.ts:49:7 › ngx-chat › should be able to block contact after receiving message without contact request[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345832352-35
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: bob-1767345832352-58
+[1A[2K[38/47] [chromium] › one-to-one-messages.spec.ts:70:7 › ngx-chat › should be able to add contact after receiving message without contact request
+[1A[2K[2m[chromium] › one-to-one-messages.spec.ts:70:7 › ngx-chat › should be able to add contact after receiving message without contact request[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345835169-809
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: bob-1767345835169-585
+[1A[2K[Browser] log: Directly set username on App component to: bob-1767345835169-585
+[1A[2K[39/47] [chromium] › one-to-one-messages.spec.ts:95:7 › ngx-chat › alice should be able to write to bob and bob should receive the message
+[1A[2K[2m[chromium] › one-to-one-messages.spec.ts:95:7 › ngx-chat › alice should be able to write to bob and bob should receive the message[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345838629-632
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: bob-1767345838629-426
+[1A[2K[40/47] [chromium] › one-to-one-messages.spec.ts:119:7 › ngx-chat › alice should be able to write to tim and tim should receive the message after adding alice as contact
+[1A[2K[2m[chromium] › one-to-one-messages.spec.ts:119:7 › ngx-chat › alice should be able to write to tim and tim should receive the message after adding alice as contact[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345841096-747
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: tim-1767345841096-537
+[1A[2K[41/47] [chromium] › one-to-one-messages.spec.ts:140:7 › ngx-chat › alice should be able to write to tim and tim should receive the message even without adding alice as contact
+[1A[2K[2m[chromium] › one-to-one-messages.spec.ts:140:7 › ngx-chat › alice should be able to write to tim and tim should receive the message even without adding alice as contact[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345843302-774
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[Browser] log: Directly set username on App component to: tim-1767345843302-590
+[1A[2K[42/47] [chromium] › one-to-one-messages.spec.ts:160:7 › ngx-chat › should open message component on message received
+[1A[2K[2m[chromium] › one-to-one-messages.spec.ts:160:7 › ngx-chat › should open message component on message received[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345845730-600
+[1A[2K[Browser] log: Directly set username on App component to: bob-1767345845730-370
+[1A[2K[43/47] [chromium] › persistence.spec.ts:17:9 › Data Persistence (No Wipe) › should keep roster and messages when offline
+[1A[2K[2m[chromium] › persistence.spec.ts:17:9 › Data Persistence (No Wipe) › should keep roster and messages when offline[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: local-admin
+[1A[2K[44/47] [chromium] › roster-load-custom-ui.spec.ts:85:9 › Roster Load Test - Custom UI › should interactions via Separate Roster and Chat Window
+[1A[2K[2m[chromium] › roster-load-custom-ui.spec.ts:85:9 › Roster Load Test - Custom UI › should interactions via Separate Roster and Chat Window[22m
+Generating 100 contacts...
+[1A[2KRegistering contacts...
+[1A[2KSeeding messages...
+[1A[2KSeeding 100 messages for custom_0_1767345850446...
+[1A[2KSeeding single messages for remaining contacts...
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2KLogging in target user...
+[1A[2K[Browser] log: Directly set username on App component to: roster_load_custom_1767345850290
+[1A[2KVerifying Separate Roster load...
+[1A[2KSeparate roster loaded 100 contacts.
+[1A[2KClicking separate roster button for custom_0_1767345850446...
+[1A[2KVerifying Separate Chat Window content...
+[1A[2KSeparate Chat loaded 100 messages.
+[1A[2KSkipping unread badge clear check for Custom UI (Demo app limitation)...
+[1A[2KSending live message from custom_99_1767345850446 while chat is NOT open...
+[1A[2KOpening chat for custom_99_1767345850446 via custom button...
+[1A[2KLive message verified in Custom Chat Window.
+[1A[2K[45/47] [chromium] › roster-load-test.spec.ts:88:9 › Roster Load Test › should load 100 contacts and support scrolling in large conversation
+[1A[2K[2m[chromium] › roster-load-test.spec.ts:88:9 › Roster Load Test › should load 100 contacts and support scrolling in large conversation[22m
+Generating 100 contacts...
+[1A[2KRegistering contacts...
+[1A[2KRegistering contacts...
+[1A[2KSeeding messages...
+[1A[2KSeeding 100 messages for contact_0_1767345867457...
+[1A[2KSeeding single messages for remaining contacts...
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2KLogging in target user...
+[1A[2K[Browser] log: Directly set username on App component to: roster_load_target_1767345867318
+[1A[2KLogin took 717ms
+[1A[2KSearching for last contact contact_99_1767345867457 to measure full load time...
+[1A[2KRoster completely loaded (100th contact visible) in 1ms after login
+[1A[2KChecking separate roster list (custom UI integration mode)...
+[1A[2KSeparate roster list fully loaded (100 items) in 973ms (check duration)
+[1A[2KOpening chat with contact_0_1767345867457...
+[1A[2KChecking separate chat window functionality...
+[1A[2KSeparate chat window verified (content visible).
+[1A[2KInitial message count: 100
+[1A[2KAll messages loaded initially (Page size >= Message count). Skipping scroll test.
+[1A[2KSending live message from contact_99_1767345867457 to verify unread...
+[1A[2KOpening chat with low volume contact_99_1767345867457...
+[1A[2KChecking unread badge for contact_99_1767345867457 before opening...
+[1A[2KUnread count confirmed: 1
+[1A[2K[46/47] [chromium] › roster-performance.spec.ts:52:9 › Roster Performance Test › should handle 50 contacts efficiently
+[1A[2K[2m[chromium] › roster-performance.spec.ts:52:9 › Roster Performance Test › should handle 50 contacts efficiently[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: roster_heavy_user
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: roster_heavy_user
+[1A[2K[Browser] error: WebSocket connection to 'ws://localhost:5280/websocket' failed: Data frame received after close
+[1A[2K[47/47] [chromium] › unread-badge.spec.ts:41:9 › Unread Badge Verification › should show correct unread badge count when receiving, reading, and receiving new messages
+[1A[2K[2m[chromium] › unread-badge.spec.ts:41:9 › Unread Badge Verification › should show correct unread badge count when receiving, reading, and receiving new messages[22m
+[Browser] info: [webpack-dev-server] Server started: Hot Module Replacement disabled, Live Reloading enabled, Progress disabled, Overlay enabled.
+[1A[2K[Browser] log: Angular is running in development mode.
+[1A[2K[Browser] log: Directly set username on App component to: alice-1767345893484-515
+[1A[2K[33m  Slow test file: [39m[chromium] › app.spec.ts[33m (41.7s)[39m
+[33m  Slow test file: [39m[chromium] › muc-messages.spec.ts[33m (25.8s)[39m
+[33m  Slow test file: [39m[chromium] › blocking.spec.ts[33m (21.9s)[39m
+[33m  Slow test file: [39m[chromium] › one-to-one-messages.spec.ts[33m (15.7s)[39m
+[33m  Consider splitting slow test files to speed up parallel execution[39m
+[33m  1 skipped[39m
+[32m  46 passed[39m[2m (4.7m)[22m
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m
+
+
+
+ NX   Successfully ran target e2e for project ngx-chat-e2e-new
+
+

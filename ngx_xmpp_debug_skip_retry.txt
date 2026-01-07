@@ -1,0 +1,1305 @@
+
+> nx run ngx-xmpp:test --include=**/multi-user-chat.plugin.spec.ts
+
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+[33m02 01 2026 10:36:39.321:WARN [karma]: [39mNo captured browser, open http://localhost:9882/
+[32m02 01 2026 10:36:39.333:INFO [karma-server]: [39mKarma v6.4.2 server started at http://localhost:9882/
+[32m02 01 2026 10:36:39.333:INFO [launcher]: [39mLaunching browsers ChromeHeadlessInsecure with concurrency unlimited
+[32m02 01 2026 10:36:39.336:INFO [launcher]: [39mStarting browser ChromeHeadless
+[32m02 01 2026 10:36:39.645:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket XJ0zSO8w-6Y0me4iAAAB with id 49803258
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response unregister: 200 OK'[39m
+LOG: '[Ejabberd API] Response unregister: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 200 OK'[39m
+LOG: '[Ejabberd API] Response register: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response get_room_affiliation: 200 OK'[39m
+LOG: '[Ejabberd API] Response get_room_affiliation: 200 OK'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 200 OK'[39m
+LOG: '[Ejabberd API] Response destroy_room: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+	<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+	 thrown
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (1 min 4.619 secs / 1 min 3.93 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/xmpp-adapter/src/xmpp.service.ts[0m:[93m143[0m:[93m13[0m - [91merror[0m[90m TS6133: [0m'onOnlinePromise' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m143[0m       const onOnlinePromise = firstValueFrom(this.onOnline$);[39m[22m
+[1m[31m[7m   [0m [91m            ~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[XmppService] logIn: onOnline$ emitted (or timeout passed).'[39m
+LOG: '[XmppService] logIn: onOnline$ emitted (or timeout passed).'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+	<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+	 thrown
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (1 min 8.722 secs / 1 min 8.733 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:151:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (32.529 secs / 32.516 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m153[0m:[93m116[0m - [91merror[0m[90m TS2339: [0mProperty 'roomJid' does not exist on type 'Room'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m153[0m           console.log(`[TestUtils] waitForCurrentRoomCount: Current count = ${arr.length}. Rooms: ${arr.map(r => r.roomJid).join(', ')}`);[39m[22m
+[1m[31m[7m   [0m [91m                                                                                                                   ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:151:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 17[31m (1 FAILED)[39m (skipped 16) (45.032 secs / 45.029 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m144[0m:[93m37[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Room'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m144[0m   waitForRoom(jid: string): Promise<Room> {[39m[22m
+[1m[31m[7m   [0m [91m                                    ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m42[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'JID' and 'string' have no overlap.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m         map((rooms) => rooms.find((r) => r.jid === jid)),[39m[22m
+[1m[31m[7m   [0m [91m                                         ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m153[0m:[93m32[0m - [91merror[0m[90m TS2304: [0mCannot find name 'Room'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m153[0m         filter((room): room is Room => !!room),[39m[22m
+[1m[31m[7m   [0m [91m                               ~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m152[0m:[93m42[0m - [91merror[0m[90m TS2367: [0mThis comparison appears to be unintentional because the types 'JID' and 'string' have no overlap.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m152[0m         map((rooms) => rooms.find((r) => r.jid === jid)),[39m[22m
+[1m[31m[7m   [0m [91m                                         ~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+[32m✔[39m Browser application bundle generation complete.
+[32m02 01 2026 10:42:56.022:INFO [karma]: [39mDelaying execution, these browsers are not ready: Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 0 of 0[32m SUCCESS[39m (0 secs / 0 secs)
+[32mTOTAL: 0 SUCCESS[39m
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR LOG: [36m'[Ejabberd API] Error registered_users:', TypeError: Failed to fetch
+TypeError: Failed to fetch
+    at patchDelegate (http://localhost:9882/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2749:40)
+    at fetch (http://localhost:9882/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:980:24)
+    at http://localhost:9882/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:303:28
+    at Generator.next (<anonymous>)
+    at asyncGeneratorStep (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+    at _next (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)
+    at executor (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:27:1)
+    at new ZoneAwarePromise (http://localhost:9882/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2662:25)
+    at apply (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:19:1)
+    at _executeRequest (http://localhost:9882/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:316:2)[39m
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR: '[Ejabberd API] Error registered_users:', TypeError: Failed to fetch
+TypeError: Failed to fetch
+    at patchDelegate (http://localhost:9882/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2749:40)
+    at fetch (http://localhost:9882/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:980:24)
+    at http://localhost:9882/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:303:28
+    at Generator.next (<anonymous>)
+    at asyncGeneratorStep (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+    at _next (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:22:1)
+    at executor (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:27:1)
+    at new ZoneAwarePromise (http://localhost:9882/_karma_webpack_/webpack:/node_modules/zone.js/fesm2015/zone.js:2662:25)
+    at apply (http://localhost:9882/_karma_webpack_/webpack:/node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:19:1)
+    at _executeRequest (http://localhost:9882/_karma_webpack_/webpack:/libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:316:2)
+[33m02 01 2026 10:42:56.120:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mAdapter did not report total number of specs.
+  multi user chat plugin
+    room joining
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	TypeError: Failed to fetch
+	    at patchDelegate (node_modules/zone.js/fesm2015/zone.js:2749:40)
+	    at fetch (node_modules/zone.js/fesm2015/zone.js:980:24)
+	    at libs/ngx-xmpp/src/test/helpers/ejabberd-client.ts:303:28
+	    at Generator.next (<anonymous>)
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response muc_online_rooms: 200 OK'[39m
+LOG: '[Ejabberd API] Response muc_online_rooms: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response check_account: 200 OK'[39m
+LOG: '[Ejabberd API] Response check_account: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response register: 409 Conflict'[39m
+LOG: '[Ejabberd API] Response register: 409 Conflict'
+LOG LOG: [36m'[XmppService] logIn: calling chatConnectionService.logIn...'[39m
+LOG: '[XmppService] logIn: calling chatConnectionService.logIn...'
+LOG LOG: [36m'[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'[39m
+LOG: '[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...'
+LOG LOG: [36m'[TestUtils] Cleaning up 5 tracked rooms...'[39m
+LOG: '[TestUtils] Cleaning up 5 tracked rooms...'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response destroy_room: 400 Bad Request'[39m
+LOG: '[Ejabberd API] Response destroy_room: 400 Bad Request'
+LOG LOG: [36m'[XmppService] logOut called.'[39m
+LOG: '[XmppService] logOut called.'
+LOG LOG: [36m'[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'[39m
+LOG: '[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...'
+LOG LOG: [36m'[XmppService] onOffline$ emitted. Logged out.'[39m
+LOG: '[XmppService] onOffline$ emitted. Logged out.'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'[39m
+LOG: '[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+LOG LOG: [36m'[Ejabberd API] Response registered_users: 200 OK'[39m
+LOG: '[Ejabberd API] Response registered_users: 200 OK'
+      [31m✗ [39m[31mshould be able to join a room with a invite[39m
+	Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL thrown
+	Error: timeout waiting for onOnline$
+	    at apply (libs/xmpp-adapter/src/xmpp.service.ts:151:35)
+	    at apply (node_modules/zone.js/fesm2015/zone.js:1767:37)
+	    at _ZoneDelegate.invokeTask (node_modules/zone.js/fesm2015/zone.js:398:33)
+	    at ProxyZoneSpec.onInvokeTask (node_modules/zone.js/fesm2015/zone-testing.js:2101:39)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 2 of 17[31m (2 FAILED)[39m (skipped 16) (50.408 secs / 53.136 secs)
+[31mTOTAL: 2 FAILED, 0 SUCCESS[39m
+[33m02 01 2026 10:49:00.034:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mDisconnected (0 times) Client disconnected from CONNECTED state (transport close)
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected Client disconnected from CONNECTED state (transport close)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+[32m02 01 2026 10:49:00.429:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket knEJZNtrTxatESxVAAAD with id 49803258
+[33m02 01 2026 10:56:35.736:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mDisconnected (0 times) Client disconnected from CONNECTED state (transport close)
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected Client disconnected from CONNECTED state (transport close)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+[32m02 01 2026 10:56:36.094:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket qxMVcDthm_2YoNLsAAAF with id 49803258
+[33m02 01 2026 10:58:28.508:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mDisconnected (0 times) Client disconnected from CONNECTED state (ping timeout)
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected Client disconnected from CONNECTED state (ping timeout)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected Client disconnected from CONNECTED state (ping timeout)
+[32m02 01 2026 10:58:29.268:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket 5kiEgLtHc1WZutVrAAAH with id 49803258
+[33m02 01 2026 11:04:04.844:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mDisconnected (0 times) Client disconnected from CONNECTED state (transport close)
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected Client disconnected from CONNECTED state (transport close)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+[91m02 01 2026 11:04:05.217:ERROR [launcher]: [39mChromeHeadless crashed.
+	[0102/103639.537325:ERROR:socket_posix.cc(147)] bind() failed: Address already in use (48)
+[0102/103639.537428:ERROR:socket_posix.cc(147)] bind() failed: Address already in use (48)
+[0102/103639.537442:ERROR:devtools_http_handler.cc(311)] Cannot start http server for devtools.
+[0102/103640.837067:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103640.898361:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103640.898856:INFO:CONSOLE(265)] "[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103640.967808:INFO:CONSOLE(265)] "[Ejabberd API] Response unregister: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103640.968024:INFO:CONSOLE(265)] "[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.001452:INFO:CONSOLE(265)] "[Ejabberd API] Response unregister: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.001783:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.022863:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.037226:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037401:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037530:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037577:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037634:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.186534:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.242959:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.245108:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.253050:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.253834:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.254183:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.275279:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.275591:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.297786:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.297992:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.339339:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.339504:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.366278:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.366863:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.389004:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.389155:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.429959:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.645893:INFO:CONSOLE(265)] "[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.664009:INFO:CONSOLE(265)] "[Ejabberd API] Response get_room_affiliation: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.664666:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/103641.780230:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/103641.780254:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/103653.128469:INFO:CONSOLE(228)] "Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/103741.259147:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/103741.259317:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.298131:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.298358:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.324501:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.324715:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.345443:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.345645:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.363902:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103741.364041:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.383386:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.385248:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/103741.385280:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/103741.385289:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/103744.387877:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388102:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388524:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388543:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388934:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.650848:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.682739:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.696888:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.702914:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.757745:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103822.473718:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103822.862669:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103822.863328:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.154440:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103823.162866:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163086:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163261:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163571:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163737:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103825.719214:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.725158:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.726516:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.784659:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.943578:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.948043:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103826.696712:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103826.697232:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103827.888316:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103827.888558:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103829.504678:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103829.504963:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103829.963015:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103829.963661:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103830.487507:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103830.487698:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103831.538708:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103831.540702:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/103831.638369:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/103831.724394:INFO:CONSOLE(265)] "[XmppService] logIn: onOnline$ emitted (or timeout passed).", source: http://localhost:9882/context.js (265)
+[0102/103832.336923:INFO:CONSOLE(228)] "Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/103925.951783:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/103925.951845:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103926.580231:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103926.580474:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103926.891149:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103926.891338:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103927.116644:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103927.116788:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103927.209915:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103927.210074:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103927.292709:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103927.293095:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/103927.293815:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/103927.293879:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/103930.295815:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.296511:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.296721:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.296877:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.297138:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103931.155116:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.159825:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.160936:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.164004:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.204527:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103938.629110:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.020137:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103939.020775:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.243515:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103939.265460:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265482:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265489:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265762:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265775:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103940.700181:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103940.700298:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103940.812686:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103942.607671:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103942.815462:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103942.817004:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103944.394077:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103944.394424:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103946.502593:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103946.503127:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103949.278931:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103949.279188:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103950.067299:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103950.067585:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103950.644985:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103950.645118:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103952.237508:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103952.239186:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/103952.270612:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/103952.280101:INFO:CONSOLE(228)] "Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/104002.287310:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/104002.287413:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104002.660214:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104002.660417:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104003.343462:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104003.343615:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104004.014784:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104004.015049:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104004.692276:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104004.692422:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104005.455539:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104005.456936:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/104005.464901:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/104005.464945:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/104008.467878:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.468244:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.468614:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.468824:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.469280:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104010.396587:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.122248:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.129996:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.134504:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.135497:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104059.844965:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.459126:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104100.459590:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.948962:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104100.961920:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962224:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962266:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962350:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962426:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104104.573085:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104104.701579:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104104.709584:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104104.724952:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104105.150964:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104105.152063:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104108.404172:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104108.404501:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104111.453891:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104111.454116:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104115.708889:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104115.709300:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104117.532236:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104117.532479:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104118.618856:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104118.619054:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104121.087857:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104121.089798:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/104121.358678:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/104121.364260:INFO:CONSOLE(228)] "Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/104131.374024:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/104131.374112:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104131.923202:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104131.923435:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104132.768371:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104132.768536:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104133.564660:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104133.564903:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104134.894379:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104134.894653:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104135.461796:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104135.463541:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/104135.472418:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/104135.472447:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/104138.475137:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475377:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475443:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475541:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475641:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104142.347994:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104142.349240:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104142.966503:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104143.594785:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104143.840657:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104143.841027:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104144.005840:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104144.759762:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104144.864853:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104250.988736:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104256.081743:INFO:CONSOLE(265)] "[Ejabberd API] Error registered_users: TypeError: Failed to fetch", source: http://localhost:9882/context.js (265)
+[0102/104258.465122:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104303.276372:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104303.277407:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.265874:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104306.286921:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287129:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287231:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287333:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287438:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104310.974246:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104311.986837:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.233718:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.276454:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.913085:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.916982:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104314.805439:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104314.805823:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104315.927232:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104315.927494:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104318.558825:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104318.560035:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104320.244641:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104320.244920:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104322.272068:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104322.272272:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104324.641440:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104324.642336:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/104324.677340:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/104324.682132:INFO:CONSOLE(228)] "Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/104334.693960:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/104334.694047:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104335.776554:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104335.776750:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104336.882995:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104336.884506:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104338.053667:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104338.054107:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104338.903916:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104338.905890:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104339.499153:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104339.500565:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/104339.508463:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/104339.508499:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/104342.510235:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510380:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510512:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510604:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510713:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104345.996083:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.434594:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.461189:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.467332:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.485581:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/105636.096518:INFO:CONSOLE(145)] "Uncaught (in promise) SecurityError: Blocked a frame with origin "http://localhost:9882" from accessing a frame with origin "null".  The frame requesting access has a protocol of "http", the frame being accessed has a protocol of "chrome-error". Protocols must match.", source: http://localhost:9882/karma.js (145)
+[0102/105829.271293:INFO:CONSOLE(145)] "Uncaught (in promise) SecurityError: Blocked a frame with origin "http://localhost:9882" from accessing a frame with origin "null".  The frame requesting access has a protocol of "http", the frame being accessed has a protocol of "chrome-error". Protocols must match.", source: http://localhost:9882/karma.js (145)
+[91m02 01 2026 11:04:05.224:ERROR [launcher]: [39mChromeHeadless stdout: 
+[91m02 01 2026 11:04:05.225:ERROR [launcher]: [39mChromeHeadless stderr: [0102/103639.537325:ERROR:socket_posix.cc(147)] bind() failed: Address already in use (48)
+[0102/103639.537428:ERROR:socket_posix.cc(147)] bind() failed: Address already in use (48)
+[0102/103639.537442:ERROR:devtools_http_handler.cc(311)] Cannot start http server for devtools.
+[0102/103640.837067:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103640.898361:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103640.898856:INFO:CONSOLE(265)] "[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103640.967808:INFO:CONSOLE(265)] "[Ejabberd API] Response unregister: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103640.968024:INFO:CONSOLE(265)] "[Ejabberd API] Requesting unregister from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.001452:INFO:CONSOLE(265)] "[Ejabberd API] Response unregister: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.001783:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.022863:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.037226:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037401:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037530:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037577:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.037634:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.186534:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.242959:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.245108:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.253050:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.253834:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.254183:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.275279:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.275591:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.297786:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.297992:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.339339:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.339504:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.366278:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.366863:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.389004:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.389155:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.429959:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.645893:INFO:CONSOLE(265)] "[Ejabberd API] Requesting get_room_affiliation from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103641.664009:INFO:CONSOLE(265)] "[Ejabberd API] Response get_room_affiliation: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103641.664666:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/103641.780230:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/103641.780254:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/103653.128469:INFO:CONSOLE(228)] "Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/103741.259147:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/103741.259317:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.298131:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.298358:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.324501:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.324715:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.345443:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.345645:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.363902:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103741.364041:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103741.383386:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103741.385248:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/103741.385280:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/103741.385289:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/103744.387877:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388102:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388524:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388543:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.388934:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103744.650848:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.682739:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.696888:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.702914:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103744.757745:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103822.473718:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103822.862669:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103822.863328:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.154440:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103823.162866:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163086:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163261:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163571:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103823.163737:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103825.719214:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.725158:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.726516:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.784659:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.943578:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103825.948043:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103826.696712:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103826.697232:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103827.888316:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103827.888558:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103829.504678:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103829.504963:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103829.963015:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103829.963661:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103830.487507:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103830.487698:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103831.538708:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103831.540702:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/103831.638369:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/103831.724394:INFO:CONSOLE(265)] "[XmppService] logIn: onOnline$ emitted (or timeout passed).", source: http://localhost:9882/context.js (265)
+[0102/103832.336923:INFO:CONSOLE(228)] "Uncaught Error: Error in stream occurred error=<stream:error xmlns:stream="http://etherx.jabber.org/streams"><conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/><text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text></stream:error> ; errors=<conflict xmlns="urn:ietf:params:xml:ns:xmpp-streams"/>
+<text xmlns="urn:ietf:params:xml:ns:xmpp-streams" xml:lang="en">User removed</text>
+", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/103925.951783:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/103925.951845:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103926.580231:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103926.580474:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103926.891149:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103926.891338:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103927.116644:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103927.116788:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103927.209915:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103927.210074:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103927.292709:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/103927.293095:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/103927.293815:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/103927.293879:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/103930.295815:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.296511:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.296721:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.296877:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103930.297138:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103931.155116:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.159825:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.160936:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.164004:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103931.204527:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103938.629110:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.020137:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103939.020775:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.243515:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103939.265460:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265482:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265489:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265762:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103939.265775:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103940.700181:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103940.700298:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103940.812686:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103942.607671:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103942.815462:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103942.817004:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103944.394077:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103944.394424:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103946.502593:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103946.503127:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103949.278931:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103949.279188:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103950.067299:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103950.067585:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103950.644985:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/103950.645118:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/103952.237508:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/103952.239186:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/103952.270612:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/103952.280101:INFO:CONSOLE(228)] "Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/104002.287310:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/104002.287413:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104002.660214:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104002.660417:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104003.343462:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104003.343615:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104004.014784:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104004.015049:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104004.692276:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104004.692422:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104005.455539:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104005.456936:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/104005.464901:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/104005.464945:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/104008.467878:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.468244:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.468614:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.468824:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104008.469280:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104010.396587:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.122248:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.129996:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.134504:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104011.135497:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104059.844965:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.459126:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104100.459590:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.948962:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104100.961920:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962224:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962266:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962350:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104100.962426:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104104.573085:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104104.701579:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104104.709584:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104104.724952:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104105.150964:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104105.152063:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104108.404172:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104108.404501:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104111.453891:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104111.454116:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104115.708889:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104115.709300:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104117.532236:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104117.532479:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104118.618856:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104118.619054:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104121.087857:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104121.089798:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/104121.358678:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/104121.364260:INFO:CONSOLE(228)] "Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/104131.374024:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/104131.374112:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104131.923202:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104131.923435:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104132.768371:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104132.768536:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104133.564660:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104133.564903:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104134.894379:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104134.894653:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104135.461796:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104135.463541:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/104135.472418:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/104135.472447:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/104138.475137:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475377:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475443:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475541:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104138.475641:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104142.347994:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104142.349240:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104142.966503:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104143.594785:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104143.840657:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104143.841027:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104144.005840:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104144.759762:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104144.864853:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104250.988736:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104256.081743:INFO:CONSOLE(265)] "[Ejabberd API] Error registered_users: TypeError: Failed to fetch", source: http://localhost:9882/context.js (265)
+[0102/104258.465122:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104303.276372:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104303.277407:INFO:CONSOLE(265)] "[Ejabberd API] Requesting muc_online_rooms from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.265874:INFO:CONSOLE(265)] "[Ejabberd API] Response muc_online_rooms: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104306.286921:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287129:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287231:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287333:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104306.287438:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104310.974246:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104311.986837:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.233718:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.276454:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.913085:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104312.916982:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104314.805439:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104314.805823:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104315.927232:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104315.927494:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104318.558825:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104318.560035:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104320.244641:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104320.244920:INFO:CONSOLE(265)] "[Ejabberd API] Requesting check_account from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104322.272068:INFO:CONSOLE(265)] "[Ejabberd API] Response check_account: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104322.272272:INFO:CONSOLE(265)] "[Ejabberd API] Requesting register from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104324.641440:INFO:CONSOLE(265)] "[Ejabberd API] Response register: 409 Conflict", source: http://localhost:9882/context.js (265)
+[0102/104324.642336:INFO:CONSOLE(265)] "[XmppService] logIn: calling chatConnectionService.logIn...", source: http://localhost:9882/context.js (265)
+[0102/104324.677340:INFO:CONSOLE(265)] "[XmppService] logIn: chatConnectionService.logIn returned. Waiting for onOnline$...", source: http://localhost:9882/context.js (265)
+[0102/104324.682132:INFO:CONSOLE(228)] "Uncaught Error: Failed in SASL challenge  Status.AUTHFAIL", source: http://localhost:9882/_karma_webpack_/polyfills.js (228)
+[0102/104334.693960:INFO:CONSOLE(265)] "[TestUtils] Cleaning up 5 tracked rooms...", source: http://localhost:9882/context.js (265)
+[0102/104334.694047:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104335.776554:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104335.776750:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104336.882995:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104336.884506:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104338.053667:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104338.054107:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104338.903916:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104338.905890:INFO:CONSOLE(265)] "[Ejabberd API] Requesting destroy_room from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104339.499153:INFO:CONSOLE(265)] "[Ejabberd API] Response destroy_room: 400 Bad Request", source: http://localhost:9882/context.js (265)
+[0102/104339.500565:INFO:CONSOLE(265)] "[XmppService] logOut called.", source: http://localhost:9882/context.js (265)
+[0102/104339.508463:INFO:CONSOLE(265)] "[XmppService] chatConnectionService.logOut() returned. Waiting for onOffline$...", source: http://localhost:9882/context.js (265)
+[0102/104339.508499:INFO:CONSOLE(265)] "[XmppService] onOffline$ emitted. Logged out.", source: http://localhost:9882/context.js (265)
+[0102/104342.510235:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510380:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510512:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510604:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104342.510713:INFO:CONSOLE(265)] "[Ejabberd API] Requesting registered_users from http://localhost:52810/api/ with user local-admin@local-jabber.entenhausen.pazz.de", source: http://localhost:9882/context.js (265)
+[0102/104345.996083:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.434594:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.461189:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.467332:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/104346.485581:INFO:CONSOLE(265)] "[Ejabberd API] Response registered_users: 200 OK", source: http://localhost:9882/context.js (265)
+[0102/105636.096518:INFO:CONSOLE(145)] "Uncaught (in promise) SecurityError: Blocked a frame with origin "http://localhost:9882" from accessing a frame with origin "null".  The frame requesting access has a protocol of "http", the frame being accessed has a protocol of "chrome-error". Protocols must match.", source: http://localhost:9882/karma.js (145)
+[0102/105829.271293:INFO:CONSOLE(145)] "Uncaught (in promise) SecurityError: Blocked a frame with origin "http://localhost:9882" from accessing a frame with origin "null".  The frame requesting access has a protocol of "http", the frame being accessed has a protocol of "chrome-error". Protocols must match.", source: http://localhost:9882/karma.js (145)
+[32m02 01 2026 11:04:05.947:INFO [launcher]: [39mTrying to start ChromeHeadless again (1/2).
+[33m02 01 2026 11:05:05.958:WARN [launcher]: [39mChromeHeadless has not captured in 60000 ms, killing.
+[32m02 01 2026 11:05:06.052:INFO [launcher]: [39mTrying to start ChromeHeadless again (2/2).
+[33m02 01 2026 11:06:06.054:WARN [launcher]: [39mChromeHeadless has not captured in 60000 ms, killing.
+[91m02 01 2026 11:06:06.116:ERROR [launcher]: [39mChromeHeadless failed 2 times (timeout). Giving up.

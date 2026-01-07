@@ -24,7 +24,7 @@ describe('message archive plugin', () => {
     testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
   });
 
-  xit('should handle chat messages from archive by creating contacts and adding messages to contacts', async () => {
+  it('should handle chat messages from archive by creating contacts and adding messages to contacts', async () => {
     const chatArchiveStanza = $msg({ from, to: testUtils.hero.jid })
       .c('result', { xmlns: 'urn:xmpp:mam:2' })
       .c('forwarded')
@@ -155,7 +155,7 @@ describe('message archive plugin', () => {
     await ensureNoRegisteredUser(testUtils.hero);
   });
 
-  xit('should handle MUC/Sub archive stanzas correctly', async () => {
+  it('should handle MUC/Sub archive stanzas correctly', async () => {
     const stamp = '2021-08-17T15:33:25.375401Z';
     const text = 'group chat the second!';
     const roomId = 'anotherroom';

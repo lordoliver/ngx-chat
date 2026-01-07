@@ -1,0 +1,6 @@
+
+ NX   Unable to resolve @nx/angular:karma.
+
+Cannot find executor 'karma' in /Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/node_modules/@nx/angular/executors.json.
+Pass --verbose to see the stacktrace.
+

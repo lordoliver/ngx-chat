@@ -1,0 +1,259 @@
+
+> nx run ngx-xmpp:test --include **/message-carbons.plugin.spec.ts
+
+Browserslist: caniuse-lite is outdated. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: https://github.com/browserslist/update-db#readme
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+[33m06 01 2026 20:45:31.462:WARN [karma]: [39mNo captured browser, open http://localhost:9895/
+[32m06 01 2026 20:45:31.470:INFO [karma-server]: [39mKarma v6.4.2 server started at http://localhost:9895/
+[32m06 01 2026 20:45:31.470:INFO [launcher]: [39mLaunching browsers ChromeHeadlessInsecure with concurrency unlimited
+[32m06 01 2026 20:45:31.472:INFO [launcher]: [39mStarting browser ChromeHeadless
+[32m06 01 2026 20:45:31.864:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket q1etT6-3xasEzpPGAAAB with id 17190284
+[32m✔[39m Browser application bundle generation complete.
+[32m06 01 2026 20:46:32.043:INFO [karma]: [39mDelaying execution, these browsers are not ready: Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 0 of 0[32m SUCCESS[39m (0 secs / 0 secs)
+[32mTOTAL: 0 SUCCESS[39m
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (59.946 secs / 1 min 0.032 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (1 min 0.028 secs / 1 min 0.02 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+[32m06 01 2026 20:50:56.236:INFO [karma]: [39mDelaying execution, these browsers are not ready: Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 0 of 0[32m SUCCESS[39m (0 secs / 0 secs)
+[32mTOTAL: 0 SUCCESS[39m
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (1 min 0.041 secs / 1 min 0.018 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m221[0m:[93m31[0m - [91merror[0m[90m TS2345: [0mArgument of type 'MessageEvent<any>' is not assignable to parameter of type 'string'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m221[0m     await webSocket.onMessage(mockEvent);[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/h[32m✔[39m Browser application bundle generation complete.
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (1 min 0.055 secs / 1 min 0.032 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (59.451 secs / 1 min 0.027 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m226[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'HTMLElement' is not assignable to type 'string'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m226[0m     return connection.debugLog;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m226[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'HTMLElement' is not assignable to type 'string'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m226[0m     return connection.debugLog;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m50[0m:[93m21[0m - [91merror[0m[90m TS2339: [0mProperty 'logWebsocketStream' does not exist on type 'TestUtils'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m50[0m     await testUtils.logWebsocketStream();[39m[22m
+[1m[31m[7m  [0m [91m                    ~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/multi-user-chat.plugin.spec.ts[0m:[93m790[0m:[93m23[0m - [91merror[0m[90m TS2339: [0mProperty 'logWebsocketStream' does not exist on type 'TestUtils'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m790[0m       await testUtils.logWebsocketStream();[39m[22m
+[1m[31m[7m   [0m [91m                      ~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m226[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType 'HTMLElement' is not assignable to type 'string'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m226[0m     return connection.debugLog;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m57[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 57[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 58[0m     const firstContact = contacts[0];[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m 67[0m [39m[22m
+[1m[31m[7m   [0m [91m[0m[39m[22m
+[1m[31m[7m 68[0m     await testUtils.logOut();[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xm[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m57[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 57[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m57[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 57[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 58[0m     const firstContact = contacts[0];[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m 67[0m [39m[22m
+[1m[31m[7m   [0m [91m[0m[39m[22m
+[1m[31m[7m 68[0m     await testUtils.logOut();[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xm[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m57[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 57[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 58[0m     const firstContact = contacts[0];[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m 67[0m [39m[22m
+[1m[31m[7m   [0m [91m[0m[39m[22m
+[1m[31m[7m 68[0m     await testUtils.logOut();[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m10[0m:[93m18[0m - [91merror[0m[90m TS6133: [0m'timeout' is declared but its value is never read.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m10[0m import { filter, timeout } from 'rxjs/operators';[39m[22m
+[1m[31m[7m  [0m [91m                 ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m57[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 57[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 58[0m     const firstContact = contacts[0];[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m 67[0m [39m[22m
+[1m[31m[7m   [0m [91m[0m[39m[22m
+[1m[31m[7m 68[0m     await testUtils.logOut();[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 59[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 59[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 60[0m     [32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m33[0m:[93m58[0m - [91merror[0m[90m TS2304: [0mCannot find name 'timeout'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m33[0m       testUtils.chatService.messageService.message$.pipe(timeout(5000))[39m[22m
+[1m[31m[7m  [0m [91m                                                         ~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/message-carbons.plugin.spec.ts[0m:[93m59[0m:[93m5[0m - [91merror[0m[90m TS7027: [0mUnreachable code detected.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m 59[0m     const contacts = await contactsPromise;[39m[22m
+[1m[31m[7m   [0m [91m    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m 60[0m     const firstContact = contacts[0];[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[7m...[0m [39m[22m
+[1m[31m[7m 69[0m [39m[22m
+[1m[31m[7m   [0m [91m[0m[39m[22m
+[1m[31m[7m 70[0m     await testUtils.logOut();[39m[22m
+[1m[31m[7m   [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (1 min 0.011 secs / 1 min 0.019 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (1 min 0.014 secs / 1 min 0.026 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/multi-user-chat.plugin.spec.ts[0m:[93m790[0m:[93m37[0m - [91merror[0m[90m TS2339: [0mProperty 'getDebugLog' does not exist on type 'TestUtils'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m790[0m       console.error(await testUtils.getDebugLog());[39m[22m
+[1m[31m[7m   [0m [91m                                    ~~~~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m✔[39m Browser application bundle generation complete.
+[32m06 01 2026 21:07:35.036:INFO [karma]: [39mDelaying execution, these browsers are not ready: Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 0 of 0[32m SUCCESS[39m (0 secs / 0 secs)
+[32mTOTAL: 0 SUCCESS[39m
+  message carbons plugin
+    [31m✗ [39m[31mshould add the message to the contact[39m
+	Error: Timeout - Async function did not complete within 60000ms (custom timeout)
+	    at <Jasmine>
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 1[31m (1 FAILED)[39m (1 min 0.022 secs / 1 min 0.018 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+[33m06 01 2026 21:11:29.808:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mDisconnected (0 times) Client disconnected from CONNECTED state (transport close)
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected Client disconnected from CONNECTED state (transport close)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+[32m✔[39m Browser application bundle generation complete.
+
+
+
+ NX   Successfully ran target test for project ngx-xmpp
+
+
+ state (transport close)
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected Client disconnected from CONNECTED state (transport close)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
+[32m✔[39m Browser application bundle generation complete.
+
+
+
+ NX   Successfully ran target test for project ngx-xmpp
+
+

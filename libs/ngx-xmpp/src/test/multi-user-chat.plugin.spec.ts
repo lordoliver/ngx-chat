@@ -233,7 +233,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     });
 
-    xit('should be able to change nick', async () => {
+    it('should be able to change nick', async () => {
       await ensureRegisteredUser(testUtils.hero);
       await testUtils.logIn.hero();
 
@@ -322,7 +322,7 @@ describe('multi user chat plugin', () => {
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
     };
 
-    xit('should be able to join a room with a invite', async () => {
+    it('should be able to join a room with a invite', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -370,7 +370,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     }, 60000);
 
-    xit('should be able to join multiple rooms', async () => {
+    it('should be able to join multiple rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -448,7 +448,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     }, 60000);
 
-    xit('should be able to leave all rooms', async () => {
+    it('should be able to leave all rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -659,7 +659,7 @@ describe('multi user chat plugin', () => {
   });
 
   describe('room operations handling', () => {
-    xit('should handle kicked occupant and leave room', async () => {
+    it('should handle kicked occupant and leave room', async () => {
       await ensureRegisteredUser(testUtils.princess);
       await ensureRegisteredUser(testUtils.hero);
 

@@ -8,7 +8,7 @@ import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
 import { ensureNoRegisteredUser, ensureRegisteredUser } from './helpers/admin-actions';
 
-fdescribe('contact list relogin roster plugin', () => {
+describe('contact list relogin roster plugin', () => {
   let testUtils: TestUtils;
 
 
