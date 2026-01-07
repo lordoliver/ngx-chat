@@ -1,11 +1,10 @@
 import { expect, test } from '@playwright/test';
 import { AppPage } from './page-objects/app.po';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
-import {
-  devXmppDomain,
-  devXmppJid,
-  devXmppPassword,
-} from '../../../libs/ngx-xmpp/src/.secrets-const';
+// Default test credentials matching local dev environment
+const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
+const devXmppJid = 'local-admin@local-jabber.entenhausen.pazz.de';
+const devXmppPassword = 'password';
 
 const fooUser = 'foouser';
 const barUser = 'baruser';

@@ -1,10 +1,9 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { APIRequestContext, expect, Page } from '@playwright/test';
-import {
-  devXmppDomain,
-  devXmppJid,
-  devXmppPassword,
-} from '../../../../libs/ngx-xmpp/src/.secrets-const';
+// Default test credentials matching local dev environment
+const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
+const devXmppJid = 'local-admin@local-jabber.entenhausen.pazz.de';
+const devXmppPassword = 'password';
 
 const devUserName = devXmppJid?.split('@')[0] as string;
 export class EjabberdAdminPage {
