@@ -1,22 +1,17 @@
 // SPDX-License-Identifier: MIT
 import { TestBed } from '@angular/core/testing';
-import { TestUtils } from './helpers/test-utils';
 import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
-import type { XmppService } from '@pazznetwork/xmpp-adapter';
-import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
-import { ensureRegisteredUser } from './helpers/admin-actions';
-import { firstValueFrom } from 'rxjs';
-import { Direction } from '@pazznetwork/ngx-chat-shared';
-import { filter } from 'rxjs/operators';
+
+
 
 describe('message carbons plugin', () => {
-  let testUtils: TestUtils;
+
 
   beforeEach(() => {
-    const testBed = TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });
-    testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
+    // testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
   });
 
   /* xit('should add the message to the contact', async () => {

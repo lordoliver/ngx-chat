@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { testUser, TestUtils } from './helpers/test-utils';
 import { firstValueFrom } from 'rxjs';
-import { parseJid } from '@pazznetwork/ngx-chat-shared';
+
 import { unregisterAllBesidesAdmin } from './helpers/admin-actions';
 import { TestBed } from '@angular/core/testing';
 import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';

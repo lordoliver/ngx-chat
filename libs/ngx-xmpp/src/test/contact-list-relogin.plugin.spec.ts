@@ -1,22 +1,22 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 import { TestUtils } from './helpers/test-utils';
-import { firstValueFrom } from 'rxjs';
+
 import type { XmppService } from '@pazznetwork/xmpp-adapter';
 import { TestBed } from '@angular/core/testing';
 import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
-import { ensureNoRegisteredUser, ensureRegisteredUser } from './helpers/admin-actions';
+import { ensureNoRegisteredUser } from './helpers/admin-actions';
 
 describe('contact list relogin roster plugin', () => {
   let testUtils: TestUtils;
-  let chatService: XmppService;
+
 
   beforeAll(async () => {
     const testBed = TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });
     testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
-    chatService = testUtils.chatService;
+
 
     // Ensure clean slate
     await ensureNoRegisteredUser(testUtils.hero);
