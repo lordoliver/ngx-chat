@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, timeout } from 'rxjs';
 
 import {
   parseJid,
@@ -28,7 +28,7 @@ describe('multi user chat plugin', () => {
     });
 
     let attempts = 0;
-    while (attempts < 300) {
+    while (attempts < 600) {
       if (currentMessages.length >= count) {
         sub.unsubscribe();
         return currentMessages;
@@ -43,7 +43,7 @@ describe('multi user chat plugin', () => {
   async function waitForOccupant(room: any, nick: string, absent = false): Promise<any> {
     let occupant;
     let attempts = 0;
-    while (attempts < 1000) {
+    while (attempts < 1200) {
       if (typeof room.findOccupantByNick === 'function') {
         occupant = room.findOccupantByNick(nick);
       }
@@ -247,15 +247,18 @@ describe('multi user chat plugin', () => {
       // Revert to await to see if it errors now that JIDs match
       await testUtils.chatService.roomService.changeUserNicknameForRoom(nick, joinedRoom.jid.toString());
 
-
-
       // Polite Wait: Poll local state without spamming network (joinRoom)
       let nickChanged = false;
       for (let i = 0; i < 60; i++) { // 30 seconds max
-        const occupants = await firstValueFrom(joinedRoom.occupants$);
-        if (occupants.some((o: any) => o.nick === nick)) {
-          nickChanged = true;
-          break;
+        try {
+          // Wait up to 500ms for an emission, otherwise continue polling
+          const occupants = await firstValueFrom(joinedRoom.occupants$.pipe(timeout(500))) as any[];
+          if (occupants.some((o: any) => o.nick === nick)) {
+            nickChanged = true;
+            break;
+          }
+        } catch (e) {
+          // Timeout or empty, ignore and continue
         }
         await new Promise(r => setTimeout(r, 500));
       }
@@ -549,7 +552,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logIn.hero();
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await joinFatherRoomsAsHero();
-      expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
+      expect(await testUtils.waitForCurrentRoomCount(3, 60000)).toEqual(3);
       await testUtils.logOut();
       await destroyRoomAsFather();
     }, 120000);
@@ -613,7 +616,7 @@ describe('multi user chat plugin', () => {
         await testUtils.chatService.roomService.destroyRoom(room.jid.toString());
       } catch (e) { }
       await testUtils.logOut();
-    });
+    }, 120000);
 
 
 

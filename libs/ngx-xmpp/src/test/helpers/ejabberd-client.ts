@@ -308,22 +308,18 @@ export async function executeRequest<TReturn>(
   headers['X-Admin'] = 'true';
   headers['Content-Type'] = 'application/json';
   headers['Authorization'] = `Basic ${btoa(String(adminUserName) + ':' + String(adminPassword))}`;
-  console.log(`[Ejabberd API] Requesting ${path} from ${apiUrl} with user ${adminUserName}`);
   try {
     const response = await fetch(apiUrl + path, {
       headers,
       method: 'POST',
       body: JSON.stringify(json),
     });
-    console.log(`[Ejabberd API] Response ${path}: ${response.status} ${response.statusText}`);
     const text = await response.text();
     if (!response.ok) {
       throw new Error(`[Ejabberd API] Error Response ${path}: ${response.status} ${text}`);
     }
-    // console.log(`[Ejabberd API] Body: ${text}`);
     return JSON.parse(text) as TReturn;
   } catch (e) {
-    // console.error(`[Ejabberd API] Error ${path}:`, e);
     throw e;
   }
 }

@@ -61,7 +61,7 @@ export async function destroyRoomsByPrefixes(prefixes: string[]): Promise<void> 
   });
 
   if (roomsToDestroy.length > 0) {
-    console.log(`[Cleanup] Found ${roomsToDestroy.length} rooms to destroy matching prefixes: ${prefixes.join(', ')}`);
+    // console.log(`[Cleanup] Found ${roomsToDestroy.length} rooms to destroy matching prefixes: ${prefixes.join(', ')}`);
   }
 
   await Promise.all(roomsToDestroy.map(async (room) => {
@@ -93,7 +93,13 @@ export async function ensureRegisteredUser(auth: AuthRequest): Promise<void> {
   if (await userIsRegistered(auth)) {
     return;
   }
-  await register(auth);
+  try {
+    await register(auth);
+  } catch (e: any) {
+    if (!e.message?.includes('409') && !e.message?.includes('check_account')) {
+      throw e;
+    }
+  }
 }
 
 export async function deleteMamChatMessages(): Promise<void> {

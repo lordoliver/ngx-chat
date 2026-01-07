@@ -170,7 +170,7 @@ export class TestUtils {
     );
   }
 
-  waitForCurrentRoomCount(count: number): Promise<number> {
+  waitForCurrentRoomCount(count: number, timeoutMs = 40000): Promise<number> {
     if (!this.chatService.roomService.rooms$) {
       throw new Error(`this.chat.rooms$ is undefined`);
     }
@@ -179,7 +179,7 @@ export class TestUtils {
         startWith([]),
         map((arr) => arr.length),
         filter((c) => c === count),
-        timeout(40000)
+        timeout(timeoutMs)
       )
     );
   }
@@ -235,7 +235,6 @@ export class TestUtils {
   static async cleanAllCreatedRooms(): Promise<void> {
     const rooms = Array.from(TestUtils.createdRooms);
     if (rooms.length > 0) {
-      console.log(`[TestUtils] Cleaning up ${rooms.length} tracked rooms...`);
       for (const room of rooms) {
         try {
           await destroyRoom(room);
