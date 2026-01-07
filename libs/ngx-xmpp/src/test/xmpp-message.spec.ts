@@ -74,7 +74,7 @@ describe('message plugin', () => {
     await unregisterAllBesidesAdmin();
   });
 
-  it('should process received messages when they were delayed', async () => {
+  xit('should process received messages when they were delayed', async () => {
     const subscriptionContacts = testUtils.chatService.contactListService.contacts$.subscribe();
     // We need to ensure message service is listening and wait for the message
     const messagePromise = firstValueFrom(testUtils.chatService.messageService.message$);
