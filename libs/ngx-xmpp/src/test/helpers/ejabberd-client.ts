@@ -261,9 +261,14 @@ export async function destroyRoom(
       name: room,
       service,
     });
-  } catch (e) {
+  } catch (e: any) {
     // ignore if room does not exist
-    return;
+    const msg = e.message || '';
+    if (msg.includes("Room doesn't exists") || msg.includes('404')) {
+      return;
+    }
+    console.warn(`[Ejabberd API] destroyRoom failed for ${room}:`, e);
+    throw e;
   }
 }
 
@@ -312,10 +317,13 @@ export async function executeRequest<TReturn>(
     });
     console.log(`[Ejabberd API] Response ${path}: ${response.status} ${response.statusText}`);
     const text = await response.text();
+    if (!response.ok) {
+      throw new Error(`[Ejabberd API] Error Response ${path}: ${response.status} ${text}`);
+    }
     // console.log(`[Ejabberd API] Body: ${text}`);
     return JSON.parse(text) as TReturn;
   } catch (e) {
-    console.error(`[Ejabberd API] Error ${path}:`, e);
+    // console.error(`[Ejabberd API] Error ${path}:`, e);
     throw e;
   }
 }

@@ -57,7 +57,7 @@ export async function destroyRoomsByPrefixes(prefixes: string[]): Promise<void> 
   const rooms = await getMucRooms();
   const roomsToDestroy = rooms.filter(room => {
     const [name] = room.split('@');
-    return prefixes.some(prefix => name && name.startsWith(prefix));
+    return prefixes.some(prefix => name && name.toLowerCase().startsWith(prefix.toLowerCase()));
   });
 
   if (roomsToDestroy.length > 0) {

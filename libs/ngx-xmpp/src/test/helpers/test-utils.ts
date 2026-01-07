@@ -241,7 +241,15 @@ export class TestUtils {
           await destroyRoom(room);
           await new Promise(resolve => setTimeout(resolve, 50));
         } catch (e) {
-          // ignore
+          console.error(`[TestUtils] Failed to clean room ${room}:`, e);
+        }
+        // Also try lowercase version as Ejabberd normalizes room names
+        if (room !== room.toLowerCase()) {
+          try {
+            await destroyRoom(room.toLowerCase());
+          } catch (e) {
+            console.error(`[TestUtils] Failed to clean room ${room.toLowerCase()}:`, e);
+          }
         }
       }
       TestUtils.createdRooms.clear();
