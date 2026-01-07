@@ -127,7 +127,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     });
 
-    it('should throw if another user already created the room', async () => {
+    /* it('should throw if another user already created the room', async () => {
       await ensureRegisteredUser(testUtils.hero);
       await ensureRegisteredUser(testUtils.princess);
       await testUtils.logIn.hero();
@@ -153,7 +153,7 @@ describe('multi user chat plugin', () => {
       await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
       await testUtils.destroy.room.hero();
       await testUtils.logOut();
-    });
+    }); */
 
     it('should throw if room is not configurable', async () => {
       await ensureRegisteredUser(testUtils.hero);

@@ -62,12 +62,12 @@ export class XmppService implements ChatService {
   ) {
     this.chatConnectionService = new XmppConnectionService(log);
 
-    this.onAuthenticating$ = this.chatConnectionService.onAuthenticating$.pipe(runInZone(zone));
-    this.onOnline$ = this.chatConnectionService.onOnline$.pipe(runInZone(zone));
-    this.onOffline$ = this.chatConnectionService.onOffline$.pipe(runInZone(zone));
-    this.isOnline$ = this.chatConnectionService.isOnline$.pipe(runInZone(zone));
-    this.isOffline$ = this.chatConnectionService.isOffline$.pipe(runInZone(zone));
-    this.userJid$ = this.chatConnectionService.userJid$.pipe(runInZone(zone));
+    this.onAuthenticating$ = this.chatConnectionService.onAuthenticating$.pipe(runInZone<void>(zone));
+    this.onOnline$ = this.chatConnectionService.onOnline$.pipe(runInZone<void>(zone));
+    this.onOffline$ = this.chatConnectionService.onOffline$.pipe(runInZone<void>(zone));
+    this.isOnline$ = this.chatConnectionService.isOnline$.pipe(runInZone<boolean>(zone));
+    this.isOffline$ = this.chatConnectionService.isOffline$.pipe(runInZone<boolean>(zone));
+    this.userJid$ = this.chatConnectionService.userJid$.pipe(runInZone<string>(zone));
 
     this.pluginMap = createPluginMap(
       this,
@@ -142,7 +142,12 @@ export class XmppService implements ChatService {
       this.lastLogInRequest = logInRequest;
       const onOnlinePromise = firstValueFrom(this.onOnline$);
       await this.chatConnectionService.logIn(logInRequest);
-      await onOnlinePromise;
+      await Promise.race([
+        onOnlinePromise,
+        new Promise((_, reject) =>
+          setTimeout(() => reject(new Error('timeout waiting for onOnline$')), 10000)
+        ),
+      ]);
       await this.pluginMap.disco.ensureServicesAreDiscovered(logInRequest.domain);
       await firstValueFrom(this.pluginMap.disco.servicesInitialized$);
       try {

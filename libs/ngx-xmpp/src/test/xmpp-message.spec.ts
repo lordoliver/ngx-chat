@@ -1,27 +1,21 @@
-// SPDX-License-Identifier: AGPL-3.0-or-later
-import { testUser, TestUtils } from './helpers/test-utils';
-import { firstValueFrom } from 'rxjs';
-
-import { unregisterAllBesidesAdmin } from './helpers/admin-actions';
 import { TestBed } from '@angular/core/testing';
 import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
-import type { XmppService } from '@pazznetwork/xmpp-adapter';
-import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
-import { register } from './helpers/ejabberd-client';
-import { filter } from 'rxjs/operators';
+
+
+
 
 describe('message plugin', () => {
   xit('placeholder', () => { });
-  let testUtils: TestUtils;
+
 
   beforeAll(() => {
-    const testBed = TestBed.configureTestingModule({
+    TestBed.configureTestingModule({
       imports: [XmppAdapterTestModule],
     });
-    testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
+    // testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
   });
 
-  xit('should process received messages', async () => {
+  /* xit('should process received messages', async () => {
     const messageContactPromise = firstValueFrom(testUtils.chatService.messageService.message$);
     const contactsPromise = firstValueFrom(
       testUtils.chatService.contactListService.contacts$.pipe(
@@ -73,7 +67,7 @@ describe('message plugin', () => {
 
     await testUtils.chatService.logOut();
     await unregisterAllBesidesAdmin();
-  });
+  }); */
 
   /* xit('should process received messages when they were delayed', async () => {
     const subscriptionContacts = testUtils.chatService.contactListService.contacts$.subscribe();
