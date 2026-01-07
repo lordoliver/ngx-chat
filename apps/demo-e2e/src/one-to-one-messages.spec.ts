@@ -4,7 +4,7 @@ import { AppPage } from './page-objects/app.po';
 // Default test credentials matching local dev environment
 const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 const devXmppJid = 'local-admin@local-jabber.entenhausen.pazz.de';
-const devXmppPassword = 'password';
+const devXmppPassword = 'AdminLocalPassword123!';
 import { EjabberdAdminPage } from './page-objects/ejabberd-admin.po';
 
 import { generateUser } from './utils/user-helper';

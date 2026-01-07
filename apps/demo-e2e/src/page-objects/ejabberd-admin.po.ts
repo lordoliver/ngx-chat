@@ -3,7 +3,7 @@ import { APIRequestContext, expect, Page } from '@playwright/test';
 // Default test credentials matching local dev environment
 const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 const devXmppJid = 'local-admin@local-jabber.entenhausen.pazz.de';
-const devXmppPassword = 'password';
+const devXmppPassword = 'AdminLocalPassword123!';
 
 const devUserName = devXmppJid?.split('@')[0] as string;
 export class EjabberdAdminPage {
