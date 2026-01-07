@@ -145,7 +145,7 @@ export class XmppService implements ChatService {
       await Promise.race([
         onOnlinePromise,
         new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('timeout waiting for onOnline$')), 10000)
+          setTimeout(() => reject(new Error('timeout waiting for onOnline$')), 20000)
         ),
       ]);
       await this.pluginMap.disco.ensureServicesAreDiscovered(logInRequest.domain);

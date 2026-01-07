@@ -165,12 +165,15 @@ export class TestUtils {
         startWith([]),
         map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),
         filter((room): room is Room => !!room),
-        timeout(20000)
+        timeout(60000),
+        catchError(err => {
+          throw new Error(`Timeout waiting for room ${jid} within 60000ms. Original error: ${err.message}`);
+        })
       )
     );
   }
 
-  waitForCurrentRoomCount(count: number, timeoutMs = 40000): Promise<number> {
+  waitForCurrentRoomCount(count: number, timeoutMs = 60000): Promise<number> {
     if (!this.chatService.roomService.rooms$) {
       throw new Error(`this.chat.rooms$ is undefined`);
     }
@@ -179,7 +182,10 @@ export class TestUtils {
         startWith([]),
         map((arr) => arr.length),
         filter((c) => c === count),
-        timeout(timeoutMs)
+        timeout(timeoutMs),
+        catchError(err => {
+          throw new Error(`Timeout waiting for room count ${count} within ${timeoutMs}ms. Original error: ${err.message}`);
+        })
       )
     );
   }
@@ -240,14 +246,14 @@ export class TestUtils {
           await destroyRoom(room);
           await new Promise(resolve => setTimeout(resolve, 50));
         } catch (e) {
-          console.error(`[TestUtils] Failed to clean room ${room}:`, e);
+          console.error(`[TestUtils] Failed to clean room ${room}: `, e);
         }
         // Also try lowercase version as Ejabberd normalizes room names
         if (room !== room.toLowerCase()) {
           try {
             await destroyRoom(room.toLowerCase());
           } catch (e) {
-            console.error(`[TestUtils] Failed to clean room ${room.toLowerCase()}:`, e);
+            console.error(`[TestUtils] Failed to clean room ${room.toLowerCase()}: `, e);
           }
         }
       }

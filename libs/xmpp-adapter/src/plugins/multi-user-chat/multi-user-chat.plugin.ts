@@ -1069,7 +1069,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     // to avoid querying for them latter
 
     if (messageText) {
-      console.log(`[MUC-MSG-DEBUG] Handling message from ${from.toString()}: "${messageText}". Room found: ${!!room}`);
+
     }
 
     const roomOccupants = Finder.create(stanza)

@@ -14878,3 +14878,8 @@ Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
 Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
   Disconnected Client disconnected from CONNECTED state (transport close)
 [32m07 01 2026 17:37:48.083:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket a1R1qwhdf99jGRUrAAAf with id 28826309
+[33m07 01 2026 19:23:08.331:WARN [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mDisconnected (0 times) Client disconnected from CONNECTED state (transport close)
+[31mChrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR[39m
+  Disconnected Client disconnected from CONNECTED state (transport close)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
+  Disconnected Client disconnected from CONNECTED state (transport close)
