@@ -25,6 +25,10 @@ export async function ensureNoRegisteredUser(auth: AuthRequest): Promise<void> {
 
 export async function unregisterAllBesidesAdmin(domain = devXmppDomain): Promise<void> {
   const users = await registeredUsers();
+  if (!Array.isArray(users)) {
+    console.warn('[Cleanup] Warn: registeredUsers returned non-array:', users);
+    return;
+  }
   const testPrefixes = ['hero', 'villain', 'princess', 'father', 'friend', 'test'];
   const usersToUnregister = users?.filter((user) =>
     !user.includes('admin') &&
@@ -41,6 +45,7 @@ export async function unregisterAllBesidesAdmin(domain = devXmppDomain): Promise
 }
 
 export async function destroyAllRooms(): Promise<void> {
+  console.warn('[Cleanup] Warn: destroyAllRooms is deprecated as it might affect other running tests (e.g. E2E). Use destroyRoomsByPrefixes instead.');
   const rooms = await getMucRooms();
   for (const room of rooms) {
     const [name, service] = room.split('@');
@@ -48,9 +53,40 @@ export async function destroyAllRooms(): Promise<void> {
   }
 }
 
+export async function destroyRoomsByPrefixes(prefixes: string[]): Promise<void> {
+  const rooms = await getMucRooms();
+  const roomsToDestroy = rooms.filter(room => {
+    const [name] = room.split('@');
+    return prefixes.some(prefix => name && name.startsWith(prefix));
+  });
+
+  if (roomsToDestroy.length > 0) {
+    console.log(`[Cleanup] Found ${roomsToDestroy.length} rooms to destroy matching prefixes: ${prefixes.join(', ')}`);
+  }
+
+  await Promise.all(roomsToDestroy.map(async (room) => {
+    const [name, service] = room.split('@');
+    try {
+      await destroyRoom(name as string, service);
+    } catch (e) {
+      // ignore
+    }
+  }));
+}
+
 export async function cleanServerBesidesAdmin(): Promise<void> {
   await unregisterAllBesidesAdmin();
-  await destroyAllRooms();
+  // Safe prefixes used in unit tests (TestUtils)
+  const safePrefixes = [
+    'heroRoom',
+    'villainRoom',
+    'princessRoom',
+    'fatherRoom',
+    'friendRoom',
+    'configtestroom',
+    'chatroom'
+  ];
+  await destroyRoomsByPrefixes(safePrefixes);
 }
 
 export async function ensureRegisteredUser(auth: AuthRequest): Promise<void> {

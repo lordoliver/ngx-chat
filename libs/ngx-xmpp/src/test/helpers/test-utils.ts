@@ -1,10 +1,11 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
-import { firstValueFrom, map, startWith } from 'rxjs';
+import { catchError, firstValueFrom, map, of, startWith, timeout } from 'rxjs';
 import type { AuthRequest, RoomCreationOptions } from '@pazznetwork/ngx-chat-shared';
-import { Affiliation, Direction, Role } from '@pazznetwork/ngx-chat-shared';
+import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-chat-shared';
 import { XmppService } from '@pazznetwork/xmpp-adapter';
 import type { StropheWebsocket } from '@pazznetwork/strophe-ts';
 import { filter } from 'rxjs/operators';
+import { destroyRoom } from './ejabberd-client';
 // using legacy domain for XMPP server match, but localhost for connection
 const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 
@@ -30,6 +31,8 @@ const testRoomId = (prefix: string): string => prefix + 'Room';
 
 export class TestUtils {
   constructor(readonly chatService: XmppService) { }
+
+  static readonly createdRooms = new Set<string>();
 
   readonly direction = Direction;
   readonly affiliation = Affiliation;
@@ -89,12 +92,27 @@ export class TestUtils {
   readonly fatherRoom = this.createRoomConfig(testRoomId(this.fatherString) + '-' + this.suffix);
   readonly friendRoom = this.createRoomConfig(testRoomId(this.friendString) + '-' + this.suffix);
 
+  async loginWithRetry(auth: AuthRequest, retries = 5): Promise<void> {
+    for (let i = 0; i < retries; i++) {
+      try {
+        await this.chatService.logIn(auth);
+        return;
+      } catch (e) {
+        if (i === retries - 1) {
+          throw e;
+        }
+        // Wait before retry (exponential backoff or constant)
+        await new Promise((resolve) => setTimeout(resolve, 1000 * (i + 1)));
+      }
+    }
+  }
+
   readonly logIn = {
-    hero: () => this.chatService.logIn(this.hero),
-    villain: () => this.chatService.logIn(this.villain),
-    princess: () => this.chatService.logIn(this.princess),
-    father: () => this.chatService.logIn(this.father),
-    friend: () => this.chatService.logIn(this.friend),
+    hero: () => this.loginWithRetry(this.hero),
+    villain: () => this.loginWithRetry(this.villain),
+    princess: () => this.loginWithRetry(this.princess),
+    father: () => this.loginWithRetry(this.father),
+    friend: () => this.loginWithRetry(this.friend),
   };
 
   readonly create = {
@@ -119,8 +137,16 @@ export class TestUtils {
 
   readonly logOut = async (): Promise<void> => {
     await this.chatService.logOut();
+    // Wait for state to become offline
+    await firstValueFrom(
+      this.chatService.isOnline$.pipe(
+        filter(online => !online),
+        timeout(5000),
+        catchError(() => of(false)) // Proceed anyway on timeout
+      )
+    );
     // Wait for the socket to actually close and server to register it
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    await new Promise((resolve) => setTimeout(resolve, 3000));
   };
 
   readonly currentRoomCount = (): Promise<number> => {
@@ -130,6 +156,20 @@ export class TestUtils {
     return firstValueFrom(this.chatService.roomService.rooms$.pipe(map((arr) => arr.length)));
   };
 
+  waitForRoom(jid: string): Promise<Room> {
+    if (!this.chatService.roomService.rooms$) {
+      throw new Error(`this.chat.rooms$ is undefined`);
+    }
+    return firstValueFrom(
+      this.chatService.roomService.rooms$.pipe(
+        startWith([]),
+        map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),
+        filter((room): room is Room => !!room),
+        timeout(20000)
+      )
+    );
+  }
+
   waitForCurrentRoomCount(count: number): Promise<number> {
     if (!this.chatService.roomService.rooms$) {
       throw new Error(`this.chat.rooms$ is undefined`);
@@ -138,7 +178,8 @@ export class TestUtils {
       this.chatService.roomService.rooms$.pipe(
         startWith([]),
         map((arr) => arr.length),
-        filter((c) => c === count)
+        filter((c) => c === count),
+        timeout(20000)
       )
     );
   }
@@ -152,7 +193,7 @@ export class TestUtils {
   }
 
   createRoomConfig(roomId: string): TestRoomConst {
-    return {
+    const config = {
       roomId,
       public: false,
       membersOnly: false,
@@ -161,12 +202,22 @@ export class TestUtils {
       allowSubscription: true,
       jid: this.roomIdToJid(roomId),
     };
+    TestUtils.createdRooms.add(config.roomId);
+    return config;
   }
 
   async fakeWebsocketInStanza(stanza: string): Promise<void> {
     const connection = await firstValueFrom(this.chatService.chatConnectionService.connection$);
+    if (!connection) throw new Error('fakeWebsocketInStanza: Connection not found!');
+
     const webSocket = connection.protocolManager as StropheWebsocket;
-    await webSocket?.onMessage(stanza);
+    if (!webSocket) throw new Error('fakeWebsocketInStanza: WebSocket (protocolManager) not found!');
+
+    if (typeof webSocket.onMessage !== 'function') throw new Error('fakeWebsocketInStanza: webSocket.onMessage is not a function!');
+
+    console.error('fakeWebsocketInStanza: injecting stanza...');
+    // Strophe Websocket onMessage expects a MessageEvent-like object with a 'data' property
+    await webSocket.onMessage(stanza);
   }
 
   async logWebsocketStream(): Promise<void> {
@@ -179,5 +230,21 @@ export class TestUtils {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     (XmppService as unknown).instance = undefined;
+  }
+
+  static async cleanAllCreatedRooms(): Promise<void> {
+    const rooms = Array.from(TestUtils.createdRooms);
+    if (rooms.length > 0) {
+      console.log(`[TestUtils] Cleaning up ${rooms.length} tracked rooms...`);
+      for (const room of rooms) {
+        try {
+          await destroyRoom(room);
+          await new Promise(resolve => setTimeout(resolve, 500));
+        } catch (e) {
+          // ignore
+        }
+      }
+      TestUtils.createdRooms.clear();
+    }
   }
 }
