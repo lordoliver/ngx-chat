@@ -41,6 +41,7 @@
     "@nx/angular": "18.3.5",
     "@nx/eslint": "18.3.5",
     "@nx/eslint-plugin": "18.3.5",
+    "@nx/jest": "^18.3.5",
     "@nx/workspace": "18.3.5",
     "@playwright/test": "^1.39.0",
     "@tsconfig/strictest": "^2.0.1",

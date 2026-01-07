@@ -649,10 +649,11 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
   }
 
   async banUser(occupantJid: JID, roomJid: JID, reason?: string): Promise<IqResponseStanza> {
-    const userJid = await this.getUserJidByOccupantJid(occupantJid, roomJid);
+    let userJid = await this.getUserJidByOccupantJid(occupantJid, roomJid);
 
     if (!userJid) {
-      throw new Error('can not ban user, userJid not found through room occupants');
+      // If user not found in room (e.g. offline), assume the passed JID is the real user JID
+      userJid = occupantJid;
     }
 
     const response = await this.xmppService.chatConnectionService

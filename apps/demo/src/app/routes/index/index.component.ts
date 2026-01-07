@@ -23,7 +23,7 @@ import {
   FILE_UPLOAD_HANDLER_TOKEN,
 } from '@pazznetwork/ngx-xmpp';
 import { XmppService } from '@pazznetwork/xmpp-adapter';
-import { cleanUpJabber } from '../../../../../../libs/ngx-xmpp/src/test/helpers/ejabberd-client';
+
 import { StanzaComponent } from '../../components/stanza/stanza.component';
 import { ContactManagementComponent } from '../../components/contact-management/contact-management.component';
 import { MucComponent } from '../../components/muc/muc.component';
@@ -246,9 +246,7 @@ export class IndexComponent implements OnDestroy {
     });
   }
 
-  cleanUpJabber(): Promise<void> {
-    return cleanUpJabber();
-  }
+
 
   forceAppUpdate(): void {
     this.appRef.tick();

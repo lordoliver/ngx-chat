@@ -418,13 +418,13 @@ describe('roster plugin', () => {
       )
     );
 
-    await testUtils.chatService.logIn(testUtils.hero);
+    await testUtils.logIn.hero();
 
     await chatService.contactListService.addContact(testUtils.friend.jid);
     await testUtils.logOut();
     await new Promise((resolve) => setTimeout(resolve, 100));
 
-    await testUtils.chatService.logIn(testUtils.friend);
+    await testUtils.logIn.friend();
     await testUtils.logOut();
     await new Promise((resolve) => setTimeout(resolve, 100));
 

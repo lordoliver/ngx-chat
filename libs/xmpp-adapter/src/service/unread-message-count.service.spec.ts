@@ -11,7 +11,7 @@ const mockJid = (user: string) => ({
     equals: (other: any) => other.toString() === user
 });
 
-xdescribe('UnreadMessageCountService', () => {
+describe('UnreadMessageCountService', () => {
     let service: UnreadMessageCountService;
     let mockChatService: any;
     let mockChatListService: any;
@@ -37,21 +37,26 @@ xdescribe('UnreadMessageCountService', () => {
             onOffline$: of(),
             zone: {
                 run: (fn: any) => fn()
+            },
+            messageService: {
+                messageReceived$: new Subject(),
+                loadMostRecentMessages: jest.fn()
             }
         };
 
         mockChatListService = {
             chatMessagesViewed$: of(),
-            chatMessages$: of()
+            chatMessages$: of(),
+            isChatOpen: jest.fn().mockReturnValue(false)
         };
 
         mockPubSub = {
             publish$: jest.fn().mockReturnValue(of('item')),
-            retrieveNodeItems$: jest.fn().mockReturnValue(of([{
-                content: {
-                    entries: []
-                }
-            }])),
+            retrieveNodeItems: jest.fn().mockResolvedValue([{
+                querySelector: jest.fn().mockReturnValue({
+                    querySelectorAll: jest.fn().mockReturnValue([])
+                })
+            }]),
             publishEvent$: of()
         };
 
@@ -80,13 +85,15 @@ xdescribe('UnreadMessageCountService', () => {
         const contact1 = {
             jid: mockJid('alice@example.com'),
             messageStore: {
-                messages$: new BehaviorSubject<Message[]>([])
+                messages$: new BehaviorSubject<Message[]>([]),
+                messages: []
             }
         } as any;
         const contact2 = {
             jid: mockJid('bob@example.com'),
             messageStore: {
-                messages$: new BehaviorSubject<Message[]>([])
+                messages$: new BehaviorSubject<Message[]>([]),
+                messages: []
             }
         } as any;
 
@@ -107,7 +114,9 @@ xdescribe('UnreadMessageCountService', () => {
         } as any;
 
         // Push message to store
+        contact1.messageStore.messages = [msg1];
         contact1.messageStore.messages$.next([msg1]);
+        await new Promise(resolve => setTimeout(resolve, 200));
 
         // 4. Verify Unread Count for Alice
         const map = await firstValueFrom(
@@ -133,12 +142,13 @@ xdescribe('UnreadMessageCountService', () => {
         // 1. Message 1 arrives
         const msg1: Message = {
             direction: Direction.in,
-            datetime: new Date(Date.now() - 10000), // 10s ago
-            body: 'Msg1',
+            datetime: new Date(),
+            body: 'Hello Alice 1',
             id: '1'
         } as any;
         contact1.messageStore.messages = [msg1];
         contact1.messageStore.messages$.next([msg1]);
+        await new Promise(resolve => setTimeout(resolve, 200));
 
         // Wait for count 1
         await firstValueFrom(

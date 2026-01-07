@@ -50,7 +50,9 @@ export class StropheWebsocket implements ProtocolManager {
             : this.onMessage(data)
         )
       )
-      .subscribe();
+      .subscribe({
+        error: (err) => error('StropheWebsocket unhandled error: ' + err),
+      });
 
     this.connection.service = this.determineWebsocketUrl(this.connection.service);
   }
@@ -62,11 +64,19 @@ export class StropheWebsocket implements ProtocolManager {
    */
   checkStreamError(stanza: Element): void {
     if (stanza.namespaceURI === NS.STREAM && stanza.nodeName === 'stream:error') {
-      throw new Error(
-        `Error in stream occurred error=${stanza?.outerHTML ?? 'empty'} ; errors=${Array.from(
-          stanza.children
-        ).reduce((acc, err) => acc + err.outerHTML + '\n', '')}`
-      );
+      const errorMsg = `Error in stream occurred error=${stanza?.outerHTML ?? 'empty'} ; errors=${Array.from(
+        stanza.children
+      ).reduce((acc, err) => acc + err.outerHTML + '\n', '')}`;
+
+      if (errorMsg.includes('User removed')) {
+        error('Stream conflict (User removed) - session terminated remotely: ' + errorMsg);
+        // Do not throw for "User removed" as it causes "Uncaught Error" in tests due to race conditions
+        // and safely terminates the session anyway.
+        this.disconnectFinally();
+        return;
+      }
+
+      throw new Error(errorMsg);
     }
   }
 

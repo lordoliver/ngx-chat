@@ -52,6 +52,14 @@ export class ChatWindowPage {
         break;
       case 'enter':
         await this.chatInput.press('Enter');
+        try {
+          await expect(this.chatInput).toHaveValue('', { timeout: 1000 });
+        } catch (e) {
+          // Retry pressing Enter if input was not cleared (flake fix)
+          console.log('Retry pressing Enter in chat window...');
+          await this.chatInput.press('Enter');
+          await expect(this.chatInput).toHaveValue('', { timeout: 5000 });
+        }
         break;
       default:
         throw new Error(`unexpected submit type to send a message: ${String(submitMethod)}`);

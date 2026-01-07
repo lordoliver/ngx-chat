@@ -237,7 +237,10 @@ export async function setRoomAffiliation(
   });
 }
 
-export async function cleanUpJabber(domain = xmppDomain): Promise<void> {
+/**
+ * @deprecated DANGEROUS: This deletes ALL users and rooms. Do NOT use in tests unless you want to wipe the server.
+ */
+export async function DANGEROUS_cleanUpJabber(domain = xmppDomain): Promise<void> {
   const rooms = await getMucRooms();
   for (const room of rooms) {
     await destroyRoom(room.split('@')[0] as string);
@@ -253,10 +256,15 @@ export async function destroyRoom(
   room: string,
   service = 'conference.' + xmppDomain
 ): Promise<unknown> {
-  return executeRequest('destroy_room', {
-    name: room,
-    service,
-  });
+  try {
+    return await executeRequest('destroy_room', {
+      name: room,
+      service,
+    });
+  } catch (e) {
+    // ignore if room does not exist
+    return;
+  }
 }
 
 export async function addContact({

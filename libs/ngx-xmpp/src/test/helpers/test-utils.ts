@@ -215,7 +215,7 @@ export class TestUtils {
 
     if (typeof webSocket.onMessage !== 'function') throw new Error('fakeWebsocketInStanza: webSocket.onMessage is not a function!');
 
-    console.error('fakeWebsocketInStanza: injecting stanza...');
+    console.log('fakeWebsocketInStanza: injecting stanza...');
     // Strophe Websocket onMessage expects a MessageEvent-like object with a 'data' property
     await webSocket.onMessage(stanza);
   }
@@ -239,7 +239,7 @@ export class TestUtils {
       for (const room of rooms) {
         try {
           await destroyRoom(room);
-          await new Promise(resolve => setTimeout(resolve, 500));
+          await new Promise(resolve => setTimeout(resolve, 50));
         } catch (e) {
           // ignore
         }

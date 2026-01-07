@@ -5,7 +5,7 @@ import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 
 
 describe('message plugin', () => {
-  xit('placeholder', () => { });
+  it('placeholder', () => { });
 
 
   beforeAll(() => {

@@ -221,10 +221,7 @@ export class XmppMessageService implements MessageService {
       return this.messageStatePlugin.handleStanza(stanza);
     }
 
-    // can be wrapped in result from a query, or in a message received carbons
-    const messageElement = Finder.create(stanza)
-      .searchByTag('forwarded')
-      .searchByTag('message').result;
+
 
     const delayElement = Finder.create(stanza).searchByTag('delay').result;
 
@@ -241,15 +238,11 @@ export class XmppMessageService implements MessageService {
         .result ??
       Finder.create(stanza).searchByTag('forwarded').searchByTag('message').result;
 
-    const messageFromArchive = !!archiveMessage;
+    const isCarbon = stanza.getElementsByTagName('received').length > 0 ||
+      stanza.getElementsByTagName('sent').length > 0;
+    const messageFromArchive = !!archiveMessage && !isCarbon;
 
     const messageStanza = eventElement?.querySelector('message') ?? archiveMessage ?? stanza;
-
-    // result as first child comes from mam should call directly from there with the archive delay
-    // received as first child comes from carbons should call directly from there with the archive delay
-    if (messageStanza.querySelector('received') && !messageElement) {
-      return true;
-    }
 
 
     if (!messageFromArchive && !eventElement) {

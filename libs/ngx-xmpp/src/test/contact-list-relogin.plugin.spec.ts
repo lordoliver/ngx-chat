@@ -8,7 +8,9 @@ import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
 import { ensureNoRegisteredUser } from './helpers/admin-actions';
 
 describe('contact list relogin roster plugin', () => {
-  xit('placeholder', () => { });
+  it('placeholder', () => {
+    // placeholder to ensure valid suite
+  });
   let testUtils: TestUtils;
 
 
