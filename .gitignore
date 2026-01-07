@@ -63,4 +63,3 @@ apps/demo/src/local.entenhausen.pazz.de.pem
 
 # Local dev scripts
 cleanup-users.ts
-apps/demo/proxy.conf.json
