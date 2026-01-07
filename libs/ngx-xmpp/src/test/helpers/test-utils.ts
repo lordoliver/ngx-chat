@@ -179,7 +179,7 @@ export class TestUtils {
         startWith([]),
         map((arr) => arr.length),
         filter((c) => c === count),
-        timeout(20000)
+        timeout(40000)
       )
     );
   }

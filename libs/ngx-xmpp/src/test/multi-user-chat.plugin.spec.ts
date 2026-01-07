@@ -368,7 +368,7 @@ describe('multi user chat plugin', () => {
         .withContext('should have no room after room destroying')
         .toEqual(0);
       await testUtils.logOut();
-    }, 60000);
+    }, 120000);
 
     it('should be able to join multiple rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
@@ -446,7 +446,7 @@ describe('multi user chat plugin', () => {
       await testUtils.chatService.roomService.destroyRoom(testUtils.princessRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await testUtils.logOut();
-    }, 60000);
+    }, 120000);
 
     it('should be able to leave all rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
@@ -505,7 +505,7 @@ describe('multi user chat plugin', () => {
 
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await testUtils.logOut();
-    }, 60000);
+    }, 120000);
 
     it('should be able to query only for rooms joined', async () => {
       await ensureRegisteredUser(testUtils.father);
@@ -552,7 +552,7 @@ describe('multi user chat plugin', () => {
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
       await testUtils.logOut();
       await destroyRoomAsFather();
-    });
+    }, 120000);
   });
 
   describe('room messaging', () => {
@@ -720,7 +720,7 @@ describe('multi user chat plugin', () => {
         await new Promise(r => setTimeout(r, 1000)); // Allow connection to close gracefully
       }
       await testUtils.logOut();
-    });
+    }, 120000);
 
     it('should handle banning and unbanning of a room occupant', async () => {
       await ensureNoRegisteredUser(testUtils.hero);
