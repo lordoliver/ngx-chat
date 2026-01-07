@@ -130,6 +130,12 @@ jobs:
           CI: true
         timeout-minutes: 30
 
+      - name: Run Old E2E Tests
+        run: npx nx e2e demo-e2e
+        env:
+          CI: true
+        timeout-minutes: 30
+
       - name: Dump Ejabberd Logs on Failure
         if: failure()
         run: |
