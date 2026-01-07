@@ -34,6 +34,7 @@ const config: PlaywrightTestConfig = {
     actionTimeout: 0,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    baseURL: 'http://localhost:4200/',
   },
   /* Configure projects for chromium only */
   projects: [
@@ -94,10 +95,12 @@ const config: PlaywrightTestConfig = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 4200,
-  // },
+  webServer: {
+    command: 'npx nx serve demo',
+    url: 'http://localhost:4200/',
+    reuseExistingServer: true,
+    timeout: 300 * 1000,
+  },
 };
 
 export default config;
