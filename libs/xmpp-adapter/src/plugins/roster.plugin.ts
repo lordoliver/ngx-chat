@@ -116,7 +116,8 @@ export class RosterPlugin implements ChatPlugin {
           ),
           map((contacts) => ({ type: 'online', value: contacts }) as OnlineAction)
         ),
-        this.clearSubject.pipe(map(() => ({ type: 'clear' }) as ClearAction))
+        this.clearSubject.pipe(map(() => ({ type: 'clear' }) as ClearAction)),
+        this.xmppService.onOffline$.pipe(map(() => ({ type: 'clear' }) as ClearAction))
       ).pipe(
         scan((contactMap, action: Action) => {
           switch (action.type) {
