@@ -10,6 +10,9 @@ import {
   userIsRegistered,
 } from './helpers/admin-actions';
 
+// SKIPPED: In-Band Registration (XEP-0077) is disabled on the test Ejabberd server configuration.
+// These tests inevitably fail because the server rejects the registration request.
+// Enable only if testing against a server with `mod_register` enabled and configured for in-band registration.
 xdescribe('register plugin', () => {
   let testUtils: TestUtils;
   beforeAll(() => {

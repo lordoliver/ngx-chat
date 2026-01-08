@@ -172,6 +172,9 @@ test.describe.serial('ngx-chat', () => {
     await appPage.logOut();
   });
 
+  // SKIPPED: Legacy UI behavior.
+  // The application no longer automatically opens the chat window upon receiving a message (it now uses badges/notifications).
+  // This test expects the old behavior and will fail.
   test.skip('should open message component on message received', async () => {
     const bobAppPo = await appPage.newPage();
     const aliceAppPo = appPage;
