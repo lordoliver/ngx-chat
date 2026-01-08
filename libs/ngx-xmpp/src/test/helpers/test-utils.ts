@@ -19,6 +19,7 @@ export const testUser: AuthRequest = {
 
 interface TestUserConst extends AuthRequest {
   jid: string;
+  resource?: string;
 }
 
 interface TestRoomConst extends RoomCreationOptions {
@@ -47,6 +48,7 @@ export class TestUtils {
     service: this.service,
     username: this.friendString,
     password: this.friendString,
+    resource: this.friendString + '-' + this.suffix,
     jid: makeTestConstJid(this.friendString),
   };
 
@@ -56,6 +58,7 @@ export class TestUtils {
     service: this.service,
     username: this.fatherString,
     password: this.fatherString,
+    resource: this.fatherString + '-' + this.suffix,
     jid: makeTestConstJid(this.fatherString),
   };
 
@@ -65,6 +68,7 @@ export class TestUtils {
     service: this.service,
     username: this.princessString,
     password: this.princessString,
+    resource: this.princessString + '-' + this.suffix,
     jid: makeTestConstJid(this.princessString),
   };
 
@@ -74,6 +78,7 @@ export class TestUtils {
     service: this.service,
     username: this.villainString,
     password: this.villainString,
+    resource: this.villainString + '-' + this.suffix,
     jid: makeTestConstJid(this.villainString),
   };
 
@@ -83,6 +88,7 @@ export class TestUtils {
     service: this.service,
     username: this.heroString,
     password: this.heroString,
+    resource: this.heroString + '-' + this.suffix,
     jid: makeTestConstJid(this.heroString),
   };
 
@@ -92,10 +98,13 @@ export class TestUtils {
   readonly fatherRoom = this.createRoomConfig(testRoomId(this.fatherString) + '-' + this.suffix);
   readonly friendRoom = this.createRoomConfig(testRoomId(this.friendString) + '-' + this.suffix);
 
-  async loginWithRetry(auth: AuthRequest, retries = 5): Promise<void> {
+  async loginWithRetry(auth: AuthRequest, retries = 10): Promise<void> {
     for (let i = 0; i < retries; i++) {
       try {
-        await this.chatService.logIn(auth);
+        await Promise.race([
+          this.chatService.logIn(auth),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('Login timeout')), 5000)),
+        ]);
         return;
       } catch (e) {
         if (i === retries - 1) {
@@ -146,7 +155,7 @@ export class TestUtils {
       )
     );
     // Wait for the socket to actually close and server to register it
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 8000));
   };
 
   readonly currentRoomCount = (): Promise<number> => {

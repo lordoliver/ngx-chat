@@ -14883,3 +14883,14 @@ Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
   Disconnected Client disconnected from CONNECTED state (transport close)
 Chrome Headless 115.0.5790.98 (Mac OS 10.15.7) ERROR
   Disconnected Client disconnected from CONNECTED state (transport close)
+
+
+
+ NX   Running target test for project ngx-xmpp failed
+
+Failed tasks:
+
+- ngx-xmpp:test
+
+Hint: run the command with --verbose for more details.
+

@@ -4,6 +4,7 @@ import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 import { TestUtils } from './helpers/test-utils';
 import type { XmppService } from '@pazznetwork/xmpp-adapter';
 import { CHAT_SERVICE_TOKEN, LogService } from '@pazznetwork/ngx-xmpp';
+import { nsPubSubEvent } from '@pazznetwork/xmpp-adapter';
 import { $msg } from '@pazznetwork/strophe-ts';
 import { ensureNoRegisteredUser, ensureRegisteredUser } from './helpers/admin-actions';
 import { Direction, parseJid, Room } from '@pazznetwork/ngx-chat-shared';
@@ -160,12 +161,14 @@ describe('message archive plugin', () => {
     const text = 'group chat the second!';
     const roomId = 'anotherroom';
     const roomJidBare = roomId + '@conference.example.com';
+
+
     const mucSubArchiveStanza = $msg({ from, to: testUtils.villain.jid })
       .c('result', { xmlns: 'urn:xmpp:mam:2' })
       .c('forwarded')
       .c('delay', { stamp })
       .c('message')
-      .c('event', { xmlns: 'http://jabber.org/protocol/pubsub#event' })
+      .c('event', { xmlns: nsPubSubEvent })
       .c('items', { node: 'urn:xmpp:mucsub:nodes:messages' })
       .c('item')
       .c('message', { from: roomJidBare + '/othernick', type: 'groupchat' })
@@ -183,11 +186,14 @@ describe('message archive plugin', () => {
       new Room(new LogService(), parseJid(roomJidBare))
     );
 
+    // Wait for the room to be processed and available in the service
+    const rooms = await roomPromise;
+    const room = rooms?.find((r) => roomJidBare.includes(r.jid.local as string));
+    expect(room).toBeDefined();
+
     await testUtils.fakeWebsocketInStanza(mucSubArchiveStanza.toString());
 
-    const rooms = await roomPromise;
-    const roomMessages = rooms?.find((room) => roomJidBare.includes(room.jid.local as string))
-      ?.messageStore.messages;
+    const roomMessages = room?.messageStore.messages;
 
     expect(roomMessages?.length).toBe(1);
 

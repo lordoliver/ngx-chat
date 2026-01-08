@@ -23,10 +23,13 @@ export class PublishSubscribePlugin implements ChatPlugin {
 
   // private supportsPrivatePublishSubject = new ReplaySubject<boolean>(1);
 
-  constructor(private readonly xmppChatAdapter: XmppService) {}
+  constructor(private readonly xmppChatAdapter: XmppService) { }
 
   isPubSubEvent(stanza: Element): boolean {
-    return stanza.querySelector('event')?.getAttribute('xmlns') === nsPubSubEvent;
+    const event = stanza.querySelector('event');
+    return (
+      event?.getAttribute('xmlns') === nsPubSubEvent && event.parentElement === stanza
+    );
   }
 
   publishEvent(stanza: Element): void {

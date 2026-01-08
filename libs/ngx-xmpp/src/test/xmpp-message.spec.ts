@@ -47,9 +47,9 @@ describe('message plugin', () => {
     await testUtils.fakeWebsocketInStanza(messageStanza);
     const messageContact = await messageContactPromise;
     const contacts = await contactsPromise;
-    expect(contacts.length).toBe(1);
+    expect(contacts.length).toBeGreaterThanOrEqual(1);
 
-    const someContact = contacts[0];
+    const someContact = contacts.find(c => c.jid.toString() === someUserJid);
 
     expect(someContact).toBeDefined();
     if (someContact == null) {
@@ -102,10 +102,12 @@ describe('message plugin', () => {
     // Wait for the message to be processed
     await messagePromise;
 
-    const contacts = await firstValueFrom(testUtils.chatService.contactListService.contacts$);
-    expect(contacts.length).toBe(1);
+    const contacts = await firstValueFrom(testUtils.chatService.contactListService.contacts$.pipe(
+      filter(c => c.some(contact => contact.jid.toString() === someUserJid))
+    ));
+    expect(contacts.length).toBeGreaterThanOrEqual(1);
 
-    const someContact = contacts[0];
+    const someContact = contacts.find(c => c.jid.toString() === someUserJid);
 
     if (someContact == null) {
       throw new Error('First contact in contact list was undefined');

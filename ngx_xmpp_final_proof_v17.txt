@@ -1,0 +1,64 @@
+
+> nx run ngx-xmpp:test --watch=false
+
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m50[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ domain: string; service: string; username: string; password: string; resource: string; jid: string; }' is not assignable to type 'TestUserConst'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'resource' does not exist in type 'TestUserConst'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m50[0m     resource: this.friendString + '-' + this.suffix,[39m[22m
+[1m[31m[7m  [0m [91m    ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m60[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ domain: string; service: string; username: string; password: string; resource: string; jid: string; }' is not assignable to type 'TestUserConst'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'resource' does not exist in type 'TestUserConst'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m60[0m     resource: this.fatherString + '-' + this.suffix,[39m[22m
+[1m[31m[7m  [0m [91m    ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m70[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ domain: string; service: string; username: string; password: string; resource: string; jid: string; }' is not assignable to type 'TestUserConst'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'resource' does not exist in type 'TestUserConst'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m70[0m     resource: this.princessString + '-' + this.suffix,[39m[22m
+[1m[31m[7m  [0m [91m    ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91mError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m80[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ domain: string; service: string; username: string; password: string; resource: string; jid: string; }' is not assignable to type 'TestUserConst'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'resource' does not exist in type 'TestUserConst'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m80[0m     resource: this.villainString + '-' + this.suffix,[39m[22m
+[1m[31m[7m  [0m [91m    ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[0m[91[39m[22m[1m[31mmError: [39m[31m[0m[96mlibs/ngx-xmpp/src/test/helpers/test-utils.ts[0m:[93m90[0m:[93m5[0m - [91merror[0m[90m TS2322: [0mType '{ domain: string; service: string; username: string; password: string; resource: string; jid: string; }' is not assignable to type 'TestUserConst'.[39m[22m
+[1m[31m  Object literal may only specify known properties, and 'resource' does not exist in type 'TestUserConst'.[39m[22m
+[1m[31m[39m[22m
+[1m[31m[7m90[0m     resource: this.heroString + '-' + this.suffix,[39m[22m
+[1m[31m[7m  [0m [91m    ~~~~~~~~[0m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[1m[31m[39m[22m
+[32m08 01 2026 09:51:06.865:INFO [karma-server]: [39mKarma v6.4.2 server started at http://localhost:9876/
+[32m08 01 2026 09:51:06.866:INFO [launcher]: [39mLaunching browsers ChromeHeadlessInsecure with concurrency unlimited
+[91m08 01 2026 09:51:06.866:ERROR [karma-server]: [39mError: Found 1 load error
+    at Server.<anonymous> (/Users/oliverschiessl/WebstormProjects/ngx-chat-new/ngx-chat/node_modules/karma/lib/server.js:243:26)
+    at Object.onceWrapper (node:events:632:28)
+    at Server.emit (node:events:530:35)
+    at Server.emit (node:domain:489:12)
+    at emitListeningNT (node:net:1951:10)
+    at process.processTicksAndRejections (node:internal/process/task_queues:81:21)
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+
+
+
+ NX   Running target test for project ngx-xmpp failed
+
+Failed tasks:
+
+- ngx-xmpp:test
+
+Hint: run the command with --verbose for more details.
+

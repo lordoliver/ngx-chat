@@ -249,9 +249,16 @@ export class XmppMessageService implements MessageService {
       return this.handleSingleMessage(messageStanza, delayElement, messageFromArchive);
     }
 
-    const messageElements = Finder.create(stanza)
+    let messageElements = Finder.create(stanza)
       .searchByTag('forwarded')
       .searchForDeepestByTag('message').results;
+
+    if (messageElements.length === 0 && eventElement) {
+      const items = eventElement.querySelectorAll('item');
+      messageElements = Array.from(items)
+        .map((item) => item.querySelector('message'))
+        .filter((m) => !!m) as Element[];
+    }
 
     let handled = true; // Assume all messages will be handled successfully initially
     for (const message of messageElements) {

@@ -183,6 +183,7 @@ export class Room implements Recipient {
     existingOccupant.nick = newNick;
     this.roomOccupants.delete(occupant.jid.toString());
     this.roomOccupants.set(existingOccupant.jid.toString(), existingOccupant);
+    this.occupantsSubject.next([...this.roomOccupants.values()]);
 
     this.logService.debug(
       `occupant changed nick: from=${occupant.nick ?? 'undefined nick'

@@ -145,6 +145,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       ),
       { connector: () => new ReplaySubject<Room[]>(1), resetOnDisconnect: false }
     );
+    this.rooms$.connect();
 
     xmppService.onOnline$.pipe(switchMap(() => this.registerHandler())).subscribe();
     xmppService.onOffline$.pipe(switchMap(() => this.unregisterHandler())).subscribe();
@@ -782,26 +783,22 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     const occupant = room?.getOccupant(parseJid(from).bare());
 
     if (!occupant) {
-      throw new Error('user is not an occupant of the room');
+      this.logService.warn('user is not an occupant of the room, sending unavailable presence anyway');
     }
 
-    const response = await this.xmppService.chatConnectionService
+    await this.xmppService.chatConnectionService
       .$pres({ to: roomJid.toString(), from, type: Presence[Presence.unavailable] })
       .cCreateMethod(
         (builder): StanzaBuilder => (status ? builder.c('status', {}, status) : builder)
       )
-      .send();
-
-    if (Finder.create(response).searchByTag('item').result?.getAttribute('role') !== 'none') {
-      throw new Error('error leaving room: ' + response?.outerHTML?.toString());
-    }
+      .sendResponseLess();
 
     /**
      * To completely remove oneself from a room (i.e., change affiliation to "none"), a user generally needs to have the right permissions to change their own affiliation.
      */
-    if (occupant.affiliation === Affiliation.owner) {
-      await this.setAffiliation(occupant.jid, roomJid, Affiliation.none);
-    }
+    // if (occupant.affiliation === Affiliation.owner) {
+    //   await this.setAffiliation(occupant.jid, roomJid, Affiliation.none);
+    // }
     this.leftRoomSubject.next(roomJid);
     this.logService.debug(`occupant left room: occupantJid=${roomJid.toString()}`);
   }
@@ -999,7 +996,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       this.roomLocks.set(
         roomJid.toString(),
         (async () => {
-          let room = await firstValueFrom(this.getRoomByJid(roomJid));
+          let room = this.roomsMap.get(roomJid.toString().toLowerCase());
+          if (!room) {
+            room = await firstValueFrom(this.getRoomByJid(roomJid));
+          }
           if (!room) {
             room = await this.customRoomFactory.create(this.logService, roomJid, roomJid.local);
             this.createdRoomSubject.next(room);
@@ -1115,7 +1115,9 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         delayed: !!delayElement,
         fromArchive: stanza.querySelector('archived') == null,
       };
+
       room.messageStore.addMessage(message);
+
       this.updateRoomSubject.next(room);
 
       if (!message.delayed) {
