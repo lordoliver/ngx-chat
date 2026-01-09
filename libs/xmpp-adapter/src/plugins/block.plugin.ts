@@ -61,24 +61,24 @@ export class BlockPlugin implements ChatPlugin {
   }
 
   async blockJid(jid: string): Promise<void> {
-    this.blockContactJIDSubject.next(jid);
-
     const from = await firstValueFrom(this.xmppService.userJid$);
     await this.xmppService.chatConnectionService
       .$iq({ type: 'set', id: getUniqueId('block') })
       .c('block', { xmlns: this.nameSpace })
       .c('item', { from, jid })
-      .sendResponseLess();
+      .send();
+
+    this.blockContactJIDSubject.next(jid);
   }
 
   async unblockJid(jid: string): Promise<void> {
-    this.unblockContactJIDSubject.next(jid);
-
     await this.xmppService.chatConnectionService
       .$iq({ type: 'set', id: getUniqueId('block') })
       .c('unblock', { xmlns: this.nameSpace })
       .c('item', { jid })
-      .sendResponseLess();
+      .send();
+
+    this.unblockContactJIDSubject.next(jid);
   }
 
   private async requestBlockedJIDs(): Promise<Set<string>> {
