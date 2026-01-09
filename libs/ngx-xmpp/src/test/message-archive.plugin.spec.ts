@@ -73,7 +73,7 @@ describe('message archive plugin', () => {
     await ensureNoRegisteredUser(testUtils.hero);
   });
 
-  xit('should handle chat messages from a users sending a message to 2 offline users', async () => {
+  it('should handle chat messages from a users sending a message to 2 offline users', async () => {
     await ensureRegisteredUser(testUtils.hero);
     await ensureRegisteredUser(testUtils.friend);
     await ensureRegisteredUser(testUtils.father);

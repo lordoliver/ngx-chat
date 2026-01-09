@@ -44,9 +44,15 @@ describe('multi user chat plugin', () => {
     let occupant;
     let attempts = 0;
     while (attempts < 1000) {
-      if (typeof room.findOccupantByNick === 'function') {
-        occupant = room.findOccupantByNick(nick);
+      const currentRooms = await firstValueFrom(testUtils.chatService.roomService.rooms$);
+      const freshRoom = currentRooms.find(r => r.jid.toString().toLowerCase() === room.jid.toString().toLowerCase());
+
+      if (freshRoom && typeof freshRoom.findOccupantByNick === 'function') {
+        occupant = freshRoom.findOccupantByNick(nick);
+      } else {
+        occupant = undefined;
       }
+
       if (!absent && occupant) return occupant;
       if (absent && !occupant) return;
       await new Promise(r => setTimeout(r, 100));
@@ -233,7 +239,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     });
 
-    xit('should be able to change nick', async () => {
+    it('should be able to change nick', async () => {
       await ensureRegisteredUser(testUtils.hero);
       await testUtils.logIn.hero();
 
@@ -322,7 +328,7 @@ describe('multi user chat plugin', () => {
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
     };
 
-    xit('should be able to join a room with a invite', async () => {
+    it('should be able to join a room with a invite', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -659,7 +665,7 @@ describe('multi user chat plugin', () => {
   });
 
   describe('room operations handling', () => {
-    xit('should handle kicked occupant and leave room', async () => {
+    it('should handle kicked occupant and leave room', async () => {
       await ensureRegisteredUser(testUtils.princess);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -669,11 +675,11 @@ describe('multi user chat plugin', () => {
       const princessRoom = await testUtils.chatService.roomService.joinRoom(room.jid.toString());
 
       // Check Princess affiliation
-      const affiliation = await getRoomAffiliation(
+      await getRoomAffiliation(
         parseJid(room.jid.toString())?.local as string,
         testUtils.princess.jid.toString()
       );
-      console.log('DEBUG: Princess Affiliation:', affiliation);
+      // console.log('DEBUG: Princess Affiliation:', affiliation);
 
       // 2. Hero logs in using a secondary connection (concurrently)
       const heroConnection = await Connection.create(
@@ -683,14 +689,18 @@ describe('multi user chat plugin', () => {
       );
       await heroConnection.login(`${testUtils.hero.jid}/test`, testUtils.hero.password);
       await firstValueFrom(heroConnection.onOnline$);
+      // heroConnection.xmlInput = (elem) => {
+      //   const str = new XMLSerializer().serializeToString(elem);
+      //   console.log(`[Hero Recv] ${str}`);
+      // };
 
       // Hero joins room via raw presence stanza
       try {
         // Hero joins room via raw presence stanza
         const heroNick = parseJid(testUtils.hero.jid).local as string;
         const roomJid = princessRoom.jid.toString(); // Use the joined room JID (lowercase normalized)
-        console.log('DEBUG: Hero joining room:', roomJid);
-        console.log('DEBUG: Hero nick:', heroNick);
+        // console.log('DEBUG: Hero joining room:', roomJid);
+        // console.log('DEBUG: Hero nick:', heroNick);
 
         // Wait a bit before joining to ensure connection stability
         await new Promise(r => setTimeout(r, 1000));
@@ -700,14 +710,16 @@ describe('multi user chat plugin', () => {
         await heroConnection.send(joinPresence.tree());
 
         // 3. Wait for Princess to see Hero in the room
-        console.log('DEBUG: Princess watching room:', princessRoom.jid.toString());
+        // console.log('DEBUG: Princess watching room:', princessRoom.jid.toString());
         await waitForOccupant(princessRoom, heroNick);
+        // console.log('DEBUG: Hero seen by Princess!');
 
         // 4. Princess kicks Hero
+        // console.log('DEBUG: Kick starting...');
         try {
           await testUtils.chatService.roomService.kickFromRoom(heroNick, roomJid);
         } catch (e) {
-          console.error('DEBUG: Kick Failed:', e);
+          // console.error('DEBUG: Kick Failed:', e);
           throw e;
         }
 

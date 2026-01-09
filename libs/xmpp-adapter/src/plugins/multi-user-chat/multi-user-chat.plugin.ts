@@ -305,7 +305,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     await this.handleRoomPresenceStanza(presenceResponse, room);
     room.handleOccupantJoined(
       {
-        jid: parseJid(userJid).bare(),
+        jid: occupantJid,
         affiliation: presenceResponse.getAttribute('affiliation') as Affiliation,
         role: presenceResponse.getAttribute('role') as Role,
         nick: occupantJid?.resource ?? '',
@@ -644,7 +644,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
   getRoomByJid(jid: JID): Observable<Room | undefined> {
     return this.rooms$.pipe(
-      map((rooms) => rooms?.find((room) => room?.jid?.bare()?.equals(jid.bare())))
+      map((rooms) => rooms?.find((room) => {
+        const rBare = room?.jid?.bare();
+        return rBare && rBare.toString().toLowerCase() === jid.bare().toString().toLowerCase();
+      }))
     );
   }
 
@@ -994,21 +997,21 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
   private async getOrCreateRoom(roomJid: JID): Promise<Room> {
     roomJid = roomJid.bare();
 
-    if (!this.roomLocks.get(roomJid.toString())) {
+    if (!this.roomLocks.get(roomJid.toString().toLowerCase())) {
       this.roomLocks.set(
-        roomJid.toString(),
+        roomJid.toString().toLowerCase(),
         (async () => {
           let room = await firstValueFrom(this.getRoomByJid(roomJid));
           if (!room) {
             room = await this.customRoomFactory.create(this.logService, roomJid, roomJid.local);
             this.createdRoomSubject.next(room);
           }
-          this.roomLocks.delete(roomJid.toString());
+          this.roomLocks.delete(roomJid.toString().toLowerCase());
           return room;
         })()
       );
     }
-    return this.roomLocks.get(roomJid.toString());
+    return this.roomLocks.get(roomJid.toString().toLowerCase());
   }
 
   private async extractRoomSummariesFromResponse(iq: IqResponseStanza): Promise<Room[]> {
