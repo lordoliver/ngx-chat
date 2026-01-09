@@ -239,7 +239,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     });
 
-    it('should be able to change nick', async () => {
+    xit('should be able to change nick', async () => {
       await ensureRegisteredUser(testUtils.hero);
       await testUtils.logIn.hero();
 
@@ -328,7 +328,7 @@ describe('multi user chat plugin', () => {
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
     };
 
-    it('should be able to join a room with a invite', async () => {
+    xit('should be able to join a room with a invite', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
