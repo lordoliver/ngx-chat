@@ -36,6 +36,7 @@ test.fixme('MUC messages should be delivered to all participants', async ({ brow
     // 4. Create Room (SnowWhite) -> Explicitly Members-Only
     const snowMuc = snowWhitePage.createMUCPageObject();
     await snowMuc.createRoom(roomName, 'snowwhite', { membersOnly: true, persistent: true });
+    await snowMuc.waitForRoom(roomName);
 
     // 5. Grant Membership & Invite (Required for secure Closed Rooms)
     const sleepyJid = `sleepy@${devXmppDomain}`;

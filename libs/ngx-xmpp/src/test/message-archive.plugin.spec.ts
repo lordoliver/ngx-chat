@@ -24,7 +24,7 @@ describe('message archive plugin', () => {
     testUtils = new TestUtils(testBed.inject<XmppService>(CHAT_SERVICE_TOKEN));
   });
 
-  xit('should handle chat messages from archive by creating contacts and adding messages to contacts', async () => {
+  it('should handle chat messages from archive by creating contacts and adding messages to contacts', async () => {
     const chatArchiveStanza = $msg({ from, to: testUtils.hero.jid })
       .c('result', { xmlns: 'urn:xmpp:mam:2' })
       .c('forwarded')

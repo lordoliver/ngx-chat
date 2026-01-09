@@ -8,7 +8,9 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/dist/{projectRoot}"
+      ],
       "options": {
         "project": "libs/ngx-chat/ng-package.json"
       },
@@ -21,7 +23,10 @@
         }
       },
       "defaultConfiguration": "production",
-      "inputs": ["{projectRoot}/**/*", "{projectRoot}/package.json"]
+      "inputs": [
+        "{projectRoot}/**/*",
+        "{projectRoot}/package.json"
+      ]
     },
     "ts-check": {
       "executor": "nx:run-commands",
@@ -37,9 +42,12 @@
       "executor": "@nx/eslint:lint"
     },
     "test": {
-      "executor": "@nx/angular:karma",
+      "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "lintFilePatterns": ["libs/ngx-chat/**/*.ts", "libs/ngx-chat/**/*.html"]
+        "lintFilePatterns": [
+          "libs/ngx-chat/**/*.ts",
+          "libs/ngx-chat/**/*.html"
+        ]
       }
     },
     "version": {

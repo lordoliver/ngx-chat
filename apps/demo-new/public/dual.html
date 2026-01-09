@@ -57,12 +57,13 @@
         const p1 = params.get('p1') || 'snowwhite';
         const u2 = params.get('u2') || 'sleepy';
         const p2 = params.get('p2') || 'sleepy';
+        const service = params.get('service') || 'ws://localhost:5280/websocket';
 
         document.getElementById('header1').textContent = u1;
         document.getElementById('header2').textContent = u2;
 
-        document.getElementById('frame1').src = `/?username=${u1}&password=${p1}`;
-        document.getElementById('frame2').src = `/?username=${u2}&password=${p2}`;
+        document.getElementById('frame1').src = `/?username=${u1}&password=${p1}&service=${service}`;
+        document.getElementById('frame2').src = `/?username=${u2}&password=${p2}&service=${service}`;
     </script>
 </body>
 

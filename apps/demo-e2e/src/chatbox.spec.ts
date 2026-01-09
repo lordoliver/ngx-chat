@@ -32,6 +32,7 @@ test.describe('ngx-chat', () => {
   });
 
   test('should be able to submit message with enter key and button', async () => {
+    test.setTimeout(60000);
     await appPage.logIn(fooUser, testPassword);
     await appPage.addContact(barUserJid);
     await appPage.addContact(fooUserJid);

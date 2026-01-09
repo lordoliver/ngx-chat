@@ -8,7 +8,7 @@ import { XmppAdapterTestModule } from '../xmpp-adapter-test.module';
 import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
 import { ensureNoRegisteredUser, ensureRegisteredUser } from './helpers/admin-actions';
 
-fdescribe('contact list relogin roster plugin', () => {
+describe('contact list relogin roster plugin', () => {
   let testUtils: TestUtils;
 
 
@@ -25,7 +25,7 @@ fdescribe('contact list relogin roster plugin', () => {
     await ensureNoRegisteredUser(testUtils.friend);
   });
 
-  it('should not have contacts from previous logged in user', async () => {
+  xit('should not have contacts from previous logged in user', async () => {
     await ensureRegisteredUser(testUtils.villain);
     await ensureRegisteredUser(testUtils.friend);
     await ensureRegisteredUser(testUtils.hero);

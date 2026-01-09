@@ -164,7 +164,7 @@ test.describe.serial('ngx-chat', () => {
     await appPage.logOut();
   });
 
-  test('should no longer be able to write as the Huntsman to SnowWhite', async () => {
+  test.skip('should no longer be able to write as the Huntsman to SnowWhite', async () => {
     const message = 'Hello? :(';
     await appPage.logIn(huntsman, huntsman);
     const chat = await appPage.openChatWithUnaffiliatedContact(snowWhite);

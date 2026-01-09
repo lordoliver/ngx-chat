@@ -32,7 +32,7 @@ test.describe('Dual Connect', () => {
         await ejabberdAdminPage.register(snowWhite, snowWhite);
         await ejabberdAdminPage.register(sleepy, sleepy);
 
-        await page.goto(`/dual.html?u1=${snowWhite}&p1=${snowWhite}&u2=${sleepy}&p2=${sleepy}`);
+        await page.goto(`/dual.html?u1=${snowWhite}&p1=${snowWhite}&u2=${sleepy}&p2=${sleepy}&service=${encodeURIComponent('ws://localhost:5280/websocket')}`);
 
         const snowWhiteFrame = page.frames().find(f => f.url().includes(`username=${snowWhite}`));
         const sleepyFrame = page.frames().find(f => f.url().includes(`username=${sleepy}`));
