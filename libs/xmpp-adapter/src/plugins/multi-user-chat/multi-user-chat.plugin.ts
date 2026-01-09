@@ -896,7 +896,15 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       (status): string => status.getAttribute('code') as string
     );
 
-    const room = roomInCreation ?? (await this.getOrCreateRoom(roomJid));
+    let room = roomInCreation ?? (await firstValueFrom(this.getRoomByJid(roomJid)));
+
+    if (!room && stanzaType === 'unavailable') {
+      return false;
+    }
+
+    if (!room) {
+      room = await this.getOrCreateRoom(roomJid);
+    }
     const userJid = parseJid(await firstValueFrom(this.xmppService.userJid$));
 
     const isCurrentUser =
