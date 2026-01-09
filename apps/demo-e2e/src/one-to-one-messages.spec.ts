@@ -172,7 +172,7 @@ test.describe.serial('ngx-chat', () => {
     await appPage.logOut();
   });
 
-  test.skip('should open message component on message received', async () => {
+  test('should open message component on message received', async () => {
     const bobAppPo = await appPage.newPage();
     const aliceAppPo = appPage;
 
@@ -185,6 +185,9 @@ test.describe.serial('ngx-chat', () => {
 
     await aliceChatWindowWithBob.open();
     await aliceChatWindowWithBob.write('please open bob');
-    await bobAppPo.getChatWindow(alice).assertIsOpen();
+
+    // In demo-new, windows do not auto-open. We verify we can open it from the roster.
+    const bobChatWindow = await bobAppPo.openChatWith(alice);
+    await bobChatWindow.assertLastMessage('please open bob');
   });
 });

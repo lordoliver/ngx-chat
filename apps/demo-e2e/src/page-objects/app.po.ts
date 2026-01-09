@@ -68,7 +68,7 @@ export class AppPage {
     this.rosterListBlockedHeader = page.locator('[data-zid="roster-group-header-blocked"]');
 
     this.createRoosterEntrySelector = (username) =>
-      `.roster-recipient[title="${username.toLowerCase()}"]`;
+      `.roster-recipient[title*="${username.toLowerCase()}"]`;
     this.createRoosterEntryLocator = (username) =>
       page.locator(this.createRoosterEntrySelector(username));
     this.createChatBoxInputLocator = (username) =>
