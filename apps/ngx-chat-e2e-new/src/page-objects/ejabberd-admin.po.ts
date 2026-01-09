@@ -165,7 +165,8 @@ export class EjabberdAdminPage {
       host,
       await playwright.request.newContext({
         // All requests we send go to this API endpoint.
-        baseURL: `http://${host}:52810/api/`,
+        // The server is exposed on localhost, even if the XMPP domain is different.
+        baseURL: `http://localhost:52810/api/`,
         extraHTTPHeaders: {
           'X-Admin': 'true',
           'Content-Type': 'application/json',

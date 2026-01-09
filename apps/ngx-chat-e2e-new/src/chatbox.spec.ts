@@ -54,10 +54,14 @@ test.describe('ngx-chat', () => {
     await chatWindow.open();
 
     await chatWindow.write(buttonSubmitMessage, 'button');
-    await expect(chatWindow.getOutMessages().filter({ hasText: buttonSubmitMessage })).toBeVisible();
+    const buttonMsg = chatWindow.getOutMessages().filter({ hasText: buttonSubmitMessage });
+    await buttonMsg.scrollIntoViewIfNeeded();
+    await expect(buttonMsg).toBeVisible();
 
     await chatWindow.write(enterKeySubmitMessage, 'enter');
-    await expect(chatWindow.getOutMessages().filter({ hasText: enterKeySubmitMessage })).toBeVisible();
+    const enterMsg = chatWindow.getOutMessages().filter({ hasText: enterKeySubmitMessage });
+    await enterMsg.scrollIntoViewIfNeeded();
+    await expect(enterMsg).toBeVisible();
 
     await appPage.logOut();
   });

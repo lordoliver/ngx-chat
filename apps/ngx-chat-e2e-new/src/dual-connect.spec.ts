@@ -82,11 +82,15 @@ test.describe('Dual Connect', () => {
 
         await snowChatInput.fill(msgA1);
         await snowChatInput.press('Enter');
-        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA1 })).toBeVisible({ timeout: 10000 });
+        const msgA1Loc = snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA1 });
+        await msgA1Loc.scrollIntoViewIfNeeded();
+        await expect(msgA1Loc).toBeVisible({ timeout: 10000 });
 
         await snowChatInput.fill(msgA2);
         await snowChatInput.press('Enter');
-        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA2 })).toBeVisible({ timeout: 10000 });
+        const msgA2Loc = snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA2 });
+        await msgA2Loc.scrollIntoViewIfNeeded();
+        await expect(msgA2Loc).toBeVisible({ timeout: 10000 });
 
         // Sleepy: Open chat and verify receipt
         const sleepyContactInput = sleepyFrame.locator('[data-zid="contact-jid"]');
@@ -107,35 +111,61 @@ test.describe('Dual Connect', () => {
         const sleepyChatInput = sleepyChatWindow.locator('[data-zid="chat-input"]');
 
         // Verify Sleepy sees A1, A2 (in)
-        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA1 })).toBeVisible({ timeout: 10000 });
-        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA2 })).toBeVisible({ timeout: 10000 });
+        const sleepyMsgA1 = sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA1 });
+        await sleepyMsgA1.scrollIntoViewIfNeeded();
+        await expect(sleepyMsgA1).toBeVisible({ timeout: 10000 });
+
+        const sleepyMsgA2 = sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA2 });
+        await sleepyMsgA2.scrollIntoViewIfNeeded();
+        await expect(sleepyMsgA2).toBeVisible({ timeout: 10000 });
 
         // 2. Sleepy sends 2 messages (B1, B2)
 
         await sleepyChatInput.fill(msgB1);
         await sleepyChatInput.press('Enter');
-        await expect(sleepyChatWindow.locator('ngx-chat-message-out', { hasText: msgB1 })).toBeVisible({ timeout: 10000 });
+        const sleepyMsgB1 = sleepyChatWindow.locator('ngx-chat-message-out', { hasText: msgB1 });
+        await sleepyMsgB1.scrollIntoViewIfNeeded();
+        await expect(sleepyMsgB1).toBeVisible({ timeout: 10000 });
 
         await sleepyChatInput.fill(msgB2);
         await sleepyChatInput.press('Enter');
-        await expect(sleepyChatWindow.locator('ngx-chat-message-out', { hasText: msgB2 })).toBeVisible({ timeout: 10000 });
+
+        const sleepyMsgB2 = sleepyChatWindow.locator('ngx-chat-message-out', { hasText: msgB2 });
+        await sleepyMsgB2.scrollIntoViewIfNeeded();
+        await expect(sleepyMsgB2).toBeVisible({ timeout: 10000 });
 
         // Verify SnowWhite sees B1, B2 (in)
-        await expect(snowChatWindow.locator('ngx-chat-message-in', { hasText: msgB1 })).toBeVisible({ timeout: 10000 });
-        await expect(snowChatWindow.locator('ngx-chat-message-in', { hasText: msgB2 })).toBeVisible({ timeout: 10000 });
+        const snowMsgB1 = snowChatWindow.locator('ngx-chat-message-in', { hasText: msgB1 });
+        await snowMsgB1.scrollIntoViewIfNeeded();
+        await expect(snowMsgB1).toBeVisible({ timeout: 10000 });
+
+        const snowMsgB2 = snowChatWindow.locator('ngx-chat-message-in', { hasText: msgB2 });
+        await snowMsgB2.scrollIntoViewIfNeeded();
+        await expect(snowMsgB2).toBeVisible({ timeout: 10000 });
 
         // 3. SnowWhite sends 2 messages (A3, A4)
 
         await snowChatInput.fill(msgA3);
         await snowChatInput.press('Enter');
-        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA3 })).toBeVisible({ timeout: 10000 });
+
+        const snowMsgA3 = snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA3 });
+        await snowMsgA3.scrollIntoViewIfNeeded();
+        await expect(snowMsgA3).toBeVisible({ timeout: 10000 });
 
         await snowChatInput.fill(msgA4);
         await snowChatInput.press('Enter');
-        await expect(snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA4 })).toBeVisible({ timeout: 10000 });
+
+        const snowMsgA4 = snowChatWindow.locator('ngx-chat-message-out', { hasText: msgA4 });
+        await snowMsgA4.scrollIntoViewIfNeeded();
+        await expect(snowMsgA4).toBeVisible({ timeout: 10000 });
 
         // Verify Sleepy sees A3, A4 (in)
-        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA3 })).toBeVisible({ timeout: 10000 });
-        await expect(sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA4 })).toBeVisible({ timeout: 10000 });
+        const sleepyMsgA3 = sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA3 });
+        await sleepyMsgA3.scrollIntoViewIfNeeded();
+        await expect(sleepyMsgA3).toBeVisible({ timeout: 10000 });
+
+        const sleepyMsgA4 = sleepyChatWindow.locator('ngx-chat-message-in', { hasText: msgA4 });
+        await sleepyMsgA4.scrollIntoViewIfNeeded();
+        await expect(sleepyMsgA4).toBeVisible({ timeout: 10000 });
     });
 });
