@@ -104,7 +104,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         ),
         this.updateRoomSubject.pipe(
           map((updatedRoom) => {
-            const key = updatedRoom.jid.bare().toString();
+            const key = updatedRoom.jid.bare().toString().toLowerCase();
             if (this.roomsMap.has(key)) {
               this.roomsMap.set(key, updatedRoom);
               return this.roomsMap;
@@ -114,7 +114,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         ),
         merge(this.leftRoomSubject, this.destroyedRoomSubject).pipe(
           map((jid) => {
-            this.roomsMap.delete(jid.toString());
+            this.roomsMap.delete(jid.bare().toString().toLowerCase());
             return this.roomsMap;
           })
         ),
@@ -122,7 +122,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
           mergeMap(async () => this.getPublicOrJoinedRooms()),
           map((rooms) => {
             rooms.forEach((room) => {
-              const roomBareJid = room.jid.bare().toString();
+              const roomBareJid = room.jid.bare().toString().toLowerCase();
               if (!this.roomsMap.has(roomBareJid)) {
                 this.roomsMap.set(roomBareJid, room);
               }
@@ -783,9 +783,8 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     }
 
     const occupant = room?.getOccupant(parseJid(from).bare());
-
     if (!occupant) {
-      throw new Error('user is not an occupant of the room');
+      this.logService.warn('leaveRoom: user not found in local occupant list, proceeding with unavailable presence anyway to ensure server sync.');
     }
 
     const response = await this.xmppService.chatConnectionService
@@ -802,7 +801,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     /**
      * To completely remove oneself from a room (i.e., change affiliation to "none"), a user generally needs to have the right permissions to change their own affiliation.
      */
-    if (occupant.affiliation === Affiliation.owner) {
+    if (occupant && occupant.affiliation === Affiliation.owner) {
       await this.setAffiliation(occupant.jid, roomJid, Affiliation.none);
     }
     this.leftRoomSubject.next(roomJid);
@@ -1001,7 +1000,6 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
   }
 
   private readonly roomLocks = new Map<string, Promise<any>>();
-
   private async getOrCreateRoom(roomJid: JID): Promise<Room> {
     roomJid = roomJid.bare();
 
@@ -1074,13 +1072,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     if (this.isRoomInvitationStanza(stanza)) {
       return this.handleRoomInvitationMessageStanza(stanza);
     }
-    const room = await this.getOrCreateRoom(from.bare());
+    const room = await firstValueFrom(this.getRoomByJid(from.bare()));
 
-    // When we create a room by message we want to extract the occupants to know their jid's (origin jid's and not jids in room)
-    // to avoid querying for them latter
-
-    if (messageText) {
-      console.log(`[MUC-MSG-DEBUG] Handling message from ${from.toString()}: "${messageText}". Room found: ${!!room}`);
+    if (!room) {
+      return true;
     }
 
     const roomOccupants = Finder.create(stanza)
