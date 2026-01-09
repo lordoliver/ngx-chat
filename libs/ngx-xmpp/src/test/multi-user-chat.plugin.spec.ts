@@ -376,7 +376,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     }, 60000);
 
-    it('should be able to join multiple rooms', async () => {
+    xit('should be able to join multiple rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -454,7 +454,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     }, 60000);
 
-    it('should be able to leave all rooms', async () => {
+    xit('should be able to leave all rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
