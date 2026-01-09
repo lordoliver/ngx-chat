@@ -41,7 +41,7 @@ describe('block plugin', () => {
     await ensureNoRegisteredUser(testUtils.hero);
   });
 
-  xit('should be able to unblock a contact', async () => {
+  it('should be able to unblock a contact', async () => {
     const contactsPromise = firstValueFrom(contactService.contacts$);
     const blockedPromise = firstValueFrom(
       contactService.blockedContactJIDs$.pipe(filter((b) => b.size === 1))
