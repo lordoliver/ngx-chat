@@ -145,8 +145,11 @@ export class XmppService implements ChatService {
       try {
         await Promise.race([
           onOnlinePromise,
+          firstValueFrom(this.onOffline$).then(() => {
+            throw new Error('Login failed: Connection went offline immediately');
+          }),
           new Promise((_, reject) =>
-            setTimeout(() => reject(new Error('timeout waiting for onOnline$')), 60000)
+            setTimeout(() => reject(new Error('timeout waiting for onOnline$')), 10000)
           ),
         ]);
       } catch (e) {

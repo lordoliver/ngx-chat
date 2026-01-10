@@ -5,7 +5,7 @@ import { Affiliation, Direction, parseJid, Role, Room } from '@pazznetwork/ngx-c
 import { XmppService } from '@pazznetwork/xmpp-adapter';
 import type { StropheWebsocket } from '@pazznetwork/strophe-ts';
 import { filter } from 'rxjs/operators';
-import { destroyRoom } from './ejabberd-client';
+import { destroyRoom, getMucRooms } from './ejabberd-client';
 // using legacy domain for XMPP server match, but localhost for connection
 const devXmppDomain = 'local-jabber.entenhausen.pazz.de';
 
@@ -136,15 +136,17 @@ export class TestUtils {
   };
 
   readonly logOut = async (): Promise<void> => {
-    await this.chatService.logOut();
-    // Wait for state to become offline
-    await firstValueFrom(
-      this.chatService.isOnline$.pipe(
-        filter(online => !online),
-        timeout(5000),
-        catchError(() => of(false)) // Proceed anyway on timeout
-      )
-    );
+    if (await firstValueFrom(this.chatService.isOnline$)) {
+      await this.chatService.logOut();
+      // Wait for state to become offline
+      await firstValueFrom(
+        this.chatService.isOnline$.pipe(
+          filter(online => !online),
+          timeout(5000),
+          catchError(() => of(false)) // Proceed anyway on timeout
+        )
+      );
+    }
     // Wait for the socket to actually close and server to register it
     await new Promise((resolve) => setTimeout(resolve, 3000));
   };
@@ -233,18 +235,36 @@ export class TestUtils {
   }
 
   static async cleanAllCreatedRooms(): Promise<void> {
-    const rooms = Array.from(TestUtils.createdRooms);
-    if (rooms.length > 0) {
-      console.log(`[TestUtils] Cleaning up ${rooms.length} tracked rooms...`);
-      for (const room of rooms) {
+    // 1. Fetch all rooms from server
+    let onlineRooms: string[] = [];
+    try {
+      const roomJids = await getMucRooms();
+      onlineRooms = roomJids.map(jid => jid.split('@')[0] || '');
+    } catch (e) {
+      console.warn('[TestUtils] Failed to fetch online rooms:', e);
+      // Fallback to tracked rooms if API fails
+      onlineRooms = Array.from(TestUtils.createdRooms);
+    }
+
+    // 2. Identify target rooms (Tracked OR Matching Prefixes)
+    const prefixes = ['heroRoom', 'villainRoom', 'princessRoom', 'fatherRoom', 'friendRoom', 'configtestroom', 'chatroom', 'scrollroom', 'test-room'];
+    const roomsToDestroy = new Set([
+      ...Array.from(TestUtils.createdRooms),
+      ...onlineRooms.filter(name => prefixes.some(prefix => name.toLowerCase().startsWith(prefix.toLowerCase())))
+    ]);
+
+    if (roomsToDestroy.size > 0) {
+      console.log(`[Cleanup] Found ${roomsToDestroy.size} rooms to destroy matching prefixes: ${prefixes.join(', ')}`);
+      for (const room of roomsToDestroy) {
         try {
           await destroyRoom(room);
-          await new Promise(resolve => setTimeout(resolve, 50));
+          await new Promise(resolve => setTimeout(resolve, 20));
         } catch (e) {
           // ignore
         }
       }
-      TestUtils.createdRooms.clear();
     }
+    TestUtils.createdRooms.clear();
   }
+
 }
