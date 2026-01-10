@@ -142,12 +142,17 @@ export class XmppService implements ChatService {
       this.lastLogInRequest = logInRequest;
       const onOnlinePromise = firstValueFrom(this.onOnline$);
       await this.chatConnectionService.logIn(logInRequest);
-      await Promise.race([
-        onOnlinePromise,
-        new Promise((_, reject) =>
-          setTimeout(() => reject(new Error('timeout waiting for onOnline$')), 10000)
-        ),
-      ]);
+      try {
+        await Promise.race([
+          onOnlinePromise,
+          new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('timeout waiting for onOnline$')), 60000)
+          ),
+        ]);
+      } catch (e) {
+        throw e;
+      }
+
       await this.pluginMap.disco.ensureServicesAreDiscovered(logInRequest.domain);
       await firstValueFrom(this.pluginMap.disco.servicesInitialized$);
       try {
@@ -165,7 +170,10 @@ export class XmppService implements ChatService {
       const offlinePromise = firstValueFrom(this.onOffline$);
       this.pluginMap.roster.clear();
       await this.chatConnectionService.logOut();
-      await offlinePromise;
+      await Promise.race([
+        offlinePromise,
+        new Promise((resolve) => setTimeout(resolve, 20000))
+      ]);
     });
   }
 

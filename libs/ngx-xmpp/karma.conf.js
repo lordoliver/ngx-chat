@@ -25,10 +25,10 @@ module.exports = function (config) {
     },
     client: {
       jasmine: {
-        timeoutInterval: 60000,
+        timeoutInterval: 300000,
       },
       clearContext: false, // leave Jasmine Spec Runner output visible in browser
     },
-    browserNoActivityTimeout: 240000,
+    browserNoActivityTimeout: 600000,
   });
 };

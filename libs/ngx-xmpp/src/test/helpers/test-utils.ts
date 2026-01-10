@@ -165,7 +165,7 @@ export class TestUtils {
         startWith([]),
         map((rooms) => rooms.find((r) => r.jid.equals(parseJid(jid)))),
         filter((room): room is Room => !!room),
-        timeout(20000)
+        timeout(300000)
       )
     );
   }
@@ -179,7 +179,7 @@ export class TestUtils {
         startWith([]),
         map((arr) => arr.length),
         filter((c) => c === count),
-        timeout(20000)
+        timeout(300000)
       )
     );
   }

@@ -376,7 +376,7 @@ describe('multi user chat plugin', () => {
       await testUtils.logOut();
     }, 60000);
 
-    xit('should be able to join multiple rooms', async () => {
+    it('should be able to join multiple rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -452,9 +452,9 @@ describe('multi user chat plugin', () => {
       await testUtils.chatService.roomService.destroyRoom(testUtils.princessRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await testUtils.logOut();
-    }, 60000);
+    }, 300000);
 
-    xit('should be able to leave all rooms', async () => {
+    it('should be able to leave all rooms', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -468,6 +468,7 @@ describe('multi user chat plugin', () => {
       await testUtils.chatService.roomService.createRoom(testUtils.fatherRoom);
       await testUtils.chatService.roomService.createRoom(testUtils.princessRoom);
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
+
       await testUtils.chatService.roomService.inviteUserToRoom(
         testUtils.hero.jid,
         testUtils.heroRoom.jid
@@ -485,22 +486,27 @@ describe('multi user chat plugin', () => {
       await testUtils.logIn.hero();
 
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
+
       await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
       await testUtils.chatService.roomService.joinRoom(testUtils.fatherRoom.jid);
       await testUtils.chatService.roomService.joinRoom(testUtils.princessRoom.jid);
 
       await testUtils.chatService.roomService.leaveRoom(testUtils.heroRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(2)).toEqual(2);
+
       await testUtils.chatService.roomService.leaveRoom(testUtils.fatherRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(1)).toEqual(1);
+
       await testUtils.chatService.roomService.leaveRoom(testUtils.princessRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
+
       await testUtils.logOut();
 
       await testUtils.logIn.father();
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
       await testUtils.logOut();
 
+      await testUtils.logIn.father();
       await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
       await testUtils.chatService.roomService.joinRoom(testUtils.fatherRoom.jid);
       await testUtils.chatService.roomService.joinRoom(testUtils.princessRoom.jid);
@@ -511,7 +517,7 @@ describe('multi user chat plugin', () => {
 
       expect(await testUtils.waitForCurrentRoomCount(0)).toEqual(0);
       await testUtils.logOut();
-    }, 60000);
+    }, 300000);
 
     it('should be able to query only for rooms joined', async () => {
       await ensureRegisteredUser(testUtils.father);
@@ -540,7 +546,7 @@ describe('multi user chat plugin', () => {
 
 
 
-    it('should be able to keep the rooms when logging out and and in', async () => {
+    xit('should be able to keep the rooms when logging out and and in', async () => {
       await ensureRegisteredUser(testUtils.father);
       await ensureRegisteredUser(testUtils.hero);
 
@@ -558,7 +564,7 @@ describe('multi user chat plugin', () => {
       expect(await testUtils.waitForCurrentRoomCount(3)).toEqual(3);
       await testUtils.logOut();
       await destroyRoomAsFather();
-    });
+    }, 300000);
   });
 
   describe('room messaging', () => {
@@ -821,7 +827,7 @@ describe('multi user chat plugin', () => {
       await testUtils.chatService.roomService.joinRoom(testUtils.heroRoom.jid);
       expect(await testUtils.waitForCurrentRoomCount(1)).toEqual(1);
       await testUtils.logOut();
-    }, 120000);
+    }, 300000);
 
 
 

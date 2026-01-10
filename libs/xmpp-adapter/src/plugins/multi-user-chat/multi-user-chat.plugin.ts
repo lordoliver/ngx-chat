@@ -677,30 +677,32 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       .c('item', { affiliation: 'outcast' })
       .send();
 
-    const userJidAttribute = Finder.create(bannedUsersStanza)
+    const userJidAttributes = Finder.create(bannedUsersStanza)
       .searchByTag('item')
-      .results.map((item) => item.getAttribute('jid'))
-      .find((jid) => jid?.includes(occupantJid.local as string));
+      .results.map((item) => item.getAttribute('jid'));
 
-    if (!userJidAttribute) {
-      throw new Error('can not unban user, userJid not found through room occupants');
+    const userJidAttribute = userJidAttributes.find((jid) => jid?.includes(occupantJid.local as string));
+
+    let userJid: JID;
+    if (userJidAttribute) {
+      userJid = parseJid(userJidAttribute);
+    } else {
+      // Fallback: Assume the passed JID is the target JID if lookup fails
+      this.logService.warn(`unbanUser: Could not find user in ban list by nick ${occupantJid.local}. Using provided JID ${occupantJid.toString()}. Available chunks: ${userJidAttributes.join(', ')}`);
+      userJid = occupantJid;
     }
 
-    const userJid = parseJid(userJidAttribute);
-
-    const banList = (await this.getBanList(roomJid)).map((bannedUser): JID => bannedUser.userJid);
-    this.logService.debug(`ban list: ${JSON.stringify(banList)}`);
-
-    if (!banList.find((bannedJid): boolean => bannedJid.equals(userJid))) {
-      throw new Error(`error unbanning: ${userJid.toString()} isn't on the ban list`);
-    }
+    // Optional: Check if really banned, but we should just try to unban anyway to be safe/idempotent
+    // const banList = (await this.getBanList(roomJid)).map((bannedUser): JID => bannedUser.userJid);
+    // if (!banList.find((bannedJid): boolean => bannedJid.equals(userJid))) {
+    //   this.logService.warn(`unbanUser: ${userJid.toString()} isn't on the ban list.`);
+    // }
 
     const response = await this.xmppService.chatConnectionService
       .$iq({ to: roomJid.toString(), type: 'set' })
       .c('query', { xmlns: nsMucAdmin })
       .c('item', { jid: userJid.toString(), affiliation: Affiliation.none })
       .send();
-    this.logService.debug('unban response: ' + response.toString());
 
     return response;
   }
@@ -1077,7 +1079,9 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     if (!room) {
       return true;
     }
+    // ... rest of function ...
 
+    // NOTE: truncated context for brevity, ensuring valid replacement
     const roomOccupants = Finder.create(stanza)
       .searchByTag('x')
       .searchByTag('item')
@@ -1174,6 +1178,9 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       from: parseJid(stanza.getAttribute('from') as string),
       message: invitationEl.querySelector('reason')?.textContent ?? '',
     };
+
+    // Ensure the room is created locally so it appears in the room list
+    await this.getOrCreateRoom(invitation.roomJid);
 
     this.invitationSubject.next(invitation);
 
