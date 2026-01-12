@@ -256,15 +256,10 @@ export async function destroyRoom(
   room: string,
   service = 'conference.' + xmppDomain
 ): Promise<unknown> {
-  try {
-    return await executeRequest('destroy_room', {
-      name: room,
-      service,
-    });
-  } catch (e) {
-    // ignore if room does not exist
-    return;
-  }
+  return await executeRequest('destroy_room', {
+    name: room,
+    service,
+  });
 }
 
 export async function addContact({
@@ -304,17 +299,22 @@ export async function executeRequest<TReturn>(
   headers['Content-Type'] = 'application/json';
   headers['Authorization'] = `Basic ${btoa(String(adminUserName) + ':' + String(adminPassword))}`;
   // console.log(`[Ejabberd API] Requesting ${path} from ${apiUrl} with user ${adminUserName}`);
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
   try {
     const response = await fetch(apiUrl + path, {
       headers,
       method: 'POST',
       body: JSON.stringify(json),
+      signal: controller.signal,
     });
+    clearTimeout(timeoutId);
     // console.log(`[Ejabberd API] Response ${path}: ${response.status} ${response.statusText}`);
     const text = await response.text();
     // console.log(`[Ejabberd API] Body: ${text}`);
     return JSON.parse(text) as TReturn;
   } catch (e) {
+    clearTimeout(timeoutId);
     console.error(`[Ejabberd API] Error ${path}:`, e);
     throw e;
   }

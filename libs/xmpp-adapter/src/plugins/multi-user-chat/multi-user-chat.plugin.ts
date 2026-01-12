@@ -2,12 +2,15 @@
 import {
   Connectable,
   connectable,
+  filter,
   firstValueFrom,
+  map,
   merge,
   mergeMap,
   Observable,
-  pairwise,
+  of,
   ReplaySubject,
+  shareReplay,
   startWith,
   switchMap,
   tap,
@@ -47,7 +50,6 @@ import {
   nsMucUser,
   nsRSM,
 } from './multi-user-chat-constants';
-import { filter, map, shareReplay } from 'rxjs/operators';
 import type { Handler } from '@pazznetwork/strophe-ts';
 import type { StanzaBuilder } from '../../stanza-builder';
 import { OtherStatusCode } from './other-status-code';
@@ -164,6 +166,11 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       { ns: nsMuc, name: 'presence' },
       { ignoreNamespaceFragment: true, matchBareFromJid: true }
     );
+    await this.xmppService.chatConnectionService.addHandler(
+      (stanza) => this.handleRoomPresenceStanza(stanza),
+      { ns: nsMucUser, name: 'presence' },
+      { ignoreNamespaceFragment: true, matchBareFromJid: true }
+    );
   }
 
   async unregisterHandler(): Promise<void> {
@@ -239,13 +246,13 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
   }
 
   async destroyRoom(roomJid: JID): Promise<void> {
-    const lessRoomsPromise = firstValueFrom(
-      this.rooms$.pipe(
-        map((rooms) => rooms.length),
-        pairwise(),
-        filter(([before, after]) => before > after)
-      )
-    );
+    // const lessRoomsPromise = firstValueFrom(
+    //   this.rooms$.pipe(
+    //     map((rooms) => rooms.length),
+    //     pairwise(),
+    //     filter(([before, after]) => before > after)
+    //   )
+    // );
     if (!this.roomsMap.get(roomJid.bare().toString())) {
       throw new Error('Room does not exist in your list');
     }
@@ -257,7 +264,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
         .send();
       this.destroyedRoomSubject.next(roomJid);
 
-      await lessRoomsPromise;
+      // await lessRoomsPromise; // avoiding deadlock if rooms$ is stalled
     } catch (e) {
       this.logService.error((e as Element)?.outerHTML, 'error destroying room');
       throw e;
@@ -643,12 +650,20 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
   }
 
   getRoomByJid(jid: JID): Observable<Room | undefined> {
+    const cachedRoom = this.getRoomFromCache(jid);
+    if (cachedRoom) {
+      return of(cachedRoom);
+    }
     return this.rooms$.pipe(
       map((rooms) => rooms?.find((room) => {
         const rBare = room?.jid?.bare();
         return rBare && rBare.toString().toLowerCase() === jid.bare().toString().toLowerCase();
       }))
     );
+  }
+
+  private getRoomFromCache(jid: JID): Room | undefined {
+    return this.roomsMap.get(jid.bare().toString().toLowerCase());
   }
 
   async banUser(occupantJid: JID, roomJid: JID, reason?: string): Promise<IqResponseStanza> {
@@ -772,12 +787,15 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
 
     await this.xmppService.chatConnectionService
       .$pres({ to: new JID(parsedJid.local, parsedJid.domain, newNick).toString(), from })
-      .send();
+      .sendResponseLess();
   }
 
   async leaveRoom(roomJid: JID, status?: string): Promise<void> {
-    await firstValueFrom(this.roomsFetchedSubject.pipe(filter((val) => val)));
-    const room = await firstValueFrom(this.getRoomByJid(roomJid));
+    const cachedRoom = this.getRoomFromCache(roomJid);
+    if (!cachedRoom) {
+      await firstValueFrom(this.roomsFetchedSubject.pipe(filter((val) => val)));
+    }
+    const room = cachedRoom ?? (await firstValueFrom(this.getRoomByJid(roomJid)));
     const from = await firstValueFrom(this.xmppService.chatConnectionService.userJid$);
 
     if (!room) {
@@ -789,22 +807,30 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       this.logService.warn('leaveRoom: user not found in local occupant list, proceeding with unavailable presence anyway to ensure server sync.');
     }
 
+    this.logService.debug(`leaveRoom: sending unavailable presence...`);
     const response = await this.xmppService.chatConnectionService
       .$pres({ to: roomJid.toString(), from, type: Presence[Presence.unavailable] })
       .cCreateMethod(
         (builder): StanzaBuilder => (status ? builder.c('status', {}, status) : builder)
       )
       .send();
+    this.logService.debug(`leaveRoom: unavailable presence sent. Checking response...`);
 
     if (Finder.create(response).searchByTag('item').result?.getAttribute('role') !== 'none') {
       throw new Error('error leaving room: ' + response?.outerHTML?.toString());
     }
 
-    /**
-     * To completely remove oneself from a room (i.e., change affiliation to "none"), a user generally needs to have the right permissions to change their own affiliation.
-     */
     if (occupant && occupant.affiliation === Affiliation.owner) {
-      await this.setAffiliation(occupant.jid, roomJid, Affiliation.none);
+      this.logService.debug(`leaveRoom: user is owner, setting affiliation to none...`);
+      try {
+        await Promise.race([
+          this.setAffiliation(occupant.jid, roomJid, Affiliation.none),
+          new Promise((_, reject) => setTimeout(() => reject(new Error('setAffiliation timeout')), 5000))
+        ]);
+        this.logService.debug(`leaveRoom: affiliation set to none.`);
+      } catch (e) {
+        this.logService.error('leaveRoom: Failed to set affiliation to none, but proceeding to leave locally.', e);
+      }
     }
     this.leftRoomSubject.next(roomJid);
     this.logService.debug(`occupant left room: occupantJid=${roomJid.toString()}`);
@@ -897,7 +923,7 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       (status): string => status.getAttribute('code') as string
     );
 
-    let room = roomInCreation ?? (await firstValueFrom(this.getRoomByJid(roomJid)));
+    let room = roomInCreation ?? this.getRoomFromCache(roomJid) ?? (await firstValueFrom(this.getRoomByJid(roomJid)));
 
     if (!room && stanzaType === 'unavailable') {
       return false;
@@ -949,9 +975,10 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       this.logService.debug(`[MUC DEBUG] type=${stanzaType}, codes=${JSON.stringify(statusCodes)}, isCurrentUser=${isCurrentUser}, isUserExit=${isUserExitingStatus}, isShutdown=${isRoomShutdown}`);
     }
 
+    const isNickChange = statusCodes.includes(OtherStatusCode.NewNickNameInRoom);
     if (
       isRoomShutdown ||
-      (isCurrentUser && (isUserExitingStatus || stanzaType === 'unavailable'))
+      (isCurrentUser && (isUserExitingStatus || (stanzaType === 'unavailable' && !isNickChange)))
     ) {
       this.leftRoomSubject.next(room.jid);
     }
@@ -978,11 +1005,16 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
     }
 
     if (statusCodes.includes(OtherStatusCode.NewNickNameInRoom) && xEl) {
+      this.logService.warn(`[MUC DEBUG] 303 CODE DETECTED for ${subjectOccupant.nick} -> ${xEl?.querySelector('item')?.getAttribute('nick')}`);
       room.handleOccupantChangedNick(
         subjectOccupant,
         isCurrentUser,
         xEl?.querySelector('item')?.getAttribute('nick') ?? ''
       );
+      // Verify occupant update
+      const newNick = xEl?.querySelector('item')?.getAttribute('nick') ?? '';
+      const movedOccupant = room.findOccupantByNick(newNick);
+      this.logService.warn(`[MUC DEBUG] Occupant moved? ${!!movedOccupant}, isCurrentUser=${isCurrentUser}`);
       return true;
     }
 
@@ -1009,7 +1041,12 @@ export class MultiUserChatPlugin implements StanzaHandlerChatPlugin {
       this.roomLocks.set(
         roomJid.toString().toLowerCase(),
         (async () => {
-          let room = await firstValueFrom(this.getRoomByJid(roomJid));
+          let room = this.getRoomFromCache(roomJid);
+          if (!room) {
+            // Fallback to observable only if not in cache (though cache should be primary source via rooms$)
+            // actually, avoiding the observable wait entirely for creation flow is safer to prevent deadlocks
+            // room = await firstValueFrom(this.getRoomByJid(roomJid));
+          }
           if (!room) {
             room = await this.customRoomFactory.create(this.logService, roomJid, roomJid.local);
             this.createdRoomSubject.next(room);

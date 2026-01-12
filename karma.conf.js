@@ -67,9 +67,9 @@ module.exports = () => {
     logLevel: constants.LOG_INFO,
     browserNoActivityTimeout: 120000,
     browserDisconnectTolerance: 2,
-    autoWatch: true,
+    autoWatch: false,
     browsers: [browser],
-    singleRun: false,
+    singleRun: true,
     restartOnFileChange: true,
   };
 };

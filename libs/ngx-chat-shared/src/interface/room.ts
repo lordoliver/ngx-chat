@@ -188,6 +188,7 @@ export class Room implements Recipient {
       `occupant changed nick: from=${occupant.nick ?? 'undefined nick'
       }, to=${newNick}, occupantJid=${occupant.jid.toString()}, roomJid=${this.jid.toString()}`
     );
+    this.occupantsSubject.next([...this.roomOccupants.values()]);
     this.onOccupantChangeSubject.next({ change: 'changedNick', occupant, newNick, isCurrentUser });
   }
 

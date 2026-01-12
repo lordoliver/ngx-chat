@@ -25,7 +25,7 @@ describe('contact list relogin roster plugin', () => {
     await ensureNoRegisteredUser(testUtils.friend);
   });
 
-  xit('should not have contacts from previous logged in user', async () => {
+  it('should not have contacts from previous logged in user', async () => {
     await ensureRegisteredUser(testUtils.villain);
     await ensureRegisteredUser(testUtils.friend);
     await ensureRegisteredUser(testUtils.hero);
