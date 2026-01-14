@@ -37,7 +37,7 @@ application.
 ## Get Started
 
 ### Compatibility
-- Angular 19 (ngx-chat 0.19.x)
+- Angular 19 (ngx-chat 1.19.x)
 - Angular 14 (ngx-chat 0.14.x)
 - Angular 13 (ngx-chat 0.13.x)
 - Angular 12 (ngx-chat 0.12.x)
