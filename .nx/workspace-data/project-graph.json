@@ -90,7 +90,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@pazznetwork/ngx-chat-shared",
-            "packageVersion": "1.19.1",
+            "packageVersion": "1.19.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -213,7 +213,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@pazznetwork/xmpp-adapter",
-            "packageVersion": "1.18.0",
+            "packageVersion": "1.19.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -675,7 +675,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@pazznetwork/ngx-chat",
-            "packageVersion": "1.18.0",
+            "packageVersion": "1.19.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -806,7 +806,7 @@
           "targetGroups": {},
           "js": {
             "packageName": "@pazznetwork/ngx-xmpp",
-            "packageVersion": "1.18.0",
+            "packageVersion": "1.19.0",
             "isInPackageManagerWorkspaces": false
           }
         },
@@ -44547,5 +44547,5 @@
   },
   "version": "6.0",
   "errors": [],
-  "computedAt": 1768400165794
+  "computedAt": 1768429169291
 }

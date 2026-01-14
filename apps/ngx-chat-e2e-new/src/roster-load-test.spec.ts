@@ -132,6 +132,13 @@ test.describe('Roster Load Test', () => {
 
         // Verification: Check Separate Chat Window (Custom UI Integration - 'manual-chat-view')
         console.log('Checking separate chat window functionality...');
+
+        // Fix for "Decoupled Windows": We must explicitly click the manual button to open the big box now.
+        // It no longer opens automatically with the widget.
+        const manualButton = appPage.page.locator('.separate-roster-list button', { hasText: highVolumeContact }).first();
+        await manualButton.scrollIntoViewIfNeeded(); // Ensure visible in large list
+        await manualButton.click();
+
         const manualChat = appPage.page.locator('.manual-chat-view .manual-chat-container', { hasText: highVolumeContact });
         await expect(manualChat).toBeVisible();
         await expect(manualChat.locator('.chat-message', { hasText: 'History Message 0' }).first()).toBeVisible({ timeout: 10000 });

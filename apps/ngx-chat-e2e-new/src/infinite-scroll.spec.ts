@@ -58,9 +58,11 @@ test.describe('Infinite Scroll', () => {
 
         const chatWindow = new ChatWindowPage(snowWhitePage, u2Jid);
 
-        console.log('Sending 15 messages...');
-        for (let i = 1; i <= 25; i++) {
-            await chatWindow.write(`History Message ${i}`);
+        const messageCountToSend = 50;
+        console.log(`Sending ${messageCountToSend} messages...`);
+        const longText = ' This is a long message to ensure we overflow the container height. '.repeat(5);
+        for (let i = 1; i <= messageCountToSend; i++) {
+            await chatWindow.write(`History Message ${i} ${longText}`);
         }
 
         // Allow time for Sleepy (currently connected) to receive them, 
@@ -89,7 +91,7 @@ test.describe('Infinite Scroll', () => {
         console.log('Scrolling up...');
         await sleepyChat.scrollToTop();
         // Wait for potential loading
-        await sleepyPage.waitForTimeout(1000);
+        await sleepyPage.waitForTimeout(3000);
 
         // 7. Verify more messages loaded
         let newMessageCount = await sleepyChat.getMessageCount();
