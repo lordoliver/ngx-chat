@@ -8,10 +8,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-    imports: [RouterModule, CommonModule, FormsModule, ChatComponent, NgxChatModule],
-    selector: 'app-root',
-    templateUrl: './app.html',
-    styleUrls: ['./app.less']
+  imports: [RouterModule, CommonModule, FormsModule, ChatComponent, NgxChatModule],
+  selector: 'app-root',
+  templateUrl: './app.html',
+  styleUrls: ['./app.less']
 })
 export class App implements OnInit {
   console = console;
@@ -110,7 +110,9 @@ export class App implements OnInit {
     this.password = '';
   }
 
-  register() {
+  customChats: any[] = [];
+
+  async register() {
     this.chatService.register({
       username: this.username,
       password: this.password,
@@ -121,7 +123,22 @@ export class App implements OnInit {
         console.log('Registration successful');
         this.registrationSuccess = this.username;
       })
-      .catch(err => {
+      .catch(async (err) => {
+        // Known Flake: Strophe 1.2.14 disconnects anonymous session which triggers 'WebSocket closed',
+        // even if registration was successful. We attempt to login to verify success.
+        console.warn('Registration warning:', err);
+        if (err.toString().includes('closed') || err.message?.includes('closed')) {
+          try {
+            // If this works, then registration actually succeeded.
+            await this.login();
+            this.registrationSuccess = this.username;
+            console.log('Registration verified via login after flake');
+            return;
+          } catch (loginErr) {
+            // Fall through to original error if login fails
+            console.error('Login verification failed:', loginErr);
+          }
+        }
         console.error('Registration failed:', err);
         alert('Registration failed: ' + err.message);
       });
@@ -141,6 +158,29 @@ export class App implements OnInit {
 
   unblockContact(jid: string) {
     this.chatService.contactListService.unblockJid(this.normalizeJid(jid));
+  }
+
+  async openBigChat(jid: string) {
+    const normalizedJid = this.normalizeJid(jid);
+    const room = await this.chatService.roomService.getRoomByJid(normalizedJid);
+    if (room) {
+      this.ngZone.run(() => {
+        if (!this.customChats.includes(room)) {
+          this.customChats.push(room);
+          setTimeout(() => this.cdr.detectChanges(), 0);
+        }
+      });
+      return;
+    }
+    const contact = await this.chatService.contactListService.getOrCreateContactById(normalizedJid);
+    if (contact) {
+      this.ngZone.run(() => {
+        if (!this.customChats.includes(contact)) {
+          this.customChats.push(contact);
+          setTimeout(() => this.cdr.detectChanges(), 0);
+        }
+      });
+    }
   }
 
   async openChat(jid: string) {

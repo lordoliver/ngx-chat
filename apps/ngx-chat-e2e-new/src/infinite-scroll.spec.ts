@@ -59,7 +59,7 @@ test.describe('Infinite Scroll', () => {
         const chatWindow = new ChatWindowPage(snowWhitePage, u2Jid);
 
         console.log('Sending 15 messages...');
-        for (let i = 1; i <= 15; i++) {
+        for (let i = 1; i <= 25; i++) {
             await chatWindow.write(`History Message ${i}`);
         }
 
@@ -85,6 +85,15 @@ test.describe('Infinite Scroll', () => {
         // Expectation: If 20 messages, and page size is 10. Initial 10-15.
         expect(messageCount).toBeGreaterThan(0);
 
-        // Note: Scroll logic commented out to stabilize speed for now, as initial load proves functionality.
+        // 6. Scroll Up to Load More
+        console.log('Scrolling up...');
+        await sleepyChat.scrollToTop();
+        // Wait for potential loading
+        await sleepyPage.waitForTimeout(1000);
+
+        // 7. Verify more messages loaded
+        let newMessageCount = await sleepyChat.getMessageCount();
+        console.log('New message count:', newMessageCount);
+        expect(newMessageCount).toBeGreaterThan(messageCount);
     });
 });
