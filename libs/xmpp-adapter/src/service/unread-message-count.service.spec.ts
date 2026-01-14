@@ -2,6 +2,7 @@ import { UnreadMessageCountService } from './unread-message-count.service';
 import { Subject, BehaviorSubject, of, firstValueFrom } from 'rxjs';
 import { Recipient, Message, Contact, Direction, DateMessagesGroup } from '@pazznetwork/ngx-chat-shared';
 import { skip, take, filter } from 'rxjs/operators';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 const mockJid = (user: string) => ({
     bare: () => ({
@@ -25,7 +26,7 @@ describe('UnreadMessageCountService', () => {
     let roomsSubject: Subject<any[]>;
 
     beforeEach(() => {
-        jest.useFakeTimers();
+
         contactsSubject = new BehaviorSubject<Contact[]>([]);
         onOnlineSubject = new Subject<void>();
         roomsSubject = new BehaviorSubject<any[]>([]);
@@ -81,9 +82,7 @@ describe('UnreadMessageCountService', () => {
         );
     });
 
-    afterEach(() => {
-        jest.useRealTimers();
-    });
+
 
     it('should track unread messages for contacts added in a batch', async () => {
         // Mock contacts
@@ -122,8 +121,7 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1];
         contact1.messageStore.messages$.next([msg1]);
 
-        jest.advanceTimersByTime(1000);
-        await Promise.resolve();
+
 
         // 4. Verify Unread Count for Alice
         const map = await firstValueFrom(
@@ -134,7 +132,7 @@ describe('UnreadMessageCountService', () => {
         expect(map.get('bob@example.com') || 0).toBe(0);
     });
 
-    it.skip('should verify reading a message and getting a new one (badge flow)', async () => {
+    it('should verify reading a message and getting a new one (badge flow)', fakeAsync(() => {
         const contact1 = {
             jid: mockJid('alice@example.com'),
             messageStore: {
@@ -146,6 +144,11 @@ describe('UnreadMessageCountService', () => {
         onOnlineSubject.next();
         contactsSubject.next([contact1]);
 
+        let currentCount = 0;
+        const sub = service.jidToUnreadCount$.subscribe(m => {
+            currentCount = m.get('alice@example.com') || 0;
+        });
+
         // 1. Message 1 arrives
         const msg1: Message = {
             direction: Direction.in,
@@ -156,27 +159,25 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1];
         contact1.messageStore.messages$.next([msg1]);
 
-        jest.advanceTimersByTime(1000);
-        await Promise.resolve();
+        tick(100); // Wait for debounceTime(20)
 
-        // Wait for count 1
-        await firstValueFrom(
-            service.jidToUnreadCount$.pipe(
-                filter(m => (m.get('alice@example.com') || 0) === 1)
-            )
-        );
+        // Count should be 1
+        expect(currentCount).toBe(1);
 
         // 2. Simulate Reading (Update Last Read Time)
         (service as any).jidToLastReadTimestamp.set('alice@example.com', Date.now());
         service.updateContactUnreadMessageState(contact1);
 
-        // Should be 0
-        const map0 = await firstValueFrom(
-            service.jidToUnreadCount$.pipe(
-                filter(m => (m.get('alice@example.com') || 0) === 0)
-            )
-        );
-        expect(map0.get('alice@example.com')).toBe(0);
+        // No Async involved in direct update? 
+        // updateContactUnreadMessageState emits synchronously if value changes.
+        // But debounceTime is on the *subscription* to messages, not the manual update?
+        // Wait, line 249 of service: messages$.pipe(debounceTime(20), mergeMap(...)).subscribe()
+        // Line 196: this.jidToUnreadCountSubject.next(...) is synchronous.
+
+        expect(currentCount).toBe(0);
+
+
+        tick(10); // Ensure time advances so msg2 is newer than lastRead
 
         // 3. New Message
         const msg2: Message = {
@@ -188,12 +189,11 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1, msg2];
         contact1.messageStore.messages$.next([msg1, msg2]);
 
+        tick(100); // Wait for debounceTime(20)
+
         // Check final
-        const mapFinal = await firstValueFrom(
-            service.jidToUnreadCount$.pipe(
-                filter(m => (m.get('alice@example.com') || 0) === 1)
-            )
-        );
-        expect(mapFinal.get('alice@example.com')).toBe(1);
-    });
+        expect(currentCount).toBe(1);
+
+        sub.unsubscribe();
+    }));
 });

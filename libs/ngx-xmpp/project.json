@@ -8,7 +8,9 @@
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
-      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/dist/{projectRoot}"
+      ],
       "options": {
         "project": "libs/ngx-xmpp/ng-package.json"
       },
@@ -29,10 +31,13 @@
         "karmaConfig": "libs/ngx-xmpp/karma.conf.js",
         "polyfills": "libs/ngx-xmpp/src/polyfills.ts",
         "main": "libs/ngx-xmpp/src/main.karma.ts",
-        "include": ["**/*.spec.ts"],
+        "include": [
+          "**/*.spec.ts"
+        ],
         "styles": [],
         "scripts": [],
-        "assets": []
+        "assets": [],
+        "browsers": "ChromeHeadlessInsecure"
       }
     },
     "lint": {

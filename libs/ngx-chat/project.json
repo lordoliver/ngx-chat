@@ -44,10 +44,8 @@
     "test": {
       "executor": "@angular-devkit/build-angular:karma",
       "options": {
-        "lintFilePatterns": [
-          "libs/ngx-chat/**/*.ts",
-          "libs/ngx-chat/**/*.html"
-        ]
+        "tsConfig": "libs/ngx-chat/tsconfig.spec.json",
+        "karmaConfig": "libs/ngx-chat/karma.conf.js"
       }
     },
     "version": {

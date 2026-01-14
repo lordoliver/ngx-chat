@@ -300,7 +300,7 @@ export async function executeRequest<TReturn>(
   headers['Authorization'] = `Basic ${btoa(String(adminUserName) + ':' + String(adminPassword))}`;
   // console.log(`[Ejabberd API] Requesting ${path} from ${apiUrl} with user ${adminUserName}`);
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 5000); // 5s timeout
+  const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
   try {
     const response = await fetch(apiUrl + path, {
       headers,

@@ -55,6 +55,10 @@ export async function destroyAllRooms(): Promise<void> {
 
 export async function destroyRoomsByPrefixes(prefixes: string[]): Promise<void> {
   const rooms = await getMucRooms();
+  if (!Array.isArray(rooms)) {
+    console.warn('[Cleanup] Warn: getMucRooms returned non-array:', rooms);
+    return;
+  }
   const roomsToDestroy = rooms.filter(room => {
     const [name] = room.split('@');
     return prefixes.some(prefix => name && name.toLowerCase().startsWith(prefix.toLowerCase()));
