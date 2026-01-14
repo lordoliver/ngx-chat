@@ -121,7 +121,7 @@ jobs:
           echo "Checking http://local-jabber.entenhausen.pazz.de:5280/websocket..."
           curl -v --fail --connect-timeout 5 --retry 30 --retry-delay 2 --retry-connrefused http://localhost:5280/websocket || echo "Curl http failed!"
 
-      - name: Run Unit Tests
+
       - name: Run ngx-xmpp Tests
         run: npx nx test ngx-xmpp --browsers=ChromeHeadlessInsecure --watch=false
 
