@@ -2,7 +2,7 @@ import { UnreadMessageCountService } from './unread-message-count.service';
 import { Subject, BehaviorSubject, of, firstValueFrom } from 'rxjs';
 import { Recipient, Message, Contact, Direction, DateMessagesGroup } from '@pazznetwork/ngx-chat-shared';
 import { skip, take, filter } from 'rxjs/operators';
-import { fakeAsync, tick } from '@angular/core/testing';
+
 
 const mockJid = (user: string) => ({
     bare: () => ({
@@ -132,7 +132,7 @@ describe('UnreadMessageCountService', () => {
         expect(map.get('bob@example.com') || 0).toBe(0);
     });
 
-    it('should verify reading a message and getting a new one (badge flow)', fakeAsync(() => {
+    it('should verify reading a message and getting a new one (badge flow)', async () => {
         const contact1 = {
             jid: mockJid('alice@example.com'),
             messageStore: {
@@ -159,7 +159,7 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1];
         contact1.messageStore.messages$.next([msg1]);
 
-        tick(100); // Wait for debounceTime(20)
+        await new Promise(resolve => setTimeout(resolve, 100)); // Wait for debounceTime(20)
 
         // Count should be 1
         expect(currentCount).toBe(1);
@@ -168,16 +168,9 @@ describe('UnreadMessageCountService', () => {
         (service as any).jidToLastReadTimestamp.set('alice@example.com', Date.now());
         service.updateContactUnreadMessageState(contact1);
 
-        // No Async involved in direct update? 
-        // updateContactUnreadMessageState emits synchronously if value changes.
-        // But debounceTime is on the *subscription* to messages, not the manual update?
-        // Wait, line 249 of service: messages$.pipe(debounceTime(20), mergeMap(...)).subscribe()
-        // Line 196: this.jidToUnreadCountSubject.next(...) is synchronous.
-
         expect(currentCount).toBe(0);
 
-
-        tick(10); // Ensure time advances so msg2 is newer than lastRead
+        await new Promise(resolve => setTimeout(resolve, 10)); // Ensure time advances
 
         // 3. New Message
         const msg2: Message = {
@@ -189,11 +182,11 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1, msg2];
         contact1.messageStore.messages$.next([msg1, msg2]);
 
-        tick(100); // Wait for debounceTime(20)
+        await new Promise(resolve => setTimeout(resolve, 100)); // Wait for debounceTime(20)
 
         // Check final
         expect(currentCount).toBe(1);
 
         sub.unsubscribe();
-    }));
+    });
 });
