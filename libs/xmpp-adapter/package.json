@@ -1,6 +1,6 @@
 {
   "name": "@pazznetwork/xmpp-adapter",
-  "version": "1.2.2",
+  "version": "1.18.0",
   "sideEffects": false,
   "peerDependencies": {
     "@angular/common": "^17.3.0",
