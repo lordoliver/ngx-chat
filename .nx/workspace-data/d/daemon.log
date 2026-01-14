@@ -2691,3 +2691,83 @@ Time for 'build typescript dependencies' 2.1712090000510216
 [NX v22.3.3 Daemon Server] - 2026-01-14T14:18:13.555Z - [SYNC]: project graph hash is the same, not collecting task sync generators
 [NX v22.3.3 Daemon Server] - 2026-01-14T14:18:13.555Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
 [NX v22.3.3 Daemon Server] - 2026-01-14T14:18:13.555Z - Time taken for 'total execution time for createProjectGraph()' 24.949417000170797ms
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:43.581Z - [WATCHER]: README.md was modified
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:43.581Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:43.581Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:43.987Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:43.987Z - [REQUEST]: README.md
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:43.987Z - [REQUEST]: 
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:43.992Z - Time taken for 'hash changed files from watcher' 3.4139580000191927ms
+Time for 'nx/core/project-json:createNodes' 2.133583000395447
+Time for 'nx/core/package-json:createNodes' 3.302790999878198
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 10.372250000014901
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:44.021Z - Time taken for 'build-project-configs' 19.182166999671608ms
+Time for 'build typescript dependencies' 0.018875000067055225
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:44.038Z - [SYNC]: collect registered sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:44.039Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:44.039Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:24:44.039Z - Time taken for 'total execution time for createProjectGraph()' 23.190790999680758ms
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:39.949Z - [WATCHER]: package.json was modified
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:39.950Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:39.950Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.758Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.759Z - [REQUEST]: package.json
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.759Z - [REQUEST]: 
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.764Z - Time taken for 'hash changed files from watcher' 4.497208000160754ms
+Time for 'nx/core/project-json:createNodes' 3.509874999988824
+Time for 'nx/core/package-json:createNodes' 5.48008400015533
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 21.641333000268787
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.808Z - Time taken for 'build-project-configs' 33.64416699996218ms
+Time for 'build typescript dependencies' 0.018917000386863947
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.832Z - [SYNC]: collect registered sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.833Z - [SYNC]: project graph hash is the same, not collecting task sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.833Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:40.833Z - Time taken for 'total execution time for createProjectGraph()' 29.41904200008139ms
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:41.979Z - [WATCHER]: libs/ngx-chat/package.json was modified
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:41.979Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:41.979Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.581Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.581Z - [REQUEST]: libs/ngx-chat/package.json
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.581Z - [REQUEST]: 
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.584Z - Time taken for 'hash changed files from watcher' 1.8084579999558628ms
+Time for 'nx/core/project-json:createNodes' 0.50054100016132
+Time for 'nx/core/package-json:createNodes' 1.9497919999994338
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 6.922292000148445
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.606Z - Time taken for 'build-project-configs' 13.42641600035131ms
+Time for 'build typescript dependencies' 4.01175000006333
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.632Z - [SYNC]: collect registered sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.633Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:43.633Z - Time taken for 'total execution time for createProjectGraph()' 29.47945800004527ms
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:44.062Z - [WATCHER]: libs/ngx-xmpp/package.json was modified
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:44.062Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:44.062Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:46.445Z - [WATCHER]: libs/xmpp-adapter/package.json was modified
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:46.446Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:46.446Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.268Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.268Z - [REQUEST]: libs/ngx-xmpp/package.json,libs/xmpp-adapter/package.json
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.268Z - [REQUEST]: 
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.274Z - Time taken for 'hash changed files from watcher' 3.4521250003017485ms
+Time for 'nx/core/project-json:createNodes' 1.318415999878198
+Time for 'nx/core/package-json:createNodes' 2.440041999798268
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 14.814082999713719
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.308Z - Time taken for 'build-project-configs' 23.205792000051588ms
+Time for 'build typescript dependencies' 2.6751250000670552
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.335Z - [SYNC]: collect registered sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.335Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:47.335Z - Time taken for 'total execution time for createProjectGraph()' 33.76529200002551ms
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:48.404Z - [WATCHER]: Processing file changes in outputs
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:48.404Z - [WATCHER]: libs/ngx-chat-shared/package.json was modified
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:48.404Z - [SYNC]: clearing sync generators cache due to file changes
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.814Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.814Z - [REQUEST]: libs/ngx-chat-shared/package.json
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.814Z - [REQUEST]: 
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.819Z - Time taken for 'hash changed files from watcher' 3.3111250000074506ms
+Time for 'nx/core/project-json:createNodes' 0.9481669999659061
+Time for 'nx/core/package-json:createNodes' 1.9463749998249114
+Time for 'nx/js/dependencies-and-lockfile:createNodes' 10.545207999646664
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.851Z - Time taken for 'build-project-configs' 19.902207999955863ms
+Time for 'build typescript dependencies' 1.9812079998664558
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.869Z - [SYNC]: collect registered sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.870Z - [SYNC]: nx.json hash is the same, not collecting global sync generators
+[NX v22.3.3 Daemon Server] - 2026-01-14T14:31:54.870Z - Time taken for 'total execution time for createProjectGraph()' 26.04329099971801ms
