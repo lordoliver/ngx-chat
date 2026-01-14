@@ -1,7 +1,7 @@
 import { UnreadMessageCountService } from './unread-message-count.service';
-import { Subject, BehaviorSubject, of, firstValueFrom } from 'rxjs';
-import { Recipient, Message, Contact, Direction, DateMessagesGroup } from '@pazznetwork/ngx-chat-shared';
-import { skip, take, filter } from 'rxjs/operators';
+import { Subject, BehaviorSubject, of } from 'rxjs';
+import { Message, Contact, Direction } from '@pazznetwork/ngx-chat-shared';
+import { fakeAsync, tick } from '@angular/core/testing';
 
 
 const mockJid = (user: string) => ({
@@ -82,9 +82,7 @@ describe('UnreadMessageCountService', () => {
         );
     });
 
-
-
-    it('should track unread messages for contacts added in a batch', async () => {
+    it('should track unread messages for contacts added in a batch', fakeAsync(() => {
         // Mock contacts
         const contact1 = {
             jid: mockJid('alice@example.com'),
@@ -130,15 +128,15 @@ describe('UnreadMessageCountService', () => {
 
         // 4. Verify Unread Count for Alice
         // Wait for debounce/processing
-        await new Promise(resolve => setTimeout(resolve, 100));
+        tick(100);
 
         expect(aliceCount).toBe(1);
         expect(bobCount).toBe(0);
 
         sub.unsubscribe();
-    });
+    }));
 
-    it('should verify reading a message and getting a new one (badge flow)', async () => {
+    it('should verify reading a message and getting a new one (badge flow)', fakeAsync(() => {
         const contact1 = {
             jid: mockJid('alice@example.com'),
             messageStore: {
@@ -165,7 +163,7 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1];
         contact1.messageStore.messages$.next([msg1]);
 
-        await new Promise(resolve => setTimeout(resolve, 100)); // Wait for debounceTime(20)
+        tick(100); // Wait for debounceTime(20)
 
         // Count should be 1
         expect(currentCount).toBe(1);
@@ -176,7 +174,7 @@ describe('UnreadMessageCountService', () => {
 
         expect(currentCount).toBe(0);
 
-        await new Promise(resolve => setTimeout(resolve, 10)); // Ensure time advances
+        tick(10); // Ensure time advances
 
         // 3. New Message
         const msg2: Message = {
@@ -188,11 +186,11 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1, msg2];
         contact1.messageStore.messages$.next([msg1, msg2]);
 
-        await new Promise(resolve => setTimeout(resolve, 100)); // Wait for debounceTime(20)
+        tick(100); // Wait for debounceTime(20)
 
         // Check final
         expect(currentCount).toBe(1);
 
         sub.unsubscribe();
-    });
+    }));
 });

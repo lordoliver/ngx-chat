@@ -8,16 +8,12 @@
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/xmpp-adapter",
         "main": "libs/xmpp-adapter/src/index.ts",
         "tsConfig": "libs/xmpp-adapter/tsconfig.lib.json",
-        "assets": [
-          "libs/xmpp-adapter/*.md"
-        ]
+        "assets": ["libs/xmpp-adapter/*.md"]
       }
     },
     "ts-check": {
@@ -32,19 +28,16 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": [
-        "{workspaceRoot}/coverage/{projectRoot}"
-      ],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
         "jestConfig": "libs/xmpp-adapter/jest.config.ts",
-        "passWithNoTests": true
+        "passWithNoTests": true,
+        "tsConfig": "libs/xmpp-adapter/tsconfig.spec.json"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": [
-        "{options.outputFile}"
-      ]
+      "outputs": ["{options.outputFile}"]
     },
     "version": {
       "executor": "@jscutlery/semver:version"

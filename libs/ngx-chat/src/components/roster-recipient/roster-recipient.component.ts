@@ -9,12 +9,11 @@ import { CHAT_SERVICE_TOKEN } from '@pazznetwork/ngx-xmpp';
 import { distinctUntilChanged, map, tap } from 'rxjs/operators';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule, ChatAvatarComponent],
-  selector: 'ngx-chat-roster-recipient',
-  templateUrl: './roster-recipient.component.html',
-  styleUrls: ['./roster-recipient.component.less'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [CommonModule, ChatAvatarComponent],
+    selector: 'ngx-chat-roster-recipient',
+    templateUrl: './roster-recipient.component.html',
+    styleUrls: ['./roster-recipient.component.less'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RosterRecipientComponent implements OnInit {
   private recipientChangedSubject = new ReplaySubject<Recipient>(1);

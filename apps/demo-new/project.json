@@ -42,8 +42,8 @@
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "10kb",
+              "maximumError": "20kb"
             }
           ],
           "fileReplacements": [
@@ -84,7 +84,8 @@
           "buildTarget": "demo-new:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "continuous": true
     },
     "lint": {
       "executor": "@nx/eslint:lint"

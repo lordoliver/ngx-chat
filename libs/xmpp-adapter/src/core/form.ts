@@ -183,7 +183,7 @@ export function serializeToSubmitForm(builder: StanzaBuilder, form: XmlSchemaFor
 
   const childBuilder = builder.c('x', { xmlns: nsXForm, type: 'submit' });
   serializedFields.map(([variable, values, type]) => {
-    const attrs = { var: variable };
+    const attrs: { var: string; type?: string } = { var: variable };
     if (['hidden', 'fixed', 'boolean'].includes(type)) {
       attrs['type'] = type;
     }

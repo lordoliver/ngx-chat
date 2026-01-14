@@ -1,0 +1,489 @@
+
+> nx run ngx-xmpp:test --include **/message-archive.plugin.spec.ts
+
+- Generating browser application bundles (phase: setup)...
+[32m✔[39m Browser application bundle generation complete.
+[32m12 01 2026 22:32:38.631:INFO [karma-server]: [39mKarma v6.4.2 server started at http://localhost:9876/
+[32m12 01 2026 22:32:38.633:INFO [launcher]: [39mLaunching browsers ChromeHeadlessInsecure with concurrency unlimited
+[32m12 01 2026 22:32:38.635:INFO [launcher]: [39mStarting browser ChromeHeadless
+[32m12 01 2026 22:32:39.204:INFO [Chrome Headless 115.0.5790.98 (Mac OS 10.15.7)]: [39mConnected on socket AdSXqwQGKl14KO4XAAAB with id 42949761
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<stream:features xmlns:stream='http://etherx.jabber.org/streams'><mechanisms xmlns='urn:ietf:params:xml:ns:xmpp-sasl'><mechanism>PLAIN</mechanism><mechanism>SCRAM-SHA-1</mechanism><mechanism>X-OAUTH2</mechanism></mechanisms><register xmlns='http://jabber.org/features/iq-register'/></stream:features>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<stream:features xmlns:stream='http://etherx.jabber.org/streams'><mechanisms xmlns='urn:ietf:params:xml:ns:xmpp-sasl'><mechanism>PLAIN</mechanism><mechanism>SCRAM-SHA-1</mechanism><mechanism>X-OAUTH2</mechanism></mechanisms><register xmlns='http://jabber.org/features/iq-register'/></stream:features>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<stream:features xmlns:stream="http://etherx.jabber.org/streams"><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>PLAIN</mechanism><mechanism>SCRAM-SHA-1</mechanism><mechanism>X-OAUTH2</mechanism></mechanisms><register xmlns="http://jabber.org/features/iq-register"/></stream:features>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<stream:features xmlns:stream="http://etherx.jabber.org/streams"><mechanisms xmlns="urn:ietf:params:xml:ns:xmpp-sasl"><mechanism>PLAIN</mechanism><mechanism>SCRAM-SHA-1</mechanism><mechanism>X-OAUTH2</mechanism></mechanisms><register xmlns="http://jabber.org/features/iq-register"/></stream:features>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 0. Child: stream:features'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 0. Child: stream:features'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<challenge xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>cj1naDFLMTNaU2xuc2J1eTZxSlJURmVnPT04bFNsNHFmSVBEcU1Sb3FGc2ZtZ21nPT0scz1adHNDRFMzb1VNaldHRk1YUjdLcStBPT0saT00MDk2</challenge>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<challenge xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>cj1naDFLMTNaU2xuc2J1eTZxSlJURmVnPT04bFNsNHFmSVBEcU1Sb3FGc2ZtZ21nPT0scz1adHNDRFMzb1VNaldHRk1YUjdLcStBPT0saT00MDk2</challenge>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cj1naDFLMTNaU2xuc2J1eTZxSlJURmVnPT04bFNsNHFmSVBEcU1Sb3FGc2ZtZ21nPT0scz1adHNDRFMzb1VNaldHRk1YUjdLcStBPT0saT00MDk2</challenge>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<challenge xmlns="urn:ietf:params:xml:ns:xmpp-sasl">cj1naDFLMTNaU2xuc2J1eTZxSlJURmVnPT04bFNsNHFmSVBEcU1Sb3FGc2ZtZ21nPT0scz1adHNDRFMzb1VNaldHRk1YUjdLcStBPT0saT00MDk2</challenge>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: challenge'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: challenge'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: el => _this.saslChallengeCb(el)(challenge,undefined,urn:ietf:params:xml:ns:xmpp-sasl)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: el => _this.saslChallengeCb(el)(challenge,undefined,urn:ietf:params:xml:ns:xmpp-sasl)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<success xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>dj1vcUJUMFdOSXp6ZVpZaTU1am5CazI3TjdHRDg9</success>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<success xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>dj1vcUJUMFdOSXp6ZVpZaTU1am5CazI3TjdHRDg9</success>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<success xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dj1vcUJUMFdOSXp6ZVpZaTU1am5CazI3TjdHRDg9</success>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<success xmlns="urn:ietf:params:xml:ns:xmpp-sasl">dj1vcUJUMFdOSXp6ZVpZaTU1am5CazI3TjdHRDg9</success>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: success'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: success'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: el => _this.saslSuccessCb(el, resolve, reject)(success,undefined,urn:ietf:params:xml:ns:xmpp-sasl)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: el => _this.saslSuccessCb(el, resolve, reject)(success,undefined,urn:ietf:params:xml:ns:xmpp-sasl)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<open xmlns='urn:ietf:params:xml:ns:xmpp-framing' id='7219390516016697837' version='1.0' xml:lang='en' from='local-jabber.entenhausen.pazz.de'/>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<open xmlns='urn:ietf:params:xml:ns:xmpp-framing' id='7219390516016697837' version='1.0' xml:lang='en' from='local-jabber.entenhausen.pazz.de'/>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<open xmlns="urn:ietf:params:xml:ns:xmpp-framing" id="7219390516016697837" version="1.0" xml:lang="en" from="local-jabber.entenhausen.pazz.de"/>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<open xmlns="urn:ietf:params:xml:ns:xmpp-framing" id="7219390516016697837" version="1.0" xml:lang="en" from="local-jabber.entenhausen.pazz.de"/>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: open'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: open'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<stream:features xmlns:stream='http://etherx.jabber.org/streams'><bind xmlns='urn:ietf:params:xml:ns:xmpp-bind'/><session xmlns='urn:ietf:params:xml:ns:xmpp-session'><optional/></session><c ver='55W0fZiAYW8VIbjTRZlOlKIFYc8=' node='http://www.process-one.net/en/ejabberd/' hash='sha-1' xmlns='http://jabber.org/protocol/caps'/><sm xmlns='urn:xmpp:sm:2'/><sm xmlns='urn:xmpp:sm:3'/><ver xmlns='urn:xmpp:features:rosterver'/><csi xmlns='urn:xmpp:csi:0'/></stream:features>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<stream:features xmlns:stream='http://etherx.jabber.org/streams'><bind xmlns='urn:ietf:params:xml:ns:xmpp-bind'/><session xmlns='urn:ietf:params:xml:ns:xmpp-session'><optional/></session><c ver='55W0fZiAYW8VIbjTRZlOlKIFYc8=' node='http://www.process-one.net/en/ejabberd/' hash='sha-1' xmlns='http://jabber.org/protocol/caps'/><sm xmlns='urn:xmpp:sm:2'/><sm xmlns='urn:xmpp:sm:3'/><ver xmlns='urn:xmpp:features:rosterver'/><csi xmlns='urn:xmpp:csi:0'/></stream:features>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<stream:features xmlns:stream="http://etherx.jabber.org/streams"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"/><session xmlns="urn:ietf:params:xml:ns:xmpp-session"><optional/></session><c xmlns="http://jabber.org/protocol/caps" ver="55W0fZiAYW8VIbjTRZlOlKIFYc8=" node="http://www.process-one.net/en/ejabberd/" hash="sha-1"/><sm xmlns="urn:xmpp:sm:2"/><sm xmlns="urn:xmpp:sm:3"/><ver xmlns="urn:xmpp:features:rosterver"/><csi xmlns="urn:xmpp:csi:0"/></stream:features>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<stream:features xmlns:stream="http://etherx.jabber.org/streams"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"/><session xmlns="urn:ietf:params:xml:ns:xmpp-session"><optional/></session><c xmlns="http://jabber.org/protocol/caps" ver="55W0fZiAYW8VIbjTRZlOlKIFYc8=" node="http://www.process-one.net/en/ejabberd/" hash="sha-1"/><sm xmlns="urn:xmpp:sm:2"/><sm xmlns="urn:xmpp:sm:3"/><ver xmlns="urn:xmpp:features:rosterver"/><csi xmlns="urn:xmpp:csi:0"/></stream:features>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: stream:features'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 3. Child: stream:features'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: el => wrapper(streamFeatureHandlers, el)(stream:features,undefined,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: el => wrapper(streamFeatureHandlers, el)(stream:features,undefined,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' type='result' id='_bind_auth_2'><bind xmlns='urn:ietf:params:xml:ns:xmpp-bind'><jid>villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722</jid></bind></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' type='result' id='_bind_auth_2'><bind xmlns='urn:ietf:params:xml:ns:xmpp-bind'><jid>villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722</jid></bind></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" type="result" id="_bind_auth_2"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"><jid>villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722</jid></bind></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" type="result" id="_bind_auth_2"><bind xmlns="urn:ietf:params:xml:ns:xmpp-bind"><jid>villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722</jid></bind></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 2. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 2. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: element => this.onResourceBindResultIQ(element, resolve)(undefined,_bind_auth_2,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: element => this.onResourceBindResultIQ(element, resolve)(undefined,_bind_auth_2,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='_session_auth_2'/>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='_session_auth_2'/>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="_session_auth_2"/>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="_session_auth_2"/>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: element => this.onSessionResultIQ(element)(undefined,_session_auth_2,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: element => this.onSessionResultIQ(element)(undefined,_session_auth_2,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='862284b6-77f2-4095-9e28-a0c82d162cfd:sendIQ'><time xmlns='urn:xmpp:time'><tzo>+00:00</tzo><utc>2026-01-12T21:32:40.130278Z</utc></time></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='862284b6-77f2-4095-9e28-a0c82d162cfd:sendIQ'><time xmlns='urn:xmpp:time'><tzo>+00:00</tzo><utc>2026-01-12T21:32:40.130278Z</utc></time></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="862284b6-77f2-4095-9e28-a0c82d162cfd:sendIQ"><time xmlns="urn:xmpp:time"><tzo>+00:00</tzo><utc>2026-01-12T21:32:40.130278Z</utc></time></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="862284b6-77f2-4095-9e28-a0c82d162cfd:sendIQ"><time xmlns="urn:xmpp:time"><tzo>+00:00</tzo><utc>2026-01-12T21:32:40.130278Z</utc></time></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,862284b6-77f2-4095-9e28-a0c82d162cfd:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,862284b6-77f2-4095-9e28-a0c82d162cfd:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='error' id='9c1dd1a4-418d-4dfd-a34b-15dc76bbd6fd:sendIQ'><pubsub xmlns='http://jabber.org/protocol/pubsub'><items node='ngxchat:unreadmessagedate'/></pubsub><error type='cancel'><item-not-found xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'/><text xml:lang='en' xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'>Node not found</text></error></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='error' id='9c1dd1a4-418d-4dfd-a34b-15dc76bbd6fd:sendIQ'><pubsub xmlns='http://jabber.org/protocol/pubsub'><items node='ngxchat:unreadmessagedate'/></pubsub><error type='cancel'><item-not-found xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'/><text xml:lang='en' xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'>Node not found</text></error></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="error" id="9c1dd1a4-418d-4dfd-a34b-15dc76bbd6fd:sendIQ"><pubsub xmlns="http://jabber.org/protocol/pubsub"><items node="ngxchat:unreadmessagedate"/></pubsub><error type="cancel"><item-not-found xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">Node not found</text></error></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="error" id="9c1dd1a4-418d-4dfd-a34b-15dc76bbd6fd:sendIQ"><pubsub xmlns="http://jabber.org/protocol/pubsub"><items node="ngxchat:unreadmessagedate"/></pubsub><error type="cancel"><item-not-found xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">Node not found</text></error></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,9c1dd1a4-418d-4dfd-a34b-15dc76bbd6fd:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,9c1dd1a4-418d-4dfd-a34b-15dc76bbd6fd:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='enable_carbons'/>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='enable_carbons'/>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="enable_carbons"/>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="enable_carbons"/>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='error' id='500ae3a1-ba18-4ee3-9794-9ad944a6080f:sendIQ'><pubsub xmlns='http://jabber.org/protocol/pubsub'><items node='ngxchat:contactmessagestates'/></pubsub><error type='cancel'><item-not-found xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'/><text xml:lang='en' xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'>Node not found</text></error></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='error' id='500ae3a1-ba18-4ee3-9794-9ad944a6080f:sendIQ'><pubsub xmlns='http://jabber.org/protocol/pubsub'><items node='ngxchat:contactmessagestates'/></pubsub><error type='cancel'><item-not-found xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'/><text xml:lang='en' xmlns='urn:ietf:params:xml:ns:xmpp-stanzas'>Node not found</text></error></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="error" id="500ae3a1-ba18-4ee3-9794-9ad944a6080f:sendIQ"><pubsub xmlns="http://jabber.org/protocol/pubsub"><items node="ngxchat:contactmessagestates"/></pubsub><error type="cancel"><item-not-found xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">Node not found</text></error></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="error" id="500ae3a1-ba18-4ee3-9794-9ad944a6080f:sendIQ"><pubsub xmlns="http://jabber.org/protocol/pubsub"><items node="ngxchat:contactmessagestates"/></pubsub><error type="cancel"><item-not-found xmlns="urn:ietf:params:xml:ns:xmpp-stanzas"/><text xmlns="urn:ietf:params:xml:ns:xmpp-stanzas" xml:lang="en">Node not found</text></error></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,500ae3a1-ba18-4ee3-9794-9ad944a6080f:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,500ae3a1-ba18-4ee3-9794-9ad944a6080f:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='e69d1c88-69df-43ac-8006-137d00a30333:sendIQ'><query xmlns='jabber:iq:roster'/></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='e69d1c88-69df-43ac-8006-137d00a30333:sendIQ'><query xmlns='jabber:iq:roster'/></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="e69d1c88-69df-43ac-8006-137d00a30333:sendIQ"><query xmlns="jabber:iq:roster"/></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="e69d1c88-69df-43ac-8006-137d00a30333:sendIQ"><query xmlns="jabber:iq:roster"/></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,e69d1c88-69df-43ac-8006-137d00a30333:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,e69d1c88-69df-43ac-8006-137d00a30333:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='a63fcd6f-d3d5-4f6a-adb7-3a4226c83642:sendIQ'><fin complete='true' xmlns='urn:xmpp:mam:2'><set xmlns='http://jabber.org/protocol/rsm'><count>0</count></set></fin></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='a63fcd6f-d3d5-4f6a-adb7-3a4226c83642:sendIQ'><fin complete='true' xmlns='urn:xmpp:mam:2'><set xmlns='http://jabber.org/protocol/rsm'><count>0</count></set></fin></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="a63fcd6f-d3d5-4f6a-adb7-3a4226c83642:sendIQ"><fin xmlns="urn:xmpp:mam:2" complete="true"><set xmlns="http://jabber.org/protocol/rsm"><count>0</count></set></fin></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="a63fcd6f-d3d5-4f6a-adb7-3a4226c83642:sendIQ"><fin xmlns="urn:xmpp:mam:2" complete="true"><set xmlns="http://jabber.org/protocol/rsm"><count>0</count></set></fin></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,a63fcd6f-d3d5-4f6a-adb7-3a4226c83642:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,a63fcd6f-d3d5-4f6a-adb7-3a4226c83642:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='57bf470b-2e39-4916-95b2-3c1fb61fc3a3:sendIQ'><query xmlns='http://jabber.org/protocol/disco#items'><item jid='conference.local-jabber.entenhausen.pazz.de'/><item jid='pubsub.local-jabber.entenhausen.pazz.de'/><item jid='upload.local-jabber.entenhausen.pazz.de'/></query></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='57bf470b-2e39-4916-95b2-3c1fb61fc3a3:sendIQ'><query xmlns='http://jabber.org/protocol/disco#items'><item jid='conference.local-jabber.entenhausen.pazz.de'/><item jid='pubsub.local-jabber.entenhausen.pazz.de'/><item jid='upload.local-jabber.entenhausen.pazz.de'/></query></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="57bf470b-2e39-4916-95b2-3c1fb61fc3a3:sendIQ"><query xmlns="http://jabber.org/protocol/disco#items"><item jid="conference.local-jabber.entenhausen.pazz.de"/><item jid="pubsub.local-jabber.entenhausen.pazz.de"/><item jid="upload.local-jabber.entenhausen.pazz.de"/></query></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="57bf470b-2e39-4916-95b2-3c1fb61fc3a3:sendIQ"><query xmlns="http://jabber.org/protocol/disco#items"><item jid="conference.local-jabber.entenhausen.pazz.de"/><item jid="pubsub.local-jabber.entenhausen.pazz.de"/><item jid="upload.local-jabber.entenhausen.pazz.de"/></query></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 17. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,57bf470b-2e39-4916-95b2-3c1fb61fc3a3:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,57bf470b-2e39-4916-95b2-3c1fb61fc3a3:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='conference.local-jabber.entenhausen.pazz.de' type='result' id='e3387a55-6f7e-4aa1-b6a2-f28a788638cc:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity name='Chatrooms' type='text' category='conference'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><feature var='http://jabber.org/protocol/muc'/><feature var='vcard-temp'/><feature var='urn:xmpp:mucsub:0'/><feature var='http://jabber.org/protocol/muc#unique'/><feature var='jabber:iq:register'/><feature var='http://jabber.org/protocol/rsm'/><feature var='urn:xmpp:mam:tmp'/><feature var='urn:xmpp:mam:0'/><feature var='urn:xmpp:mam:1'/><feature var='urn:xmpp:mam:2'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='conference.local-jabber.entenhausen.pazz.de' type='result' id='e3387a55-6f7e-4aa1-b6a2-f28a788638cc:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity name='Chatrooms' type='text' category='conference'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><feature var='http://jabber.org/protocol/muc'/><feature var='vcard-temp'/><feature var='urn:xmpp:mucsub:0'/><feature var='http://jabber.org/protocol/muc#unique'/><feature var='jabber:iq:register'/><feature var='http://jabber.org/protocol/rsm'/><feature var='urn:xmpp:mam:tmp'/><feature var='urn:xmpp:mam:0'/><feature var='urn:xmpp:mam:1'/><feature var='urn:xmpp:mam:2'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="conference.local-jabber.entenhausen.pazz.de" type="result" id="e3387a55-6f7e-4aa1-b6a2-f28a788638cc:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity name="Chatrooms" type="text" category="conference"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><feature var="http://jabber.org/protocol/muc"/><feature var="vcard-temp"/><feature var="urn:xmpp:mucsub:0"/><feature var="http://jabber.org/protocol/muc#unique"/><feature var="jabber:iq:register"/><feature var="http://jabber.org/protocol/rsm"/><feature var="urn:xmpp:mam:tmp"/><feature var="urn:xmpp:mam:0"/><feature var="urn:xmpp:mam:1"/><feature var="urn:xmpp:mam:2"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="conference.local-jabber.entenhausen.pazz.de" type="result" id="e3387a55-6f7e-4aa1-b6a2-f28a788638cc:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity name="Chatrooms" type="text" category="conference"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><feature var="http://jabber.org/protocol/muc"/><feature var="vcard-temp"/><feature var="urn:xmpp:mucsub:0"/><feature var="http://jabber.org/protocol/muc#unique"/><feature var="jabber:iq:register"/><feature var="http://jabber.org/protocol/rsm"/><feature var="urn:xmpp:mam:tmp"/><feature var="urn:xmpp:mam:0"/><feature var="urn:xmpp:mam:1"/><feature var="urn:xmpp:mam:2"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 20. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 20. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,e3387a55-6f7e-4aa1-b6a2-f28a788638cc:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,e3387a55-6f7e-4aa1-b6a2-f28a788638cc:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='pubsub.local-jabber.entenhausen.pazz.de' type='result' id='580e23af-9cfb-45ef-9582-9684cc716111:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity name='Publish-Subscribe' type='service' category='pubsub'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><feature var='http://jabber.org/protocol/pubsub'/><feature var='http://jabber.org/protocol/commands'/><feature var='vcard-temp'/><feature var='http://jabber.org/protocol/pubsub#access-authorize'/><feature var='http://jabber.org/protocol/pubsub#access-open'/><feature var='http://jabber.org/protocol/pubsub#access-presence'/><feature var='http://jabber.org/protocol/pubsub#access-whitelist'/><feature var='http://jabber.org/protocol/pubsub#auto-create'/><feature var='http://jabber.org/protocol/pubsub#auto-subscribe'/><feature var='http://jabber.org/protocol/pubsub#collections'/><feature var='http://jabber.org/protocol/pubsub#config-node'/><feature var='http://jabber.org/protocol/pubsub#config-node-max'/><feature var='http://jabber.org/protocol/pubsub#create-and-configure'/><feature var='http://jabber.org/protocol/pubsub#create-nodes'/><feature var='http://jabber.org/protocol/pubsub#delete-items'/><feature var='http://jabber.org/protocol/pubsub#delete-nodes'/><feature var='http://jabber.org/protocol/pubsub#filtered-notifications'/><feature var='http://jabber.org/protocol/pubsub#get-pending'/><feature var='http://jabber.org/protocol/pubsub#instant-nodes'/><feature var='http://jabber.org/protocol/pubsub#item-ids'/><feature var='http://jabber.org/protocol/pubsub#last-published'/><feature var='http://jabber.org/protocol/pubsub#manage-subscriptions'/><feature var='http://jabber.org/protocol/pubsub#member-affiliation'/><feature var='http://jabber.org/protocol/pubsub#modify-affiliations'/><feature var='http://jabber.org/protocol/pubsub#multi-items'/><feature var='http://jabber.org/protocol/pubsub#outcast-affiliation'/><feature var='http://jabber.org/protocol/pubsub#persistent-items'/><feature var='http://jabber.org/protocol/pubsub#presence-notifications'/><feature var='http://jabber.org/protocol/pubsub#presence-subscribe'/><feature var='http://jabber.org/protocol/pubsub#publish'/><feature var='http://jabber.org/protocol/pubsub#publish-only-affiliation'/><feature var='http://jabber.org/protocol/pubsub#publish-options'/><feature var='http://jabber.org/protocol/pubsub#publisher-affiliation'/><feature var='http://jabber.org/protocol/pubsub#purge-nodes'/><feature var='http://jabber.org/protocol/pubsub#retract-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-affiliations'/><feature var='http://jabber.org/protocol/pubsub#retrieve-default'/><feature var='http://jabber.org/protocol/pubsub#retrieve-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-subscriptions'/><feature var='http://jabber.org/protocol/rsm'/><feature var='http://jabber.org/protocol/pubsub#shim'/><feature var='http://jabber.org/protocol/pubsub#subscribe'/><feature var='http://jabber.org/protocol/pubsub#subscription-notifications'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='pubsub.local-jabber.entenhausen.pazz.de' type='result' id='580e23af-9cfb-45ef-9582-9684cc716111:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity name='Publish-Subscribe' type='service' category='pubsub'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><feature var='http://jabber.org/protocol/pubsub'/><feature var='http://jabber.org/protocol/commands'/><feature var='vcard-temp'/><feature var='http://jabber.org/protocol/pubsub#access-authorize'/><feature var='http://jabber.org/protocol/pubsub#access-open'/><feature var='http://jabber.org/protocol/pubsub#access-presence'/><feature var='http://jabber.org/protocol/pubsub#access-whitelist'/><feature var='http://jabber.org/protocol/pubsub#auto-create'/><feature var='http://jabber.org/protocol/pubsub#auto-subscribe'/><feature var='http://jabber.org/protocol/pubsub#collections'/><feature var='http://jabber.org/protocol/pubsub#config-node'/><feature var='http://jabber.org/protocol/pubsub#config-node-max'/><feature var='http://jabber.org/protocol/pubsub#create-and-configure'/><feature var='http://jabber.org/protocol/pubsub#create-nodes'/><feature var='http://jabber.org/protocol/pubsub#delete-items'/><feature var='http://jabber.org/protocol/pubsub#delete-nodes'/><feature var='http://jabber.org/protocol/pubsub#filtered-notifications'/><feature var='http://jabber.org/protocol/pubsub#get-pending'/><feature var='http://jabber.org/protocol/pubsub#instant-nodes'/><feature var='http://jabber.org/protocol/pubsub#item-ids'/><feature var='http://jabber.org/protocol/pubsub#last-published'/><feature var='http://jabber.org/protocol/pubsub#manage-subscriptions'/><feature var='http://jabber.org/protocol/pubsub#member-affiliation'/><feature var='http://jabber.org/protocol/pubsub#modify-affiliations'/><feature var='http://jabber.org/protocol/pubsub#multi-items'/><feature var='http://jabber.org/protocol/pubsub#outcast-affiliation'/><feature var='http://jabber.org/protocol/pubsub#persistent-items'/><feature var='http://jabber.org/protocol/pubsub#presence-notifications'/><feature var='http://jabber.org/protocol/pubsub#presence-subscribe'/><feature var='http://jabber.org/protocol/pubsub#publish'/><feature var='http://jabber.org/protocol/pubsub#publish-only-affiliation'/><feature var='http://jabber.org/protocol/pubsub#publish-options'/><feature var='http://jabber.org/protocol/pubsub#publisher-affiliation'/><feature var='http://jabber.org/protocol/pubsub#purge-nodes'/><feature var='http://jabber.org/protocol/pubsub#retract-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-affiliations'/><feature var='http://jabber.org/protocol/pubsub#retrieve-default'/><feature var='http://jabber.org/protocol/pubsub#retrieve-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-subscriptions'/><feature var='http://jabber.org/protocol/rsm'/><feature var='http://jabber.org/protocol/pubsub#shim'/><feature var='http://jabber.org/protocol/pubsub#subscribe'/><feature var='http://jabber.org/protocol/pubsub#subscription-notifications'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="pubsub.local-jabber.entenhausen.pazz.de" type="result" id="580e23af-9cfb-45ef-9582-9684cc716111:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity name="Publish-Subscribe" type="service" category="pubsub"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><feature var="http://jabber.org/protocol/pubsub"/><feature var="http://jabber.org/protocol/commands"/><feature var="vcard-temp"/><feature var="http://jabber.org/protocol/pubsub#access-authorize"/><feature var="http://jabber.org/protocol/pubsub#access-open"/><feature var="http://jabber.org/protocol/pubsub#access-presence"/><feature var="http://jabber.org/protocol/pubsub#access-whitelist"/><feature var="http://jabber.org/protocol/pubsub#auto-create"/><feature var="http://jabber.org/protocol/pubsub#auto-subscribe"/><feature var="http://jabber.org/protocol/pubsub#collections"/><feature var="http://jabber.org/protocol/pubsub#config-node"/><feature var="http://jabber.org/protocol/pubsub#config-node-max"/><feature var="http://jabber.org/protocol/pubsub#create-and-configure"/><feature var="http://jabber.org/protocol/pubsub#create-nodes"/><feature var="http://jabber.org/protocol/pubsub#delete-items"/><feature var="http://jabber.org/protocol/pubsub#delete-nodes"/><feature var="http://jabber.org/protocol/pubsub#filtered-notifications"/><feature var="http://jabber.org/protocol/pubsub#get-pending"/><feature var="http://jabber.org/protocol/pubsub#instant-nodes"/><feature var="http://jabber.org/protocol/pubsub#item-ids"/><feature var="http://jabber.org/protocol/pubsub#last-published"/><feature var="http://jabber.org/protocol/pubsub#manage-subscriptions"/><feature var="http://jabber.org/protocol/pubsub#member-affiliation"/><feature var="http://jabber.org/protocol/pubsub#modify-affiliations"/><feature var="http://jabber.org/protocol/pubsub#multi-items"/><feature var="http://jabber.org/protocol/pubsub#outcast-affiliation"/><feature var="http://jabber.org/protocol/pubsub#persistent-items"/><feature var="http://jabber.org/protocol/pubsub#presence-notifications"/><feature var="http://jabber.org/protocol/pubsub#presence-subscribe"/><feature var="http://jabber.org/protocol/pubsub#publish"/><feature var="http://jabber.org/protocol/pubsub#publish-only-affiliation"/><feature var="http://jabber.org/protocol/pubsub#publish-options"/><feature var="http://jabber.org/protocol/pubsub#publisher-affiliation"/><feature var="http://jabber.org/protocol/pubsub#purge-nodes"/><feature var="http://jabber.org/protocol/pubsub#retract-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-affiliations"/><feature var="http://jabber.org/protocol/pubsub#retrieve-default"/><feature var="http://jabber.org/protocol/pubsub#retrieve-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-subscriptions"/><feature var="http://jabber.org/protocol/rsm"/><feature var="http://jabber.org/protocol/pubsub#shim"/><feature var="http://jabber.org/protocol/pubsub#subscribe"/><feature var="http://jabber.org/protocol/pubsub#subscription-notifications"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="pubsub.local-jabber.entenhausen.pazz.de" type="result" id="580e23af-9cfb-45ef-9582-9684cc716111:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity name="Publish-Subscribe" type="service" category="pubsub"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><feature var="http://jabber.org/protocol/pubsub"/><feature var="http://jabber.org/protocol/commands"/><feature var="vcard-temp"/><feature var="http://jabber.org/protocol/pubsub#access-authorize"/><feature var="http://jabber.org/protocol/pubsub#access-open"/><feature var="http://jabber.org/protocol/pubsub#access-presence"/><feature var="http://jabber.org/protocol/pubsub#access-whitelist"/><feature var="http://jabber.org/protocol/pubsub#auto-create"/><feature var="http://jabber.org/protocol/pubsub#auto-subscribe"/><feature var="http://jabber.org/protocol/pubsub#collections"/><feature var="http://jabber.org/protocol/pubsub#config-node"/><feature var="http://jabber.org/protocol/pubsub#config-node-max"/><feature var="http://jabber.org/protocol/pubsub#create-and-configure"/><feature var="http://jabber.org/protocol/pubsub#create-nodes"/><feature var="http://jabber.org/protocol/pubsub#delete-items"/><feature var="http://jabber.org/protocol/pubsub#delete-nodes"/><feature var="http://jabber.org/protocol/pubsub#filtered-notifications"/><feature var="http://jabber.org/protocol/pubsub#get-pending"/><feature var="http://jabber.org/protocol/pubsub#instant-nodes"/><feature var="http://jabber.org/protocol/pubsub#item-ids"/><feature var="http://jabber.org/protocol/pubsub#last-published"/><feature var="http://jabber.org/protocol/pubsub#manage-subscriptions"/><feature var="http://jabber.org/protocol/pubsub#member-affiliation"/><feature var="http://jabber.org/protocol/pubsub#modify-affiliations"/><feature var="http://jabber.org/protocol/pubsub#multi-items"/><feature var="http://jabber.org/protocol/pubsub#outcast-affiliation"/><feature var="http://jabber.org/protocol/pubsub#persistent-items"/><feature var="http://jabber.org/protocol/pubsub#presence-notifications"/><feature var="http://jabber.org/protocol/pubsub#presence-subscribe"/><feature var="http://jabber.org/protocol/pubsub#publish"/><feature var="http://jabber.org/protocol/pubsub#publish-only-affiliation"/><feature var="http://jabber.org/protocol/pubsub#publish-options"/><feature var="http://jabber.org/protocol/pubsub#publisher-affiliation"/><feature var="http://jabber.org/protocol/pubsub#purge-nodes"/><feature var="http://jabber.org/protocol/pubsub#retract-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-affiliations"/><feature var="http://jabber.org/protocol/pubsub#retrieve-default"/><feature var="http://jabber.org/protocol/pubsub#retrieve-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-subscriptions"/><feature var="http://jabber.org/protocol/rsm"/><feature var="http://jabber.org/protocol/pubsub#shim"/><feature var="http://jabber.org/protocol/pubsub#subscribe"/><feature var="http://jabber.org/protocol/pubsub#subscription-notifications"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 20. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 20. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,580e23af-9cfb-45ef-9582-9684cc716111:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,580e23af-9cfb-45ef-9582-9684cc716111:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='upload.local-jabber.entenhausen.pazz.de' type='result' id='35ae4d16-677d-4fc3-973e-ec50df654bff:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity name='HTTP File Upload' type='file' category='store'/><feature var='urn:xmpp:http:upload'/><feature var='urn:xmpp:http:upload:0'/><feature var='eu:siacs:conversations:http:upload'/><feature var='vcard-temp'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>urn:xmpp:http:upload</value></field><field var='max-file-size' type='text-single' label='Maximum file size'><value>104857600</value></field></x><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>urn:xmpp:http:upload:0</value></field><field var='max-file-size' type='text-single' label='Maximum file size'><value>104857600</value></field></x><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='upload.local-jabber.entenhausen.pazz.de' type='result' id='35ae4d16-677d-4fc3-973e-ec50df654bff:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity name='HTTP File Upload' type='file' category='store'/><feature var='urn:xmpp:http:upload'/><feature var='urn:xmpp:http:upload:0'/><feature var='eu:siacs:conversations:http:upload'/><feature var='vcard-temp'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>urn:xmpp:http:upload</value></field><field var='max-file-size' type='text-single' label='Maximum file size'><value>104857600</value></field></x><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>urn:xmpp:http:upload:0</value></field><field var='max-file-size' type='text-single' label='Maximum file size'><value>104857600</value></field></x><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="upload.local-jabber.entenhausen.pazz.de" type="result" id="35ae4d16-677d-4fc3-973e-ec50df654bff:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity name="HTTP File Upload" type="file" category="store"/><feature var="urn:xmpp:http:upload"/><feature var="urn:xmpp:http:upload:0"/><feature var="eu:siacs:conversations:http:upload"/><feature var="vcard-temp"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>urn:xmpp:http:upload</value></field><field var="max-file-size" type="text-single" label="Maximum file size"><value>104857600</value></field></x><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>urn:xmpp:http:upload:0</value></field><field var="max-file-size" type="text-single" label="Maximum file size"><value>104857600</value></field></x><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="upload.local-jabber.entenhausen.pazz.de" type="result" id="35ae4d16-677d-4fc3-973e-ec50df654bff:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity name="HTTP File Upload" type="file" category="store"/><feature var="urn:xmpp:http:upload"/><feature var="urn:xmpp:http:upload:0"/><feature var="eu:siacs:conversations:http:upload"/><feature var="vcard-temp"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>urn:xmpp:http:upload</value></field><field var="max-file-size" type="text-single" label="Maximum file size"><value>104857600</value></field></x><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>urn:xmpp:http:upload:0</value></field><field var="max-file-size" type="text-single" label="Maximum file size"><value>104857600</value></field></x><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 20. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 20. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,35ae4d16-677d-4fc3-973e-ec50df654bff:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,35ae4d16-677d-4fc3-973e-ec50df654bff:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='0e2a366f-e976-41ae-b984-658c2dcbf3dd:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity type='pep' category='pubsub'/><identity name='ejabberd' type='im' category='server'/><feature var='http://jabber.org/protocol/commands'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><feature var='http://jabber.org/protocol/offline'/><feature var='http://jabber.org/protocol/pubsub'/><feature var='http://jabber.org/protocol/pubsub#access-authorize'/><feature var='http://jabber.org/protocol/pubsub#access-open'/><feature var='http://jabber.org/protocol/pubsub#access-presence'/><feature var='http://jabber.org/protocol/pubsub#access-whitelist'/><feature var='http://jabber.org/protocol/pubsub#auto-create'/><feature var='http://jabber.org/protocol/pubsub#auto-subscribe'/><feature var='http://jabber.org/protocol/pubsub#collections'/><feature var='http://jabber.org/protocol/pubsub#config-node'/><feature var='http://jabber.org/protocol/pubsub#config-node-max'/><feature var='http://jabber.org/protocol/pubsub#create-and-configure'/><feature var='http://jabber.org/protocol/pubsub#create-nodes'/><feature var='http://jabber.org/protocol/pubsub#delete-items'/><feature var='http://jabber.org/protocol/pubsub#delete-nodes'/><feature var='http://jabber.org/protocol/pubsub#filtered-notifications'/><feature var='http://jabber.org/protocol/pubsub#get-pending'/><feature var='http://jabber.org/protocol/pubsub#instant-nodes'/><feature var='http://jabber.org/protocol/pubsub#item-ids'/><feature var='http://jabber.org/protocol/pubsub#last-published'/><feature var='http://jabber.org/protocol/pubsub#manage-subscriptions'/><feature var='http://jabber.org/protocol/pubsub#member-affiliation'/><feature var='http://jabber.org/protocol/pubsub#modify-affiliations'/><feature var='http://jabber.org/protocol/pubsub#multi-items'/><feature var='http://jabber.org/protocol/pubsub#outcast-affiliation'/><feature var='http://jabber.org/protocol/pubsub#persistent-items'/><feature var='http://jabber.org/protocol/pubsub#presence-notifications'/><feature var='http://jabber.org/protocol/pubsub#presence-subscribe'/><feature var='http://jabber.org/protocol/pubsub#publish'/><feature var='http://jabber.org/protocol/pubsub#publish-only-affiliation'/><feature var='http://jabber.org/protocol/pubsub#publish-options'/><feature var='http://jabber.org/protocol/pubsub#publisher-affiliation'/><feature var='http://jabber.org/protocol/pubsub#purge-nodes'/><feature var='http://jabber.org/protocol/pubsub#retract-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-affiliations'/><feature var='http://jabber.org/protocol/pubsub#retrieve-default'/><feature var='http://jabber.org/protocol/pubsub#retrieve-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-subscriptions'/><feature var='http://jabber.org/protocol/pubsub#shim'/><feature var='http://jabber.org/protocol/pubsub#subscribe'/><feature var='http://jabber.org/protocol/pubsub#subscription-notifications'/><feature var='http://jabber.org/protocol/rsm'/><feature var='http://jabber.org/protocol/stats'/><feature var='iq'/><feature var='jabber:iq:last'/><feature var='jabber:iq:privacy'/><feature var='jabber:iq:register'/><feature var='jabber:iq:version'/><feature var='msgoffline'/><feature var='presence'/><feature var='urn:xmpp:blocking'/><feature var='urn:xmpp:carbons:2'/><feature var='urn:xmpp:carbons:rules:0'/><feature var='urn:xmpp:mam:0'/><feature var='urn:xmpp:mam:1'/><feature var='urn:xmpp:mam:2'/><feature var='urn:xmpp:mam:tmp'/><feature var='urn:xmpp:ping'/><feature var='urn:xmpp:time'/><feature var='vcard-temp'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='local-jabber.entenhausen.pazz.de' type='result' id='0e2a366f-e976-41ae-b984-658c2dcbf3dd:sendIQ'><query xmlns='http://jabber.org/protocol/disco#info'><identity type='pep' category='pubsub'/><identity name='ejabberd' type='im' category='server'/><feature var='http://jabber.org/protocol/commands'/><feature var='http://jabber.org/protocol/disco#info'/><feature var='http://jabber.org/protocol/disco#items'/><feature var='http://jabber.org/protocol/offline'/><feature var='http://jabber.org/protocol/pubsub'/><feature var='http://jabber.org/protocol/pubsub#access-authorize'/><feature var='http://jabber.org/protocol/pubsub#access-open'/><feature var='http://jabber.org/protocol/pubsub#access-presence'/><feature var='http://jabber.org/protocol/pubsub#access-whitelist'/><feature var='http://jabber.org/protocol/pubsub#auto-create'/><feature var='http://jabber.org/protocol/pubsub#auto-subscribe'/><feature var='http://jabber.org/protocol/pubsub#collections'/><feature var='http://jabber.org/protocol/pubsub#config-node'/><feature var='http://jabber.org/protocol/pubsub#config-node-max'/><feature var='http://jabber.org/protocol/pubsub#create-and-configure'/><feature var='http://jabber.org/protocol/pubsub#create-nodes'/><feature var='http://jabber.org/protocol/pubsub#delete-items'/><feature var='http://jabber.org/protocol/pubsub#delete-nodes'/><feature var='http://jabber.org/protocol/pubsub#filtered-notifications'/><feature var='http://jabber.org/protocol/pubsub#get-pending'/><feature var='http://jabber.org/protocol/pubsub#instant-nodes'/><feature var='http://jabber.org/protocol/pubsub#item-ids'/><feature var='http://jabber.org/protocol/pubsub#last-published'/><feature var='http://jabber.org/protocol/pubsub#manage-subscriptions'/><feature var='http://jabber.org/protocol/pubsub#member-affiliation'/><feature var='http://jabber.org/protocol/pubsub#modify-affiliations'/><feature var='http://jabber.org/protocol/pubsub#multi-items'/><feature var='http://jabber.org/protocol/pubsub#outcast-affiliation'/><feature var='http://jabber.org/protocol/pubsub#persistent-items'/><feature var='http://jabber.org/protocol/pubsub#presence-notifications'/><feature var='http://jabber.org/protocol/pubsub#presence-subscribe'/><feature var='http://jabber.org/protocol/pubsub#publish'/><feature var='http://jabber.org/protocol/pubsub#publish-only-affiliation'/><feature var='http://jabber.org/protocol/pubsub#publish-options'/><feature var='http://jabber.org/protocol/pubsub#publisher-affiliation'/><feature var='http://jabber.org/protocol/pubsub#purge-nodes'/><feature var='http://jabber.org/protocol/pubsub#retract-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-affiliations'/><feature var='http://jabber.org/protocol/pubsub#retrieve-default'/><feature var='http://jabber.org/protocol/pubsub#retrieve-items'/><feature var='http://jabber.org/protocol/pubsub#retrieve-subscriptions'/><feature var='http://jabber.org/protocol/pubsub#shim'/><feature var='http://jabber.org/protocol/pubsub#subscribe'/><feature var='http://jabber.org/protocol/pubsub#subscription-notifications'/><feature var='http://jabber.org/protocol/rsm'/><feature var='http://jabber.org/protocol/stats'/><feature var='iq'/><feature var='jabber:iq:last'/><feature var='jabber:iq:privacy'/><feature var='jabber:iq:register'/><feature var='jabber:iq:version'/><feature var='msgoffline'/><feature var='presence'/><feature var='urn:xmpp:blocking'/><feature var='urn:xmpp:carbons:2'/><feature var='urn:xmpp:carbons:rules:0'/><feature var='urn:xmpp:mam:0'/><feature var='urn:xmpp:mam:1'/><feature var='urn:xmpp:mam:2'/><feature var='urn:xmpp:mam:tmp'/><feature var='urn:xmpp:ping'/><feature var='urn:xmpp:time'/><feature var='vcard-temp'/><x type='result' xmlns='jabber:x:data'><field var='FORM_TYPE' type='hidden'><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="0e2a366f-e976-41ae-b984-658c2dcbf3dd:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity type="pep" category="pubsub"/><identity name="ejabberd" type="im" category="server"/><feature var="http://jabber.org/protocol/commands"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><feature var="http://jabber.org/protocol/offline"/><feature var="http://jabber.org/protocol/pubsub"/><feature var="http://jabber.org/protocol/pubsub#access-authorize"/><feature var="http://jabber.org/protocol/pubsub#access-open"/><feature var="http://jabber.org/protocol/pubsub#access-presence"/><feature var="http://jabber.org/protocol/pubsub#access-whitelist"/><feature var="http://jabber.org/protocol/pubsub#auto-create"/><feature var="http://jabber.org/protocol/pubsub#auto-subscribe"/><feature var="http://jabber.org/protocol/pubsub#collections"/><feature var="http://jabber.org/protocol/pubsub#config-node"/><feature var="http://jabber.org/protocol/pubsub#config-node-max"/><feature var="http://jabber.org/protocol/pubsub#create-and-configure"/><feature var="http://jabber.org/protocol/pubsub#create-nodes"/><feature var="http://jabber.org/protocol/pubsub#delete-items"/><feature var="http://jabber.org/protocol/pubsub#delete-nodes"/><feature var="http://jabber.org/protocol/pubsub#filtered-notifications"/><feature var="http://jabber.org/protocol/pubsub#get-pending"/><feature var="http://jabber.org/protocol/pubsub#instant-nodes"/><feature var="http://jabber.org/protocol/pubsub#item-ids"/><feature var="http://jabber.org/protocol/pubsub#last-published"/><feature var="http://jabber.org/protocol/pubsub#manage-subscriptions"/><feature var="http://jabber.org/protocol/pubsub#member-affiliation"/><feature var="http://jabber.org/protocol/pubsub#modify-affiliations"/><feature var="http://jabber.org/protocol/pubsub#multi-items"/><feature var="http://jabber.org/protocol/pubsub#outcast-affiliation"/><feature var="http://jabber.org/protocol/pubsub#persistent-items"/><feature var="http://jabber.org/protocol/pubsub#presence-notifications"/><feature var="http://jabber.org/protocol/pubsub#presence-subscribe"/><feature var="http://jabber.org/protocol/pubsub#publish"/><feature var="http://jabber.org/protocol/pubsub#publish-only-affiliation"/><feature var="http://jabber.org/protocol/pubsub#publish-options"/><feature var="http://jabber.org/protocol/pubsub#publisher-affiliation"/><feature var="http://jabber.org/protocol/pubsub#purge-nodes"/><feature var="http://jabber.org/protocol/pubsub#retract-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-affiliations"/><feature var="http://jabber.org/protocol/pubsub#retrieve-default"/><feature var="http://jabber.org/protocol/pubsub#retrieve-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-subscriptions"/><feature var="http://jabber.org/protocol/pubsub#shim"/><feature var="http://jabber.org/protocol/pubsub#subscribe"/><feature var="http://jabber.org/protocol/pubsub#subscription-notifications"/><feature var="http://jabber.org/protocol/rsm"/><feature var="http://jabber.org/protocol/stats"/><feature var="iq"/><feature var="jabber:iq:last"/><feature var="jabber:iq:privacy"/><feature var="jabber:iq:register"/><feature var="jabber:iq:version"/><feature var="msgoffline"/><feature var="presence"/><feature var="urn:xmpp:blocking"/><feature var="urn:xmpp:carbons:2"/><feature var="urn:xmpp:carbons:rules:0"/><feature var="urn:xmpp:mam:0"/><feature var="urn:xmpp:mam:1"/><feature var="urn:xmpp:mam:2"/><feature var="urn:xmpp:mam:tmp"/><feature var="urn:xmpp:ping"/><feature var="urn:xmpp:time"/><feature var="vcard-temp"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="local-jabber.entenhausen.pazz.de" type="result" id="0e2a366f-e976-41ae-b984-658c2dcbf3dd:sendIQ"><query xmlns="http://jabber.org/protocol/disco#info"><identity type="pep" category="pubsub"/><identity name="ejabberd" type="im" category="server"/><feature var="http://jabber.org/protocol/commands"/><feature var="http://jabber.org/protocol/disco#info"/><feature var="http://jabber.org/protocol/disco#items"/><feature var="http://jabber.org/protocol/offline"/><feature var="http://jabber.org/protocol/pubsub"/><feature var="http://jabber.org/protocol/pubsub#access-authorize"/><feature var="http://jabber.org/protocol/pubsub#access-open"/><feature var="http://jabber.org/protocol/pubsub#access-presence"/><feature var="http://jabber.org/protocol/pubsub#access-whitelist"/><feature var="http://jabber.org/protocol/pubsub#auto-create"/><feature var="http://jabber.org/protocol/pubsub#auto-subscribe"/><feature var="http://jabber.org/protocol/pubsub#collections"/><feature var="http://jabber.org/protocol/pubsub#config-node"/><feature var="http://jabber.org/protocol/pubsub#config-node-max"/><feature var="http://jabber.org/protocol/pubsub#create-and-configure"/><feature var="http://jabber.org/protocol/pubsub#create-nodes"/><feature var="http://jabber.org/protocol/pubsub#delete-items"/><feature var="http://jabber.org/protocol/pubsub#delete-nodes"/><feature var="http://jabber.org/protocol/pubsub#filtered-notifications"/><feature var="http://jabber.org/protocol/pubsub#get-pending"/><feature var="http://jabber.org/protocol/pubsub#instant-nodes"/><feature var="http://jabber.org/protocol/pubsub#item-ids"/><feature var="http://jabber.org/protocol/pubsub#last-published"/><feature var="http://jabber.org/protocol/pubsub#manage-subscriptions"/><feature var="http://jabber.org/protocol/pubsub#member-affiliation"/><feature var="http://jabber.org/protocol/pubsub#modify-affiliations"/><feature var="http://jabber.org/protocol/pubsub#multi-items"/><feature var="http://jabber.org/protocol/pubsub#outcast-affiliation"/><feature var="http://jabber.org/protocol/pubsub#persistent-items"/><feature var="http://jabber.org/protocol/pubsub#presence-notifications"/><feature var="http://jabber.org/protocol/pubsub#presence-subscribe"/><feature var="http://jabber.org/protocol/pubsub#publish"/><feature var="http://jabber.org/protocol/pubsub#publish-only-affiliation"/><feature var="http://jabber.org/protocol/pubsub#publish-options"/><feature var="http://jabber.org/protocol/pubsub#publisher-affiliation"/><feature var="http://jabber.org/protocol/pubsub#purge-nodes"/><feature var="http://jabber.org/protocol/pubsub#retract-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-affiliations"/><feature var="http://jabber.org/protocol/pubsub#retrieve-default"/><feature var="http://jabber.org/protocol/pubsub#retrieve-items"/><feature var="http://jabber.org/protocol/pubsub#retrieve-subscriptions"/><feature var="http://jabber.org/protocol/pubsub#shim"/><feature var="http://jabber.org/protocol/pubsub#subscribe"/><feature var="http://jabber.org/protocol/pubsub#subscription-notifications"/><feature var="http://jabber.org/protocol/rsm"/><feature var="http://jabber.org/protocol/stats"/><feature var="iq"/><feature var="jabber:iq:last"/><feature var="jabber:iq:privacy"/><feature var="jabber:iq:register"/><feature var="jabber:iq:version"/><feature var="msgoffline"/><feature var="presence"/><feature var="urn:xmpp:blocking"/><feature var="urn:xmpp:carbons:2"/><feature var="urn:xmpp:carbons:rules:0"/><feature var="urn:xmpp:mam:0"/><feature var="urn:xmpp:mam:1"/><feature var="urn:xmpp:mam:2"/><feature var="urn:xmpp:mam:tmp"/><feature var="urn:xmpp:ping"/><feature var="urn:xmpp:time"/><feature var="vcard-temp"/><x xmlns="jabber:x:data" type="result"><field var="FORM_TYPE" type="hidden"><value>http://jabber.org/network/serverinfo</value></field></x></query></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 21. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 21. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,0e2a366f-e976-41ae-b984-658c2dcbf3dd:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,0e2a366f-e976-41ae-b984-658c2dcbf3dd:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='conference.local-jabber.entenhausen.pazz.de' type='result' id='ee059946-60ce-4336-bd04-b51bec23051e:sendIQ'><query xmlns='http://jabber.org/protocol/disco#items'><item name='fatherroom-9kbqm7 (0)' jid='fatherroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de'/><item name='heroroom-9kbqm7 (0)' jid='heroroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de'/><item name='princessroom-9kbqm7 (0)' jid='princessroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de'/></query></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='conference.local-jabber.entenhausen.pazz.de' type='result' id='ee059946-60ce-4336-bd04-b51bec23051e:sendIQ'><query xmlns='http://jabber.org/protocol/disco#items'><item name='fatherroom-9kbqm7 (0)' jid='fatherroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de'/><item name='heroroom-9kbqm7 (0)' jid='heroroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de'/><item name='princessroom-9kbqm7 (0)' jid='princessroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de'/></query></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="conference.local-jabber.entenhausen.pazz.de" type="result" id="ee059946-60ce-4336-bd04-b51bec23051e:sendIQ"><query xmlns="http://jabber.org/protocol/disco#items"><item name="fatherroom-9kbqm7 (0)" jid="fatherroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de"/><item name="heroroom-9kbqm7 (0)" jid="heroroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de"/><item name="princessroom-9kbqm7 (0)" jid="princessroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de"/></query></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="conference.local-jabber.entenhausen.pazz.de" type="result" id="ee059946-60ce-4336-bd04-b51bec23051e:sendIQ"><query xmlns="http://jabber.org/protocol/disco#items"><item name="fatherroom-9kbqm7 (0)" jid="fatherroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de"/><item name="heroroom-9kbqm7 (0)" jid="heroroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de"/><item name="princessroom-9kbqm7 (0)" jid="princessroom-9kbqm7@conference.local-jabber.entenhausen.pazz.de"/></query></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,ee059946-60ce-4336-bd04-b51bec23051e:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,ee059946-60ce-4336-bd04-b51bec23051e:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='97355ebf-aa87-4921-8043-94c266dcc2ac:sendIQ'><prefs default='always' xmlns='urn:xmpp:mam:2'><always/><never/></prefs></iq>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<iq xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de' type='result' id='97355ebf-aa87-4921-8043-94c266dcc2ac:sendIQ'><prefs default='always' xmlns='urn:xmpp:mam:2'><always/><never/></prefs></iq>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="97355ebf-aa87-4921-8043-94c266dcc2ac:sendIQ"><prefs xmlns="urn:xmpp:mam:2" default="always"><always/><never/></prefs></iq>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<iq xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de" type="result" id="97355ebf-aa87-4921-8043-94c266dcc2ac:sendIQ"><prefs xmlns="urn:xmpp:mam:2" default="always"><always/><never/></prefs></iq>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: iq'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: iq'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,97355ebf-aa87-4921-8043-94c266dcc2ac:sendIQ,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => {
+        // remove timeout handler if there is one
+        if (timeoutHandler) {
+          clearTimeout(timeoutHandler);
+        }
+        if (stanza.getAttribute('type') === 'error') {
+          err(stanza.outerHTML);
+        } else {
+          callback(stanza);
+        }
+        return false;
+      }(undefined,97355ebf-aa87-4921-8043-94c266dcc2ac:sendIQ,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<presence xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722'/>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<presence xmlns='jabber:client' xml:lang='en' to='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722' from='villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722'/>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<presence xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722"/>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<presence xmlns="jabber:client" xml:lang="en" to="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722" from="villain@local-jabber.entenhausen.pazz.de/17577041163818354040306722"/>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: presence'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: presence'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => _this.handlePresenceStanza(stanza)(presence,undefined,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => _this.handlePresenceStanza(stanza)(presence,undefined,undefined)}'
+LOG LOG: [36m'fakeWebsocketInStanza: injecting stanza:', '<message from="conference.local-jabber.entenhausen.pazz.de" to="villain@local-jabber.entenhausen.pazz.de" xmlns="jabber:client"><result xmlns="urn:xmpp:mam:2"><forwarded><delay stamp="2021-08-17T15:33:25.375401Z"/><message><event xmlns="http://jabber.org/protocol/pubsub#event"><items node="urn:xmpp:mucsub:nodes:messages"><item><message from="anotherroom@conference.example.com/othernick" type="groupchat"><body>group chat the second!</body></message></item></items></event></message></forwarded></result></message>'[39m
+LOG: 'fakeWebsocketInStanza: injecting stanza:', '<message from="conference.local-jabber.entenhausen.pazz.de" to="villain@local-jabber.entenhausen.pazz.de" xmlns="jabber:client"><result xmlns="urn:xmpp:mam:2"><forwarded><delay stamp="2021-08-17T15:33:25.375401Z"/><message><event xmlns="http://jabber.org/protocol/pubsub#event"><items node="urn:xmpp:mucsub:nodes:messages"><item><message from="anotherroom@conference.example.com/othernick" type="groupchat"><body>group chat the second!</body></message></item></items></event></message></forwarded></result></message>'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<message from="conference.local-jabber.entenhausen.pazz.de" to="villain@local-jabber.entenhausen.pazz.de" xmlns="jabber:client"><result xmlns="urn:xmpp:mam:2"><forwarded><delay stamp="2021-08-17T15:33:25.375401Z"/><message><event xmlns="http://jabber.org/protocol/pubsub#event"><items node="urn:xmpp:mucsub:nodes:messages"><item><message from="anotherroom@conference.example.com/othernick" type="groupchat"><body>group chat the second!</body></message></item></items></event></message></forwarded></result></message>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<message from="conference.local-jabber.entenhausen.pazz.de" to="villain@local-jabber.entenhausen.pazz.de" xmlns="jabber:client"><result xmlns="urn:xmpp:mam:2"><forwarded><delay stamp="2021-08-17T15:33:25.375401Z"/><message><event xmlns="http://jabber.org/protocol/pubsub#event"><items node="urn:xmpp:mucsub:nodes:messages"><item><message from="anotherroom@conference.example.com/othernick" type="groupchat"><body>group chat the second!</body></message></item></items></event></message></forwarded></result></message>'
+LOG LOG: [36m'[DEBUG Connection] dataReceived:', '<message xmlns="jabber:client" from="conference.local-jabber.entenhausen.pazz.de" to="villain@local-jabber.entenhausen.pazz.de"><result xmlns="urn:xmpp:mam:2"><forwarded><delay stamp="2021-08-17T15:33:25.375401Z"/><message><event xmlns="http://jabber.org/protocol/pubsub#event"><items node="urn:xmpp:mucsub:nodes:messages"><item><message from="anotherroom@conference.example.com/othernick" type="groupchat"><body>group chat the second!</body></message></item></items></event></message></forwarded></result></message>'[39m
+LOG: '[DEBUG Connection] dataReceived:', '<message xmlns="jabber:client" from="conference.local-jabber.entenhausen.pazz.de" to="villain@local-jabber.entenhausen.pazz.de"><result xmlns="urn:xmpp:mam:2"><forwarded><delay stamp="2021-08-17T15:33:25.375401Z"/><message><event xmlns="http://jabber.org/protocol/pubsub#event"><items node="urn:xmpp:mucsub:nodes:messages"><item><message from="anotherroom@conference.example.com/othernick" type="groupchat"><body>group chat the second!</body></message></item></items></event></message></forwarded></result></message>'
+LOG LOG: [36m'[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: message'[39m
+LOG: '[DEBUG HandlerService] checkHandlerChain. Handlers count: 23. Child: message'
+LOG LOG: [36m'[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => _this.handleMessageStanza(stanza)(message,undefined,undefined)}'[39m
+LOG: '[DEBUG HandlerService] Match found! Handler:', '{Handler: stanza => _this.handleMessageStanza(stanza)(message,undefined,undefined)}'
+LOG LOG: [36m'[DEBUG StropheWebsocket] onMessage received:', '<close xmlns='urn:ietf:params:xml:ns:xmpp-framing'/>'[39m
+LOG: '[DEBUG StropheWebsocket] onMessage received:', '<close xmlns='urn:ietf:params:xml:ns:xmpp-framing'/>'
+  message archive plugin
+    [31m✗ [39m[31mshould handle MUC/Sub archive stanzas correctly[39m
+	Expected 0 to be 1.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (libs/ngx-xmpp/src/test/message-archive.plugin.spec.ts:196:34)
+	    at Generator.next (<anonymous>)
+	    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+	Expected undefined to be 'group chat the second!'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (libs/ngx-xmpp/src/test/message-archive.plugin.spec.ts:200:31)
+	    at Generator.next (<anonymous>)
+	    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+	Expected undefined to equal Date(Tue Aug 17 2021 17:33:25 GMT+0200 (Central European Summer Time)).
+	    at <Jasmine>
+	    at UserContext.<anonymous> (libs/ngx-xmpp/src/test/message-archive.plugin.spec.ts:201:35)
+	    at Generator.next (<anonymous>)
+	    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+	Expected undefined to be 'in'.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (libs/ngx-xmpp/src/test/message-archive.plugin.spec.ts:202:36)
+	    at Generator.next (<anonymous>)
+	    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+	Expected undefined to be true.
+	    at <Jasmine>
+	    at UserContext.<anonymous> (libs/ngx-xmpp/src/test/message-archive.plugin.spec.ts:203:38)
+	    at Generator.next (<anonymous>)
+	    at asyncGeneratorStep (node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js:3:1)
+Chrome Headless 115.0.5790.98 (Mac OS 10.15.7): Executed 1 of 4[31m (1 FAILED)[39m (skipped 3) (4.424 secs / 4.417 secs)
+[31mTOTAL: 1 FAILED, 0 SUCCESS[39m
+[32m✔[39m Browser application bundle generation complete.
+[32m✔[39m Browser application bundle generation complete.
+
+
+
+ NX   Running target test for project ngx-xmpp failed
+
+Failed tasks:
+
+- ngx-xmpp:test
+
+Hint: run the command with --verbose for more details.
+

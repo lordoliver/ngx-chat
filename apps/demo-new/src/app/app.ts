@@ -8,11 +8,10 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @Component({
-  standalone: true,
-  imports: [RouterModule, CommonModule, FormsModule, ChatComponent, NgxChatModule],
-  selector: 'app-root',
-  templateUrl: './app.html',
-  styleUrls: ['./app.less']
+    imports: [RouterModule, CommonModule, FormsModule, ChatComponent, NgxChatModule],
+    selector: 'app-root',
+    templateUrl: './app.html',
+    styleUrls: ['./app.less']
 })
 export class App implements OnInit {
   console = console;
