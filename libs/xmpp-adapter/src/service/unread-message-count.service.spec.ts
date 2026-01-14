@@ -121,15 +121,21 @@ describe('UnreadMessageCountService', () => {
         contact1.messageStore.messages = [msg1];
         contact1.messageStore.messages$.next([msg1]);
 
-
+        let aliceCount = 0;
+        let bobCount = 0;
+        const sub = service.jidToUnreadCount$.subscribe(map => {
+            aliceCount = map.get('alice@example.com') || 0;
+            bobCount = map.get('bob@example.com') || 0;
+        });
 
         // 4. Verify Unread Count for Alice
-        const map = await firstValueFrom(
-            service.jidToUnreadCount$.pipe(
-                filter(m => (m.get('alice@example.com') || 0) === 1)
-            )
-        );
-        expect(map.get('bob@example.com') || 0).toBe(0);
+        // Wait for debounce/processing
+        await new Promise(resolve => setTimeout(resolve, 100));
+
+        expect(aliceCount).toBe(1);
+        expect(bobCount).toBe(0);
+
+        sub.unsubscribe();
     });
 
     it('should verify reading a message and getting a new one (badge flow)', async () => {
