@@ -34,11 +34,11 @@ export class MessageArchivePlugin implements ChatPlugin {
   }
 
   async loadMessagesBeforeOldestMessage(recipient: Recipient): Promise<void> {
-    await this.loadMessages(recipient, (builder) =>
-      recipient.messageStore.oldestMessage?.id
-        ? builder.c('before', {}, recipient.messageStore.oldestMessage.id)
-        : builder
-    );
+    await this.loadMessages(recipient, (builder) => {
+      const oldestMessage = recipient.messageStore.oldestMessage;
+      const beforeId = oldestMessage?.stanzaId || oldestMessage?.id;
+      return beforeId ? builder.c('before', {}, beforeId) : builder;
+    });
   }
 
   async loadMostRecentMessages(recipient: Recipient): Promise<void> {

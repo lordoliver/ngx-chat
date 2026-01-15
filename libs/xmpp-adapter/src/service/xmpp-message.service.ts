@@ -300,13 +300,15 @@ export class XmppMessageService implements MessageService {
       contactJid as string
     );
 
+    const stanzaId = messageStanza.querySelector('stanza-id')?.getAttribute('id') ?? undefined;
     const id =
       messageStanza.querySelector('origin-id')?.getAttribute('id') ??
       messageStanza.getAttribute('id') ??
-      (messageStanza.querySelector('stanza-id')?.id as string);
+      stanzaId as string;
 
     const message = {
       id,
+      stanzaId,
       // body can be missing on type=chat messageElements
       body: messageStanza.querySelector('body')?.textContent?.trim() as string,
       direction,
