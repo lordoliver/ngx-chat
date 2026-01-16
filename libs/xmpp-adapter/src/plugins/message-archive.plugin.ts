@@ -28,7 +28,7 @@ export class MessageArchivePlugin implements ChatPlugin {
       .$iq({ type: 'set' })
       .c('query', { xmlns: this.nameSpace })
       .c('set', { xmlns: nsRSM })
-      .c('max', {}, '20')
+      .c('max', {}, '250')
       .c('before')
       .send();
   }
@@ -119,19 +119,10 @@ export class MessageArchivePlugin implements ChatPlugin {
       .cCreateMethod((builder) => serializeToSubmitForm(builder, form))
       .up()
       .c('set', { xmlns: nsRSM })
-      .c('max', {}, '20')
+      .c('max', {}, '250') // Restoring 250 to match production
       .cCreateMethod(retrieveMessageFunc)
       .up();
 
-    console.log(`[MAM-DEBUG-V2] Sending MAM Request to=${to || 'self'}, with=${form.fields.find(f => f.variable === 'with')?.value}`);
-    const response = await request.send();
-    const fin = response.querySelector('fin');
-    const complete = fin?.getAttribute('complete');
-    // Note: Messages are usually pushed via message handler, not IQ result directly in some XEP-0313 versions,
-    // but the 'set' element in 'fin' might give clues.
-    console.log(`[MAM-DEBUG-V2] MAM Response Received. Complete=${complete}`);
-
-    // In many implementations, the IQ result only contains the 'fin'. usage of 'message' elements alongside IQ depends on protocol version.
-    // However, if we receive 0 messages via the stream, the 'oldestMessage' won't update.
+    await request.send();
   }
 }
