@@ -184,7 +184,8 @@ export class ChatWindowPage {
   async scrollToTop(): Promise<void> {
     const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
     await messagesContainer.evaluate((el) => {
-      el.scrollTop = 10;
+      // Must scroll past the intersection sentry height (15px) to trigger 'exit' then 'enter'
+      el.scrollTop = 100;
       el.dispatchEvent(new Event('scroll'));
       el.scrollTop = 0;
       el.dispatchEvent(new Event('scroll'));
