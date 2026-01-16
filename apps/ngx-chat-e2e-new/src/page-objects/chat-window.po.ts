@@ -184,8 +184,10 @@ export class ChatWindowPage {
   async scrollToTop(): Promise<void> {
     const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
     await messagesContainer.evaluate((el) => {
-      // Must scroll past the intersection sentry height (15px) to trigger 'exit' then 'enter'
-      el.scrollTop = 100;
+      // Toggle to Bottom (scrollHeight) then Top (0) to cover all 'column-reverse' sentry positions
+      // If sentry is at bottom (due to reverse), this hits it.
+      // If sentry is at top (due to absolute pos), this hits it.
+      el.scrollTop = el.scrollHeight;
       el.dispatchEvent(new Event('scroll'));
       el.scrollTop = 0;
       el.dispatchEvent(new Event('scroll'));
@@ -197,20 +199,32 @@ export class ChatWindowPage {
     return messagesContainer.evaluate((el) => {
       const htmlEl = el as HTMLElement;
       const style = window.getComputedStyle(htmlEl);
-      // Try forcing scroll to test validity
       const original = htmlEl.scrollTop;
+
+      // Probe 1: Try Positive
       htmlEl.scrollTop = 100;
-      const afterSet = htmlEl.scrollTop;
+      const setPos = htmlEl.scrollTop;
+
+      // Probe 2: Try ScrollHeight (Bottom)
+      htmlEl.scrollTop = htmlEl.scrollHeight;
+      const setMax = htmlEl.scrollTop;
+
+      // Probe 3: Try Negative (Legacy behavior?)
+      htmlEl.scrollTop = -100;
+      const setNeg = htmlEl.scrollTop;
+
+      // Reset
       htmlEl.scrollTop = original;
 
       return {
-        scrollTop: htmlEl.scrollTop, // Should be original (0)
+        scrollTop: htmlEl.scrollTop,
         scrollHeight: htmlEl.scrollHeight,
         clientHeight: htmlEl.clientHeight,
-        offsetHeight: htmlEl.offsetHeight,
+        probePositive: setPos,
+        probeMax: setMax,
+        probeNegative: setNeg,
         flexDirection: style.flexDirection,
-        overflowY: style.overflowY,
-        testScrollSet: afterSet // Did it accept the 100?
+        overflowY: style.overflowY
       };
     });
   }
