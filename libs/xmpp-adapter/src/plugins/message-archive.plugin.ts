@@ -28,7 +28,7 @@ export class MessageArchivePlugin implements ChatPlugin {
       .$iq({ type: 'set' })
       .c('query', { xmlns: this.nameSpace })
       .c('set', { xmlns: nsRSM })
-      .c('max', {}, '250')
+      .c('max', {}, '20')
       .c('before')
       .send();
   }
@@ -114,7 +114,7 @@ export class MessageArchivePlugin implements ChatPlugin {
       .cCreateMethod((builder) => serializeToSubmitForm(builder, form))
       .up()
       .c('set', { xmlns: nsRSM })
-      .c('max', {}, '250') // Restoring 250 to match production
+      .c('max', {}, '20')
       .cCreateMethod(retrieveMessageFunc)
       .up();
 
