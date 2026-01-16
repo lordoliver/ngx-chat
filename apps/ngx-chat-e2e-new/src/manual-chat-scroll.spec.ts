@@ -194,26 +194,50 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         // Scroll
         // Scroll loop until more messages load
         // Scroll loop until more messages load
+        // Capture specific debug logs to avoid manual searching
+        const debugLogs: string[] = [];
+        sleepyPage.on('console', msg => {
+            const text = msg.text();
+            if (text.includes('MAM-DEBUG') || text.includes('PO-DEBUG')) {
+                debugLogs.push(text);
+            }
+        });
+
         console.log('Scrolling widget view with retry logic...');
 
-        await expect(async () => {
-            // Re-fetch current count inside retry
-            const currentCount = await widgetChat.getMessageCount();
-            if (currentCount > initialCount) {
-                return; // Success
-            }
+        try {
+            await expect(async () => {
+                // Re-fetch current count inside retry
+                const currentCount = await widgetChat.getMessageCount();
+                if (currentCount > initialCount) {
+                    return; // Success
+                }
 
-            // Ensure widget is focused and container is visible
-            await widgetChat.open();
+                // Ensure widget is focused and container is visible
+                await widgetChat.open();
 
-            // Trigger scroll again if needed
-            await widgetChat.scrollToTop();
-            await sleepyPage.waitForTimeout(3000);
+                // Trigger scroll again if needed
+                await widgetChat.scrollToTop();
+                await sleepyPage.waitForTimeout(3000);
 
-            const newCount = await widgetChat.getMessageCount();
-            console.log(`Scroll attempt: ${currentCount} -> ${newCount}`);
-            expect(newCount).toBeGreaterThan(initialCount);
-        }).toPass({ timeout: 60000 }); // Increased timeout for CI
+                const newCount = await widgetChat.getMessageCount();
+                console.log(`Scroll attempt: ${currentCount} -> ${newCount}`);
+                expect(newCount).toBeGreaterThan(initialCount);
+            }).toPass({ timeout: 60000 }); // Increased timeout for CI
+        } catch (error) {
+            // On failure, surface the captured logs directly in the error message
+            const formattedLogs = debugLogs.join('\n');
+            const summary = `
+========================================
+SCROLL TEST FAILED - FORENSIC REPORT
+========================================
+Captured Debug Logs:
+${formattedLogs}
+========================================
+Original Error: ${error.message}
+`;
+            throw new Error(summary);
+        }
 
         const finalCount = await widgetChat.getMessageCount();
         console.log('Final widget message count:', finalCount);
