@@ -183,31 +183,30 @@ export class ChatWindowPage {
 
   async scrollToTop(): Promise<void> {
     const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
-    await messagesContainer.evaluate(async (el) => {
-      // Async Wiggle: split moves with delays to ensure IntersectionObserver sees the change
-      // (Synchronous updates might be coalesced by the browser/Observer loop)
+    await messagesContainer.evaluate((el) => {
+      // Direct Trigger Bypass (Nuclear Option):
+      // Instead of fighting browser scroll coordinates (column-reverse, negative/positive/max),
+      // we directly tell the Angular component that an intersection occurred.
+      // API: ChatHistoryAutoScrollComponent.intersected()
 
-      const wait = () => new Promise(r => setTimeout(r, 100));
+      const host = el.closest('ngx-chat-history-auto-scroll');
+      if (!host) {
+        throw new Error('Could not find host ngx-chat-history-auto-scroll element');
+      }
 
-      // 1. Try Negative (CI Target - Small move)
-      el.scrollTop = -100;
-      el.dispatchEvent(new Event('scroll'));
-      await wait();
+      // Access the global Angular debug object
+      const ng = (window as any).ng;
+      if (!ng || !ng.getComponent) {
+        throw new Error('Angular global "ng" not found. Is the app in dev mode?');
+      }
 
-      // 2. Try Negative Max (CI Target - Full Top)
-      // If 0 is Bottom and -Max is Top, we need to go here if Sentinel is at Top.
-      el.scrollTop = -el.scrollHeight;
-      el.dispatchEvent(new Event('scroll'));
-      await wait();
+      const component = ng.getComponent(host);
+      if (!component) {
+        throw new Error('Could not retrieve ChatHistoryAutoScrollComponent instance');
+      }
 
-      // 3. Try Max (Inverted Target) to be safe
-      el.scrollTop = el.scrollHeight;
-      el.dispatchEvent(new Event('scroll'));
-      await wait();
-
-      // 4. Return to 0 (Target/Anchor)
-      el.scrollTop = 0;
-      el.dispatchEvent(new Event('scroll'));
+      // Manually trigger the intersection logic
+      component.intersected();
     });
   }
 
