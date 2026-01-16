@@ -214,7 +214,14 @@ export class ChatWindowPage {
 
       const chatHistoryComp = ng.getOwningComponent(host);
       const isLoading = chatHistoryComp ? chatHistoryComp.isLoadingMessages : 'unknown';
-      console.log(`[PO-DEBUG] Triggering intersected(). isLoadingMessages=${isLoading}`);
+      console.log(`[PO-DEBUG] Triggering intersected(). isLoadingMessages was=${isLoading}`);
+
+      // Force Unlock: If the component thinks it's loading but nothing is happening, reset it.
+      // This handles race conditions where a previous load might have silently failed or hung.
+      if (chatHistoryComp && chatHistoryComp.isLoadingMessages) {
+        console.log('[PO-DEBUG] Forcefully resetting isLoadingMessages to false');
+        chatHistoryComp.isLoadingMessages = false;
+      }
 
       // Manually trigger
       autoScrollComp.intersected();

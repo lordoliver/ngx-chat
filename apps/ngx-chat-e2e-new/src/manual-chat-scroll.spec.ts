@@ -158,8 +158,8 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         await snowWhite.selectChatWithContact(u2Jid);
         const chatWindow = new ChatWindowPage(snowWhitePage, u2Jid);
 
-        console.log('Sending 50 messages (Widget Test)...');
-        for (let i = 1; i <= 50; i++) {
+        console.log('Sending 100 messages (Widget Test)...');
+        for (let i = 1; i <= 100; i++) {
             await chatWindow.write(`Widget History ${i}`);
         }
         await sleepyPage.waitForTimeout(2000);
