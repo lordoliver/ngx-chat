@@ -37,6 +37,11 @@ export class MessageArchivePlugin implements ChatPlugin {
     await this.loadMessages(recipient, (builder) => {
       const oldestMessage = recipient.messageStore.oldestMessage;
       const beforeId = oldestMessage?.stanzaId || oldestMessage?.id;
+      console.log(`[MAM-DEBUG] loadMessagesBeforeOldestMessage. Recipient=${recipient.jid.toString()}, OldestMsgId=${beforeId}, StanzaID=${oldestMessage?.stanzaId}, ID=${oldestMessage?.id}`);
+
+      if (!beforeId) {
+        console.warn('[MAM-DEBUG] WARNING: No oldest message ID found! Requesting catch-up or potentially empty page.');
+      }
       return beforeId ? builder.c('before', {}, beforeId) : builder;
     });
   }
@@ -116,6 +121,8 @@ export class MessageArchivePlugin implements ChatPlugin {
       .cCreateMethod(retrieveMessageFunc)
       .up();
 
+    console.log(`[MAM-DEBUG] Sending MAM Request to=${to || 'self'}, with=${form.fields.find(f => f.variable === 'with')?.value}`);
     await request.send();
+    console.log(`[MAM-DEBUG] MAM Request Sent.`);
   }
 }
