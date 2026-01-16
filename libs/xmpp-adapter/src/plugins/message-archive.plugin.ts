@@ -101,8 +101,6 @@ export class MessageArchivePlugin implements ChatPlugin {
       ],
     };
 
-    import { parseJid } from '@pazznetwork/ngx-chat-shared';
-
     // ... class definition ...
 
     if (to) {
