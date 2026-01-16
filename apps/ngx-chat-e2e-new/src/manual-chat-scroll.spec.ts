@@ -204,6 +204,14 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
             // Ensure widget is focused and container is visible
             await widgetChat.open();
 
+            // DEBUG: Inspect scroll container properties
+            const scrollProps = await widgetChat.getScrollContainerProperties();
+            console.log('Widget Scroll Props:', scrollProps);
+
+            if (scrollProps.scrollHeight <= scrollProps.clientHeight) {
+                console.warn('WARNING: Widget container is NOT scrollable! Need more content.');
+            }
+
             // Trigger scroll again if needed
             await widgetChat.scrollToTop();
             await sleepyPage.waitForTimeout(2000);

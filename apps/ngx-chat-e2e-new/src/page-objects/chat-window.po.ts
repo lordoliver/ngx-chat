@@ -191,6 +191,19 @@ export class ChatWindowPage {
     });
   }
 
+  async getScrollContainerProperties(): Promise<any> {
+    const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
+    return messagesContainer.evaluate((el) => {
+      const htmlEl = el as HTMLElement;
+      return {
+        scrollTop: htmlEl.scrollTop,
+        scrollHeight: htmlEl.scrollHeight,
+        clientHeight: htmlEl.clientHeight,
+        offsetHeight: htmlEl.offsetHeight
+      };
+    });
+  }
+
   async getAllMessagesText(): Promise<string[]> {
     return this.windowLocator.locator('ngx-chat-message-in, ngx-chat-message-out').allTextContents();
   }
