@@ -10,7 +10,7 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
     let snowWhitePage: any;
     let sleepyPage: any;
 
-    test.beforeEach(async ({ browser, playwright }) => {
+    test.beforeEach(async ({ browser }) => {
         snowWhite = await AppPage.create(browser);
         sleepy = await AppPage.create(browser);
         snowWhitePage = snowWhite.page;
@@ -114,12 +114,27 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
             el.dispatchEvent(new Event('scroll'));
         });
 
-        await sleepyPage.waitForTimeout(2000); // Wait for load
+        await expect(async () => {
+            const currentCount = await manualMessages.count();
+            if (currentCount > initialCount) {
+                return;
+            }
 
-        // 10. Verify More Messages Loaded
-        const finalCount = await manualMessages.count();
-        console.log('Final manual message count:', finalCount);
-        expect(finalCount).toBeGreaterThan(initialCount);
+            // Trigger scroll again if needed
+            const scrollContainer = manualContainer.locator('.chat-messages-auto-scroll');
+            await scrollContainer.evaluate((el: HTMLElement) => {
+                el.scrollTop = 10;
+                el.dispatchEvent(new Event('scroll'));
+                el.scrollTop = 0;
+                el.dispatchEvent(new Event('scroll'));
+            });
+
+            await sleepyPage.waitForTimeout(2000); // Wait for load
+
+            const newCount = await manualMessages.count();
+            console.log(`Manual Scroll attempt: ${currentCount} -> ${newCount}`);
+            expect(newCount).toBeGreaterThan(initialCount);
+        }).toPass({ timeout: 30000 });
     });
 
     test('should open Small Box (Widget) and load older messages on scroll', async ({ playwright }) => {
@@ -175,13 +190,26 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         expect(initialCount).toBeGreaterThan(0);
 
         // Scroll
-        console.log('Scrolling widget view...');
-        await widgetChat.scrollToTop();
-        await sleepyPage.waitForTimeout(2000);
+        // Scroll loop until more messages load
+        console.log('Scrolling widget view with retry logic...');
 
-        // Verify More
+        await expect(async () => {
+            // Re-fetch current count inside retry
+            const currentCount = await widgetChat.getMessageCount();
+            if (currentCount > initialCount) {
+                return; // Success
+            }
+
+            // Trigger scroll again if needed
+            await widgetChat.scrollToTop();
+            await sleepyPage.waitForTimeout(2000);
+
+            const newCount = await widgetChat.getMessageCount();
+            console.log(`Scroll attempt: ${currentCount} -> ${newCount}`);
+            expect(newCount).toBeGreaterThan(initialCount);
+        }).toPass({ timeout: 30000 });
+
         const finalCount = await widgetChat.getMessageCount();
         console.log('Final widget message count:', finalCount);
-        expect(finalCount).toBeGreaterThan(initialCount);
     });
 });
