@@ -196,11 +196,21 @@ export class ChatWindowPage {
     const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
     return messagesContainer.evaluate((el) => {
       const htmlEl = el as HTMLElement;
+      const style = window.getComputedStyle(htmlEl);
+      // Try forcing scroll to test validity
+      const original = htmlEl.scrollTop;
+      htmlEl.scrollTop = 100;
+      const afterSet = htmlEl.scrollTop;
+      htmlEl.scrollTop = original;
+
       return {
-        scrollTop: htmlEl.scrollTop,
+        scrollTop: htmlEl.scrollTop, // Should be original (0)
         scrollHeight: htmlEl.scrollHeight,
         clientHeight: htmlEl.clientHeight,
-        offsetHeight: htmlEl.offsetHeight
+        offsetHeight: htmlEl.offsetHeight,
+        flexDirection: style.flexDirection,
+        overflowY: style.overflowY,
+        testScrollSet: afterSet // Did it accept the 100?
       };
     });
   }
