@@ -45,7 +45,7 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         await sleepy.logIn(u2, pass);
         await expect(sleepyPage.locator('[data-zid="chat-connection-state"]')).toHaveText('online');
 
-        // 3. SnowWhite creates history (Ensure enough messages for scrolling, e.g. 15)
+        // 3. SnowWhite creates history (Ensure enough messages for scrolling, e.g. 50)
         await snowWhitePage.waitForTimeout(1000);
         const u2Jid = `${u2}@local-jabber.entenhausen.pazz.de`;
         const u1Jid = `${u1}@local-jabber.entenhausen.pazz.de`;
@@ -55,8 +55,8 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         await snowWhite.selectChatWithContact(u2Jid);
         const chatWindow = new ChatWindowPage(snowWhitePage, u2Jid);
 
-        console.log('Sending 25 messages...');
-        for (let i = 1; i <= 25; i++) {
+        console.log('Sending 50 messages...');
+        for (let i = 1; i <= 50; i++) {
             await chatWindow.write(`Manual History ${i}`);
         }
 
@@ -79,6 +79,7 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         await manualButton.click();
 
         // 6. Verify WIDGET (Small Box) is NOT visible
+        // Use looser match for widget check to be safe
         const widgetWindow = sleepyPage.locator(`.window`).filter({ has: sleepyPage.locator(`[data-zid*="${u1Jid.toLowerCase()}"]`) });
         await expect(widgetWindow).toBeHidden();
         console.log('Verified: Small widget did NOT open.');
@@ -105,6 +106,9 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         console.log('Scrolling manual view...');
         const scrollContainer = manualContainer.locator('.chat-messages-auto-scroll');
         await scrollContainer.evaluate((el: HTMLElement) => {
+            // Robust scroll trigger: Move slightly down then to 0 to trigger 'scroll' event
+            el.scrollTop = 10;
+            el.dispatchEvent(new Event('scroll'));
             el.scrollTop = 0;
             // Trigger scroll event manually if needed by the directive
             el.dispatchEvent(new Event('scroll'));
@@ -115,6 +119,69 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         // 10. Verify More Messages Loaded
         const finalCount = await manualMessages.count();
         console.log('Final manual message count:', finalCount);
+        expect(finalCount).toBeGreaterThan(initialCount);
+    });
+
+    test('should open Small Box (Widget) and load older messages on scroll', async ({ playwright }) => {
+        test.setTimeout(120000);
+        const suffix = Date.now();
+        const u1 = 'sw_w_' + suffix;
+        const u2 = 'sl_w_' + suffix;
+        const pass = 'password';
+
+        const ejabberdAdmin = await EjabberdAdminPage.create(playwright);
+        await ejabberdAdmin.register(u1, pass);
+        await ejabberdAdmin.register(u2, pass);
+
+        await snowWhite.logIn(u1, pass);
+        await sleepy.logIn(u2, pass);
+
+        const u2Jid = `${u2}@local-jabber.entenhausen.pazz.de`;
+        const u1Jid = `${u1}@local-jabber.entenhausen.pazz.de`;
+
+        await snowWhite.addContact(u2Jid);
+        await snowWhite.selectChatWithContact(u2Jid);
+        const chatWindow = new ChatWindowPage(snowWhitePage, u2Jid);
+
+        console.log('Sending 30 messages (Widget Test)...');
+        for (let i = 1; i <= 30; i++) {
+            await chatWindow.write(`Widget History ${i}`);
+        }
+        await sleepyPage.waitForTimeout(2000);
+
+        console.log('Reloading Sleepy...');
+        await sleepyPage.reload();
+        await sleepy.logIn(u2, pass);
+        await sleepy.addContact(u1Jid);
+        await sleepyPage.waitForTimeout(2000);
+
+        console.log('Opening Small Box (Widget)...');
+        const widgetChat = await sleepy.openChatWithUnaffiliatedContact(u1Jid);
+        await widgetChat.open();
+
+        // Use standard locator construction from page object to verify its existence
+        const widgetContainer = sleepyPage.locator('.window').filter({ has: sleepyPage.locator(`[data-zid*="${u1Jid.toLowerCase()}"]`) });
+        await expect(widgetContainer).toBeVisible();
+        console.log('Verified: Small Box IS open.');
+
+        // Verify Big Box hidden
+        const manualContainer = sleepyPage.locator(`[data-zid^="manual-chat-window-${u1Jid}"]`);
+        await expect(manualContainer).toBeHidden();
+
+        // Initial Count
+        await widgetChat.waitForMessageCount(5);
+        const initialCount = await widgetChat.getMessageCount();
+        console.log('Initial widget message count:', initialCount);
+        expect(initialCount).toBeGreaterThan(0);
+
+        // Scroll
+        console.log('Scrolling widget view...');
+        await widgetChat.scrollToTop();
+        await sleepyPage.waitForTimeout(2000);
+
+        // Verify More
+        const finalCount = await widgetChat.getMessageCount();
+        console.log('Final widget message count:', finalCount);
         expect(finalCount).toBeGreaterThan(initialCount);
     });
 });
