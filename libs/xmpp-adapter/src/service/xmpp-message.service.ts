@@ -205,6 +205,15 @@ export class XmppMessageService implements MessageService {
    * @param stanza message to handle from connection, mam or other message extending plugins
    */
   async handleMessageStanza(stanza: MessageWithBodyStanza): Promise<boolean> {
+    const from = stanza.getAttribute('from');
+    const id = stanza.getAttribute('id');
+    const mamResult = stanza.querySelector('result');
+    if (mamResult) {
+      console.log(`[MAM-DEBUG] Incoming Archive Message: from=${from}, id=${id}, queryId=${mamResult.getAttribute('queryid')}`);
+    } else {
+      // console.log(`[MAM-DEBUG] Incoming Standard Message: from=${from}, id=${id}`);
+    }
+
     if (stanza.querySelector('error')) {
       // The recipient's account does not exist on the server.
       // The recipient is offline and the server is not configured to store offline messages for later delivery.
