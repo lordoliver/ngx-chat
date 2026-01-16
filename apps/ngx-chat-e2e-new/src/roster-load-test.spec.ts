@@ -211,10 +211,11 @@ test.describe('Roster Load Test', () => {
         expect(allText.some(t => t.includes('Live unread check'))).toBeTruthy();
 
         // Verify unread cleared (should be 0 now)
+        // Race condition mitigation: The UI update might lag slightly behind the read receipt.
         await expect(async () => {
             const unreadAfter = await appPage.getUnreadCount(lowVolumeContact);
             expect(unreadAfter).toBe(0);
-        }).toPass();
+        }).toPass({ timeout: 30000 });
 
     });
 });

@@ -127,7 +127,7 @@ export class UnreadMessageCountService {
     if (this.chatMessageListRegistry.isChatOpen(recipient)) {
       this.jidToLastReadTimestamp.set(
         recipient.jid.bare().toString(),
-        await firstValueFrom(this.entityTimePlugin.getNow())
+        await firstValueFrom(this.entityTimePlugin.getNow()) + 10
       );
       await this.persistLastSeenDates();
     }
