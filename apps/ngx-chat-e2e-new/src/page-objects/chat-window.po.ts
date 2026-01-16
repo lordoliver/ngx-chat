@@ -183,25 +183,23 @@ export class ChatWindowPage {
 
   async scrollToTop(): Promise<void> {
     const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
-    await messagesContainer.evaluate((el) => {
-      // Universal Wiggle: specific browsers/layouts (e.g. column-reverse in headless CI)
-      // use negative coordinates (0 = Bottom, -Max = Top).
-      // Others use positive (0 = Top, Max = Bottom).
-      // We try ALL directions to ensure we trigger the intersection observer (sentinel).
+    await messagesContainer.evaluate(async (el) => {
+      // Async Wiggle: split moves with delays to ensure IntersectionObserver sees the change
+      // (Synchronous updates might be coalesced by the browser/Observer loop)
 
-      // 1. Try Negative (Up/Away from Bottom Anchor)
+      const wait = () => new Promise(r => setTimeout(r, 100));
+
+      // 1. Try Negative (CI Target)
       el.scrollTop = -100;
       el.dispatchEvent(new Event('scroll'));
+      await wait();
 
-      // 2. Try Positive (Down/Away from Top Anchor)
-      el.scrollTop = 100;
-      el.dispatchEvent(new Event('scroll'));
-
-      // 3. Try Max (Bottom)
+      // 2. Try Max (Inverted Target) to be safe
       el.scrollTop = el.scrollHeight;
       el.dispatchEvent(new Event('scroll'));
+      await wait();
 
-      // 4. Return to 0 (Target/Anchor)
+      // 3. Return to 0 (Target/Anchor)
       el.scrollTop = 0;
       el.dispatchEvent(new Event('scroll'));
     });
