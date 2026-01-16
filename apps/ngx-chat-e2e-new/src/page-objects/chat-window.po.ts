@@ -194,19 +194,30 @@ export class ChatWindowPage {
         throw new Error('Could not find host ngx-chat-history-auto-scroll element');
       }
 
-      // Access the global Angular debug object
       const ng = (window as any).ng;
       if (!ng || !ng.getComponent) {
-        throw new Error('Angular global "ng" not found. Is the app in dev mode?');
+        throw new Error('Angular global "ng" not found');
       }
 
-      const component = ng.getComponent(host);
-      if (!component) {
-        throw new Error('Could not retrieve ChatHistoryAutoScrollComponent instance');
+      // Get AutoScroll Component
+      const autoScrollComp = ng.getComponent(host);
+      if (!autoScrollComp) {
+        throw new Error('Could not retrieve ChatHistoryAutoScrollComponent');
       }
 
-      // Manually trigger the intersection logic
-      component.intersected();
+      // Get Parent ChatHistoryComponent (to check isLoadingMessages)
+      // The host element is <ngx-chat-history-auto-scroll>. 
+      // The parent <ngx-chat-history> contains it. 
+      // So we look for the parent node or the component owning this view.
+      // Actually, ChatHistoryComponent OWNS the template that contains AutoScroll.
+      // So ng.getOwningComponent(host) should return ChatHistoryComponent.
+
+      const chatHistoryComp = ng.getOwningComponent(host);
+      const isLoading = chatHistoryComp ? chatHistoryComp.isLoadingMessages : 'unknown';
+      console.log(`[PO-DEBUG] Triggering intersected(). isLoadingMessages=${isLoading}`);
+
+      // Manually trigger
+      autoScrollComp.intersected();
     });
   }
 
