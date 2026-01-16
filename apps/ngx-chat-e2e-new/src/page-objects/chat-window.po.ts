@@ -184,11 +184,24 @@ export class ChatWindowPage {
   async scrollToTop(): Promise<void> {
     const messagesContainer = this.windowLocator.locator('.chat-messages-auto-scroll');
     await messagesContainer.evaluate((el) => {
-      // Toggle to Bottom (scrollHeight) then Top (0) to cover all 'column-reverse' sentry positions
-      // If sentry is at bottom (due to reverse), this hits it.
-      // If sentry is at top (due to absolute pos), this hits it.
+      // Universal Wiggle: specific browsers/layouts (e.g. column-reverse in headless CI)
+      // use negative coordinates (0 = Bottom, -Max = Top).
+      // Others use positive (0 = Top, Max = Bottom).
+      // We try ALL directions to ensure we trigger the intersection observer (sentinel).
+
+      // 1. Try Negative (Up/Away from Bottom Anchor)
+      el.scrollTop = -100;
+      el.dispatchEvent(new Event('scroll'));
+
+      // 2. Try Positive (Down/Away from Top Anchor)
+      el.scrollTop = 100;
+      el.dispatchEvent(new Event('scroll'));
+
+      // 3. Try Max (Bottom)
       el.scrollTop = el.scrollHeight;
       el.dispatchEvent(new Event('scroll'));
+
+      // 4. Return to 0 (Target/Anchor)
       el.scrollTop = 0;
       el.dispatchEvent(new Event('scroll'));
     });
