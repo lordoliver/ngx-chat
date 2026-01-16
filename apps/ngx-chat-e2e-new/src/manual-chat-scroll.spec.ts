@@ -175,8 +175,8 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         console.log('Reloading Sleepy...');
         await sleepyPage.reload();
         await sleepy.logIn(u2, pass);
-        // await sleepy.addContact(u1Jid); // Removed to match infinite-scroll spec
-        await sleepyPage.waitForTimeout(2000);
+        await sleepy.addContact(u1Jid); // Re-enabled to verify if roster presence fixes archiving
+        // await sleepyPage.waitForTimeout(2000);
 
         console.log('Opening Small Box (Widget)...');
         const widgetChat = await sleepy.openChatWithUnaffiliatedContact(u1Jid);
