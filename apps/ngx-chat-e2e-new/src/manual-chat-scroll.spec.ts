@@ -158,16 +158,18 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
         await snowWhite.selectChatWithContact(u2Jid);
         const chatWindow = new ChatWindowPage(snowWhitePage, u2Jid);
 
-        console.log('Sending 100 messages (Widget Test)...');
-        for (let i = 1; i <= 100; i++) {
-            await chatWindow.write(`Widget History ${i}`);
+        const longText = ' This is a long message to ensure we overflow the container height. '.repeat(5);
+        console.log('Sending 50 messages (Long) (Widget Test)...');
+        // Match infinite-scroll volume (50 long messages)
+        for (let i = 1; i <= 50; i++) {
+            await chatWindow.write(`Widget History ${i} ${longText}`);
         }
         await sleepyPage.waitForTimeout(2000);
 
         console.log('Reloading Sleepy...');
         await sleepyPage.reload();
         await sleepy.logIn(u2, pass);
-        await sleepy.addContact(u1Jid);
+        // await sleepy.addContact(u1Jid); // Removed to match infinite-scroll spec
         await sleepyPage.waitForTimeout(2000);
 
         console.log('Opening Small Box (Widget)...');
