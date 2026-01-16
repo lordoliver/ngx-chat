@@ -206,7 +206,7 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
 
             // Trigger scroll again if needed
             await widgetChat.scrollToTop();
-            await sleepyPage.waitForTimeout(2000);
+            await sleepyPage.waitForTimeout(3000);
 
             const newCount = await widgetChat.getMessageCount();
             console.log(`Scroll attempt: ${currentCount} -> ${newCount}`);
