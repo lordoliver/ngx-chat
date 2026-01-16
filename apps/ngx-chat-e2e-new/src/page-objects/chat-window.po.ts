@@ -189,17 +189,23 @@ export class ChatWindowPage {
 
       const wait = () => new Promise(r => setTimeout(r, 100));
 
-      // 1. Try Negative (CI Target)
+      // 1. Try Negative (CI Target - Small move)
       el.scrollTop = -100;
       el.dispatchEvent(new Event('scroll'));
       await wait();
 
-      // 2. Try Max (Inverted Target) to be safe
+      // 2. Try Negative Max (CI Target - Full Top)
+      // If 0 is Bottom and -Max is Top, we need to go here if Sentinel is at Top.
+      el.scrollTop = -el.scrollHeight;
+      el.dispatchEvent(new Event('scroll'));
+      await wait();
+
+      // 3. Try Max (Inverted Target) to be safe
       el.scrollTop = el.scrollHeight;
       el.dispatchEvent(new Event('scroll'));
       await wait();
 
-      // 3. Return to 0 (Target/Anchor)
+      // 4. Return to 0 (Target/Anchor)
       el.scrollTop = 0;
       el.dispatchEvent(new Event('scroll'));
     });
