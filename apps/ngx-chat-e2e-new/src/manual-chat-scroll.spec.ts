@@ -139,6 +139,12 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
 
     test('should open Small Box (Widget) and load older messages on scroll', async ({ playwright }) => {
         test.setTimeout(120000);
+        console.log('TEST VERSION: DEBUG-TIMESTAMP-2026-01-16-20-40');
+        // The original code had `chatWindow` and `sleepyPage` defined later in this test.
+        // To make `retrieveUserJids` callable here, it would need to be defined or passed differently.
+        // Assuming `retrieveUserJids` is a placeholder for some setup logic that might use these,
+        // but without its definition, it's commented out to maintain syntactical correctness.
+        // await retrieveUserJids(chatWindow, sleepyPage);
         const suffix = Date.now();
         const u1 = 'sw_w_' + suffix;
         const u2 = 'sl_w_' + suffix;
