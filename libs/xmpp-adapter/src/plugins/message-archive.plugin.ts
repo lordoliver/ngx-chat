@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-import { Recipient, XmlSchemaForm } from '@pazznetwork/ngx-chat-shared';
+import { Recipient, XmlSchemaForm, parseJid } from '@pazznetwork/ngx-chat-shared';
 import { ChatPlugin, serializeToSubmitForm } from '../core';
 import type { XmppService } from '../xmpp.service';
 import { nsRSM } from './multi-user-chat';
@@ -101,13 +101,17 @@ export class MessageArchivePlugin implements ChatPlugin {
       ],
     };
 
+    import { parseJid } from '@pazznetwork/ngx-chat-shared';
+
+    // ... class definition ...
+
     if (to) {
       // filtering by 'with' is not supported for MUC rooms
     } else {
       form.fields.push({
         type: 'jid-single',
         variable: 'with',
-        value: recipient.jid.toString()
+        value: parseJid(recipient.jid.toString()).bare().toString()
       });
     }
 
