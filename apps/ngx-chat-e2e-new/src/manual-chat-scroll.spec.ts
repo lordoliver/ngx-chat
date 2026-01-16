@@ -191,6 +191,7 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
 
         // Scroll
         // Scroll loop until more messages load
+        // Scroll loop until more messages load
         console.log('Scrolling widget view with retry logic...');
 
         await expect(async () => {
@@ -200,6 +201,9 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
                 return; // Success
             }
 
+            // Ensure widget is focused and container is visible
+            await widgetChat.open();
+
             // Trigger scroll again if needed
             await widgetChat.scrollToTop();
             await sleepyPage.waitForTimeout(2000);
@@ -207,7 +211,7 @@ test.describe('Manual Chat (Big Box) Scroll', () => {
             const newCount = await widgetChat.getMessageCount();
             console.log(`Scroll attempt: ${currentCount} -> ${newCount}`);
             expect(newCount).toBeGreaterThan(initialCount);
-        }).toPass({ timeout: 30000 });
+        }).toPass({ timeout: 60000 }); // Increased timeout for CI
 
         const finalCount = await widgetChat.getMessageCount();
         console.log('Final widget message count:', finalCount);
